@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCMA 251 · Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=20260910a">
+<script>/* pick the theme before anything is painted, so there is no flash */
+try{var t=localStorage.getItem("scma251:theme");
+document.documentElement.setAttribute("data-theme",
+  t || (window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"));}catch(e){}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">Ax</div>
+  <div class="brand">
+    <h1>SCMA 251 · Admin</h1>
+    <p>Course content &amp; student progress</p>
+  </div>
+  <div class="topbar-right">
+    <a class="btn small ghost" href="index.html">← Student view</a>
+    <div class="who" data-who></div>
+    <button class="btn small ghost theme-btn" data-theme-toggle title="Switch the theme">☀️</button>
+    <button class="btn small" data-signout>Sign out</button>
+  </div>
+</header>
+
+<main class="page">
+  <div id="denied" class="panel hidden">
+    <h3>This page is for the course admin</h3>
+    <p class="hint">Your account is signed in but is not marked as an admin.
+       Run <code>sql/03_make_me_admin.sql</code> in Supabase with your e-mail, then reload this page.</p>
+  </div>
+
+  <div id="admin" class="hidden">
+    <div class="tabs">
+      <div class="tab on" data-tab="weeks">1 · Sections</div>
+      <div class="tab" data-tab="problems">2 · Problems</div>
+      <div class="tab" data-tab="bank">3 · Import bank</div>
+      <div class="tab" data-tab="ai">4 · Generate with AI</div>
+      <div class="tab" data-tab="students">5 · Student progress</div>
+      <div class="tab" data-tab="roster">6 · Class list</div>
+    </div>
+
+    <!-- ============================ WEEKS ============================ -->
+    <section class="panel tabpage" id="page-weeks">
+      <h3>Sections (the cards on the main page)</h3>
+      <p class="hint">One card per section of the lecture notes. After teaching a section, tick <b>Open</b> and press
+         <b>Save</b> on that row — students can then do its quiz. A card only becomes clickable when it is Open
+         <i>and</i> has at least one problem. <b>Label</b> is what students see (2.1), <b>Chapter</b> groups the cards.</p>
+      <table class="grid" id="weeks-table"></table>
+
+      <h3 style="margin-top:34px">Add a section</h3>
+      <p class="hint">Key = chapter×10 + section (2.1 → 21). It must be unique; problems are linked to it.</p>
+      <div class="row">
+        <div><label class="f">Key (unique number)</label><input type="number" id="nw-no" min="1" value="45"></div>
+        <div><label class="f">Label</label><input type="text" id="nw-label" placeholder="e.g. 4.5"></div>
+        <div><label class="f">Chapter</label><input type="number" id="nw-ch" min="1" placeholder="4"></div>
+        <div><label class="f">Title</label><input type="text" id="nw-title" placeholder="e.g. การเปลี่ยนฐานหลัก"></div>
+        <div><label class="f">Subtitle</label><input type="text" id="nw-sub" placeholder="e.g. transition matrix"></div>
+      </div>
+      <button class="btn primary" style="margin-top:18px" id="nw-add">Add section</button>
+    </section>
+
+    <!-- =========================== PROBLEMS =========================== -->
+    <section class="panel tabpage hidden" id="page-problems">
+      <h3>Practice problems</h3>
+      <p class="hint">Pick a section, then edit any problem. Everything a student sees comes from these fields.
+         Most problems are easier to write in <code>assets/problem_bank.json</code> and loaded with <b>3 · Import bank</b>.</p>
+      <div class="row">
+        <div>
+          <label class="f">Section</label>
+          <select id="pb-week"></select>
+        </div>
+        <div style="align-self:end">
+          <button class="btn" id="pb-new">+ New problem in this section</button>
+        </div>
+      </div>
+      <table class="grid" id="pb-table" style="margin-top:22px"></table>
+
+      <div id="pb-editor" class="hidden" style="margin-top:30px;border-top:1px solid var(--border);padding-top:24px">
+        <h3 id="pb-editor-title">Edit problem</h3>
+        <div class="row">
+          <div><label class="f">Title (shown to students)</label><input type="text" id="f-title"></div>
+          <div><label class="f">Short name / slug (must be unique)</label><input type="text" id="f-slug"></div>
+          <div><label class="f">Level (1–4)</label><input type="number" id="f-level" min="1" max="9"></div>
+          <div><label class="f">Type</label>
+            <select id="f-type"><option value="code">code · Python</option><option value="order">order · Proof Blocks</option>
+            <option value="cloze">cloze · fill the gaps</option><option value="spot">spot · find the wrong line</option>
+            <option value="mcq">mcq · multiple choice</option><option value="axioms">axioms · vector-space check</option></select></div>
+          <div><label class="f">Points</label><input type="number" id="f-points" min="0"></div>
+          <div><label class="f">Order inside the level</label><input type="number" id="f-order" min="1"></div>
+          <div><label class="f">Function / class the tests call <i>(leave empty if none)</i></label>
+            <input type="text" id="f-entry" placeholder="empty = no function needed"></div>
+          <div><label class="f">Level heading</label><input type="text" id="f-ltitle"></div>
+          <div><label class="f">Level sub-heading</label><input type="text" id="f-lsub"></div>
+          <div><label class="f">Shown to students?</label>
+            <select id="f-active"><option value="true">Yes</option><option value="false">No (hidden)</option></select></div>
+        </div>
+        <label class="f">Question (HTML allowed; maths between $…$ is typeset with KaTeX)</label>
+        <textarea id="f-statement" rows="3"></textarea>
+        <label class="f">Spec (JSON) — for every type except <code>code</code>; see the shapes in <code>assets/quiz.js</code></label>
+        <textarea id="f-spec" rows="8"></textarea>
+        <label class="f">Example line under the question</label>
+        <textarea id="f-example" rows="1"></textarea>
+        <label class="f">Starter code the student sees</label>
+        <textarea id="f-starter" rows="6"></textarea>
+        <label class="f">Setup code (optional — runs before the student's code, e.g. to create a data file
+          or to define the data the question talks about)</label>
+        <textarea id="f-setup" rows="4"></textarea>
+        <label class="f">Test cases (JSON list) — <code>code</code> problems only</label>
+        <textarea id="f-tests" rows="8"></textarea>
+        <p class="hint" style="margin-top:8px"><b>Extra keys for linear algebra:</b>
+          <code>"tol": 1e-6</code> (absolute tolerance), <code>"sort": true</code> (sort the answer first — eigenvalues),
+          <code>"check": "np.allclose(A @ got, 3*got)"</code> (a Python expression judged True/False with the answer
+          bound to <code>got</code>; use it when the answer is not unique, e.g. an eigenvector or a basis),
+          <code>"label": "…"</code> (name shown for the test).</p>
+        <p class="hint" style="margin-top:8px"><b>Libraries.</b> A problem may
+          <code>import numpy as np</code>, <code>pandas as pd</code>, <code>scipy</code>,
+          <code>matplotlib</code>, <code>sympy</code> and the rest of the standard scientific set —
+          the browser fetches whatever the code imports the first time it is used. Write the expected
+          value of a numpy array or a pandas Series as a plain JSON list; the checker converts the
+          result for you. For a DataFrame, test an expression such as
+          <code>df.values.tolist()</code>.</p>
+        <p class="hint" style="margin-top:8px">Each test is one of these three shapes:</p>
+        <ul class="hint" style="margin:6px 0 0 18px;line-height:1.9">
+          <li><b>Calls a function</b> \u2014
+              <code>{"call":"add","args":[2,3],"expected":5}</code></li>
+          <li><b>Runs any Python expression</b> after the student's code \u2014
+              <code>{"expr":"Rectangle(3,4).area()","expected":12}</code></li>
+          <li><b>Runs the whole program</b> and checks what it printed \u2014
+              <code>{"input":["Ann","5"],"expected":["Hello, Ann","10"]}</code></li>
+        </ul>
+        <p class="hint" style="margin-top:10px"><b>Problems that use <code>input()</code>.</b>
+          A web page has no keyboard, so <code>input()</code> only works when the test hands it the
+          lines to read. Put them in <code>"input"</code>: a list of strings, one per
+          <code>input()</code> call. Use the third shape above for a whole program, or add
+          <code>"input"</code> to a <code>call</code> test for a function that reads.
+          The wording inside <code>input("\u2026")</code> is <b>ignored</b> \u2014 only what the
+          program <code>print</code>s is compared, and trailing spaces and blank lines are forgiven.
+          On the student's scratch pad <code>input()</code> opens a real question box instead.</p>
+        <p class="hint" style="margin-top:10px"><b>No function needed?</b> Leave
+          <i>Function / class the tests call</i> empty and use the <code>expr</code> form.
+          An expression can simply be the name of a variable the student was asked to build,
+          which is how you set list-comprehension or slicing questions:</p>
+        <ul class="hint" style="margin:6px 0 0 18px;line-height:1.9">
+          <li>Question: \u201cBuild <code>squares</code> \u2014 the squares of 1\u20135 \u2014 with one list comprehension.\u201d<br>
+              Tests: <code>[{"expr":"squares","expected":[1,4,9,16,25]},
+              {"expr":"len(squares)","expected":5}]</code></li>
+          <li>Question: \u201cSet <code>middle</code> to the 3rd\u20135th items of <code>data</code>.\u201d<br>
+              Setup code: <code>data = [10, 20, 30, 40, 50, 60]</code> \u00b7
+              Tests: <code>[{"expr":"middle","expected":[30,40,50]}]</code></li>
+        </ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+          <button class="btn primary" id="f-save">Save problem</button>
+          <button class="btn" id="f-check">Check the JSON</button>
+          <button class="btn danger" id="f-delete">Delete this problem</button>
+          <button class="btn ghost" id="f-cancel">Close</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BANK ============================ -->
+    <section class="panel tabpage hidden" id="page-bank">
+      <h3>Import the problem bank</h3>
+      <p class="hint">Paste the contents of <code>assets/problem_bank.json</code> (or any file of the same shape:
+         <code>{"weeks":[…], "problems":[…]}</code>, or just a list of problems). Sections are matched by
+         <b>week_no</b>, problems by <b>slug</b> — existing rows are updated, new ones added, nothing is deleted.
+         Run <code>tools/validate_bank.py</code> first: it checks every code problem against a reference solution.</p>
+      <div class="row">
+        <div><label class="f">…or choose the file</label><input type="file" id="bk-file" accept=".json"></div>
+        <div><label class="f">Sections in the file</label>
+          <select id="bk-mode"><option value="keep">update wording, keep Open/Closed as it is</option>
+          <option value="all">update everything including Open/Closed</option><option value="skip">do not touch sections</option></select></div>
+      </div>
+      <label class="f">JSON</label>
+      <textarea id="bk-paste" rows="10" placeholder='{"weeks": [...], "problems": [...]}'></textarea>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <button class="btn" id="bk-preview">Step 1 — check it</button>
+        <button class="btn primary hidden" id="bk-import">Step 2 — import</button>
+      </div>
+      <div id="bk-report" style="margin-top:18px"></div>
+    </section>
+
+    <!-- ============================== AI ============================== -->
+    <section class="panel tabpage hidden" id="page-ai">
+      <h3>Generate problems with a free AI chatbot</h3>
+      <p class="hint">No API key, no cost. Three steps: copy the prompt → paste it into
+         Gemini / ChatGPT / Claude → paste the answer back here.</p>
+
+      <div class="row">
+        <div><label class="f">Week</label><select id="ai-week"></select></div>
+        <div><label class="f">Level</label>
+          <select id="ai-level"><option value="1">1 · First Steps</option><option value="2">2 · A Bit More</option><option value="3">3 · Challenge</option></select></div>
+        <div><label class="f">Libraries the problems may use</label>
+          <select id="ai-libs">
+            <option value="none">Plain Python only</option>
+            <option value="np">numpy and pandas</option>
+            <option value="all">Any scientific library (numpy, pandas, scipy, matplotlib…)</option>
+          </select></div>
+        <div><label class="f">Problem style</label>
+          <select id="ai-style">
+            <option value="func">Write a function</option>
+            <option value="expr">No function — build a variable (list comprehension, slicing…)</option>
+            <option value="prog">A whole program that reads input() and prints</option>
+            <option value="mix">Mix of function and variable</option>
+          </select></div>
+        <div><label class="f">How many problems</label><input type="number" id="ai-count" value="3" min="1" max="8"></div>
+        <div><label class="f">Extra instruction (optional)</label><input type="text" id="ai-extra" placeholder="e.g. use temperature data"></div>
+      </div>
+
+      <label class="f">Step 1 — copy this prompt</label>
+      <textarea id="ai-prompt" rows="12" readonly></textarea>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <button class="btn primary" id="ai-copy">Copy the prompt</button>
+        <button class="btn" id="ai-refresh">Rebuild the prompt</button>
+        <a class="btn ghost" href="https://gemini.google.com/" target="_blank" rel="noopener">Open Gemini ↗</a>
+      </div>
+
+      <label class="f" style="margin-top:26px">Step 2 — paste the AI's answer here (the JSON list)</label>
+      <textarea id="ai-paste" rows="10" placeholder="[ { &quot;slug&quot;: ... } ]"></textarea>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <button class="btn" id="ai-preview">Step 3 — check it</button>
+        <button class="btn primary hidden" id="ai-import">Step 4 — add to the week</button>
+      </div>
+      <div id="ai-report" style="margin-top:18px"></div>
+      <p class="hint" style="margin-top:20px">⚠️ Always solve a generated problem yourself once (or press Run tests with
+         the model answer) before opening the week — an AI can write a test with the wrong expected answer.</p>
+    </section>
+
+    <!-- =========================== STUDENTS =========================== -->
+    <section class="panel tabpage hidden" id="page-students">
+      <h3>Student progress</h3>
+      <p class="hint">Live from the database. <b>Click any column heading to sort by it</b>;
+         click it again to reverse. The three views, the search box and the card chooser all work
+         together, and the download button gives you exactly what you are looking at.</p>
+
+      <div class="row">
+        <div><label class="f">Term</label><select id="st-term"></select></div>
+        <div><label class="f">Card</label><select id="st-week"></select></div>
+        <div><label class="f">Search an ID, a name or an e-mail</label>
+          <input type="text" id="st-search" placeholder="e.g. 6905571 or somchai"></div>
+        <div><label class="f">Show</label>
+          <select id="st-flag">
+            <option value="all">Everybody</option>
+            <option value="risk">Only students who need attention</option>
+          </select></div>
+      </div>
+
+      <div class="tabs sub" style="margin:24px 0 16px">
+        <div class="tab on" data-view="people">Students</div>
+        <div class="tab" data-view="problems">By problem</div>
+        <div class="tab" data-view="grid">Grid</div>
+      </div>
+
+      <p class="hint" id="st-count" style="margin:0 0 14px"></p>
+
+      <div id="view-people"><table class="grid" id="st-table"></table></div>
+
+      <div id="view-problems" class="hidden">
+        <table class="grid" id="pr-table"></table>
+      </div>
+
+      <div id="view-grid" class="hidden">
+        <div class="heatwrap"><table class="grid heat" id="hm-table"></table></div>
+        <p class="hint" style="margin-top:16px">
+          <span class="key ok"></span> solved &nbsp;&nbsp;
+          <span class="key try"></span> tried, not solved yet &nbsp;&nbsp;
+          <span class="key no"></span> not started &nbsp;&nbsp;— hover a square to see how many attempts.
+        </p>
+        <div id="hm-legend" class="hint" style="margin-top:10px;line-height:1.9"></div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <button class="btn small" id="dl-view">⬇ Download this view (CSV)</button>
+        <button class="btn small" id="dl-attempts">⬇ All attempts CSV</button>
+        <button class="btn small" id="dl-logins">⬇ All logins CSV</button>
+        <button class="btn small" id="reload">↻ Reload</button>
+      </div>
+
+      <div id="st-detail" class="hidden" style="margin-top:34px;border-top:1px solid var(--border);padding-top:24px">
+        <h3 id="st-name"></h3>
+        <p class="hint" id="st-meta"></p>
+        <h4 style="margin:22px 0 8px">Attempts per problem</h4>
+        <table class="grid" id="st-problems"></table>
+        <h4 style="margin:26px 0 8px">Login history</h4>
+        <table class="grid" id="st-logins"></table>
+      </div>
+    </section>
+
+    <!-- =========================== CLASS LIST =========================== -->
+    <section class="panel tabpage hidden" id="page-roster">
+      <h3>Class list</h3>
+      <p class="hint">Google tells the site a student's e-mail and name, but not their student ID,
+        and nothing tells it who is actually registered. Upload the registration file from the
+        registrar once a term and both problems go away: IDs appear on the progress page, and a
+        student who has never signed in still shows up — with a note saying so.</p>
+
+      <h4 style="margin:26px 0 10px">Add a class</h4>
+      <div class="row">
+        <div><label class="f">Term</label>
+          <input type="text" id="rs-term" placeholder="2026/1"></div>
+        <div><label class="f">The file you downloaded from the registrar</label>
+          <input type="file" id="rs-file" accept=".xls,.xlsx,.html,.htm,.csv"></div>
+      </div>
+      <p class="hint" style="margin-top:10px">The registrar's <code>.xls</code> works as it is —
+        no need to open or convert it. A CSV with the columns <code>student_id</code> and
+        <code>email</code> works too.</p>
+      <div id="rs-preview" style="margin-top:18px"></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+        <button class="btn primary hidden" id="rs-import">Add these students to the term</button>
+      </div>
+
+      <h4 style="margin:36px 0 10px">Classes on file</h4>
+      <div class="row">
+        <div><label class="f">Term</label><select id="rs-view"></select></div>
+        <div style="align-self:end;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn" id="rs-archive">Finish this term</button>
+          <button class="btn ghost hidden" id="rs-restore">Bring this term back</button>
+          <button class="btn small ghost" id="rs-reload">↻ Reload</button>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px" id="rs-note"></p>
+      <table class="grid" id="rs-table" style="margin-top:16px"></table>
+    </section>
+  </div>
+
+  <div id="loading" class="panel"><p class="hint">Loading…</p></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js?v=20260910a"></script>
+<script>
+(async function () {
+  const S = window.SCIM;
+  if (!S.configured) { location.href = "index.html"; return; }
+  const ctx = await S.getSession();
+  if (!ctx) { location.href = "index.html"; return; }
+  S.fillHeader(ctx);
+  document.getElementById("loading").classList.add("hidden");
+  if (!ctx.profile.is_admin) { document.getElementById("denied").classList.remove("hidden"); return; }
+  document.getElementById("admin").classList.remove("hidden");
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (t) => t ? new Date(t).toLocaleString() : "—";
+
+  /* ---------------- tabs ---------------- */
+  document.querySelectorAll(".tab").forEach(t => {
+    t.onclick = () => {
+      document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === t));
+      document.querySelectorAll(".tabpage").forEach(p =>
+        p.classList.toggle("hidden", p.id !== "page-" + t.dataset.tab));
+      if (t.dataset.tab === "students" || t.dataset.tab === "roster") {
+        if (!people.length) loadStudents(); else { fillTermChoosers(); renderRoster(); renderStudents(); }
+      }
+    };
+  });
+
+  /* ================= WEEKS ================= */
+  let weeks = [];
+
+  /* The number the students see. `week_no` stays as the hidden unique row key
+     that every problem is linked to; `display_no` is what goes on the card and
+     MAY be repeated, so one week number can hold several separate topics. */
+  const disp = (w) => (w && w.label) ? w.label : (w && w.display_no != null ? w.display_no : (w ? w.week_no : ""));
+  const weekLabel = (w) => "Section " + disp(w) + " · " + w.title;
+  const byInternal = (no) => weeks.find(x => x.week_no === no);
+  const weekNoLabel = (no) => {
+    const w = byInternal(no);
+    return w ? disp(w) : (no === null || no === undefined ? "\u2014" : no);
+  };
+  /* Slugs are unique across the whole course, so when two cards share the same
+     week number the second one gets its title mixed into the prefix. */
+  const slugPrefixFor = (internalNo) => {
+    const w = byInternal(internalNo);
+    if (!w) return "s" + String(internalNo) + "-";
+    const base = "s" + String(disp(w)).replace(/[^0-9a-z]+/gi, "") + "-";
+    const shared = weeks.filter(x => disp(x) === disp(w)).length > 1;
+    if (!shared) return base;
+    const words = (w.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(/\s+/);
+    let t = "";
+    for (const word of words) {
+      if (!word) continue;
+      if (t && (t + "-" + word).length > 22) break;
+      t = t ? t + "-" + word : word;
+    }
+    return base + (t ? t.slice(0, 24) + "-" : "t" + w.id + "-");
+  };
+  const needsUpgrade = (error) => !!error && /display_no|label|chapter/i.test(error.message || "");
+  const upgradeMsg = "Please run sql/01_schema.sql in Supabase first (the weeks table needs label/chapter).";
+
+  async function loadWeeks() {
+    const { data } = await S.sb.from("weeks").select("*").order("sort_order");
+    weeks = (data || []).slice().sort((a, b) =>
+      (a.sort_order - b.sort_order) || (a.week_no - b.week_no) || (a.id - b.id));
+    $("weeks-table").innerHTML =
+      "<tr><th style='width:60px'>Key</th><th style='width:90px'>Label</th><th style='width:70px'>Ch.</th><th>Title</th><th>Subtitle</th><th>Open</th><th></th></tr>" +
+      weeks.map(w =>
+        '<tr data-id="' + w.id + '">' +
+        '<td class="mono">' + w.week_no + '</td>' +
+        '<td><input type="text" class="w-label" style="width:80px" value="' + S.esc(w.label || "") + '"></td>' +
+        '<td><input type="number" min="1" class="w-ch" style="width:62px" value="' + (w.chapter == null ? "" : w.chapter) + '"></td>' +
+        '<td><input type="text" class="w-title" value="' + S.esc(w.title) + '"></td>' +
+        '<td><input type="text" class="w-sub" value="' + S.esc(w.subtitle || "") + '"></td>' +
+        '<td style="text-align:center"><input type="checkbox" class="w-open"' + (w.is_open ? " checked" : "") + "></td>" +
+        '<td><button class="btn small w-save">Save</button> ' +
+        '<button class="btn small danger w-del">Delete</button></td></tr>').join("");
+
+    $("weeks-table").querySelectorAll("tr[data-id]").forEach(tr => {
+      const id = Number(tr.dataset.id);
+      tr.querySelector(".w-save").onclick = async () => {
+        const w = weeks.find(x => x.id === id);
+        const ch = parseInt(tr.querySelector(".w-ch").value, 10);
+        const { error } = await S.sb.from("weeks").update({
+          label: tr.querySelector(".w-label").value.trim() || null,
+          chapter: isNaN(ch) ? null : ch,
+          sort_order: w ? w.week_no : 0,
+          title: tr.querySelector(".w-title").value.trim(),
+          subtitle: tr.querySelector(".w-sub").value.trim(),
+          is_open: tr.querySelector(".w-open").checked
+        }).eq("id", id);
+        if (needsUpgrade(error)) { S.toast(upgradeMsg, "err"); return; }
+        S.toast(error ? "Error: " + error.message : "Saved ✓", error ? "err" : "ok");
+        if (!error) loadWeeks();
+      };
+      tr.querySelector(".w-del").onclick = async () => {
+        if (!confirm("Delete this section AND all its problems? This cannot be undone.")) return;
+        const { error } = await S.sb.from("weeks").delete().eq("id", id);
+        S.toast(error ? "Error: " + error.message : "Deleted", error ? "err" : "ok");
+        loadWeeks(); fillWeekSelectors();
+      };
+    });
+    fillWeekSelectors();
+  }
+
+  $("nw-add").onclick = async () => {
+    const no = parseInt($("nw-no").value, 10);
+    if (!no || no < 1) { S.toast("Please give a key number", "err"); return; }
+    if (weeks.some(w => w.week_no === no)) { S.toast("That key is already used", "err"); return; }
+    const label = $("nw-label").value.trim() || String(no);
+    const ch = parseInt($("nw-ch").value, 10);
+    const { error } = await S.sb.from("weeks").insert({
+      week_no: no, display_no: no, label: label, chapter: isNaN(ch) ? parseInt(label.split(".")[0], 10) || null : ch,
+      title: $("nw-title").value.trim() || ("Section " + label),
+      subtitle: $("nw-sub").value.trim(), sort_order: no, is_open: false
+    });
+    if (needsUpgrade(error)) { S.toast(upgradeMsg, "err"); return; }
+    S.toast(error ? "Error: " + error.message : "Section added ✓", error ? "err" : "ok");
+    if (!error) { $("nw-title").value = ""; $("nw-sub").value = ""; $("nw-label").value = ""; loadWeeks(); }
+  };
+
+  function fillWeekSelectors() {
+    const options = weeks.map(w =>
+      '<option value="' + w.week_no + '">' + S.esc(weekLabel(w)) + "</option>").join("");
+    ["pb-week", "ai-week"].forEach(id => {
+      const keep = $(id).value;
+      $(id).innerHTML = options;
+      if (keep) $(id).value = keep;
+    });
+  }
+
+  /* ================= PROBLEMS ================= */
+  const LEVELS = {
+    1: { title: "ทบทวนนิยาม",          sub: "เติมคำ · หาจุดผิด · เลือกตอบ" },
+    2: { title: "เรียงการพิสูจน์",      sub: "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง" },
+    3: { title: "ตรวจสอบด้วยทฤษฎี",     sub: "นำนิยาม/ทฤษฎีไปตัดสินตัวอย่างจริง" },
+    4: { title: "คำนวณด้วย Python",     sub: "numpy · scipy · sympy" }
+  };
+  const levelTitle = (n) => (LEVELS[n] || { title: "Level " + n }).title;
+  const levelSub = (n) => (LEVELS[n] || { sub: "" }).sub;
+  let problems = [], editingId = null;
+  async function loadProblems() {
+    const wk = parseInt($("pb-week").value, 10);
+    const { data } = await S.sb.from("problems").select("*").eq("week_no", wk)
+      .order("level").order("sort_order");
+    problems = data || [];
+    $("pb-table").innerHTML =
+      "<tr><th>Lv</th><th>#</th><th>Title</th><th>Type</th><th>Function</th><th>Tests</th><th>Pts</th><th>Shown</th><th></th></tr>" +
+      (problems.length ? problems.map(p =>
+        "<tr><td>" + p.level + "</td><td>" + p.sort_order + "</td><td>" + S.esc(p.title) + "</td>" +
+        "<td><span class='pill'>" + S.esc(p.type || "code") + "</span></td>" +
+        "<td class='mono'>" + (p.entry_name ? S.esc(p.entry_name)
+          : "<span class='pill'>—</span>") + "</td><td>" + ((p.type || "code") === "code" ? (p.tests || []).length : "—") + "</td>" +
+        "<td>" + p.points + "</td><td>" + (p.is_active
+          ? '<span class="pill on">yes</span>' : '<span class="pill">hidden</span>') + "</td>" +
+        '<td><button class="btn small pb-edit" data-id="' + p.id + '">Edit</button></td></tr>').join("")
+        : '<tr><td colspan="9">No problems in this section yet.</td></tr>');
+    $("pb-table").querySelectorAll(".pb-edit").forEach(b =>
+      b.onclick = () => openEditor(problems.find(p => p.id === Number(b.dataset.id))));
+  }
+  $("pb-week").onchange = loadProblems;
+
+  function openEditor(p) {
+    editingId = p ? p.id : null;
+    $("pb-editor").classList.remove("hidden");
+    $("pb-editor-title").textContent = p ? "Edit: " + p.title : "New problem";
+    const wk = parseInt($("pb-week").value, 10);
+    const sample = problems.length ? problems[problems.length - 1] : null;
+    const v = p || {
+      title: "", slug: slugPrefixFor(wk), level: 1, points: 10, type: "code", spec: null,
+      sort_order: problems.length + 1, entry_name: "",
+      level_title: sample ? sample.level_title : LEVELS[1].title,
+      level_subtitle: sample ? sample.level_subtitle : LEVELS[1].sub,
+      statement: "", example: "", starter_code: "", setup_code: "",
+      tests: [{ call: "", args: [], expected: null }], is_active: true
+    };
+    $("f-type").value = v.type || "code";
+    $("f-spec").value = v.spec ? JSON.stringify(v.spec, null, 1) : "";
+    $("f-title").value = v.title;         $("f-slug").value = v.slug;
+    $("f-level").value = v.level;         $("f-points").value = v.points;
+    $("f-order").value = v.sort_order;    $("f-entry").value = v.entry_name;
+    $("f-ltitle").value = v.level_title || "";
+    $("f-lsub").value = v.level_subtitle || "";
+    $("f-active").value = String(v.is_active !== false);
+    $("f-statement").value = v.statement; $("f-example").value = v.example || "";
+    $("f-starter").value = v.starter_code || ""; $("f-setup").value = v.setup_code || "";
+    $("f-tests").value = JSON.stringify(v.tests || [], null, 1);
+    $("f-delete").classList.toggle("hidden", !p);
+    $("pb-editor").scrollIntoView({ behavior: "smooth" });
+  }
+  $("pb-new").onclick = () => openEditor(null);
+  $("f-cancel").onclick = () => $("pb-editor").classList.add("hidden");
+
+  function readSpec() {
+    const type = $("f-type").value;
+    if (type === "code") return {};
+    let spec;
+    try { spec = JSON.parse($("f-spec").value || "null"); }
+    catch (e) { S.toast("The spec JSON is not valid: " + e.message, "err"); return null; }
+    const problem = bankCheckSpec(type, spec);
+    if (problem) { S.toast(problem, "err"); return null; }
+    return spec;
+  }
+
+  function readTests() {
+    if ($("f-type").value !== "code") {
+      let tests;
+      try { tests = JSON.parse($("f-tests").value || "[]"); } catch (e) { tests = []; }
+      return Array.isArray(tests) ? tests : [];
+    }
+    let tests;
+    try { tests = JSON.parse($("f-tests").value); }
+    catch (e) { S.toast("The test JSON is not valid: " + e.message, "err"); return null; }
+    if (!Array.isArray(tests)) { S.toast("The tests must be a list [ ... ]", "err"); return null; }
+    for (const t of tests) {
+      if (!("expected" in t)) { S.toast('Every test needs an "expected" value', "err"); return null; }
+      if (!t.expr && !t.call && !("input" in t)) {
+        S.toast('Every test needs "call", "expr", or "input" (to run the whole program)', "err");
+        return null;
+      }
+      if ("input" in t && !Array.isArray(t.input) && typeof t.input !== "string") {
+        S.toast('"input" must be a list of lines, e.g. ["Ann", "5"]', "err"); return null;
+      }
+    }
+    return tests;
+  }
+  $("f-check").onclick = () => { if (readTests() && readSpec()) S.toast("The JSON looks fine ✓", "ok"); };
+
+  $("f-save").onclick = async () => {
+    const tests = readTests(); if (!tests) return;
+    const spec = readSpec(); if (spec === null) return;
+    const row = {
+      week_no: parseInt($("pb-week").value, 10),
+      type: $("f-type").value, spec: $("f-type").value === "code" ? null : spec,
+      level: parseInt($("f-level").value, 10) || 1,
+      level_title: $("f-ltitle").value.trim(),
+      level_subtitle: $("f-lsub").value.trim(),
+      slug: $("f-slug").value.trim(),
+      title: $("f-title").value.trim(),
+      statement: $("f-statement").value.trim(),
+      example: $("f-example").value.trim(),
+      entry_name: $("f-entry").value.trim(),
+      starter_code: $("f-starter").value,
+      setup_code: $("f-setup").value.trim() || null,
+      tests: tests,
+      points: parseInt($("f-points").value, 10) || 0,
+      sort_order: parseInt($("f-order").value, 10) || 1,
+      is_active: $("f-active").value === "true"
+    };
+    if (!row.slug || !row.title) {
+      S.toast("Title and slug are both required", "err"); return;
+    }
+    if (row.type === "code" && !row.entry_name && tests.some(t => t.call && !t.expr)) {
+      S.toast('A test uses "call", so the function name must be filled in', "err"); return;
+    }
+    const { error } = editingId
+      ? await S.sb.from("problems").update(row).eq("id", editingId)
+      : await S.sb.from("problems").insert(row);
+    S.toast(error ? "Error: " + error.message : "Saved ✓", error ? "err" : "ok");
+    if (!error) { $("pb-editor").classList.add("hidden"); loadProblems(); }
+  };
+
+  $("f-delete").onclick = async () => {
+    if (!editingId || !confirm("Delete this problem?")) return;
+    const { error } = await S.sb.from("problems").delete().eq("id", editingId);
+    S.toast(error ? "Error: " + error.message : "Deleted", error ? "err" : "ok");
+    if (!error) { $("pb-editor").classList.add("hidden"); loadProblems(); }
+  };
+
+  /* ================= PROBLEM BANK ================= */
+  /* A quick shape check of the spec of a non-code problem. Returns "" when fine. */
+  function bankCheckSpec(type, spec) {
+    if (!spec || typeof spec !== "object") return 'type "' + type + '" needs a spec object';
+    const isArr = (x) => Array.isArray(x) && x.length > 0;
+    switch (type) {
+      case "order": {
+        if (!isArr(spec.blocks)) return "order: spec.blocks must be a non-empty list";
+        const ids = new Set();
+        for (const b of spec.blocks.concat(spec.distractors || [])) {
+          if (!b.id || !b.text) return "order: every block needs id and text";
+          if (ids.has(b.id)) return "order: duplicate block id " + b.id;
+          ids.add(b.id);
+        }
+        for (const d of (spec.deps || [])) {
+          if (!Array.isArray(d) || d.length !== 2 || !ids.has(d[0]) || !ids.has(d[1])) return "order: bad dependency " + JSON.stringify(d);
+        }
+        return "";
+      }
+      case "cloze": {
+        if (typeof spec.text !== "string" || !spec.blanks) return "cloze: needs text and blanks";
+        const used = [...spec.text.matchAll(/\{\{\s*([^}\s]+)\s*\}\}/g)].map(m => m[1]);
+        if (!used.length) return "cloze: the text has no {{n}} gaps";
+        for (const id of used) {
+          const b = spec.blanks[id];
+          if (!b || !isArr(b.choices)) return "cloze: gap {{" + id + "}} has no choices";
+          if (typeof b.answer !== "number" || b.answer < 0 || b.answer >= b.choices.length) return "cloze: gap {{" + id + "}} has a bad answer index";
+        }
+        return "";
+      }
+      case "spot":
+        if (!isArr(spec.lines) || !isArr(spec.reasons)) return "spot: needs lines and reasons";
+        if (typeof spec.wrong !== "number" || spec.wrong >= spec.lines.length) return "spot: bad 'wrong' index";
+        if (typeof spec.reason_answer !== "number" || spec.reason_answer >= spec.reasons.length) return "spot: bad reason_answer";
+        return "";
+      case "mcq": {
+        if (!isArr(spec.choices)) return "mcq: needs choices";
+        const ans = Array.isArray(spec.answer) ? spec.answer : [spec.answer];
+        if (!ans.length || ans.some(a => typeof a !== "number" || a < 0 || a >= spec.choices.length)) return "mcq: bad answer";
+        return "";
+      }
+      case "axioms":
+        if (typeof spec.setup !== "string" || !isArr(spec.items)) return "axioms: needs setup and items";
+        for (const it of spec.items) {
+          if (!it.id || !it.label || typeof it.holds !== "boolean" || typeof it.check !== "string") return "axioms: item needs id, label, holds, check";
+        }
+        if (typeof spec.verdict !== "boolean") return "axioms: needs verdict true/false";
+        return "";
+      default:
+        return 'unknown type "' + type + '"';
+    }
+  }
+
+  let bankData = null;
+  $("bk-file").onchange = async () => {
+    const f = $("bk-file").files[0];
+    if (f) { $("bk-paste").value = await f.text(); $("bk-preview").click(); }
+  };
+  $("bk-preview").onclick = () => {
+    bankData = null;
+    $("bk-import").classList.add("hidden");
+    let text = $("bk-paste").value.trim();
+    let data;
+    try { data = JSON.parse(text); }
+    catch (e) {
+      $("bk-report").innerHTML = '<div class="result-head fail"><div class="msg">That is not valid JSON: ' + S.esc(e.message) + "</div></div>";
+      return;
+    }
+    if (Array.isArray(data)) data = { weeks: [], problems: data };
+    const secs = Array.isArray(data.weeks) ? data.weeks : [];
+    const probs = Array.isArray(data.problems) ? data.problems : [];
+    const errs = [], seen = new Set();
+    const keys = new Set(weeks.map(w => w.week_no).concat(secs.map(w => w.week_no)));
+    secs.forEach((w, i) => {
+      if (typeof w.week_no !== "number" || !w.title) errs.push("Section " + (i + 1) + ": needs week_no and title");
+    });
+    probs.forEach((p, i) => {
+      const where = "Problem " + (i + 1) + (p.slug ? " (" + p.slug + ")" : "") + ": ";
+      if (!p.slug || !p.title) { errs.push(where + "slug and title are required"); return; }
+      if (seen.has(p.slug)) errs.push(where + "duplicate slug");
+      seen.add(p.slug);
+      if (typeof p.week_no !== "number") { errs.push(where + "needs week_no"); return; }
+      if (!keys.has(p.week_no)) errs.push(where + "week_no " + p.week_no + " is not a known section");
+      const type = p.type || "code";
+      if (type === "code") {
+        if (!Array.isArray(p.tests) || !p.tests.length) { errs.push(where + "no tests"); return; }
+        for (const t of p.tests) {
+          if (!("expected" in t) && !("check" in t)) { errs.push(where + 'a test has neither "expected" nor "check"'); return; }
+          if (!t.call && !t.expr && !("input" in t)) { errs.push(where + 'a test has no "call", "expr" or "input"'); return; }
+          if (t.call && !p.entry_name) { errs.push(where + 'a test uses "call", so entry_name is required'); return; }
+        }
+      } else {
+        const bad = bankCheckSpec(type, p.spec);
+        if (bad) errs.push(where + bad);
+      }
+    });
+    const byType = {};
+    probs.forEach(p => { const t = p.type || "code"; byType[t] = (byType[t] || 0) + 1; });
+    $("bk-report").innerHTML =
+      (errs.length ? '<div class="result-head fail"><div class="msg">' + errs.map(S.esc).join("<br>") + "</div></div>" : "") +
+      (!errs.length ? '<div class="result-head pass"><div class="score">' + probs.length + '</div><div class="msg">problem(s) in ' +
+        secs.length + " section row(s) — " + Object.keys(byType).map(t => t + " × " + byType[t]).join(", ") + "</div></div>" : "");
+    if (!errs.length && (probs.length || secs.length)) { bankData = { weeks: secs, problems: probs }; $("bk-import").classList.remove("hidden"); }
+  };
+
+  $("bk-import").onclick = async () => {
+    if (!bankData) return;
+    $("bk-import").disabled = true;
+    try {
+      const mode = $("bk-mode").value;
+      if (mode !== "skip" && bankData.weeks.length) {
+        const rows = bankData.weeks.map(w => {
+          const r = { week_no: w.week_no, display_no: w.display_no != null ? w.display_no : w.week_no,
+                      label: w.label || null, chapter: w.chapter != null ? w.chapter : null,
+                      title: w.title, subtitle: w.subtitle || "", sort_order: w.sort_order != null ? w.sort_order : w.week_no };
+          const existing = weeks.find(x => x.week_no === w.week_no);
+          r.is_open = (mode === "all" || !existing) ? !!w.is_open : existing.is_open;
+          return r;
+        });
+        const { error } = await S.sb.from("weeks").upsert(rows, { onConflict: "week_no" });
+        if (error) throw new Error("sections: " + error.message);
+      }
+      if (bankData.problems.length) {
+        const rows = bankData.problems.map((p, i) => ({
+          week_no: p.week_no, level: p.level || 1,
+          level_title: p.level_title || levelTitle(p.level || 1), level_subtitle: p.level_subtitle || levelSub(p.level || 1),
+          slug: p.slug, title: p.title, statement: p.statement || p.title, example: p.example || "",
+          type: p.type || "code", entry_name: p.entry_name || "",
+          starter_code: p.starter_code || "", setup_code: p.setup_code || null,
+          tests: p.tests || [], spec: p.spec || null,
+          points: parseInt(p.points, 10) || 10, sort_order: p.sort_order != null ? p.sort_order : (i + 1),
+          is_active: p.is_active !== false
+        }));
+        for (let i = 0; i < rows.length; i += 50) {
+          const { error } = await S.sb.from("problems").upsert(rows.slice(i, i + 50), { onConflict: "slug" });
+          if (error) throw new Error("problems: " + error.message);
+        }
+      }
+      S.toast("Imported " + bankData.problems.length + " problem(s) ✓", "ok");
+      $("bk-report").innerHTML = '<div class="result-head pass"><div class="msg">Done — ' + bankData.problems.length +
+        " problem(s) and " + bankData.weeks.length + " section row(s) written.</div></div>";
+      $("bk-import").classList.add("hidden"); bankData = null;
+      await loadWeeks(); loadProblems();
+    } catch (e) {
+      S.toast("Error: " + e.message, "err");
+    } finally {
+      $("bk-import").disabled = false;
+    }
+  };
+
+  /* ================= AI PROMPT ================= */
+  function buildPrompt() {
+    const wk = parseInt($("ai-week").value, 10);
+    const w = weeks.find(x => x.week_no === wk) || { title: "", subtitle: "", week_no: wk };
+    const level = $("ai-level").value;
+    const style = $("ai-style").value;
+    const libs = $("ai-libs").value;
+    const n = $("ai-count").value;
+    const extra = $("ai-extra").value.trim();
+    const levelWord = { "1": "very easy warm-up", "2": "moderate", "3": "challenging" }[level];
+    const slugPrefix = slugPrefixFor(wk);
+
+    const head =
+"You are helping me write Python practice problems for " + S.cfg.COURSE_CODE + " " +
+"(" + S.cfg.COURSE_NAME + "), a first-year university course.\n\n" +
+"Week " + disp(w) + " topic: " + w.title + " - " + (w.subtitle || "") + "\n" +
+"Difficulty: " + levelWord + " (level " + level + " of 3).\n" +
+"Write " + n + " problems." + (extra ? " " + extra : "") + "\n\n";
+
+    const libRule = {
+      none: "A. Only plain Python - no imports of outside libraries (no numpy, no pandas).\n",
+      np:   "A. The problems MAY use numpy and pandas (the problem itself must import them). " +
+            "Nothing else beyond the Python standard library.\n" +
+            "A1. A numpy array or a pandas Series in a test is written as a plain JSON list - the checker " +
+            "converts it automatically. For a DataFrame use an expression such as " +
+            '"df.values.tolist()" or "sorted(df.columns)".\n',
+      all:  "A. The problems MAY use numpy, pandas, scipy, matplotlib, sympy and other standard scientific " +
+            "libraries (the problem itself must import them). " +
+            "Never make a problem whose answer is a picture - a chart cannot be marked automatically.\n" +
+            "A1. A numpy array or a pandas Series in a test is written as a plain JSON list - the checker " +
+            "converts it automatically. For a DataFrame use an expression such as " +
+            '"df.values.tolist()" or "sorted(df.columns)".\n'
+    }[libs];
+
+    /* whether the problems should read from input() and print, or return a value */
+    const ioRule = (style === "prog")
+      ? "A2. These problems DO use input() and print() - that is the whole point of them.\n"
+      : "A2. Never use input(). Never print the answer - the code must RETURN it or leave it in a variable.\n";
+
+    const common =
+"SHARED RULES\n" + libRule + ioRule +
+"B. Give exactly 4 test cases per problem, including one edge case (empty list, zero, negative, one element...).\n" +
+"C. Work out every expected answer BY HAND and double-check it. The expected value must be exactly what correct code produces.\n" +
+"D. Round any floating point answer (say 'rounded to 2 decimals' in the statement) so the expected value is exact.\n" +
+'E. Expected values must be plain JSON: numbers, strings, true/false, null, lists, objects. A Python tuple must be written as a JSON list.\n' +
+"F. slug must start with \"" + slugPrefix + "\" and use only lowercase letters, numbers and hyphens.\n" +
+"G. statement may use simple HTML like <code>...</code>. Keep the English simple - many students are not native speakers.\n\n";
+
+    const funcRules =
+"STYLE: FUNCTION\n" +
+"1. Each problem is solved by ONE Python function (or one class) that RETURNS a value.\n" +
+'2. Every test uses the "call" form: {"call": "<function name>", "args": [...], "expected": ...}.\n' +
+'3. "entry_name" is the function name, and starter_code defines that function, ends with `pass`, and has one short comment hint.\n\n';
+
+    const exprRules =
+"STYLE: NO FUNCTION (the student writes plain statements)\n" +
+"1. The student must NOT write a function. They write a few lines that BUILD one or more VARIABLES.\n" +
+"   This is the style for list comprehensions, slicing, string methods, dictionary building, unpacking and so on.\n" +
+'2. Every test uses the "expr" form: {"expr": "<any python expression>", "expected": ...}. The expression is\n' +
+"   evaluated AFTER the student's code has run, so it can simply be the name of the variable they had to build.\n" +
+'3. "entry_name" must be the empty string "".\n' +
+'4. If the problem needs data to work on, put it in "setup_code" (it runs BEFORE the student\'s code) and say so in the\n' +
+"   statement, e.g. setup_code \"data = [10, 20, 30, 40, 50, 60]\\n\" and statement \"The list <code>data</code> is already defined.\"\n" +
+"5. starter_code is a short comment plus the variable already created empty, so the file always runs, e.g.\n" +
+'   "# build this with ONE list comprehension\\nsquares = []\\n".\n' +
+"6. The tests can only check the RESULT, not the technique. So write the required technique clearly in the statement,\n" +
+"   and add one test that a lazy answer would fail (a length, an element, a type, or a second harder case).\n\n";
+
+    const funcShape =
+"ANSWER WITH JSON ONLY - a list in exactly this shape, no explanation before or after:\n" +
+"[\n" +
+"  {\n" +
+'    "slug": "' + slugPrefix + 'example-name",\n' +
+'    "title": "Short title",\n' +
+'    "statement": "Write <code>example(a, b)</code> that returns ...",\n' +
+'    "entry_name": "example",\n' +
+'    "setup_code": "",\n' +
+'    "starter_code": "def example(a, b):\\n    # hint\\n    pass\\n",\n' +
+'    "tests": [\n' +
+'      {"call": "example", "args": [1, 2], "expected": 3},\n' +
+'      {"call": "example", "args": [0, 0], "expected": 0},\n' +
+'      {"call": "example", "args": [-1, 5], "expected": 4},\n' +
+'      {"call": "example", "args": [2.5, 2.5], "expected": 5.0}\n' +
+"    ]\n" +
+"  }\n" +
+"]\n\n" +
+"For a class-based problem use a test of this form instead: " +
+'{"expr": "Rectangle(3, 4).area()", "expected": 12}\n';
+
+    const exprShape =
+"ANSWER WITH JSON ONLY - a list in exactly this shape, no explanation before or after:\n" +
+"[\n" +
+"  {\n" +
+'    "slug": "' + slugPrefix + 'squares",\n' +
+'    "title": "Squares with a comprehension",\n' +
+'    "statement": "Using ONE list comprehension, build a list called <code>squares</code> that holds the squares of 1 to 5.",\n' +
+'    "entry_name": "",\n' +
+'    "setup_code": "",\n' +
+'    "starter_code": "# build this with ONE list comprehension\\nsquares = []\\n",\n' +
+'    "example": "squares  ->  [1, 4, 9, 16, 25]",\n' +
+'    "tests": [\n' +
+'      {"expr": "squares", "expected": [1, 4, 9, 16, 25]},\n' +
+'      {"expr": "len(squares)", "expected": 5},\n' +
+'      {"expr": "squares[0]", "expected": 1},\n' +
+'      {"expr": "squares[-1]", "expected": 25}\n' +
+"    ]\n" +
+"  },\n" +
+"  {\n" +
+'    "slug": "' + slugPrefix + 'middle-slice",\n' +
+'    "title": "The middle of a list",\n' +
+'    "statement": "The list <code>data</code> is already defined. Use slicing to put its 3rd, 4th and 5th items into <code>middle</code>.",\n' +
+'    "entry_name": "",\n' +
+'    "setup_code": "data = [10, 20, 30, 40, 50, 60]\\n",\n' +
+'    "starter_code": "# use a slice like data[a:b]\\nmiddle = []\\n",\n' +
+'    "example": "middle  ->  [30, 40, 50]",\n' +
+'    "tests": [\n' +
+'      {"expr": "middle", "expected": [30, 40, 50]},\n' +
+'      {"expr": "len(middle)", "expected": 3},\n' +
+'      {"expr": "middle[0]", "expected": 30},\n' +
+'      {"expr": "data", "expected": [10, 20, 30, 40, 50, 60]}\n' +
+"    ]\n" +
+"  }\n" +
+"]\n";
+
+    const progRules =
+"STYLE: A WHOLE PROGRAM THAT READS input()\n" +
+"1. The student writes a short program - no function - that reads its data with input() and prints the answer with print().\n" +
+'2. "entry_name" must be the empty string "".\n' +
+"3. Every test gives the lines the person would type, in order, and what the program must print:\n" +
+'   {"input": ["Ann", "5"], "expected": ["Hello, Ann", "10"]}\n' +
+'   "expected" is a list of printed lines (or one string containing newlines).\n' +
+'4. The wording inside input("...") is IGNORED by the checker, so the student may ask the question any way they like.\n' +
+"   Only what print() writes is compared. Trailing spaces and blank lines are forgiven; everything else must match exactly.\n" +
+"5. Because the printed text must match, say the exact wording in the statement, e.g. \"print <code>Total = 12</code>\".\n" +
+"   Prefer printing bare numbers or one short sentence - do not invent decorative output.\n" +
+"6. starter_code is one or two comment lines, e.g. \"# read the two values with input()\\n# then print the answer\\n\".\n" +
+"7. Every test must supply exactly as many lines as the program calls input() - no more, no less.\n\n";
+
+    const progShape =
+"ANSWER WITH JSON ONLY - a list in exactly this shape, no explanation before or after:\n" +
+"[\n" +
+"  {\n" +
+'    "slug": "' + slugPrefix + 'greet-and-double",\n' +
+'    "title": "Greet and double",\n' +
+'    "statement": "Ask for a name and a number. Print <code>Hello, NAME</code> on the first line, then the number doubled on the second line.",\n' +
+'    "entry_name": "",\n' +
+'    "setup_code": "",\n' +
+'    "starter_code": "# read the name, then the number\\n# then print the two lines\\n",\n' +
+'    "example": "input: Ann, 5  ->  Hello, Ann / 10",\n' +
+'    "tests": [\n' +
+'      {"input": ["Ann", "5"], "expected": ["Hello, Ann", "10"]},\n' +
+'      {"input": ["Bob", "0"], "expected": ["Hello, Bob", "0"]},\n' +
+'      {"input": ["Cy", "-3"], "expected": ["Hello, Cy", "-6"]},\n' +
+'      {"input": ["Dee", "100"], "expected": ["Hello, Dee", "200"]}\n' +
+"    ]\n" +
+"  }\n" +
+"]\n";
+
+    let body;
+    if (style === "expr")      body = exprRules + exprShape;
+    else if (style === "prog") body = progRules + progShape;
+    else if (style === "mix")  body = funcRules + exprRules +
+      "Use a mix: about half the problems in each style.\n\n" + funcShape + "\n" + exprShape;
+    else                       body = funcRules + funcShape;
+
+    $("ai-prompt").value = head + common + body;
+  }
+  ["ai-week", "ai-level", "ai-style", "ai-libs", "ai-count", "ai-extra"].forEach(id => {
+    $(id).addEventListener("change", buildPrompt);
+    $(id).addEventListener("keyup", buildPrompt);
+  });
+  $("ai-refresh").onclick = buildPrompt;
+  $("ai-copy").onclick = async () => {
+    $("ai-prompt").select();
+    try { await navigator.clipboard.writeText($("ai-prompt").value); S.toast("Prompt copied ✓", "ok"); }
+    catch (e) { document.execCommand("copy"); S.toast("Prompt copied ✓", "ok"); }
+  };
+
+  let aiRows = null;
+  $("ai-preview").onclick = () => {
+    aiRows = null;
+    $("ai-import").classList.add("hidden");
+    let text = $("ai-paste").value.trim();
+    const a = text.indexOf("["), b = text.lastIndexOf("]");
+    if (a > -1 && b > a) text = text.slice(a, b + 1);       // ignore chatter around the JSON
+    let list;
+    try { list = JSON.parse(text); }
+    catch (e) {
+      $("ai-report").innerHTML = '<div class="result-head fail"><div class="msg">That is not valid JSON: ' +
+        S.esc(e.message) + "</div></div>"; return;
+    }
+    if (!Array.isArray(list)) list = [list];
+    const problems2 = [], errs = [];
+    list.forEach((p, i) => {
+      const where = "Problem " + (i + 1) + ": ";
+      if (!p.slug || !p.title) { errs.push(where + "slug and title are required"); return; }
+      if ((p.type || "code") !== "code") {
+        const bad = bankCheckSpec(p.type, p.spec);
+        if (bad) { errs.push(where + bad); return; }
+        problems2.push(p); return;
+      }
+      if (!Array.isArray(p.tests) || p.tests.length === 0) { errs.push(where + "no tests"); return; }
+      for (const t of p.tests) {
+        if (!("expected" in t)) { errs.push(where + 'a test has no "expected"'); return; }
+        if (!t.call && !t.expr && !("input" in t)) {
+          errs.push(where + 'a test has no "call", "expr" or "input"'); return;
+        }
+        if (t.call && !p.entry_name) { errs.push(where + 'a test uses "call", so entry_name is required'); return; }
+      }
+      problems2.push(p);
+    });
+    $("ai-report").innerHTML =
+      (errs.length ? '<div class="result-head fail"><div class="msg">' +
+        errs.map(S.esc).join("<br>") + "</div></div>" : "") +
+      (problems2.length ? '<div class="result-head pass"><div class="score">' + problems2.length +
+        '</div><div class="msg">problem(s) ready to add</div></div>' +
+        problems2.map(p => '<div class="tcase ok"><div class="mark">✓</div><div class="body">' +
+          S.esc(p.title) + ' <span class="pill">' + S.esc(p.slug) + "</span>" +
+          '<div class="sub">' + ((p.type || "code") !== "code" ? "type " + S.esc(p.type) : p.tests.length + " tests · " + (p.entry_name
+            ? "function <b>" + S.esc(p.entry_name) + "</b>"
+            : "no function \u2014 checks the value the student builds")) +
+          "</div></div></div>").join("") : "");
+    if (problems2.length && !errs.length) { aiRows = problems2; $("ai-import").classList.remove("hidden"); }
+  };
+
+  $("ai-import").onclick = async () => {
+    if (!aiRows) return;
+    const wk = parseInt($("ai-week").value, 10);
+    const level = parseInt($("ai-level").value, 10);
+    const lt = levelTitle(level), ls = levelSub(level);
+    const { data: existing } = await S.sb.from("problems").select("sort_order")
+      .eq("week_no", wk).eq("level", level);
+    let next = (existing || []).reduce((m, r) => Math.max(m, r.sort_order), 0);
+    /* a pasted problem may carry its own heading and points; otherwise the
+       defaults for the chosen level are used */
+    const rows = aiRows.map(p => ({
+      week_no: wk, level: level,
+      level_title: p.level_title || lt, level_subtitle: p.level_subtitle || ls,
+      slug: p.slug, title: p.title, statement: p.statement || p.title,
+      example: p.example || ((p.tests[0].expr ? p.tests[0].expr
+                 : (p.entry_name ? p.entry_name + "(...)" : "input " + JSON.stringify(p.tests[0].input || []))) +
+               "  ->  " + JSON.stringify(p.tests[0].expected)),
+      entry_name: p.entry_name || "",
+      starter_code: p.starter_code ||
+        (p.entry_name ? "def " + p.entry_name + "():\n    pass\n"
+                      : "# write your answer below\n"),
+      setup_code: p.setup_code || null,
+      type: p.type || "code", spec: p.spec || null,
+      tests: p.tests || [], points: parseInt(p.points, 10) || 10,
+      sort_order: ++next, is_active: true
+    }));
+    const { error } = await S.sb.from("problems").upsert(rows, { onConflict: "slug" });
+    if (error) { S.toast("Error: " + error.message, "err"); return; }
+    S.toast(rows.length + " problem(s) added to Week " + wk + " ✓", "ok");
+    $("ai-paste").value = ""; $("ai-report").innerHTML = "";
+    $("ai-import").classList.add("hidden"); aiRows = null;
+    $("pb-week").value = String(wk); loadProblems();
+  };
+
+  /* ================= CLASS LIST =================
+     The registrar hands out a file called .xls that is really an HTML table,
+     so the browser can read it as it is. Everything is matched to a student by
+     e-mail, in lower case, because that is what Google signs them in with. */
+  let roster = [], rosterPending = null;
+  /* until the teacher picks a term themselves, the page follows the newest
+     class that is still running - so a freshly uploaded list shows up at once */
+  let termChosenByHand = false;
+
+  const clean = (v) => String(v == null ? "" : v).replace(/\s+/g, " ").trim();
+  const lowerMail = (v) => clean(v).toLowerCase();
+
+  function parseRegistrarTable(text) {
+    const doc = new DOMParser().parseFromString(text, "text/html");
+    const rows = [...doc.querySelectorAll("tr")];
+    if (!rows.length) return [];
+    /* find the heading row, then the columns we care about, by their names */
+    let head = null, idx = {};
+    for (const tr of rows) {
+      const cells = [...tr.children].map(c => clean(c.textContent).toLowerCase());
+      const find = (...names) => cells.findIndex(c => names.some(n => c === n));
+      const id = find("student id", "studentid", "รหัสนักศึกษา");
+      if (id > -1) {
+        head = tr;
+        idx = {
+          id: id,
+          name: find("name - lasname", "name - lastname", "name", "ชื่อ - นามสกุล"),
+          thai: find("ชื่อ - นามสกุล"),
+          mail: find("webmail", "gmail", "e-mail", "email"),
+          gmail: find("gmail"),
+          section: find("section")
+        };
+        break;
+      }
+    }
+    if (!head) return [];
+    const out = [];
+    let seen = false;
+    for (const tr of rows) {
+      if (tr === head) { seen = true; continue; }
+      if (!seen) continue;
+      const c = [...tr.children].map(x => clean(x.textContent));
+      const sid = c[idx.id] || "";
+      if (!/^\d{5,12}$/.test(sid)) continue;
+      const email = lowerMail(c[idx.mail] || "") || lowerMail(c[idx.gmail] || "");
+      if (!email.includes("@")) continue;
+      out.push({ student_id: sid, email: email,
+                 full_name: c[idx.name] || "", thai_name: idx.thai > -1 ? c[idx.thai] || "" : "",
+                 section: idx.section > -1 ? c[idx.section] || "" : "" });
+    }
+    return out;
+  }
+
+  function parseCsvList(text) {
+    const lines = text.split(/\r?\n/).filter(l => l.trim());
+    if (!lines.length) return [];
+    const split = (l) => l.split(",").map(x => clean(x.replace(/^"|"$/g, "")));
+    const head = split(lines[0]).map(h => h.toLowerCase());
+    const at = (...names) => head.findIndex(h => names.includes(h));
+    const iId = at("student_id", "student id", "id", "รหัส");
+    const iMail = at("email", "e-mail", "webmail", "gmail");
+    if (iId < 0 || iMail < 0) return [];
+    const iName = at("full_name", "name", "name - lasname");
+    return lines.slice(1).map(split).map(c => ({
+      student_id: c[iId] || "", email: lowerMail(c[iMail] || ""),
+      full_name: iName > -1 ? c[iName] || "" : "", thai_name: "", section: ""
+    })).filter(r => r.student_id && r.email.includes("@"));
+  }
+
+  $("rs-file").onchange = async () => {
+    const file = $("rs-file").files[0];
+    rosterPending = null;
+    $("rs-import").classList.add("hidden");
+    if (!file) { $("rs-preview").innerHTML = ""; return; }
+    const text = await file.text();
+    let list = /^\s*[<]/.test(text) || /<tr[\s>]/i.test(text)
+      ? parseRegistrarTable(text) : parseCsvList(text);
+    if (!list.length) list = parseCsvList(text);
+
+    if (!list.length) {
+      $("rs-preview").innerHTML =
+        '<div class="result-head fail"><div class="msg">Could not find a student list in that ' +
+        "file. It needs a column called <b>Student ID</b> and one holding their e-mail " +
+        "(<b>Webmail</b> or <b>Gmail</b>).</div></div>";
+      return;
+    }
+    /* the same person can be listed twice if they registered twice */
+    const byMail = {};
+    list.forEach(r => { byMail[r.email] = r; });
+    list = Object.values(byMail);
+
+    rosterPending = list;
+    $("rs-preview").innerHTML =
+      '<div class="result-head pass"><div class="score">' + list.length +
+      '</div><div class="msg">student(s) read from ' + S.esc(file.name) + "</div></div>" +
+      '<table class="grid" style="margin-top:14px"><tr><th>Student ID</th><th>Name</th>' +
+      "<th>E-mail</th></tr>" +
+      list.slice(0, 8).map(r => "<tr><td class='mono'>" + S.esc(r.student_id) + "</td><td>" +
+        S.esc(r.full_name) + "</td><td>" + S.esc(r.email) + "</td></tr>").join("") +
+      (list.length > 8 ? '<tr><td colspan="3">… and ' + (list.length - 8) + " more</td></tr>" : "") +
+      "</table>";
+    $("rs-import").classList.remove("hidden");
+  };
+
+  $("rs-import").onclick = async () => {
+    const term = clean($("rs-term").value) || "2026/1";
+    if (!rosterPending || !rosterPending.length) return;
+    const rows = rosterPending.map(r => ({
+      email: r.email, student_id: r.student_id, full_name: r.full_name,
+      thai_name: r.thai_name, term: term, section: r.section, is_active: true
+    }));
+    const { error } = await S.sb.from("roster").upsert(rows, { onConflict: "email" });
+    if (error) {
+      S.toast(/relation .*roster/i.test(error.message)
+        ? "Please run sql/05_class_list.sql in Supabase first."
+        : "Error: " + error.message, "err");
+      return;
+    }
+    S.toast(rows.length + " student(s) added to " + term + " ✓", "ok");
+    $("rs-file").value = ""; $("rs-preview").innerHTML = "";
+    $("rs-import").classList.add("hidden"); rosterPending = null;
+    await loadRoster();
+  };
+
+  async function loadRoster() {
+    const { data, error } = await S.sb.from("roster").select("*").order("student_id");
+    if (error) {
+      $("rs-table").innerHTML = '<tr><td>' +
+        (/relation .*roster/i.test(error.message)
+          ? "Run <code>sql/05_class_list.sql</code> in Supabase to switch this on."
+          : S.esc(error.message)) + "</td></tr>";
+      roster = []; rosterIndex = {};
+      fillTermChoosers();          // the Term box still needs its "everyone" choice
+      return;
+    }
+    roster = data || [];
+    rosterIndex = {};
+    roster.forEach(r => { rosterIndex[r.email] = r; });
+    fillTermChoosers();
+    renderRoster();
+  }
+  $("rs-reload").onclick = loadRoster;
+
+  /* every term on file, newest name first, with the live ones before the finished ones */
+  function terms() {
+    const map = {};
+    roster.forEach(r => {
+      map[r.term] = map[r.term] || { term: r.term, n: 0, active: 0 };
+      map[r.term].n++;
+      if (r.is_active) map[r.term].active++;
+    });
+    return Object.values(map).sort((a, b) =>
+      (b.active > 0) - (a.active > 0) || b.term.localeCompare(a.term, undefined, { numeric: true }));
+  }
+
+  function fillTermChoosers() {
+    const list = terms();
+    const opts = list.map(t => '<option value="' + S.esc(t.term) + '">' + S.esc(t.term) +
+      " · " + t.n + " student(s)" + (t.active ? "" : " · finished") + "</option>").join("");
+    const keepView = $("rs-view").value;
+    $("rs-view").innerHTML = opts || '<option value="">no class list yet</option>';
+    if (keepView) $("rs-view").value = keepView;
+
+    const keepTerm = $("st-term").value;
+    $("st-term").innerHTML = opts +
+      '<option value="__all">Everyone who has ever signed in</option>';
+    const still = [...$("st-term").options].some(o => o.value === keepTerm);
+    $("st-term").value = (termChosenByHand && still && keepTerm)
+      ? keepTerm : (list.length ? list[0].term : "__all");
+    if (!$("rs-term").value && list.length) $("rs-term").value = list[0].term;
+  }
+
+  function renderRoster() {
+    const term = $("rs-view").value;
+    const rows = roster.filter(r => r.term === term);
+    const live = rows.some(r => r.is_active);
+    $("rs-archive").classList.toggle("hidden", !live);
+    $("rs-restore").classList.toggle("hidden", live || !rows.length);
+    $("rs-note").innerHTML = rows.length
+      ? (live
+        ? "This class is <b>running</b>. When the term ends press <b>Finish this term</b>: the " +
+          "students keep every mark and can still sign in, they simply move out of the way so the " +
+          "new class stands alone on the progress page."
+        : "This class is <b>finished</b>. Its students are still on the progress page — choose " +
+          "this term in the <b>Term</b> box there to look them up.")
+      : "Nothing on file for this term yet.";
+
+    $("rs-table").innerHTML =
+      "<tr><th>Student ID</th><th>Name</th><th>E-mail</th><th>Signed in?</th><th></th></tr>" +
+      (rows.length ? rows.map(r => {
+        const seen = people.some(p => (p.email || "").toLowerCase() === r.email);
+        return "<tr><td class='mono'>" + S.esc(r.student_id || "—") + "</td><td>" +
+          S.esc(r.full_name || "") + "</td><td>" + S.esc(r.email) + "</td><td>" +
+          (seen ? '<span class="pill on">yes</span>' : '<span class="pill">not yet</span>') +
+          '</td><td><button class="btn small danger rs-del" data-mail="' + S.esc(r.email) +
+          '">Remove</button></td></tr>';
+      }).join("") : '<tr><td colspan="5">Nothing on file for this term yet.</td></tr>');
+
+    $("rs-table").querySelectorAll(".rs-del").forEach(b => b.onclick = async () => {
+      if (!confirm("Take this student off the class list? Their marks are not touched.")) return;
+      const { error } = await S.sb.from("roster").delete().eq("email", b.dataset.mail);
+      S.toast(error ? "Error: " + error.message : "Removed", error ? "err" : "ok");
+      if (!error) loadRoster();
+    });
+  }
+  $("rs-view").onchange = renderRoster;
+
+  $("rs-archive").onclick = async () => {
+    const term = $("rs-view").value;
+    if (!confirm("Finish " + term + "?\n\nNothing is deleted. The students keep every mark, can " +
+                 "still sign in, and you can still look them up by choosing this term on the " +
+                 "progress page.")) return;
+    const { error } = await S.sb.from("roster").update({ is_active: false }).eq("term", term);
+    S.toast(error ? "Error: " + error.message : term + " finished ✓", error ? "err" : "ok");
+    if (!error) loadRoster();
+  };
+
+  $("rs-restore").onclick = async () => {
+    const term = $("rs-view").value;
+    const { error } = await S.sb.from("roster").update({ is_active: true }).eq("term", term);
+    S.toast(error ? "Error: " + error.message : term + " is running again ✓", error ? "err" : "ok");
+    if (!error) loadRoster();
+  };
+
+  /* ================= STUDENTS =================
+     One set of numbers, three ways of looking at it. Everything below reads the
+     same four arrays, so the card chooser, the search box and the sorting apply
+     to whichever view is open - and to the CSV button. */
+  let people = [], logins = [], attempts = [], allProblems = [], probIndex = {}, rosterIndex = {};
+  let stView = "people";
+  const stSort = { people: { key: "points", dir: -1 },
+                   problems: { key: "solvedPct", dir: 1 },
+                   grid: { key: "name", dir: 1 } };
+  const DAY = 24 * 60 * 60 * 1000;
+  const STALE_DAYS = 7;
+
+  async function loadStudents() {
+    $("st-table").innerHTML = "<tr><td>Loading…</td></tr>";
+    const [pr, lg, at, pb] = await Promise.all([
+      S.sb.from("profiles").select("*").order("full_name"),
+      S.sb.from("logins").select("*").order("logged_in_at", { ascending: false }).limit(5000),
+      S.sb.from("attempts").select("*").order("created_at", { ascending: false }).limit(20000),
+      S.sb.from("problems").select("slug,title,week_no,level,sort_order,points,is_active")
+    ]);
+    people = pr.data || []; logins = lg.data || []; attempts = at.data || [];
+    allProblems = (pb.data || []).filter(p => p.is_active !== false);
+    probIndex = {}; allProblems.forEach(p => { probIndex[p.slug] = p; });
+    fillCardChooser();
+    await loadRoster();          // also fills the Term chooser
+    renderStudents();
+  }
+  $("reload").onclick = loadStudents;
+
+  function fillCardChooser() {
+    const keep = $("st-week").value;
+    $("st-week").innerHTML = '<option value="all">Every card</option>' +
+      weeks.map(w => '<option value="' + w.week_no + '">' + S.esc(weekLabel(w)) + "</option>").join("");
+    if (keep) $("st-week").value = keep;
+  }
+
+  /* the problems the current card chooser is pointing at, in the order students meet them */
+  function scopeProblems() {
+    const wk = $("st-week").value || "all";
+    return allProblems
+      .filter(p => wk === "all" || String(p.week_no) === wk)
+      .sort((a, b) => (a.week_no - b.week_no) || (a.level - b.level) ||
+                      (a.sort_order - b.sort_order) || a.slug.localeCompare(b.slug));
+  }
+
+  /* Who belongs on the page: the chosen term's class list, or - when the term
+     box says so - simply everybody who has ever signed in. A student on the
+     list who has not signed in yet still gets a row, which is the point. */
+  function peopleInScope() {
+    const term = $("st-term").value;
+    const byMail = {};
+    people.forEach(p => { byMail[(p.email || "").toLowerCase()] = p; });
+    if (!term || term === "__all" || !Object.keys(rosterIndex).length) {
+      return people.map(p => ({ person: p, entry: rosterIndex[(p.email || "").toLowerCase()] || null }));
+    }
+    return roster.filter(r => r.term === term)
+      .map(r => ({ person: byMail[r.email] || null, entry: r }));
+  }
+
+  /* one row per student, counting only the problems in scope */
+  function studentRows() {
+    const scope = scopeProblems();
+    const inScope = new Set(scope.map(p => p.slug));
+    const now = Date.now();
+    const loginCount = {};
+    logins.forEach(l => { loginCount[l.user_id] = (loginCount[l.user_id] || 0) + 1; });
+
+    const rows = peopleInScope().map(({ person, entry }) => {
+      if (!person) {                                   // on the list, never signed in
+        return {
+          id: null, sid: entry.student_id || "—",
+          name: entry.full_name || entry.email, email: entry.email,
+          admin: false, lastLogin: null, days: null, logins: 0, attempts: 0,
+          solved: 0, total: scope.length, points: 0, pct: 0,
+          risk: ["has never signed in"], solvedSet: new Set()
+        };
+      }
+      const mine = attempts.filter(a => a.user_id === person.id && inScope.has(a.problem_id));
+      const solved = new Set();
+      let points = 0;
+      mine.forEach(a => {
+        if (a.passed && !solved.has(a.problem_id)) {
+          solved.add(a.problem_id);
+          points += (probIndex[a.problem_id] || {}).points || 0;
+        }
+      });
+      const last = person.last_login_at ||
+        (logins.find(l => l.user_id === person.id) || {}).logged_in_at || null;
+      const days = last ? Math.floor((now - new Date(last).getTime()) / DAY) : null;
+
+      const why = [];
+      if (last === null) why.push("has never signed in");
+      else if (days >= STALE_DAYS) why.push("not seen for " + days + " days");
+      if (scope.length && solved.size === 0 && !person.is_admin) why.push("has not solved anything here");
+
+      return {
+        id: person.id, sid: (entry && entry.student_id) || "—",
+        name: person.full_name || (entry && entry.full_name) || "—", email: person.email,
+        admin: !!person.is_admin, lastLogin: last, days: days,
+        logins: loginCount[person.id] || 0, attempts: mine.length,
+        solved: solved.size, total: scope.length, points: points,
+        pct: scope.length ? Math.round(100 * solved.size / scope.length) : 0,
+        risk: why, solvedSet: solved
+      };
+    });
+
+    const q = ($("st-search").value || "").trim().toLowerCase();
+    const onlyRisk = $("st-flag").value === "risk";
+    return sortRows(rows.filter(r =>
+      (!q || r.name.toLowerCase().includes(q) || r.email.toLowerCase().includes(q) ||
+       String(r.sid).toLowerCase().includes(q)) &&
+      (!onlyRisk || r.risk.length)), stSort.people);
+  }
+
+  /* one row per problem in scope */
+  function problemRows() {
+    const scope = scopeProblems();
+    const rows = scope.map((p, i) => {
+      const tried = new Set(), solvedBy = new Set();
+      const triesToSolve = [];
+      const perStudent = {};
+      attempts.filter(a => a.problem_id === p.slug).slice().reverse().forEach(a => {
+        tried.add(a.user_id);
+        perStudent[a.user_id] = perStudent[a.user_id] || { n: 0, solvedAfter: null };
+        perStudent[a.user_id].n++;
+        if (a.passed && perStudent[a.user_id].solvedAfter === null) {
+          perStudent[a.user_id].solvedAfter = perStudent[a.user_id].n;
+          solvedBy.add(a.user_id);
+        }
+      });
+      Object.values(perStudent).forEach(v => { if (v.solvedAfter) triesToSolve.push(v.solvedAfter); });
+      const classSize = people.filter(x => !x.is_admin).length || people.length;
+      return {
+        n: i + 1, slug: p.slug, title: p.title, week: weekNoLabel(p.week_no), level: p.level,
+        tried: tried.size, solved: solvedBy.size, stuck: tried.size - solvedBy.size,
+        untouched: Math.max(0, classSize - tried.size),
+        solvedPct: classSize ? Math.round(100 * solvedBy.size / classSize) : 0,
+        avgTries: triesToSolve.length
+          ? Math.round(10 * triesToSolve.reduce((x, y) => x + y, 0) / triesToSolve.length) / 10 : null
+      };
+    });
+    const q = ($("st-search").value || "").trim().toLowerCase();
+    return sortRows(rows.filter(r => !q || r.title.toLowerCase().includes(q) ||
+                                     r.slug.toLowerCase().includes(q)), stSort.problems);
+  }
+
+  function sortRows(rows, sort) {
+    const k = sort.key, d = sort.dir;
+    return rows.slice().sort((a, b) => {
+      let x = a[k], y = b[k];
+      if (k === "risk") { x = a.risk.length; y = b.risk.length; }
+      if (x === null || x === undefined) x = -Infinity;
+      if (y === null || y === undefined) y = -Infinity;
+      if (typeof x === "string" || typeof y === "string") {
+        return d * String(x).localeCompare(String(y), undefined, { numeric: true });
+      }
+      return d * (x - y);
+    });
+  }
+
+  function headRow(cols, sort) {
+    return "<tr>" + cols.map(c => {
+      if (!c.key) return "<th>" + c.label + "</th>";
+      const on = sort.key === c.key;
+      return '<th class="sortable' + (on ? " sorted" : "") + '" data-key="' + c.key + '">' +
+             c.label + '<span class="arrow">' + (on ? (sort.dir > 0 ? "▲" : "▼") : "") + "</span></th>";
+    }).join("") + "</tr>";
+  }
+
+  function wireHead(table, sort, redraw) {
+    table.querySelectorAll("th.sortable").forEach(th => {
+      th.onclick = () => {
+        const k = th.dataset.key;
+        if (sort.key === k) sort.dir = -sort.dir;
+        else { sort.key = k; sort.dir = (k === "name" || k === "email" || k === "title") ? 1 : -1; }
+        redraw();
+      };
+    });
+  }
+
+  const bar = (pct) => '<div class="bar" style="min-width:70px"><i style="width:' + pct + '%"></i></div>';
+
+  /* ---------- view 1: one row per student ---------- */
+  function renderPeople() {
+    const rows = studentRows();
+    const scope = scopeProblems();
+    $("st-count").textContent = rows.length + " student(s) shown · " + scope.length +
+      " problem(s) in this card" + (scope.length ? " · a full score here is " +
+      scope.reduce((s, p) => s + p.points, 0) + " points" : "");
+    const cols = [
+      { label: "No." },                       // just the position in the list as it stands
+      { key: "sid", label: "ID" },
+      { key: "name", label: "Student" }, { key: "email", label: "E-mail" },
+      { key: "lastLogin", label: "Last login" }, { key: "logins", label: "Logins" },
+      { key: "attempts", label: "Attempts" }, { key: "solved", label: "Solved" },
+      { key: "pct", label: "Progress" }, { key: "points", label: "Points" },
+      { key: "risk", label: "Needs attention" }, { label: "" }
+    ];
+    $("st-table").innerHTML = headRow(cols, stSort.people) +
+      (rows.length ? rows.map((r, i) =>
+        "<tr><td class='rownum'>" + (i + 1) + "</td>" +
+        "<td class='mono'>" + S.esc(r.sid) + "</td>" +
+        "<td>" + S.esc(r.name) + (r.admin ? ' <span class="pill">admin</span>' : "") +
+        "</td><td>" + S.esc(r.email) +
+        "</td><td>" + fmt(r.lastLogin) + "</td><td>" + r.logins +
+        "</td><td>" + r.attempts + "</td><td>" + r.solved + " / " + r.total +
+        '</td><td>' + bar(r.pct) + '<span class="pctnum">' + r.pct + "%</span>" +
+        "</td><td>" + r.points + "</td><td>" + (r.risk.length
+          ? '<span class="pill warn" title="' + S.esc(r.risk.join("; ")) + '">' +
+            S.esc(r.risk[0]) + "</span>" : "") +
+        "</td><td>" + (r.id
+          ? '<button class="btn small st-view" data-id="' + r.id + '">Details</button>' : "") +
+        "</td></tr>").join("")
+        : '<tr><td colspan="12">Nobody matches what you are looking for.</td></tr>');
+    wireHead($("st-table"), stSort.people, renderStudents);
+    $("st-table").querySelectorAll(".st-view").forEach(b =>
+      b.onclick = () => showStudent(b.dataset.id));
+  }
+
+  /* ---------- view 2: one row per problem ---------- */
+  function renderProblems() {
+    const rows = problemRows();
+    const worst = rows.slice().sort((a, b) => a.solvedPct - b.solvedPct)[0];
+    $("st-count").innerHTML = rows.length + " problem(s) shown" +
+      (worst ? " · fewest solves so far: <b>" + S.esc(worst.title) + "</b> (" + worst.solvedPct + "%)" : "");
+    const cols = [
+      { key: "n", label: "#" }, { key: "title", label: "Problem" },
+      { key: "week", label: "Card" }, { key: "level", label: "Lv" },
+      { key: "solved", label: "Solved by" }, { key: "solvedPct", label: "Share of the class" },
+      { key: "avgTries", label: "Attempts to solve" }, { key: "stuck", label: "Still stuck" },
+      { key: "untouched", label: "Not started" }
+    ];
+    $("pr-table").innerHTML = headRow(cols, stSort.problems) +
+      (rows.length ? rows.map(r =>
+        "<tr><td>" + r.n + "</td><td>" + S.esc(r.title) +
+        '<div class="sub mono">' + S.esc(r.slug) + "</div></td><td>" + r.week +
+        "</td><td>" + r.level + "</td><td>" + r.solved +
+        "</td><td>" + bar(r.solvedPct) + '<span class="pctnum">' + r.solvedPct + "%</span>" +
+        "</td><td>" + (r.avgTries === null ? "—" : r.avgTries) +
+        "</td><td>" + (r.stuck ? '<b class="warntxt">' + r.stuck + "</b>" : "0") +
+        "</td><td>" + r.untouched + "</td></tr>").join("")
+        : '<tr><td colspan="9">This card has no problems yet.</td></tr>');
+    wireHead($("pr-table"), stSort.problems, renderStudents);
+  }
+
+  /* ---------- view 3: the whole class against every problem ---------- */
+  function renderGrid() {
+    const scope = scopeProblems();
+    const rows = sortRows(studentRows(), stSort.grid);
+    $("st-count").textContent = rows.length + " student(s) × " + scope.length + " problem(s)";
+
+    const tried = {};
+    attempts.forEach(a => {
+      const k = a.user_id + "|" + a.problem_id;
+      tried[k] = (tried[k] || 0) + 1;
+    });
+
+    const head = '<tr><th class="num">No.</th>' +
+      '<th class="name sortable' + (stSort.grid.key === "name" ? " sorted" : "") +
+      '" data-key="name">Student<span class="arrow">' +
+      (stSort.grid.key === "name" ? (stSort.grid.dir > 0 ? "▲" : "▼") : "") + "</span></th>" +
+      '<th class="sortable' + (stSort.grid.key === "solved" ? " sorted" : "") +
+      '" data-key="solved">Solved<span class="arrow">' +
+      (stSort.grid.key === "solved" ? (stSort.grid.dir > 0 ? "▲" : "▼") : "") + "</span></th>" +
+      scope.map((p, i) => '<th class="hcol" title="' + S.esc(p.title) + '">' + (i + 1) + "</th>").join("") +
+      "</tr>";
+
+    $("hm-table").innerHTML = head + (rows.length ? rows.map((r, i) =>
+      '<tr><td class="num">' + (i + 1) + '</td>' +
+      '<td class="name"><span class="mono" style="color:var(--muted)">' + S.esc(r.sid) +
+      "</span> " + S.esc(r.name) + "</td><td>" + r.solved + " / " + r.total + "</td>" +
+      scope.map(p => {
+        const n = tried[r.id + "|" + p.slug] || 0;
+        const cls = r.solvedSet.has(p.slug) ? "ok" : (n ? "try" : "no");
+        return '<td class="cell ' + cls + '" title="' + S.esc(p.title) + " — " +
+               (n ? n + " attempt(s)" : "not started") + '"></td>';
+      }).join("") + "</tr>").join("")
+      : '<tr><td colspan="3">Nobody matches what you are looking for.</td></tr>');
+
+    wireHead($("hm-table"), stSort.grid, renderStudents);
+    $("hm-legend").innerHTML = scope.map((p, i) =>
+      "<b>" + (i + 1) + "</b> " + S.esc(p.title)).join(" &nbsp;·&nbsp; ");
+  }
+
+  function renderStudents() {
+    ["people", "problems", "grid"].forEach(v =>
+      $("view-" + v).classList.toggle("hidden", v !== stView));
+    if (stView === "people") renderPeople();
+    else if (stView === "problems") renderProblems();
+    else renderGrid();
+  }
+
+  document.querySelectorAll('.tabs.sub .tab').forEach(t => {
+    t.onclick = () => {
+      document.querySelectorAll('.tabs.sub .tab').forEach(x => x.classList.toggle("on", x === t));
+      stView = t.dataset.view;
+      renderStudents();
+    };
+  });
+  ["st-week", "st-flag", "st-term"].forEach(id => $(id).addEventListener("change", renderStudents));
+  $("st-term").addEventListener("change", () => { termChosenByHand = true; });
+  let searchTimer = null;
+  $("st-search").addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(renderStudents, 200);
+  });
+
+  function showStudent(id) {
+    const person = people.find(p => p.id === id);
+    const mine = attempts.filter(a => a.user_id === id);
+    const myLogins = logins.filter(l => l.user_id === id);
+    $("st-detail").classList.remove("hidden");
+    $("st-name").textContent = (person.full_name || person.email);
+    $("st-meta").textContent = person.email + " · " + mine.length + " attempts · " +
+      myLogins.length + " logins · joined " + fmt(person.created_at);
+
+    const per = {};
+    mine.slice().reverse().forEach(a => {
+      const k = a.problem_id;
+      per[k] = per[k] || { week: weekNoLabel(a.week_no), tries: 0, best: 0,
+                           total: a.total_tests, solvedAt: null };
+      per[k].tries++;
+      per[k].best = Math.max(per[k].best, a.score || 0);
+      if (a.passed && !per[k].solvedAt) per[k].solvedAt = a.created_at;
+    });
+    const keys = Object.keys(per).sort((a, b) =>
+      (per[a].week - per[b].week) || a.localeCompare(b));
+    $("st-problems").innerHTML =
+      "<tr><th>Week</th><th>Problem</th><th>Attempts</th><th>Best score</th><th>Solved at</th></tr>" +
+      (keys.length ? keys.map(k =>
+        "<tr><td>" + (per[k].week || "—") + "</td><td>" +
+        S.esc((probIndex[k] || {}).title || k) + "</td><td>" + per[k].tries + "</td><td>" +
+        per[k].best + "/" + (per[k].total || "?") + "</td><td>" +
+        (per[k].solvedAt ? fmt(per[k].solvedAt) : "not yet") + "</td></tr>").join("")
+        : '<tr><td colspan="5">No attempts yet.</td></tr>');
+
+    $("st-logins").innerHTML = "<tr><th>When</th><th>Device</th></tr>" +
+      (myLogins.length ? myLogins.map(l =>
+        "<tr><td>" + fmt(l.logged_in_at) + "</td><td style='font-size:12.5px;color:var(--muted)'>" +
+        S.esc((l.user_agent || "").slice(0, 90)) + "</td></tr>").join("")
+        : '<tr><td colspan="2">No logins recorded.</td></tr>');
+    $("st-detail").scrollIntoView({ behavior: "smooth" });
+  }
+
+  /* ---- CSV downloads ---- */
+  function download(name, rows) {
+    const csv = rows.map(r => r.map(v => {
+      const s = v === null || v === undefined ? "" : String(v);
+      return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    }).join(",")).join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" }));
+    a.download = name; a.click();
+  }
+  /* Exactly what is on screen: same card, same search, same order. */
+  $("dl-view").onclick = () => {
+    const card = $("st-week").options[$("st-week").selectedIndex].text.replace(/[^A-Za-z0-9]+/g, "_");
+    if (stView === "problems") {
+      const rows = problemRows();
+      download("scim105_by_problem_" + card + ".csv",
+        [["#", "problem", "slug", "card", "level", "solved_by", "percent_of_class",
+          "avg_attempts_to_solve", "still_stuck", "not_started"]].concat(
+          rows.map(r => [r.n, r.title, r.slug, r.week, r.level, r.solved, r.solvedPct,
+                         r.avgTries === null ? "" : r.avgTries, r.stuck, r.untouched])));
+      return;
+    }
+    if (stView === "grid") {
+      const scope = scopeProblems();
+      const rows = sortRows(studentRows(), stSort.grid);
+      const tried = {};
+      attempts.forEach(a => { const k = a.user_id + "|" + a.problem_id; tried[k] = (tried[k] || 0) + 1; });
+      download("scim105_grid_" + card + ".csv",
+        [["no", "student_id", "student", "email", "solved", "of"].concat(scope.map(p => p.title))].concat(
+          rows.map((r, i) => [i + 1, r.sid, r.name, r.email, r.solved, r.total].concat(
+            scope.map(p => r.solvedSet.has(p.slug) ? "solved"
+              : (tried[r.id + "|" + p.slug] ? "tried x" + tried[r.id + "|" + p.slug] : ""))))));
+      return;
+    }
+    const rows = studentRows();
+    download("scim105_students_" + card + ".csv",
+      [["no", "student_id", "name", "email", "last_login", "days_since_login", "logins", "attempts",
+        "solved", "of", "percent", "points", "needs_attention"]].concat(
+        rows.map((r, i) => [i + 1, r.sid, r.name, r.email, fmt(r.lastLogin), r.days === null ? "" : r.days,
+                       r.logins, r.attempts, r.solved, r.total, r.pct, r.points,
+                       r.risk.join("; ")])));
+  };
+  $("dl-attempts").onclick = () => download("scim105_attempts.csv",
+    [["when", "name", "email", "week", "problem", "level", "passed", "score", "total_tests"]].concat(
+      attempts.map(a => [fmt(a.created_at), a.full_name, a.email, weekNoLabel(a.week_no),
+                         a.problem_id, a.level, a.passed, a.score, a.total_tests])));
+  $("dl-logins").onclick = () => download("scim105_logins.csv",
+    [["when", "name", "email"]].concat(
+      logins.map(l => [fmt(l.logged_in_at), l.full_name, l.email])));
+
+  /* ---------------- start ---------------- */
+  await loadWeeks();
+  await loadProblems();
+  buildPrompt();
+})();
+</script>
+</body>
+</html>

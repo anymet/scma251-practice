@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCMA 251 · Linear Algebra Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=20260910a">
+<script>/* pick the theme before anything is painted, so there is no flash */
+try{var t=localStorage.getItem("scma251:theme");
+document.documentElement.setAttribute("data-theme",
+  t || (window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"));}catch(e){}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">Ax</div>
+  <div class="brand">
+    <h1 data-course-code>SCMA 251 · Linear Algebra Practice</h1>
+    <p data-course-name>แบบฝึกหัดท้าย section</p>
+  </div>
+  <div class="topbar-right"><button class="btn small ghost theme-btn" data-theme-toggle title="สลับธีม">☀️</button></div>
+  <div class="topbar-right hidden" id="userbox">
+    <div class="avatar" data-avatar>?</div>
+    <div class="who" data-who></div>
+    <a class="btn small ghost hidden" data-admin-link href="admin.html">Admin</a>
+    <button class="btn small" data-signout>ออกจากระบบ</button>
+  </div>
+</header>
+
+<!-- ============================= LOGIN ============================= -->
+<section id="login-view" class="login-wrap hidden">
+  <div class="login-card">
+    <div class="logo">Ax</div>
+    <h2>ยินดีต้อนรับ 👋</h2>
+    <p class="lead">เข้าสู่ระบบด้วยบัญชี Google ของมหิดล เพื่อทำแบบฝึกหัดท้ายแต่ละ section
+       ความคืบหน้าของคุณจะถูกบันทึกไว้ใต้บัญชีที่ยืนยันแล้ว</p>
+    <button class="btn-google" id="google-btn">
+      <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.6 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6.1C12.3 13.2 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9.1h12.4c-.5 2.9-2.2 5.4-4.7 7l7.3 5.7c4.3-3.9 6.8-9.8 6.8-17.2z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.8-6.1C1 16.4 0 20.1 0 24s1 7.6 2.6 10.8l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.3-5.7c-2 1.4-4.7 2.3-8.6 2.3-6.4 0-11.7-3.7-13.6-9.1l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
+      Sign in with Google
+    </button>
+    <p class="note">ใช้บัญชีมหิดลเท่านั้น — <span id="domain-list"></span></p>
+  </div>
+</section>
+
+<!-- =========================== DASHBOARD =========================== -->
+<section id="dash-view" class="page hidden">
+  <h2 class="big" id="hello">ยินดีต้อนรับ 👋</h2>
+  <p class="sub">เลือก section ที่เรียนจบแล้วเพื่อทำแบบฝึกหัด ออกไปแล้วกลับมาทำต่อได้ — ข้อที่ผ่านแล้วจะถูกจำไว้</p>
+  <div id="chapters"></div>
+</section>
+
+<section id="loading" class="page"><p class="sub">กำลังโหลด…</p></section>
+<section id="setup-warning" class="page hidden">
+  <div class="panel">
+    <h3>ใกล้เสร็จแล้ว — เหลืออีกขั้นเดียว</h3>
+    <p class="hint">เว็บนี้ยังไม่ได้เชื่อมกับโปรเจกต์ Supabase
+       เปิด <code>assets/config.js</code> แล้ววาง Project URL กับ anon key
+       (ดูขั้นตอนใน README)</p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js?v=20260910a"></script>
+<script>
+(async function () {
+  const S = window.SCIM, cfg = S.cfg;
+  document.querySelector("[data-course-code]").textContent = cfg.COURSE_CODE + " · Linear Algebra Practice";
+  document.querySelector("[data-course-name]").textContent = cfg.COURSE_NAME;
+  document.getElementById("domain-list").innerHTML =
+    (cfg.ALLOWED_DOMAINS || []).map(d => "<b>@" + S.esc(d) + "</b>").join(", ");
+  document.getElementById("google-btn").onclick = S.signIn;
+
+  const show = (id) => {
+    ["login-view", "dash-view", "loading", "setup-warning"]
+      .forEach(v => document.getElementById(v).classList.toggle("hidden", v !== id));
+  };
+
+  if (!S.configured) { show("setup-warning"); return; }
+
+  const ctx = await S.getSession();
+  if (!ctx) { show("login-view"); return; }
+
+  document.getElementById("userbox").classList.remove("hidden");
+  S.fillHeader(ctx);
+  S.recordLogin(ctx);
+  document.getElementById("hello").textContent =
+    "สวัสดี " + S.firstName(ctx.name, ctx.email) + " 👋";
+  show("dash-view");
+
+  const [weeksRes, problemsRes, solvedRes] = await Promise.all([
+    S.sb.from("weeks").select("*").order("sort_order", { ascending: true }),
+    S.sb.from("problems").select("week_no,slug,points").eq("is_active", true),
+    S.sb.from("attempts").select("problem_id").eq("passed", true)
+  ]);
+
+  const problems = problemsRes.data || [];
+  const solved = new Set((solvedRes.data || []).map(a => a.problem_id));
+  const totalBy = {}, doneBy = {};
+  problems.forEach(p => {
+    totalBy[p.week_no] = (totalBy[p.week_no] || 0) + 1;
+    if (solved.has(p.slug)) doneBy[p.week_no] = (doneBy[p.week_no] || 0) + 1;
+  });
+
+  const label = (w) => w.label || (w.display_no != null ? w.display_no : w.week_no);
+  const CHAPTER_NAMES = { 2: "บทที่ 2 · ปริภูมิเวกเตอร์ (Vector space)",
+                          3: "บทที่ 3 · ค่าลักษณะเฉพาะ (Eigenvalues)",
+                          4: "บทที่ 4 · การแปลงเชิงเส้น (Linear transformation)" };
+
+  const box = document.getElementById("chapters");
+  const weeks = (weeksRes.data || []).slice().sort((a, b) =>
+    (a.sort_order - b.sort_order) || (a.week_no - b.week_no));
+  if (!weeks.length) {
+    box.innerHTML = '<div class="panel"><h3>ยังไม่มี section</h3><p class="hint">รัน ' +
+      '<code>sql/02_seed_sections.sql</code> ใน Supabase หรือเพิ่มจากหน้า Admin</p></div>';
+    return;
+  }
+
+  /* group the cards by chapter; a card with no chapter goes into its own group */
+  const groups = [];
+  weeks.forEach(w => {
+    const ch = (w.chapter != null) ? w.chapter : String(label(w)).split(".")[0];
+    let g = groups.find(x => x.ch == ch);
+    if (!g) { g = { ch: ch, items: [] }; groups.push(g); }
+    g.items.push(w);
+  });
+
+  const card = (w) => {
+    const total = totalBy[w.week_no] || 0;
+    const done = doneBy[w.week_no] || 0;
+    const open = w.is_open && total > 0;
+    const pct = total ? Math.round(100 * done / total) : 0;
+    const progress = (open && done)
+      ? '<div class="prog">ผ่านแล้ว ' + done + " จาก " + total + ' ข้อ<div class="bar"><i style="width:' + pct + '%"></i></div></div>'
+      : (open ? '<div class="prog">' + total + " ข้อ</div>" : "");
+    const inner =
+      '<div class="row1"><span class="week-no">Section ' + S.esc(label(w)) + '</span>' +
+      '<span class="badge ' + (open ? "open" : "soon") + '">' + (open ? "เปิดแล้ว" : "เร็ว ๆ นี้") + "</span></div>" +
+      "<h3>" + S.esc(w.title) + "</h3><p>" + S.esc(w.subtitle || "") + "</p>" + progress;
+    return open
+      ? '<a class="week-card open" href="section.html?s=' + w.week_no + '">' + inner + "</a>"
+      : '<div class="week-card soon">' + inner + "</div>";
+  };
+
+  box.innerHTML = groups.map(g =>
+    '<h3 class="chapter-head">' + S.esc(CHAPTER_NAMES[g.ch] || ("บทที่ " + g.ch)) + "</h3>" +
+    '<div class="week-grid">' + g.items.map(card).join("") + "</div>").join("");
+})();
+</script>
+</body>
+</html>

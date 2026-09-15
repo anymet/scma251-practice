@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCMA 251 · Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/styles.css?v=20260910a">
+<script>/* pick the theme before anything is painted, so there is no flash */
+try{var t=localStorage.getItem("scma251:theme");
+document.documentElement.setAttribute("data-theme",
+  t || (window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"));}catch(e){}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">Ax</div>
+  <div class="brand">
+    <h1 id="week-heading">SCMA 251 · Section</h1>
+    <p id="week-sub">…</p>
+  </div>
+  <div class="topbar-right">
+    <a class="btn small ghost" href="index.html">← ทุก section</a>
+    <div class="pts">⭐ <b id="points">0</b> pts</div>
+    <div class="who" data-who></div>
+    <a class="btn small ghost hidden" data-admin-link href="admin.html">Admin</a>
+    <button class="btn small ghost theme-btn" data-theme-toggle title="สลับธีม">☀️</button>
+    <button class="btn small" data-signout>ออกจากระบบ</button>
+  </div>
+</header>
+<div class="banner"><span class="dot">●</span><span id="signed-line"></span></div>
+
+<main class="split">
+  <aside class="path">
+    <h4>เส้นทางของคุณ</h4>
+    <div id="path"></div>
+  </aside>
+
+  <section class="work">
+    <div id="empty" class="panel hidden">
+      <h3>ยังไม่มีโจทย์</h3>
+      <p class="hint">section นี้ยังไม่มีโจทย์ที่เปิดใช้ เพิ่มได้จากหน้า Admin</p>
+    </div>
+
+    <div id="problem-area" class="hidden">
+      <div class="prompt">
+        <div class="crumbs" id="crumbs"></div>
+        <h2 id="p-title"></h2>
+        <div class="statement" id="p-statement"></div>
+        <div class="example" id="p-example"></div>
+      </div>
+
+      <!-- ---------- quiz widgets (order / cloze / spot / mcq / axioms) ---------- -->
+      <div id="quiz" class="hidden">
+        <div id="quiz-widget"></div>
+        <div class="run-row">
+          <button class="btn primary" id="quiz-check">✓ ตรวจคำตอบ</button>
+          <button class="btn" id="quiz-reset">เริ่มใหม่</button>
+          <span class="status" id="quiz-status"></span>
+        </div>
+        <div id="quiz-results"></div>
+      </div>
+
+      <!-- ---------- code problems ---------- -->
+      <div id="coder" class="hidden">
+        <div class="editor-shell">
+          <div class="editor-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="fname" id="fname">solution.py</span>
+          </div>
+          <textarea id="code" class="fallback-editor" spellcheck="false"></textarea>
+        </div>
+
+        <div class="run-row">
+          <button class="btn primary" id="run">▶ รันเทส</button>
+          <button class="btn" id="reset">รีเซ็ตโค้ด</button>
+          <button class="btn" id="scratch-toggle">🧪 Scratch pad</button>
+          <span class="status" id="status"></span>
+        </div>
+
+        <div id="results"></div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="scratch" id="scratch">
+   <div class="scratch-inner">
+    <div class="scratch-head">
+      <b>🧪 Scratch pad</b>
+      <span class="info" tabindex="0" title="พื้นที่ทดลองส่วนตัว: print ค่า ลองไอเดีย ดูข้อมูล&#10;&#10;สิ่งที่เขียนตรงนี้ไม่ถูกตรวจ ไม่ให้คะแนน และไม่ถูกส่งให้อาจารย์ — แต่จะถูกเก็บไว้ในเครื่องนี้แยกตามข้อ&#10;&#10;setup code ของโจทย์ และคำตอบที่กำลังเขียนทางซ้ายจะรันก่อน จึงเรียกฟังก์ชันของตัวเองได้ทันที&#10;&#10;import numpy, scipy, sympy, matplotlib.pyplot ได้ กราฟที่วาดจะแสดงด้านล่าง">i</span>
+      <button class="btn small ghost x" id="scratch-close" title="ปิด scratch pad">✕</button>
+    </div>
+    <p class="scratch-line">ตรงนี้ไม่มีการให้คะแนน</p>
+
+    <div class="editor-shell">
+      <div class="editor-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="fname">scratch.py</span>
+      </div>
+      <textarea id="scratch-code" class="fallback-editor" spellcheck="false"></textarea>
+    </div>
+    <div class="run-row">
+      <button class="btn primary" id="scratch-run">▶ Run</button>
+      <button class="btn ghost" id="scratch-clear">ล้าง</button>
+      <span class="status" id="scratch-status"></span>
+    </div>
+    <div id="scratch-out"></div>
+   </div>
+  </aside>
+</main>
+
+<!-- The test harness that runs inside the browser's Python (Pyodide). -->
+<script type="text/x-python" id="harness">
+import json, sys, io, time, ast
+
+# Code the student (or the course) wrote is compiled under these names, so the
+# watchdog below can tell it apart from library code such as numpy or sympy.
+_SCIM_FILES = ('<student>', '<setup>', '<scratch>', '<check>')
+_SCIM_LIBS = "numpy, scipy, sympy, pandas, matplotlib, math, fractions, itertools, random"
+
+_scim_deadline = [0.0]
+_scim_ticks = [0]
+
+
+def _scim_tracer(frame, event, arg):
+    """Stops a program that never ends. It only follows the student's own code:
+    tracing every line of numpy or sympy would make them crawl."""
+    _scim_ticks[0] += 1
+    if (_scim_ticks[0] & 0xFF) == 0 and time.time() > _scim_deadline[0]:
+        raise TimeoutError('โปรแกรมรันนานเกินไป - ตรวจดูว่ามี loop ที่ไม่จบหรือไม่')
+    return _scim_tracer if frame.f_code.co_filename in _SCIM_FILES else None
+
+
+def _scim_arm(limit):
+    _scim_deadline[0] = time.time() + limit
+    sys.settrace(_scim_tracer)
+
+
+# ---------------------------------------------------------------- input() ---
+class _ScimFeed(object):
+    """input() for a graded test - hands back the prepared lines, one per call."""
+    def __init__(self, lines):
+        self.lines = list(lines)
+
+    def __call__(self, prompt=''):
+        if not self.lines:
+            raise EOFError('โปรแกรมขอ input มากกว่าที่เทสนี้ให้')
+        return self.lines.pop(0)
+
+
+def _scim_ask(prompt=''):
+    """input() on the scratch pad - a real question box in the browser."""
+    try:
+        import js
+        answer = js.window.prompt(str(prompt) if prompt else 'Input:')
+    except Exception:
+        raise RuntimeError('input() ใช้ตรงนี้ไม่ได้')
+    if answer is None:
+        raise EOFError('ปิดกล่องคำถามไปแล้ว จึงไม่มีอะไรให้อ่าน')
+    return str(answer)
+
+
+def _scim_no_input(prompt=''):
+    raise RuntimeError('โจทย์นี้ไม่มี input จึงใช้ input() ไม่ได้ - เขียนฟังก์ชันที่ return ค่าแทน')
+
+
+def _scim_lines(t):
+    v = t.get('input')
+    if v is None:
+        return None
+    if isinstance(v, str):
+        return v.replace('\r\n', '\n').split('\n')
+    return [str(x) for x in v]
+
+
+def _scim_text(s):
+    lines = [ln.rstrip() for ln in str(s).replace('\r\n', '\n').split('\n')]
+    while lines and lines[0] == '':
+        lines.pop(0)
+    while lines and lines[-1] == '':
+        lines.pop()
+    return '\n'.join(lines)
+
+
+def _scim_expected_text(exp):
+    if isinstance(exp, (list, tuple)):
+        return _scim_text('\n'.join(str(x) for x in exp))
+    return _scim_text('' if exp is None else exp)
+
+
+def _scim_is_program(t):
+    return 'call' not in t and 'expr' not in t
+
+
+# ------------------------------------------------------------- comparing ----
+def _scim_plain(v):
+    """numpy / sympy values -> ordinary Python, so that an array can be
+    compared with the plain JSON list written in the test."""
+    if v is None or type(v) in (list, tuple, dict, set, str, bytes, bool, int, float):
+        return v
+    tolist = getattr(v, 'tolist', None)
+    if callable(tolist):
+        try:
+            return tolist()
+        except Exception:
+            return v
+    item = getattr(v, 'item', None)
+    if callable(item):
+        try:
+            return item()
+        except Exception:
+            return v
+    # sympy numbers / matrices
+    try:
+        import sympy
+        if isinstance(v, sympy.MatrixBase):
+            return [[_scim_plain(x) for x in row] for row in v.tolist()]
+        if isinstance(v, sympy.Basic):
+            f = float(v)
+            return int(f) if f.is_integer() and v.is_integer else f
+    except Exception:
+        pass
+    return v
+
+
+def _scim_cmp(got, exp, tol=None):
+    """Numbers are compared with a tolerance (tol is absolute; the default is
+    1e-6 relative), everything else exactly, lists element by element."""
+    got = _scim_plain(got)
+    if isinstance(exp, bool) or isinstance(got, bool):
+        return isinstance(exp, bool) and isinstance(got, bool) and exp == got
+    if isinstance(exp, (int, float)) and isinstance(got, (int, float)):
+        if tol is not None:
+            return abs(float(got) - float(exp)) <= float(tol)
+        return abs(float(got) - float(exp)) <= 1e-6 * max(1.0, abs(float(exp)))
+    if isinstance(exp, list):
+        if not isinstance(got, (list, tuple)) or len(got) != len(exp):
+            return False
+        return all(_scim_cmp(g, e, tol) for g, e in zip(got, exp))
+    if isinstance(exp, dict):
+        if not isinstance(got, dict) or set(got.keys()) != set(exp.keys()):
+            return False
+        return all(_scim_cmp(got[k], exp[k], tol) for k in exp)
+    if exp is None:
+        return got is None
+    return got == exp
+
+
+def _scim_sorted(v):
+    """Sort a list (of numbers, or of lists) - for eigenvalues, whose order
+    numpy does not promise."""
+    v = _scim_plain(v)
+    try:
+        if isinstance(v, (list, tuple)):
+            return sorted(v, key=lambda x: (x if not isinstance(x, (list, tuple)) else tuple(x)))
+    except Exception:
+        pass
+    return v
+
+
+def _scim_label(t):
+    if 'label' in t:
+        return t['label']
+    if 'expr' in t:
+        return t['expr']
+    if 'call' in t:
+        base = '%s(%s)' % (t['call'], ', '.join(repr(a) for a in t.get('args', [])))
+        lines = _scim_lines(t)
+        return base + (' with input ' + ', '.join(lines) if lines else '')
+    lines = _scim_lines(t)
+    return 'โปรแกรมของคุณ กับ input ' + ', '.join(lines) if lines else 'โปรแกรมของคุณ'
+
+
+def _scim_why(e):
+    msg = '%s: %s' % (type(e).__name__, e)
+    if isinstance(e, ModuleNotFoundError):
+        msg += ' - ไม่มีแพ็กเกจนี้ในเบราว์เซอร์ ใช้ได้: ' + _SCIM_LIBS
+    line = None
+    tb = getattr(e, '__traceback__', None)
+    while tb is not None:
+        if tb.tb_frame.f_code.co_filename in _SCIM_FILES:
+            line = tb.tb_lineno
+        tb = tb.tb_next
+    if line:
+        msg += '   [บรรทัดที่ %d ของโค้ดคุณ]' % line
+    return msg
+
+
+def _scim_figure():
+    try:
+        plt = sys.modules.get('matplotlib.pyplot')
+        if plt is None or not plt.get_fignums():
+            return ''
+        import base64
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png', dpi=110, bbox_inches='tight')
+        plt.close('all')
+        return base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return ''
+
+
+# ------------------------------------------------------------- the runs -----
+def _scim_program(code, setup, lines, limit):
+    ns = {'__name__': '__main__', 'input': _ScimFeed(lines or [])}
+    buf = io.StringIO()
+    real_stdout = sys.stdout
+    sys.stdout = buf
+    try:
+        _scim_arm(limit)
+        if setup:
+            exec(compile(setup, '<setup>', 'exec'), ns)
+        exec(compile(code, '<student>', 'exec'), ns)
+        return buf.getvalue(), None
+    except Exception as e:
+        return buf.getvalue(), _scim_why(e)
+    finally:
+        sys.settrace(None)
+        sys.stdout = real_stdout
+
+
+def _scim_run(code, setup, tests_json, limit):
+    """Graded run. A test is one of
+         {"call": "f", "args": [2, 3], "expected": 5}
+         {"expr": "squares", "expected": [1, 4, 9]}
+         {"input": ["5", "7"], "expected": "12"}       <- runs the whole program
+       and may add any of
+         "tol": 1e-6      absolute tolerance for every number in the answer
+         "sort": true     sort the answer first (eigenvalues come in any order)
+         "check": "np.allclose(A @ got, 3 * got)"
+                          a Python expression judged True/False, with the
+                          answer bound to `got` (plus everything the setup and
+                          the student defined); "expected" is then only shown
+         "label": "..."   what to call this test on screen
+    """
+    tests = json.loads(tests_json)
+    needs_ns = any(not _scim_is_program(t) for t in tests)
+
+    ns = {'__name__': '__main__', 'input': _scim_no_input}
+    start_error = None
+    buf = io.StringIO()
+
+    if needs_ns:
+        real_stdout = sys.stdout
+        sys.stdout = buf
+        try:
+            if setup:
+                try:
+                    _scim_arm(limit)
+                    exec(compile(setup, '<setup>', 'exec'), ns)
+                finally:
+                    sys.settrace(None)
+        except Exception as e:
+            sys.stdout = real_stdout
+            return json.dumps({'error': 'setup ของโจทย์ล้มเหลว - %s: %s' % (type(e).__name__, e)})
+        try:
+            _scim_arm(limit)
+            exec(compile(code, '<student>', 'exec'), ns)
+        except Exception as e:
+            start_error = _scim_why(e)
+        finally:
+            sys.settrace(None)
+            sys.stdout = real_stdout
+        if start_error and all(not _scim_is_program(t) for t in tests):
+            return json.dumps({'error': start_error, 'stdout': buf.getvalue()})
+
+    results = []
+    for t in tests:
+        label = _scim_label(t)
+        expected = t.get('expected')
+        shown = t.get('expected_text', repr(expected) if 'expected' in t else t.get('check', ''))
+
+        if _scim_is_program(t):
+            printed, err = _scim_program(code, setup, _scim_lines(t), limit)
+            want = _scim_expected_text(expected)
+            if err:
+                results.append({'label': label, 'expected': repr(want), 'got': err, 'ok': False})
+            else:
+                got = _scim_text(printed)
+                results.append({'label': label, 'expected': repr(want),
+                                'got': repr(got), 'ok': got == want})
+            continue
+
+        if start_error:
+            results.append({'label': label, 'expected': shown, 'got': start_error, 'ok': False})
+            continue
+
+        lines = _scim_lines(t)
+        ns['input'] = _ScimFeed(lines) if lines is not None else _scim_no_input
+        _scim_arm(limit)
+        try:
+            if 'expr' in t:
+                got = eval(compile(t['expr'], '<student>', 'eval'), ns)
+            else:
+                fn = ns.get(t['call'])
+                if not callable(fn):
+                    raise NameError("ไม่มีฟังก์ชันชื่อ '%s'" % t['call'])
+                got = fn(*t.get('args', []))
+            if t.get('sort'):
+                got = _scim_sorted(got)
+            if 'check' in t:
+                cns = dict(ns)
+                cns['got'] = got
+                ok = bool(eval(compile(t['check'], '<check>', 'eval'), cns))
+            else:
+                ok = _scim_cmp(got, expected, t.get('tol'))
+            results.append({'label': label, 'expected': shown,
+                            'got': repr(_scim_plain(got)), 'ok': ok})
+        except Exception as e:
+            results.append({'label': label, 'expected': shown,
+                            'got': '%s: %s' % (type(e).__name__, e), 'ok': False})
+        finally:
+            sys.settrace(None)
+
+    return json.dumps({'results': results, 'stdout': buf.getvalue()})
+
+
+def _scim_scratch(setup, answer, code, limit):
+    out = {'stdout': '', 'value': '', 'error': '', 'image': '', 'answer_error': ''}
+    ns = {'__name__': '__main__', 'input': _scim_ask}
+    buf = io.StringIO()
+    real_stdout = sys.stdout
+    sys.stdout = buf
+    try:
+        if setup:
+            try:
+                _scim_arm(limit)
+                exec(compile(setup, '<setup>', 'exec'), ns)
+            except Exception:
+                pass
+            finally:
+                sys.settrace(None)
+        if answer and answer.strip():
+            try:
+                _scim_arm(limit)
+                exec(compile(answer, '<student>', 'exec'), ns)
+            except Exception as e:
+                out['answer_error'] = _scim_why(e)
+            finally:
+                sys.settrace(None)
+            buf.truncate(0)
+            buf.seek(0)
+        try:
+            tree = ast.parse(code)
+        except SyntaxError as e:
+            out['error'] = 'SyntaxError: %s   [บรรทัด %s]' % (e.msg, e.lineno)
+            return json.dumps(out)
+        tail = None
+        if tree.body and isinstance(tree.body[-1], ast.Expr):
+            tail = ast.Expression(tree.body.pop().value)
+        try:
+            _scim_arm(limit)
+            exec(compile(tree, '<scratch>', 'exec'), ns)
+            if tail is not None:
+                value = eval(compile(tail, '<scratch>', 'eval'), ns)
+                if value is not None:
+                    out['value'] = repr(value)
+        except Exception as e:
+            out['error'] = _scim_why(e)
+        finally:
+            sys.settrace(None)
+        out['image'] = _scim_figure()
+    finally:
+        sys.stdout = real_stdout
+        out['stdout'] = buf.getvalue()
+    return json.dumps(out)
+
+
+# --------------------------------------------------- axiom counterexamples ---
+def _la_literal(text):
+    """A vector / matrix / scalar typed by the student: (1, 2)  [1,2]  [[1,0],[0,1]]  -3  0.5
+    -> a numpy array of floats (or a float)."""
+    import numpy as np
+    s = str(text).strip()
+    if not s:
+        raise ValueError('ยังไม่ได้ใส่ค่า')
+    s = s.replace('⟨', '(').replace('⟩', ')').replace('<', '(').replace('>', ')')
+    v = ast.literal_eval(s)
+    a = np.array(v, dtype=float)
+    return float(a) if a.ndim == 0 else a
+
+
+def _la_axioms(setup, items_json, answers_json):
+    """items: [{"id", "holds", "vars": [...], "check": "<expr True when the axiom holds>"}]
+       answers: {"id": {"mark": "holds"|"fails", "values": {"u": "(1,2)", ...}}}
+       For every item the student marked "fails" we test their numbers: are they
+       in the set (in_set, when the setup defines it) and do they really break
+       the axiom (check evaluates False)?"""
+    import numpy as np
+    items = json.loads(items_json)
+    answers = json.loads(answers_json)
+    ns = {'__name__': '__main__', 'np': np, 'allclose': np.allclose,
+          'eq': lambda a, b: bool(np.allclose(np.asarray(a, dtype=float), np.asarray(b, dtype=float)))}
+    try:
+        exec(compile(setup or '', '<setup>', 'exec'), ns)
+    except Exception as e:
+        return json.dumps({'error': 'setup ของโจทย์ล้มเหลว - %s: %s' % (type(e).__name__, e)})
+    in_set = ns.get('in_set')
+    out = []
+    for it in items:
+        a = answers.get(it['id']) or {}
+        r = {'id': it['id'], 'mark_ok': (a.get('mark') == ('fails' if not it.get('holds', True) else 'holds')),
+             'counter_ok': None, 'note': ''}
+        if a.get('mark') == 'fails':
+            vals = a.get('values') or {}
+            local = dict(ns)
+            try:
+                for name in it.get('vars', []):
+                    local[name] = _la_literal(vals.get(name, ''))
+                # membership: every variable that names a vector must be in V
+                # (the ones listed under "scalars" are numbers from the field)
+                bad = []
+                for name in it.get('vars', []):
+                    if name in it.get('scalars', []):
+                        continue
+                    if callable(in_set) and not in_set(local[name]):
+                        bad.append(name)
+                if bad:
+                    r['counter_ok'] = False
+                    r['note'] = 'ค่า ' + ', '.join(bad) + ' ไม่อยู่ในเซต V'
+                else:
+                    holds = bool(eval(compile(it['check'], '<check>', 'eval'), local))
+                    r['counter_ok'] = (not holds)
+                    if holds:
+                        r['note'] = 'ค่าที่ให้มาไม่ได้ละเมิดสัจพจน์นี้ (สมการยังเป็นจริง)'
+            except Exception as e:
+                r['counter_ok'] = False
+                r['note'] = 'อ่านค่าไม่ได้ - %s: %s' % (type(e).__name__, e)
+        out.append(r)
+    return json.dumps({'items': out})
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js?v=20260910a"></script>
+<script src="assets/quiz.js?v=20260910a"></script>
+<script>
+(async function () {
+  const S = window.SCIM;
+  if (!S.configured) { location.href = "index.html"; return; }
+
+  const weekNo = parseInt(new URLSearchParams(location.search).get("s") ||
+                          new URLSearchParams(location.search).get("week") || "21", 10);
+  const ctx = await S.getSession();
+  if (!ctx) { location.href = "index.html"; return; }
+  S.fillHeader(ctx);
+  document.getElementById("signed-line").textContent =
+    "เข้าสู่ระบบในชื่อ " + ctx.email + " — ทุกครั้งที่ตรวจคำตอบจะถูกบันทึก";
+
+  /* ---------------- load content ---------------- */
+  const [weekRes, probRes, allProbRes, passRes] = await Promise.all([
+    S.sb.from("weeks").select("*").eq("week_no", weekNo).maybeSingle(),
+    S.sb.from("problems").select("*").eq("week_no", weekNo).eq("is_active", true)
+        .order("level").order("sort_order"),
+    S.sb.from("problems").select("slug,points").eq("is_active", true),
+    S.sb.from("attempts").select("problem_id").eq("passed", true)
+  ]);
+
+  const week = weekRes.data || { week_no: weekNo, title: "Section " + weekNo, subtitle: "" };
+  const secLabel = week.label || (week.display_no != null ? week.display_no : week.week_no);
+  const problems = probRes.data || [];
+  const pointsBySlug = {};
+  (allProbRes.data || []).forEach(p => { pointsBySlug[p.slug] = p.points; });
+  const solved = new Set((passRes.data || []).map(a => a.problem_id));
+
+  document.getElementById("week-heading").textContent = S.cfg.COURSE_CODE + " · Section " + secLabel;
+  document.getElementById("week-sub").textContent = week.title;
+  document.title = S.cfg.COURSE_CODE + " · " + secLabel + " · " + week.title;
+
+  function refreshPoints() {
+    let total = 0;
+    solved.forEach(slug => { total += pointsBySlug[slug] || 0; });
+    document.getElementById("points").textContent = total;
+  }
+  refreshPoints();
+
+  if (!problems.length) {
+    document.getElementById("empty").classList.remove("hidden");
+    return;
+  }
+  document.getElementById("problem-area").classList.remove("hidden");
+
+  /* ---------------- levels & locking ---------------- */
+  const levels = [];
+  problems.forEach(p => {
+    let lv = levels.find(l => l.level === p.level);
+    if (!lv) {
+      lv = { level: p.level, title: p.level_title || ("Level " + p.level),
+             subtitle: p.level_subtitle || "", items: [] };
+      levels.push(lv);
+    }
+    lv.items.push(p);
+  });
+  levels.sort((a, b) => a.level - b.level);
+
+  const isUnlocked = (index) => {
+    if (index === 0 || S.cfg.LOCK_LEVELS === false) return true;
+    return levels[index - 1].items.every(p => solved.has(p.slug));
+  };
+
+  const TYPE_ICON = { code: "🐍", order: "🧩", cloze: "✍️", spot: "🔍", mcq: "☑️", axioms: "📐" };
+  let current = null;
+
+  function renderPath() {
+    const html = levels.map((lv, i) => {
+      const unlocked = isUnlocked(i);
+      const items = lv.items.map(p => {
+        const cls = ["pitem"];
+        if (solved.has(p.slug)) cls.push("solved");
+        if (!unlocked) cls.push("locked");
+        if (current && current.id === p.id) cls.push("active");
+        return '<li class="' + cls.join(" ") + '" data-slug="' + S.esc(p.slug) + '">' +
+               '<span class="ring"></span><span class="ticon">' + (TYPE_ICON[p.type || "code"] || "") +
+               '</span><span class="ptitle">' + p.title + "</span>" +
+               (unlocked ? "" : '<span class="lock">🔒</span>') + "</li>";
+      }).join("");
+      return '<div class="level ' + (unlocked ? "unlocked" : "locked") + '">' +
+             '<div class="level-head"><div class="level-num">' + lv.level + "</div><div>" +
+             "<b>" + S.esc(lv.title) + "</b>" +
+             "<span>" + (unlocked ? S.esc(lv.subtitle) : "ทำ level ก่อนหน้าให้ครบก่อน") + "</span>" +
+             '</div></div><ul class="plist">' + items + "</ul></div>";
+    }).join("");
+    const box = document.getElementById("path");
+    box.innerHTML = html;
+    S.math(box);
+    box.querySelectorAll(".pitem").forEach(el => {
+      el.onclick = () => {
+        if (el.classList.contains("locked")) {
+          S.toast("ทำ level ก่อนหน้าให้ครบก่อน 🔒");
+          return;
+        }
+        select(problems.find(p => p.slug === el.dataset.slug));
+      };
+    });
+  }
+
+  /* ---------------- editor helpers ---------------- */
+  const INDENT = 4;
+  const PY_WORDS = (
+    "False None True and as assert async await break class continue def del elif else except " +
+    "finally for from global if import in is lambda nonlocal not or pass raise return try while " +
+    "with yield " +
+    "abs all any bool dict enumerate float int isinstance len list map max min print range round " +
+    "sorted str sum tuple zip " +
+    "numpy np linalg eig eigvals det inv solve matrix_rank norm dot array zeros eye transpose " +
+    "allclose round sympy Matrix rref nullspace columnspace eigenvals eigenvects diagonalize " +
+    "scipy self"
+  ).split(" ");
+
+  if (window.CodeMirror && CodeMirror.registerHelper) {
+    CodeMirror.registerHelper("hint", "scim", function (cm) {
+      const cur = cm.getCursor();
+      const line = cm.getLine(cur.line);
+      let start = cur.ch;
+      while (start && /[\w$]/.test(line.charAt(start - 1))) start--;
+      const typed = line.slice(start, cur.ch);
+      if (!typed) return null;
+      const seen = Object.create(null);
+      PY_WORDS.forEach(w => { seen[w] = true; });
+      const words = cm.getValue().match(/[A-Za-z_][A-Za-z0-9_]*/g) || [];
+      words.forEach(w => { if (w !== typed) seen[w] = true; });
+      const lower = typed.toLowerCase();
+      const list = Object.keys(seen)
+        .filter(w => w.length > typed.length && w.toLowerCase().indexOf(lower) === 0)
+        .sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
+        .slice(0, 20);
+      if (!list.length) return null;
+      return { list: list, from: CodeMirror.Pos(cur.line, start), to: CodeMirror.Pos(cur.line, cur.ch) };
+    });
+  }
+
+  function drawIndentGuides(cm, line, elt) {
+    const spaces = /^ */.exec(line.text)[0].length;
+    const levels = Math.floor(spaces / INDENT);
+    if (!levels) { elt.style.backgroundImage = ""; return; }
+    elt.style.backgroundImage =
+      "repeating-linear-gradient(to right, var(--guide) 0 1px, transparent 1px " + INDENT + "ch)";
+    elt.style.backgroundSize = (levels * INDENT) + "ch 100%";
+    elt.style.backgroundRepeat = "no-repeat";
+    elt.style.backgroundOrigin = "content-box";
+  }
+
+  function editorOptions() {
+    return {
+      mode: "python", theme: cmTheme(), lineNumbers: true,
+      indentUnit: INDENT, tabSize: INDENT, indentWithTabs: false, lineWrapping: true,
+      autoCloseBrackets: !!(window.CodeMirror && CodeMirror.defaults.autoCloseBrackets !== undefined),
+      extraKeys: {
+        Tab: (c) => c.replaceSelection("    "),
+        "Ctrl-Space": (c) => { if (c.showHint) c.showHint({ hint: CodeMirror.hint.scim }); }
+      }
+    };
+  }
+
+  function attachEditorHelpers(editor) {
+    editor.on("renderLine", drawIndentGuides);
+    editor.on("inputRead", function (cm, change) {
+      if (!cm.showHint || !CodeMirror.hint || !CodeMirror.hint.scim) return;
+      if (change.origin !== "+input" || change.text.length !== 1) return;
+      if (!/[A-Za-z_]/.test(change.text[0])) return;
+      const cur = cm.getCursor();
+      const before = cm.getLine(cur.line).slice(0, cur.ch);
+      if (!/[A-Za-z_][A-Za-z0-9_]$/.test(before)) return;
+      cm.showHint({ hint: CodeMirror.hint.scim, completeSingle: false });
+    });
+    const text = editor.getValue();
+    if (text) { editor.setValue(text); editor.clearHistory(); }
+    editor.refresh();
+  }
+
+  const cmTheme = () => (S.isLight && S.isLight() ? "default" : "material-darker");
+  window.addEventListener("scim-theme", () => {
+    if (cm) cm.setOption("theme", cmTheme());
+    if (scm) scm.setOption("theme", cmTheme());
+  });
+
+  let cm = null;
+  const textarea = document.getElementById("code");
+  if (window.CodeMirror) {
+    cm = CodeMirror.fromTextArea(textarea, editorOptions());
+    attachEditorHelpers(cm);
+  }
+  const getCode = () => (cm ? cm.getValue() : textarea.value);
+  const setCode = (v) => { cm ? cm.setValue(v) : (textarea.value = v); };
+  const draftKey = (p) => "scma251:draft:" + p.slug;
+  let saveTimer = null;
+  const onEdit = () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      if (current && isCode(current)) localStorage.setItem(draftKey(current), getCode());
+    }, 400);
+  };
+  cm ? cm.on("change", onEdit) : textarea.addEventListener("input", onEdit);
+
+  /* ---------------- scratch pad ---------------- */
+  const scratchArea = document.getElementById("scratch-code");
+  const scratchOut = document.getElementById("scratch-out");
+  const scratchStatusEl = document.getElementById("scratch-status");
+  const saySc = (t) => { scratchStatusEl.textContent = t; };
+  const SCRATCH_START = "";
+
+  let scm = null;
+  const scratchKey = (p) => "scma251:scratch:" + p.slug;
+  const getScratch = () => (scm ? scm.getValue() : scratchArea.value);
+  const setScratch = (v) => { scm ? scm.setValue(v) : (scratchArea.value = v); };
+
+  function loadScratch(p) {
+    setScratch(localStorage.getItem(scratchKey(p)) || SCRATCH_START);
+    scratchOut.innerHTML = "";
+    saySc("");
+    if (scm) setTimeout(() => scm.refresh(), 30);
+  }
+
+  let scratchTimer = null;
+  const onScratchEdit = () => {
+    clearTimeout(scratchTimer);
+    scratchTimer = setTimeout(() => {
+      if (current) localStorage.setItem(scratchKey(current), getScratch());
+    }, 400);
+  };
+  scratchArea.addEventListener("input", onScratchEdit);
+
+  function buildScratchEditor() {
+    if (scm || !window.CodeMirror) return;
+    scm = CodeMirror.fromTextArea(scratchArea, editorOptions());
+    attachEditorHelpers(scm);
+    scm.on("change", onScratchEdit);
+  }
+
+  const splitBox = document.querySelector(".split");
+  const padToggle = document.getElementById("scratch-toggle");
+  const PAD_KEY = "scma251:padopen";
+
+  function measureHead() {
+    const bar = document.querySelector(".topbar");
+    const strip = document.querySelector(".banner");
+    const h = (bar ? bar.offsetHeight : 0) + (strip ? strip.offsetHeight : 0);
+    document.documentElement.style.setProperty("--head-h", h + "px");
+  }
+  measureHead();
+  window.addEventListener("resize", measureHead);
+
+  /* padPref = what the student chose with the button; the pad itself is also
+     hidden (without touching that choice) while a non-code question is shown */
+  let padPref = (() => { try { return localStorage.getItem(PAD_KEY) === "1"; } catch (e) { return false; } })();
+  function showPad(open, remember) {
+    measureHead();
+    splitBox.classList.toggle("pad-open", open);
+    padToggle.textContent = open ? "\u{1F9EA} ซ่อน scratch pad" : "\u{1F9EA} Scratch pad";
+    if (remember) {
+      padPref = open;
+      try { localStorage.setItem(PAD_KEY, open ? "1" : "0"); } catch (e) {}
+    }
+    if (open) buildScratchEditor();
+    setTimeout(() => { if (scm) scm.refresh(); if (cm) cm.refresh(); }, 40);
+  }
+  padToggle.onclick = () => showPad(!splitBox.classList.contains("pad-open"), true);
+  document.getElementById("scratch-close").onclick = () => showPad(false, true);
+
+  document.getElementById("scratch-clear").onclick = () => {
+    if (current) localStorage.removeItem(scratchKey(current));
+    setScratch(SCRATCH_START);
+    scratchOut.innerHTML = "";
+    saySc("");
+  };
+
+  const scratchBtn = document.getElementById("scratch-run");
+  scratchBtn.onclick = async function () {
+    if (!current) return;
+    const code = getScratch();
+    scratchBtn.disabled = true;
+    scratchOut.innerHTML = "";
+    try {
+      const py = await python(saySc);
+      const answer = isCode(current) ? getCode() : "";
+      const source = (current.setup_code || "") + "\n" + answer + "\n" + code;
+      await prepare(py, source, saySc);
+      saySc("กำลังรัน…");
+      const fn = py.globals.get("_scim_scratch");
+      const raw = fn(current.setup_code || "", answer, code, limitFor(source));
+      fn.destroy && fn.destroy();
+      const out = JSON.parse(raw);
+      saySc("");
+
+      const printed = (out.stdout || "").replace(/\s+$/, "");
+      let html = "";
+      if (out.answer_error) {
+        html += '<div class="note">คำตอบในช่องซ้ายรันไม่ผ่าน จึงรัน pad โดยไม่มีมัน — ' + S.esc(out.answer_error) + "</div>";
+      }
+      if (out.image) {
+        html += '<img class="figure" alt="กราฟที่โค้ดวาด" src="data:image/png;base64,' + out.image + '">';
+      }
+      if (printed) html += '<div class="stdout">' + S.esc(printed) + "</div>";
+      if (out.value) html += '<div class="stdout value">' + S.esc(out.value) + "</div>";
+      if (out.error) {
+        html += '<div class="result-head fail"><div class="msg">' + S.esc(out.error) + "</div></div>";
+      }
+      if (!html) {
+        html = '<div class="stdout">รันแล้ว แต่ไม่มีอะไรออกมา — ใส่ print(…) หรือวางค่าไว้บรรทัดสุดท้าย</div>';
+      }
+      scratchOut.innerHTML = html;
+    } catch (err) {
+      saySc("");
+      scratchOut.innerHTML = '<div class="result-head fail"><div class="msg">รันไม่ได้: ' + S.esc(err.message) + "</div></div>";
+    } finally {
+      scratchBtn.disabled = false;
+    }
+  };
+
+  /* ---------------- Python in the browser ---------------- */
+  let pyodide = null;
+  function loadScript(src) {
+    return new Promise((ok, bad) => {
+      const s = document.createElement("script");
+      s.src = src; s.onload = ok; s.onerror = () => bad(new Error("โหลด " + src + " ไม่ได้"));
+      document.head.appendChild(s);
+    });
+  }
+  async function python(setStatus) {
+    if (pyodide) return pyodide;
+    setStatus("กำลังเริ่ม Python ในเบราว์เซอร์… (ครั้งแรกเท่านั้น)");
+    if (!window.loadPyodide) {
+      await loadScript("https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js");
+    }
+    pyodide = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/" });
+    pyodide.runPython(document.getElementById("harness").textContent);
+    return pyodide;
+  }
+
+  const BASE_LIMIT = S.cfg.RUN_TIMEOUT_SECONDS || 6;
+  const LIB_RE = /\b(numpy|pandas|scipy|matplotlib|sympy|sklearn|networkx|statsmodels|PIL)\b/;
+  const limitFor = (source) => LIB_RE.test(source) ? Math.max(BASE_LIMIT, 30) : BASE_LIMIT;
+
+  async function prepare(py, source, say) {
+    if (!LIB_RE.test(source)) return;
+    say("กำลังโหลดไลบรารีที่โค้ด import… ครั้งแรกอาจใช้เวลาสักครู่");
+    try {
+      await py.loadPackagesFromImports(source, { messageCallback: () => {}, errorCallback: () => {} });
+    } catch (e) { /* python itself reports an unknown package */ }
+    if (/matplotlib/.test(source)) {
+      try { py.runPython("import matplotlib\nmatplotlib.use('AGG')\n"); } catch (e) {}
+    }
+  }
+
+  /* ---------------- show one problem ---------------- */
+  const isCode = (p) => !p.type || p.type === "code";
+  let quiz = null;                      // the controller of the current quiz widget
+
+  function select(p) {
+    if (!p) return;
+    current = p;
+    document.getElementById("crumbs").textContent =
+      "Section " + secLabel + " · Level " + p.level + " · " + (p.level_title || "");
+    const tt = document.getElementById("p-title");
+    tt.innerHTML = p.title;                 /* titles are HTML too, so $maths$ works */
+    tt.dataset.slug = p.slug;
+    S.math(tt);
+    const st = document.getElementById("p-statement");
+    st.innerHTML = p.statement || "";
+    S.math(st);
+    const ex = document.getElementById("p-example");
+    ex.textContent = p.example || "";
+    ex.className = p.example ? "example" : "example hidden";
+
+    const code = isCode(p);
+    document.getElementById("coder").classList.toggle("hidden", !code);
+    document.getElementById("quiz").classList.toggle("hidden", code);
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("quiz-results").innerHTML = "";
+    document.getElementById("status").textContent = "";
+    document.getElementById("quiz-status").textContent = "";
+
+    if (code) {
+      document.getElementById("fname").textContent = (p.entry_name || "solution") + ".py";
+      setCode(localStorage.getItem(draftKey(p)) || p.starter_code || "");
+      loadScratch(p);
+      showPad(padPref, false);
+      if (cm) setTimeout(() => cm.refresh(), 30);
+    } else {
+      showPad(false, false);
+      quiz = window.LAQ.render(p, document.getElementById("quiz-widget"), {
+        S: S, python: python, prepare: prepare, say: (t) => { document.getElementById("quiz-status").textContent = t; }
+      });
+    }
+    renderPath();
+  }
+
+  const firstUnsolved = () => {
+    for (let i = 0; i < levels.length; i++) {
+      if (!isUnlocked(i)) break;
+      const item = levels[i].items.find(p => !solved.has(p.slug));
+      if (item) return item;
+    }
+    return problems[0];
+  };
+  select(firstUnsolved());
+
+  /* ---------------- code problems: run ---------------- */
+  const runBtn = document.getElementById("run");
+  const statusEl = document.getElementById("status");
+  const setStatus = (t) => { statusEl.textContent = t; };
+
+  document.getElementById("reset").onclick = () => {
+    if (!current) return;
+    if (!confirm("แทนที่โค้ดของคุณด้วย starter code เดิม?")) return;
+    localStorage.removeItem(draftKey(current));
+    setCode(current.starter_code || "");
+  };
+
+  runBtn.onclick = async function () {
+    if (!current) return;
+    const code = getCode();
+    runBtn.disabled = true;
+    document.getElementById("results").innerHTML = "";
+    try {
+      const py = await python(setStatus);
+      const source = (current.setup_code || "") + "\n" + code;
+      await prepare(py, source, setStatus);
+      setStatus("กำลังรันโค้ดของคุณ…");
+      const runner = py.globals.get("_scim_run");
+      const raw = runner(code, current.setup_code || "",
+                         JSON.stringify(current.tests || []), limitFor(source));
+      runner.destroy && runner.destroy();
+      const out = JSON.parse(raw);
+      setStatus("");
+      showResults(out, code);
+    } catch (err) {
+      setStatus("");
+      document.getElementById("results").innerHTML =
+        '<div class="result-head fail"><div class="msg">รันโค้ดไม่ได้: ' + S.esc(err.message) + "</div></div>";
+    } finally {
+      runBtn.disabled = false;
+    }
+  };
+
+  function showResults(out, code) {
+    const box = document.getElementById("results");
+    const tests = (current.tests || []).length;
+
+    if (out.error) {
+      box.innerHTML =
+        '<div class="result-head fail"><div class="score">0/' + tests + "</div>" +
+        '<div class="msg">โปรแกรมเริ่มทำงานไม่ได้ — แก้ error ด้านล่างก่อน</div></div>' +
+        '<div class="stdout">' + S.esc(out.error) + "</div>";
+      save(false, 0, tests, code);
+      return;
+    }
+
+    const results = out.results || [];
+    const passedCount = results.filter(r => r.ok).length;
+    const allPassed = tests > 0 && passedCount === tests;
+
+    let html =
+      '<div class="result-head ' + (allPassed ? "pass" : "fail") + '">' +
+      '<div class="score">' + passedCount + "/" + tests + "</div>" +
+      '<div class="msg">' + (allPassed
+        ? "ผ่านทุกเทส เยี่ยม! +" + (current.points || 0) + " pts"
+        : "ผ่าน " + passedCount + " จาก " + tests + " เทส สู้ต่อ!") + "</div></div>";
+
+    html += results.map(r =>
+      '<div class="tcase ' + (r.ok ? "ok" : "no") + '"><div class="mark">' +
+      (r.ok ? "✓" : "✕") + '</div><div class="body">' + S.esc(r.label) +
+      '<div class="sub"><b>ต้องการ</b> ' + S.esc(r.expected) +
+      (r.ok ? "" : " · <b>ได้</b> " + S.esc(r.got)) + "</div></div></div>").join("");
+
+    if (out.stdout && out.stdout.trim()) {
+      html += '<div class="stdout">สิ่งที่ print ออกมา:\n' + S.esc(out.stdout) + "</div>";
+    }
+    box.innerHTML = html;
+    finish(allPassed, passedCount, tests, code);
+  }
+
+  /* ---------------- quiz problems: check ---------------- */
+  const quizBtn = document.getElementById("quiz-check");
+  quizBtn.onclick = async function () {
+    if (!current || !quiz) return;
+    quizBtn.disabled = true;
+    const box = document.getElementById("quiz-results");
+    box.innerHTML = "";
+    try {
+      const r = await quiz.grade();          // {ok, score, total, html, answer}
+      let html =
+        '<div class="result-head ' + (r.ok ? "pass" : "fail") + '">' +
+        '<div class="score">' + r.score + "/" + r.total + "</div>" +
+        '<div class="msg">' + (r.ok
+          ? "ถูกต้อง เยี่ยม! +" + (current.points || 0) + " pts"
+          : (r.message || "ยังไม่ถูก ลองใหม่อีกครั้ง")) + "</div></div>" + (r.html || "");
+      box.innerHTML = html;
+      S.math(box);
+      finish(r.ok, r.score, r.total, JSON.stringify(r.answer));
+    } catch (err) {
+      box.innerHTML = '<div class="result-head fail"><div class="msg">ตรวจไม่ได้: ' + S.esc(err.message) + "</div></div>";
+    } finally {
+      quizBtn.disabled = false;
+    }
+  };
+  document.getElementById("quiz-reset").onclick = () => {
+    if (!quiz) return;
+    if (!confirm("ล้างคำตอบข้อนี้แล้วเริ่มใหม่?")) return;
+    quiz.reset();
+    document.getElementById("quiz-results").innerHTML = "";
+  };
+
+  /* ---------------- shared: record the outcome ---------------- */
+  function finish(passed, score, total, answerText) {
+    const wasSolved = solved.has(current.slug);
+    if (passed) solved.add(current.slug);
+    save(passed, score, total, answerText);
+    if (passed && !wasSolved) {
+      refreshPoints();
+      S.toast("ผ่านแล้ว! +" + (current.points || 0) + " คะแนน 🎉", "ok");
+    }
+    renderPath();
+  }
+
+  async function save(passed, score, total, code) {
+    const { error } = await S.sb.from("attempts").insert({
+      user_id: ctx.user.id, email: ctx.email, full_name: ctx.name,
+      week_no: week.week_no, problem_id: current.slug, level: current.level,
+      passed: passed, score: score, total_tests: total, code: code
+    });
+    if (error) S.toast("บันทึกครั้งนี้ไม่สำเร็จ: " + error.message, "err");
+  }
+})();
+</script>
+</body>
+</html>

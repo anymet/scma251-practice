@@ -1,0 +1,1746 @@
+{
+ "weeks": [
+  {
+   "week_no": 21,
+   "display_no": 21,
+   "label": "2.1",
+   "chapter": 2,
+   "title": "ปริภูมิเวกเตอร์ (Vector space)",
+   "subtitle": "field, สัจพจน์ VS1–VS10, ตัวอย่างการตรวจสอบ",
+   "sort_order": 21,
+   "is_open": false
+  },
+  {
+   "week_no": 22,
+   "display_no": 22,
+   "label": "2.2",
+   "chapter": 2,
+   "title": "ปริภูมิย่อย (Subspace)",
+   "subtitle": "ทฤษฎี 2.2.1–2.2.3 และการตรวจสอบเซตย่อย",
+   "sort_order": 22,
+   "is_open": false
+  },
+  {
+   "week_no": 23,
+   "display_no": 23,
+   "label": "2.3",
+   "chapter": 2,
+   "title": "การเป็นอิสระเชิงเส้น (Linear independence)",
+   "subtitle": "linear combination, span, dependent / independent",
+   "sort_order": 23,
+   "is_open": false
+  },
+  {
+   "week_no": 24,
+   "display_no": 24,
+   "label": "2.4",
+   "chapter": 2,
+   "title": "ฐานหลักและมิติ (Basis and dimension)",
+   "subtitle": "basis, dimension, coordinate vector",
+   "sort_order": 24,
+   "is_open": false
+  },
+  {
+   "week_no": 25,
+   "display_no": 25,
+   "label": "2.5",
+   "chapter": 2,
+   "title": "ผลคูณภายใน (Inner product)",
+   "subtitle": "นิยาม สัจพจน์ของ inner product, norm",
+   "sort_order": 25,
+   "is_open": false
+  },
+  {
+   "week_no": 26,
+   "display_no": 26,
+   "label": "2.6",
+   "chapter": 2,
+   "title": "มุมและการตั้งฉากใน inner product space",
+   "subtitle": "Cauchy–Schwarz, มุมระหว่างเวกเตอร์",
+   "sort_order": 26,
+   "is_open": false
+  },
+  {
+   "week_no": 27,
+   "display_no": 27,
+   "label": "2.7",
+   "chapter": 2,
+   "title": "การตั้งฉาก (Orthogonality)",
+   "subtitle": "orthogonal / orthonormal set, orthogonal complement",
+   "sort_order": 27,
+   "is_open": false
+  },
+  {
+   "week_no": 28,
+   "display_no": 28,
+   "label": "2.8",
+   "chapter": 2,
+   "title": "กระบวนการ Gram–Schmidt",
+   "subtitle": "สร้าง orthonormal basis, QR",
+   "sort_order": 28,
+   "is_open": false
+  },
+  {
+   "week_no": 31,
+   "display_no": 31,
+   "label": "3.1",
+   "chapter": 3,
+   "title": "ดีเทอร์มิแนนต์ (Determinant)",
+   "subtitle": "cofactor expansion, det ของผลคูณ, row operations",
+   "sort_order": 31,
+   "is_open": false
+  },
+  {
+   "week_no": 32,
+   "display_no": 32,
+   "label": "3.2",
+   "chapter": 3,
+   "title": "ค่าลักษณะเฉพาะ (Eigenvalues)",
+   "subtitle": "characteristic polynomial",
+   "sort_order": 32,
+   "is_open": false
+  },
+  {
+   "week_no": 33,
+   "display_no": 33,
+   "label": "3.3",
+   "chapter": 3,
+   "title": "เวกเตอร์ลักษณะเฉพาะ (Eigenvectors)",
+   "subtitle": "eigenspace, การหา eigenvector",
+   "sort_order": 33,
+   "is_open": false
+  },
+  {
+   "week_no": 34,
+   "display_no": 34,
+   "label": "3.4",
+   "chapter": 3,
+   "title": "ค่าลักษณะเฉพาะซ้ำ (Repeated eigenvalues)",
+   "subtitle": "algebraic / geometric multiplicity, defective matrix",
+   "sort_order": 34,
+   "is_open": false
+  },
+  {
+   "week_no": 35,
+   "display_no": 35,
+   "label": "3.5",
+   "chapter": 3,
+   "title": "การทำเป็นเมทริกซ์ทแยงมุม (Diagonalization)",
+   "subtitle": "A = PDP⁻¹, เงื่อนไขการ diagonalize ได้",
+   "sort_order": 35,
+   "is_open": false
+  },
+  {
+   "week_no": 36,
+   "display_no": 36,
+   "label": "3.6",
+   "chapter": 3,
+   "title": "รูปแบบจอร์แดน (Jordan form)",
+   "subtitle": "generalized eigenvector, Jordan block",
+   "sort_order": 36,
+   "is_open": false
+  },
+  {
+   "week_no": 41,
+   "display_no": 41,
+   "label": "4.1",
+   "chapter": 4,
+   "title": "การแปลงเชิงเส้น (Linear transformation)",
+   "subtitle": "นิยาม การตรวจสอบความเป็นเชิงเส้น เมทริกซ์มาตรฐาน",
+   "sort_order": 41,
+   "is_open": false
+  },
+  {
+   "week_no": 42,
+   "display_no": 42,
+   "label": "4.2",
+   "chapter": 4,
+   "title": "เคอร์เนลและเรนจ์ (Kernel and range)",
+   "subtitle": "nullity, rank, rank–nullity theorem",
+   "sort_order": 42,
+   "is_open": false
+  },
+  {
+   "week_no": 43,
+   "display_no": 43,
+   "label": "4.3",
+   "chapter": 4,
+   "title": "onto, one-to-one และการแปลงประกอบ",
+   "subtitle": "isomorphism, composition",
+   "sort_order": 43,
+   "is_open": false
+  },
+  {
+   "week_no": 44,
+   "display_no": 44,
+   "label": "4.4",
+   "chapter": 4,
+   "title": "การเปลี่ยนฐานหลัก (Change of basis)",
+   "subtitle": "coordinate map, transition matrix, similar matrices",
+   "sort_order": 44,
+   "is_open": false
+  }
+ ],
+ "problems": [
+  {
+   "week_no": 21,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · เลือกตอบ · หาจุดผิด",
+   "slug": "s21-cloze-axioms",
+   "title": "สัจพจน์ของ vector space",
+   "statement": "เติมสัจพจน์ให้ครบตามนิยาม 2.1.1 ($V$ พร้อมตัวดำเนินการ $\\oplus$ และ $\\odot$ บน field $F$)",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>สัจพจน์การปิด (closure)</b> — ปิดภายใต้การบวก: {{1}} และปิดภายใต้การคูณด้วยสเกลาร์: {{2}}</p><p><b>สัจพจน์การบวก</b> — VS5: มีสมาชิก $\\mathbf{0}\\in V$ (additive identity) ซึ่ง {{3}} และ VS6: สำหรับแต่ละ $\\mathbf{v}\\in V$ จะมี $-\\mathbf{v}\\in V$ ซึ่ง {{4}}</p><p><b>สัจพจน์การคูณด้วยสเกลาร์</b> — VS7: $(\\alpha+\\beta)\\odot\\mathbf{v}=$ {{5}} &nbsp; VS9: $(\\alpha\\cdot\\beta)\\odot\\mathbf{v}=$ {{6}} &nbsp; VS10: {{7}}</p>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$\\mathbf{u}\\oplus\\mathbf{v}\\in V$",
+       "$\\mathbf{u}\\oplus\\mathbf{v}=\\mathbf{v}\\oplus\\mathbf{u}$",
+       "$\\mathbf{u}\\oplus\\mathbf{v}\\in F$"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$\\alpha\\odot\\mathbf{v}\\in F$",
+       "$\\alpha\\odot\\mathbf{v}\\in V$",
+       "$\\alpha\\cdot\\beta\\in F$"
+      ],
+      "answer": 1
+     },
+     "3": {
+      "choices": [
+       "$\\mathbf{v}\\oplus\\mathbf{0}=\\mathbf{v}$ สำหรับทุก $\\mathbf{v}\\in V$",
+       "$0\\odot\\mathbf{v}=\\mathbf{0}$ สำหรับทุก $\\mathbf{v}\\in V$",
+       "$\\mathbf{0}\\oplus\\mathbf{0}=\\mathbf{0}$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "$\\mathbf{v}\\oplus(-\\mathbf{v})=\\mathbf{0}$",
+       "$(-1)\\odot\\mathbf{v}=-\\mathbf{v}$",
+       "$-\\mathbf{v}=\\mathbf{0}\\oplus\\mathbf{v}$"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "$\\alpha\\odot(\\beta\\odot\\mathbf{v})$",
+       "$(\\alpha\\odot\\mathbf{v})\\oplus(\\beta\\odot\\mathbf{v})$",
+       "$(\\alpha\\odot\\mathbf{v})\\odot(\\beta\\odot\\mathbf{v})$"
+      ],
+      "answer": 1
+     },
+     "6": {
+      "choices": [
+       "$(\\alpha\\odot\\mathbf{v})\\oplus(\\beta\\odot\\mathbf{v})$",
+       "$\\alpha\\odot(\\beta\\odot\\mathbf{v})$",
+       "$(\\alpha\\odot\\mathbf{v})\\cdot(\\beta\\odot\\mathbf{v})$"
+      ],
+      "answer": 1
+     },
+     "7": {
+      "choices": [
+       "$0\\odot\\mathbf{v}=\\mathbf{0}$",
+       "$1\\odot\\mathbf{v}=\\mathbf{v}$",
+       "$\\mathbf{v}\\odot 1=\\mathbf{v}$"
+      ],
+      "answer": 1
+     }
+    },
+    "hint": "VS7 คือการกระจายสเกลาร์สองตัวไปยังเวกเตอร์ตัวเดียว ส่วน VS9 คือการคูณสเกลาร์สองตัวซ้อนกัน",
+    "explain": "สังเกตว่าคำตอบทางขวาของ VS7 ใช้ $\\oplus$ (บวกเวกเตอร์) แต่ทางซ้ายใช้ $+$ (บวกสเกลาร์ใน $F$) — เป็นการดำเนินการต่างชนิดกัน"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · เลือกตอบ · หาจุดผิด",
+   "slug": "s21-mcq-field",
+   "title": "เซตใดเป็น field",
+   "statement": "พิจารณาเซตต่อไปนี้พร้อมการบวกและการคูณตามปกติ ข้อใดเป็น <b>field</b> (สมบัติ A1–A4, M1–M4, D เป็นจริงทั้งหมด)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\mathbb{R}$ เซตจำนวนจริง",
+     "$\\mathbb{Z}$ เซตจำนวนเต็ม",
+     "$\\mathbb{Q}$ เซตจำนวนตรรกยะ",
+     "$\\mathbb{C}$ เซตจำนวนเชิงซ้อน",
+     "$\\mathbb{N}$ เซตจำนวนนับ"
+    ],
+    "answer": [
+     0,
+     2,
+     3
+    ],
+    "explain": "$\\mathbb{Z}$ ไม่เป็น field เพราะ $2\\in\\mathbb{Z}$ แต่ตัวผกผันการคูณ $\\tfrac12\\notin\\mathbb{Z}$ (M4 ไม่จริง) ส่วน $\\mathbb{N}$ ไม่มีแม้แต่ตัวผกผันการบวก (A4)",
+    "hint": "ลองหาตัวผกผันการคูณของ 2 ในแต่ละเซต"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · เลือกตอบ · หาจุดผิด",
+   "slug": "s21-spot-zero-u",
+   "title": "หาจุดผิดในการพิสูจน์ $0\\mathbf{u}=\\mathbf{0}$",
+   "statement": "การพิสูจน์ทฤษฎี 2.1.2 ข้อ 1 ($0\\mathbf{u}=\\mathbf{0}$ สำหรับทุก $\\mathbf{u}\\in V$) ด้านล่างมี<b>หนึ่งบรรทัด</b>ที่อ้างเหตุผลผิด คลิกบรรทัดนั้นแล้วเลือกว่าผิดเพราะอะไร",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "$0\\mathbf{u}+0\\mathbf{u}=(0+0)\\mathbf{u}$ &nbsp;(VS7)",
+     "$(0+0)\\mathbf{u}=0\\mathbf{u}$ &nbsp;(สมบัติ A3 ของ field: $0+0=0$) ดังนั้น $0\\mathbf{u}+0\\mathbf{u}=0\\mathbf{u}$",
+     "โดย VS6 เวกเตอร์ $0\\mathbf{u}$ มีตัวผกผันการบวก $-0\\mathbf{u}$ นำมาบวกทั้งสองข้าง: $(0\\mathbf{u}+0\\mathbf{u})+(-0\\mathbf{u})=0\\mathbf{u}+(-0\\mathbf{u})$",
+     "ใช้ VS3 (การสลับที่) กับข้างซ้าย: $0\\mathbf{u}+\\big(0\\mathbf{u}+(-0\\mathbf{u})\\big)=0\\mathbf{u}+(-0\\mathbf{u})$",
+     "$0\\mathbf{u}+\\mathbf{0}=\\mathbf{0}$ &nbsp;(VS6)",
+     "$0\\mathbf{u}=\\mathbf{0}$ &nbsp;(VS5) ∎"
+    ],
+    "wrong": 3,
+    "reasons": [
+     "สิ่งที่ทำจริงคือ<b>จัดกลุ่มใหม่</b> $(a+b)+c=a+(b+c)$ ต้องอ้าง VS4 (การจัดกลุ่ม) ไม่ใช่ VS3",
+     "สมบัติของ field ($0+0=0$) ใช้กับเวกเตอร์ไม่ได้",
+     "ตัวผกผันการบวกของ $0\\mathbf{u}$ ควรเป็น $-\\mathbf{u}$ ไม่ใช่ $-0\\mathbf{u}$",
+     "ข้างขวาควรเป็น $\\mathbf{0}$ ตั้งแต่บรรทัดนี้"
+    ],
+    "reason_answer": 0,
+    "explain": "บรรทัดที่ 4 เปลี่ยน $(a+b)+c$ เป็น $a+(b+c)$ ซึ่งคือ VS4 (associativity) — VS3 (commutativity) ใช้สลับ<i>ลำดับ</i>ของสองพจน์ ไม่ใช่ย้ายวงเล็บ",
+    "hint": "ดูว่าบรรทัดไหน 'ย้ายวงเล็บ' แล้วเทียบกับชื่อสัจพจน์ที่อ้าง"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s21-order-neg-neg",
+   "title": "พิสูจน์ $-(-\\mathbf{u})=\\mathbf{u}$ (ทฤษฎี 2.1.1)",
+   "statement": "ให้ $V$ เป็น vector space และ $\\mathbf{u}\\in V$ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $-(-\\mathbf{u})=\\mathbf{u}$ โดยใช้สัจพจน์เท่านั้น — มีข้อความ<b>ที่ไม่ควรใช้</b>ปนอยู่ ให้ทิ้งไว้ในกล่องซ้าย",
+   "type": "order",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "โดย VS6 เวกเตอร์ $-\\mathbf{u}$ มีตัวผกผันการบวกคือ $-(-\\mathbf{u})$ นั่นคือ $-\\mathbf{u}+\\big(-(-\\mathbf{u})\\big)=\\mathbf{0}$"
+     },
+     {
+      "id": "b",
+      "text": "นำ $\\mathbf{u}$ มาบวกทางซ้ายของทั้งสองข้าง: $\\mathbf{u}+\\Big[-\\mathbf{u}+\\big(-(-\\mathbf{u})\\big)\\Big]=\\mathbf{u}+\\mathbf{0}$"
+     },
+     {
+      "id": "c",
+      "text": "ใช้ VS4 จัดกลุ่มข้างซ้ายใหม่: $\\big[\\mathbf{u}+(-\\mathbf{u})\\big]+\\big(-(-\\mathbf{u})\\big)=\\mathbf{u}+\\mathbf{0}$"
+     },
+     {
+      "id": "d",
+      "text": "โดย VS6 $\\mathbf{u}+(-\\mathbf{u})=\\mathbf{0}$ และโดย VS5 $\\mathbf{u}+\\mathbf{0}=\\mathbf{u}$ จึงได้ $\\mathbf{0}+\\big(-(-\\mathbf{u})\\big)=\\mathbf{u}$"
+     },
+     {
+      "id": "e",
+      "text": "โดย VS3 และ VS5 $\\mathbf{0}+\\big(-(-\\mathbf{u})\\big)=-(-\\mathbf{u})$ ดังนั้น $-(-\\mathbf{u})=\\mathbf{u}$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "$-(-\\mathbf{u})=(-1)(-1)\\mathbf{u}=1\\mathbf{u}=\\mathbf{u}$ โดยกฎเครื่องหมายลบคูณลบ",
+      "why": "ใช้ $(-1)\\mathbf{u}=-\\mathbf{u}$ ซึ่งเป็นทฤษฎี 2.1.2 ข้อ 3 ที่ยังไม่ได้พิสูจน์ ณ จุดนี้ และ 'ลบคูณลบ' เป็นสมบัติของสเกลาร์ ไม่ใช่ของเวกเตอร์"
+     },
+     {
+      "id": "x2",
+      "text": "หารทั้งสองข้างด้วย $-1$ จะได้ $-\\mathbf{u}=-\\mathbf{u}$",
+      "why": "ใน vector space ไม่มีการ 'หาร' เวกเตอร์ มีแต่การคูณด้วยสเกลาร์ และข้อความนี้ไม่ได้นำไปสู่ผลลัพธ์ที่ต้องการ"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "hint": "เริ่มจากสิ่งที่นิยามให้: $-(-\\mathbf{u})$ คือตัวผกผันของ $-\\mathbf{u}$ แล้ว 'บวก $\\mathbf{u}$' เพื่อกำจัด $-\\mathbf{u}$",
+    "explain": "โครงสร้างการพิสูจน์: เขียนสมการนิยาม → บวกตัวเดียวกันทั้งสองข้าง → ย้ายวงเล็บ (VS4) → ใช้ตัวผกผัน (VS6) และเอกลักษณ์ (VS5) เก็บกวาด"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s21-order-alpha-zero",
+   "title": "พิสูจน์ $\\alpha\\mathbf{0}=\\mathbf{0}$ (ทฤษฎี 2.1.2 ข้อ 2)",
+   "statement": "ให้ $V$ เป็น vector space, $\\mathbf{u}\\in V$ และ $\\alpha$ เป็นสเกลาร์ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $\\alpha\\mathbf{0}=\\mathbf{0}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "$\\alpha\\mathbf{0}+\\alpha\\mathbf{u}=\\alpha(\\mathbf{0}+\\mathbf{u})$ &nbsp;(VS8)"
+     },
+     {
+      "id": "b",
+      "text": "$\\alpha(\\mathbf{0}+\\mathbf{u})=\\alpha\\mathbf{u}$ &nbsp;(VS3 และ VS5: $\\mathbf{0}+\\mathbf{u}=\\mathbf{u}$) ดังนั้น $\\alpha\\mathbf{0}+\\alpha\\mathbf{u}=\\alpha\\mathbf{u}$"
+     },
+     {
+      "id": "c",
+      "text": "โดย VS6 $\\alpha\\mathbf{u}$ มีตัวผกผันการบวก $-\\alpha\\mathbf{u}$ นำมาบวกทั้งสองข้าง: $(\\alpha\\mathbf{0}+\\alpha\\mathbf{u})+(-\\alpha\\mathbf{u})=\\alpha\\mathbf{u}+(-\\alpha\\mathbf{u})$"
+     },
+     {
+      "id": "d",
+      "text": "ใช้ VS4 กับข้างซ้าย: $\\alpha\\mathbf{0}+\\big(\\alpha\\mathbf{u}+(-\\alpha\\mathbf{u})\\big)=\\alpha\\mathbf{u}+(-\\alpha\\mathbf{u})$"
+     },
+     {
+      "id": "e",
+      "text": "$\\alpha\\mathbf{0}+\\mathbf{0}=\\mathbf{0}$ &nbsp;(VS6 ทั้งสองข้าง)"
+     },
+     {
+      "id": "f",
+      "text": "$\\alpha\\mathbf{0}=\\mathbf{0}$ &nbsp;(VS5) ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "$\\alpha\\mathbf{0}=\\alpha\\cdot0=0$ เพราะจำนวนใดคูณศูนย์ก็ได้ศูนย์",
+      "why": "$\\mathbf{0}$ เป็น<b>เวกเตอร์</b>ศูนย์ ไม่ใช่สเกลาร์ $0$ — 'อะไรคูณศูนย์ได้ศูนย์' คือสิ่งที่กำลังพิสูจน์อยู่พอดี (วงกลม)"
+     },
+     {
+      "id": "x2",
+      "text": "หารทั้งสองข้างด้วย $\\alpha$ จะได้ $\\mathbf{0}=\\mathbf{0}$",
+      "why": "ทำไม่ได้เมื่อ $\\alpha=0$ และไม่มีการหารเวกเตอร์ด้วยสเกลาร์ในสัจพจน์"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "hint": "เทคนิคเดียวกับการพิสูจน์ $0\\mathbf{u}=\\mathbf{0}$: สร้างสมการที่ $\\alpha\\mathbf{0}$ ถูกบวกอยู่ แล้วบวกตัวผกผันเพื่อกำจัดพจน์อื่นทิ้ง",
+    "explain": "ทำไมต้องเริ่มด้วย $\\alpha\\mathbf{0}+\\alpha\\mathbf{u}$? เพราะ VS8 คือสัจพจน์เดียวที่ 'ดึง' $\\alpha$ ออกจากผลบวกของเวกเตอร์ได้ ทำให้ $\\mathbf{0}$ หายไปในวงเล็บ"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s21-order-minus-one",
+   "title": "พิสูจน์ $(-1)\\mathbf{u}=-\\mathbf{u}$ (ทฤษฎี 2.1.2 ข้อ 3)",
+   "statement": "ให้ $V$ เป็น vector space และ $\\mathbf{u}\\in V$ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $(-1)\\mathbf{u}=-\\mathbf{u}$ โดยใช้ผลจากข้อ 1 ของทฤษฎีเดียวกัน ($0\\mathbf{u}=\\mathbf{0}$) ได้",
+   "type": "order",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "เป้าหมาย: แสดงว่า $\\mathbf{u}+(-1)\\mathbf{u}=\\mathbf{0}$ เพราะถ้าจริง $(-1)\\mathbf{u}$ ก็คือตัวผกผันการบวกของ $\\mathbf{u}$"
+     },
+     {
+      "id": "b",
+      "text": "$\\mathbf{u}+(-1)\\mathbf{u}=1\\mathbf{u}+(-1)\\mathbf{u}$ &nbsp;(VS10)"
+     },
+     {
+      "id": "c",
+      "text": "$1\\mathbf{u}+(-1)\\mathbf{u}=\\big(1+(-1)\\big)\\mathbf{u}$ &nbsp;(VS7)"
+     },
+     {
+      "id": "d",
+      "text": "$\\big(1+(-1)\\big)\\mathbf{u}=0\\mathbf{u}$ &nbsp;(สมบัติ A4 ของ field)"
+     },
+     {
+      "id": "e",
+      "text": "$0\\mathbf{u}=\\mathbf{0}$ &nbsp;(ทฤษฎี 2.1.2 ข้อ 1)"
+     },
+     {
+      "id": "f",
+      "text": "ดังนั้น $\\mathbf{u}+(-1)\\mathbf{u}=\\mathbf{0}$ จึงได้ $(-1)\\mathbf{u}=-\\mathbf{u}$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "$(-1)\\mathbf{u}=-(1\\mathbf{u})=-\\mathbf{u}$ โดยการดึงเครื่องหมายลบออกมาหน้าเวกเตอร์",
+      "why": "'ดึงเครื่องหมายลบออกมา' คือข้อความที่กำลังพิสูจน์อยู่พอดี ใช้เป็นเหตุผลไม่ได้"
+     },
+     {
+      "id": "x2",
+      "text": "$1\\mathbf{u}+(-1)\\mathbf{u}=\\big(1\\cdot(-1)\\big)\\mathbf{u}$ &nbsp;(VS9)",
+      "why": "VS9 ใช้กับ<i>การคูณสเกลาร์ซ้อนกัน</i> $(\\alpha\\beta)\\mathbf{u}=\\alpha(\\beta\\mathbf{u})$ ไม่ใช่กับผลบวกของสองพจน์ — ที่ต้องใช้คือ VS7"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "hint": "แทน $\\mathbf{u}$ ด้วย $1\\mathbf{u}$ ก่อน จะได้สเกลาร์สองตัวหน้าเวกเตอร์ตัวเดียวกัน แล้ว VS7 จะรวมได้",
+    "explain": "จุดสำคัญคือ 'ตัวผกผันการบวกมีเพียงตัวเดียว' ดังนั้นถ้าแสดงว่า $\\mathbf{u}+\\mathbf{w}=\\mathbf{0}$ ได้ $\\mathbf{w}$ ก็ต้องเป็น $-\\mathbf{u}$"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "นำสัจพจน์ไปตัดสินตัวอย่างจริง",
+   "slug": "s21-axioms-weird-smul",
+   "title": "ตรวจ 10 สัจพจน์: $\\alpha\\odot(u_1,u_2)=(\\alpha u_1,0)$",
+   "statement": "ให้ $V=\\mathbb{R}^2$ นิยามการบวกตามปกติ $\\mathbf{u}\\oplus\\mathbf{v}=(u_1+v_1,\\,u_2+v_2)$ แต่นิยามการคูณด้วยสเกลาร์แบบไม่ปกติ $$\\alpha\\odot\\mathbf{u}=(\\alpha u_1,\\;0)$$ จงตัดสินทีละสัจพจน์ว่าเป็นจริงหรือไม่ ข้อที่ไม่จริงให้ยกตัวอย่างค้าน (พิมพ์เวกเตอร์เป็น <code>(1, 2)</code> สเกลาร์เป็นตัวเลข) แล้วสรุปว่า $V$ เป็น vector space บน $\\mathbb{R}$ หรือไม่ (ตัวอย่าง 2.1.2)",
+   "type": "axioms",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "setup": "import numpy as np\n# V = R^2 with the usual addition but  a (.) (u1,u2) = (a*u1, 0)\ndef add(u, v):  return np.array([u[0] + v[0], u[1] + v[1]], dtype=float)\ndef smul(a, u): return np.array([a * u[0], 0.0])\ndef in_set(u):  return np.asarray(u).shape == (2,)\nZERO = np.array([0.0, 0.0])\ndef neg(u):     return np.array([-u[0], -u[1]], dtype=float)\n",
+    "items": [
+     {
+      "id": "VS1",
+      "label": "$\\mathbf{u}\\oplus\\mathbf{v}\\in V$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "in_set(add(u, v))"
+     },
+     {
+      "id": "VS2",
+      "label": "$\\alpha\\odot\\mathbf{u}\\in V$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "in_set(smul(a, u))"
+     },
+     {
+      "id": "VS3",
+      "label": "$\\mathbf{u}\\oplus\\mathbf{v}=\\mathbf{v}\\oplus\\mathbf{u}$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "eq(add(u, v), add(v, u))"
+     },
+     {
+      "id": "VS4",
+      "label": "$(\\mathbf{u}\\oplus\\mathbf{v})\\oplus\\mathbf{w}=\\mathbf{u}\\oplus(\\mathbf{v}\\oplus\\mathbf{w})$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v",
+       "w"
+      ],
+      "check": "eq(add(add(u, v), w), add(u, add(v, w)))"
+     },
+     {
+      "id": "VS5",
+      "label": "มี $\\mathbf{0}\\in V$ ที่ $\\mathbf{u}\\oplus\\mathbf{0}=\\mathbf{u}$ ทุก $\\mathbf{u}$ &nbsp;<small>(ถ้าตอบไม่ผ่าน ให้ $\\mathbf{u}$ ที่ $\\mathbf{u}\\oplus(0,0)\\neq\\mathbf{u}$)</small>",
+      "holds": true,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(add(u, ZERO), u)"
+     },
+     {
+      "id": "VS6",
+      "label": "ทุก $\\mathbf{u}$ มี $-\\mathbf{u}\\in V$ ที่ $\\mathbf{u}\\oplus(-\\mathbf{u})=\\mathbf{0}$ &nbsp;<small>(ตัวผกผันที่ทดสอบคือ $(-u_1,-u_2)$)</small>",
+      "holds": true,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(add(u, neg(u)), ZERO)"
+     },
+     {
+      "id": "VS7",
+      "label": "$(\\alpha+\\beta)\\odot\\mathbf{u}=(\\alpha\\odot\\mathbf{u})\\oplus(\\beta\\odot\\mathbf{u})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "b",
+       "u"
+      ],
+      "scalars": [
+       "a",
+       "b"
+      ],
+      "check": "eq(smul(a + b, u), add(smul(a, u), smul(b, u)))"
+     },
+     {
+      "id": "VS8",
+      "label": "$\\alpha\\odot(\\mathbf{u}\\oplus\\mathbf{v})=(\\alpha\\odot\\mathbf{u})\\oplus(\\alpha\\odot\\mathbf{v})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u",
+       "v"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "eq(smul(a, add(u, v)), add(smul(a, u), smul(a, v)))"
+     },
+     {
+      "id": "VS9",
+      "label": "$(\\alpha\\beta)\\odot\\mathbf{u}=\\alpha\\odot(\\beta\\odot\\mathbf{u})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "b",
+       "u"
+      ],
+      "scalars": [
+       "a",
+       "b"
+      ],
+      "check": "eq(smul(a * b, u), smul(a, smul(b, u)))"
+     },
+     {
+      "id": "VS10",
+      "label": "$1\\odot\\mathbf{u}=\\mathbf{u}$",
+      "holds": false,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(smul(1, u), u)"
+     }
+    ],
+    "verdict": false,
+    "hint": "การคูณแบบนี้ 'ทิ้ง' ส่วนประกอบที่สองเสมอ — สัจพจน์ข้อไหนที่ผลลัพธ์ต้องกลับมาเป็น $\\mathbf{u}$ ตัวเดิม?",
+    "explain": "มีเพียง VS10 ที่พัง: $1\\odot(u_1,u_2)=(u_1,0)\\neq(u_1,u_2)$ เมื่อ $u_2\\neq0$ — สัจพจน์เดียวก็พอที่จะทำให้ $V$ ไม่เป็น vector space สังเกตว่า VS7–VS9 ยังจริงอยู่ เพราะทั้งสองข้างของสมการมีศูนย์ในตำแหน่งที่สองเหมือนกัน"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "นำสัจพจน์ไปตัดสินตัวอย่างจริง",
+   "slug": "s21-axioms-shift-add",
+   "title": "ตรวจ 10 สัจพจน์: การบวกแบบเลื่อน (แบบฝึกหัด 2.1 ข้อ 1)",
+   "statement": "ให้ $V=\\mathbb{R}^2$ นิยาม $$\\begin{pmatrix}x_1\\\\y_1\\end{pmatrix}\\oplus\\begin{pmatrix}x_2\\\\y_2\\end{pmatrix}=\\begin{pmatrix}x_1+x_2+1\\\\y_1+y_2\\end{pmatrix},\\qquad \\alpha*\\begin{pmatrix}x\\\\y\\end{pmatrix}=\\begin{pmatrix}\\alpha x+\\alpha-1\\\\ \\alpha y\\end{pmatrix}$$ จงตัดสินทีละสัจพจน์ (ข้อที่คิดว่าไม่จริงให้ยกตัวอย่างค้าน) แล้วสรุปว่า $V$ เป็น vector space หรือไม่ <br><small>ข้อสังเกต: เอกลักษณ์การบวกของ $V$ นี้ไม่ใช่ $(0,0)$ — ลองแก้สมการ $\\mathbf{u}\\oplus\\mathbf{z}=\\mathbf{u}$ ดู</small>",
+   "type": "axioms",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "setup": "import numpy as np\n# V = R^2,  (x1,y1) (+) (x2,y2) = (x1+x2+1, y1+y2),   a (*) (x,y) = (a*x + a - 1, a*y)\ndef add(u, v):  return np.array([u[0] + v[0] + 1, u[1] + v[1]], dtype=float)\ndef smul(a, u): return np.array([a * u[0] + a - 1, a * u[1]], dtype=float)\ndef in_set(u):  return np.asarray(u).shape == (2,)\nZERO = np.array([-1.0, 0.0])\ndef neg(u):     return np.array([-u[0] - 2, -u[1]], dtype=float)\n",
+    "items": [
+     {
+      "id": "VS1",
+      "label": "$\\mathbf{u}\\oplus\\mathbf{v}\\in V$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "in_set(add(u, v))"
+     },
+     {
+      "id": "VS2",
+      "label": "$\\alpha\\odot\\mathbf{u}\\in V$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "in_set(smul(a, u))"
+     },
+     {
+      "id": "VS3",
+      "label": "$\\mathbf{u}\\oplus\\mathbf{v}=\\mathbf{v}\\oplus\\mathbf{u}$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "eq(add(u, v), add(v, u))"
+     },
+     {
+      "id": "VS4",
+      "label": "$(\\mathbf{u}\\oplus\\mathbf{v})\\oplus\\mathbf{w}=\\mathbf{u}\\oplus(\\mathbf{v}\\oplus\\mathbf{w})$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v",
+       "w"
+      ],
+      "check": "eq(add(add(u, v), w), add(u, add(v, w)))"
+     },
+     {
+      "id": "VS5",
+      "label": "มี $\\mathbf{0}\\in V$ ที่ $\\mathbf{u}\\oplus\\mathbf{0}=\\mathbf{u}$ ทุก $\\mathbf{u}$ &nbsp;<small>(เอกลักษณ์ที่ทดสอบคือ $(-1,0)$ — ลองคิดว่าทำไมไม่ใช่ $(0,0)$)</small>",
+      "holds": true,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(add(u, ZERO), u)"
+     },
+     {
+      "id": "VS6",
+      "label": "ทุก $\\mathbf{u}$ มี $-\\mathbf{u}\\in V$ ที่ $\\mathbf{u}\\oplus(-\\mathbf{u})=\\mathbf{0}$ &nbsp;<small>(ตัวผกผันที่ทดสอบคือ $(-x-2,\\,-y)$)</small>",
+      "holds": true,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(add(u, neg(u)), ZERO)"
+     },
+     {
+      "id": "VS7",
+      "label": "$(\\alpha+\\beta)\\odot\\mathbf{u}=(\\alpha\\odot\\mathbf{u})\\oplus(\\beta\\odot\\mathbf{u})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "b",
+       "u"
+      ],
+      "scalars": [
+       "a",
+       "b"
+      ],
+      "check": "eq(smul(a + b, u), add(smul(a, u), smul(b, u)))"
+     },
+     {
+      "id": "VS8",
+      "label": "$\\alpha\\odot(\\mathbf{u}\\oplus\\mathbf{v})=(\\alpha\\odot\\mathbf{u})\\oplus(\\alpha\\odot\\mathbf{v})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u",
+       "v"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "eq(smul(a, add(u, v)), add(smul(a, u), smul(a, v)))"
+     },
+     {
+      "id": "VS9",
+      "label": "$(\\alpha\\beta)\\odot\\mathbf{u}=\\alpha\\odot(\\beta\\odot\\mathbf{u})$",
+      "holds": true,
+      "vars": [
+       "a",
+       "b",
+       "u"
+      ],
+      "scalars": [
+       "a",
+       "b"
+      ],
+      "check": "eq(smul(a * b, u), smul(a, smul(b, u)))"
+     },
+     {
+      "id": "VS10",
+      "label": "$1\\odot\\mathbf{u}=\\mathbf{u}$",
+      "holds": true,
+      "vars": [
+       "u"
+      ],
+      "check": "eq(smul(1, u), u)"
+     }
+    ],
+    "verdict": true,
+    "hint": "ลองคำนวณ VS7 ตรง ๆ: ข้างซ้าย $(\\alpha+\\beta)x+(\\alpha+\\beta)-1$ ข้างขวา $(\\alpha x+\\alpha-1)+(\\beta x+\\beta-1)+1$ — เท่ากันไหม?",
+    "explain": "เป็น vector space จริง ๆ ทั้งที่ตัวดำเนินการดูแปลก: เอกลักษณ์การบวกคือ $(-1,0)$ และ $-(x,y)=(-x-2,\\,-y)$ บทเรียนคือ $\\mathbf{0}$ ในนิยามหมายถึง 'ตัวที่บวกแล้วไม่เปลี่ยน' ไม่จำเป็นต้องเป็นเวกเตอร์ที่มีส่วนประกอบเป็นศูนย์"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "นำสัจพจน์ไปตัดสินตัวอย่างจริง",
+   "slug": "s21-cloze-rplus",
+   "title": "$V=\\mathbb{R}^+$ กับ $u\\oplus v=uv$, $\\alpha\\odot u=u^\\alpha$",
+   "statement": "ให้ $V=\\mathbb{R}^+$ (จำนวนจริงบวก) นิยาม $u\\oplus v=uv$ และ $\\alpha\\odot u=u^{\\alpha}$ (ตัวอย่าง 2.1.3) ซึ่งเป็น vector space บน $\\mathbb{R}$ จงเติมให้ถูก",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "text": "<p>เอกลักษณ์การบวก $\\mathbf{0}$ ของ $V$ คือ {{1}} เพราะ $u\\oplus\\mathbf{0}=u$ ต้องเป็นจริงทุก $u>0$</p><p>ตัวผกผันการบวกของ $u$ คือ {{2}} เพราะ $u\\oplus(-u)$ ต้องเท่ากับ $\\mathbf{0}$</p><p>สัจพจน์ VS7 ในปริภูมินี้คือสมการ {{3}} ซึ่งเป็นจริงโดยกฎเลขยกกำลัง</p><p>สัจพจน์ VS8 คือ {{4}}</p><p>ผลลัพธ์ $(-2)\\odot 3$ มีค่าเท่ากับ {{5}} ซึ่งยังอยู่ใน $V$ (VS2)</p>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$0$",
+       "$1$",
+       "$e$",
+       "ไม่มี"
+      ],
+      "answer": 1
+     },
+     "2": {
+      "choices": [
+       "$-u$",
+       "$1/u$",
+       "$1-u$",
+       "$u^2$"
+      ],
+      "answer": 1
+     },
+     "3": {
+      "choices": [
+       "$u^{\\alpha+\\beta}=u^{\\alpha}u^{\\beta}$",
+       "$u^{\\alpha\\beta}=(u^{\\beta})^{\\alpha}$",
+       "$(uv)^{\\alpha}=u^{\\alpha}v^{\\alpha}$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "$u^{\\alpha+\\beta}=u^{\\alpha}u^{\\beta}$",
+       "$u^{\\alpha\\beta}=(u^{\\beta})^{\\alpha}$",
+       "$(uv)^{\\alpha}=u^{\\alpha}v^{\\alpha}$"
+      ],
+      "answer": 2
+     },
+     "5": {
+      "choices": [
+       "$-6$",
+       "$1/9$",
+       "$9$",
+       "$-9$"
+      ],
+      "answer": 1
+     }
+    },
+    "hint": "แปล $\\oplus$ เป็น 'คูณ' และ $\\odot$ เป็น 'ยกกำลัง' ทุกครั้งก่อนอ่านสัจพจน์",
+    "explain": "VS7: $(\\alpha+\\beta)\\odot u=u^{\\alpha+\\beta}$ และ $(\\alpha\\odot u)\\oplus(\\beta\\odot u)=u^{\\alpha}\\cdot u^{\\beta}$ &nbsp; VS8: $\\alpha\\odot(u\\oplus v)=(uv)^{\\alpha}$ และ $(\\alpha\\odot u)\\oplus(\\alpha\\odot v)=u^{\\alpha}v^{\\alpha}$"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "นำสัจพจน์ไปตัดสินตัวอย่างจริง",
+   "slug": "s21-mcq-examples",
+   "title": "เซตใดเป็น vector space (ตัวดำเนินการปกติ)",
+   "statement": "พิจารณาเซตต่อไปนี้พร้อมการบวกและการคูณด้วยสเกลาร์ตามปกติของแต่ละชนิด ข้อใดเป็น vector space บน $\\mathbb{R}$ (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\{\\mathbf{0}\\}$ เซตที่มีเวกเตอร์ศูนย์ตัวเดียว",
+     "$\\mathbb{R}^n$",
+     "$\\mathbb{R}^{m\\times n}$ เซตของเมทริกซ์ขนาด $m\\times n$",
+     "$F(-\\infty,\\infty)$ เซตของฟังก์ชันค่าจริงบน $\\mathbb{R}$",
+     "$\\left\\{(x,y,z)\\in\\mathbb{R}^3 \\;\\middle|\\; x+y=0,\\ z=1\\right\\}$",
+     "$\\mathbb{R}^+$ จำนวนจริงบวก พร้อมการบวกและการคูณด้วยสเกลาร์<b>ตามปกติ</b>"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "เซตในข้อ 5 ไม่มีเวกเตอร์ศูนย์ $(0,0,0)$ (เพราะ $z=1$) และไม่ปิดภายใต้การบวก ($z$ กลายเป็น 2) ส่วน $\\mathbb{R}^+$ กับตัวดำเนินการปกติ: $(-1)\\cdot 3=-3\\notin\\mathbb{R}^+$ (VS2 พัง) และไม่มี $0$ ในเซต — ต่างจากตัวอย่าง 2.1.3 ที่ใช้ตัวดำเนินการแบบไม่ปกติแล้วกลายเป็น vector space ได้",
+    "hint": "ถามสองคำถามเร็ว ๆ กับทุกเซต: มีเวกเตอร์ศูนย์ไหม? คูณด้วยสเกลาร์ลบแล้วยังอยู่ในเซตไหม?"
+   }
+  },
+  {
+   "week_no": 21,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "ตรวจสัจพจน์ด้วย numpy",
+   "slug": "s21-code-check-vs10",
+   "title": "ตรวจ VS10 ทีละเวกเตอร์",
+   "statement": "เขียนฟังก์ชัน <code>check_vs10(smul, vectors)</code> รับฟังก์ชันคูณด้วยสเกลาร์ <code>smul(a, u)</code> และลิสต์ของเวกเตอร์ แล้วคืน<b>ลิสต์ของ bool</b> ว่า $1\\odot\\mathbf{u}=\\mathbf{u}$ เป็นจริงสำหรับเวกเตอร์แต่ละตัวหรือไม่ (ตามลำดับ) ใช้ <code>np.allclose</code> ในการเทียบ — ฟังก์ชัน <code>smul_usual</code>, <code>smul_drop2</code> (จากตัวอย่าง 2.1.2) และ <code>smul_keep2</code> ถูกนิยามไว้ให้แล้ว",
+   "type": "code",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "check_vs10",
+   "setup_code": "import numpy as np\n\n# การคูณด้วยสเกลาร์แบบต่าง ๆ บน R^2 (ทุกตัวรับ (a, u) แล้วคืน numpy array)\ndef smul_usual(a, u):  return a * np.asarray(u, dtype=float)\ndef smul_drop2(a, u):  u = np.asarray(u, dtype=float); return np.array([a * u[0], 0.0])      # ตัวอย่าง 2.1.2\ndef smul_keep2(a, u):  u = np.asarray(u, dtype=float); return np.array([a * u[0], u[1]])\ndef add_usual(u, v):   return np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\ndef add_prod2(u, v):   u, v = np.asarray(u, dtype=float), np.asarray(v, dtype=float); return np.array([u[0] + v[0], u[1] * v[1]])\n",
+   "example": "check_vs10(smul_drop2, [(1, 0), (1, 2)])  ->  [True, False]",
+   "starter_code": "def check_vs10(smul, vectors):\n    # สำหรับแต่ละ u: เทียบ smul(1, u) กับ u ด้วย np.allclose แล้วเก็บผลลง list\n    pass\n",
+   "tests": [
+    {
+     "expr": "check_vs10(smul_drop2, [(1, 0), (1, 2), (0, 0), (3, -5)])",
+     "expected": [
+      true,
+      false,
+      true,
+      false
+     ]
+    },
+    {
+     "expr": "check_vs10(smul_usual, [(1, 2), (-3, 0.5)])",
+     "expected": [
+      true,
+      true
+     ]
+    },
+    {
+     "expr": "check_vs10(smul_keep2, [(1, 2), (0, 7)])",
+     "expected": [
+      true,
+      true
+     ]
+    },
+    {
+     "expr": "check_vs10(smul_drop2, [])",
+     "expected": [],
+     "label": "check_vs10(smul_drop2, [])  (ลิสต์ว่าง)"
+    }
+   ]
+  },
+  {
+   "week_no": 21,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "ตรวจสัจพจน์ด้วย numpy",
+   "slug": "s21-code-failed-axioms",
+   "title": "สัจพจน์ข้อใดพัง?",
+   "statement": "เขียนฟังก์ชัน <code>failed_axioms(add, smul, u, v, w, a, b)</code> ที่ตรวจสัจพจน์แบบสมการ 6 ข้อ VS3, VS4, VS7, VS8, VS9, VS10 กับค่าที่ให้มา แล้วคืน<b>ลิสต์ชื่อสัจพจน์ที่ไม่เป็นจริง</b> เรียงตามลำดับข้างต้น (เช่น <code>[\"VS7\", \"VS10\"]</code>) ใช้ <code>np.allclose</code> เทียบสองข้างของแต่ละสมการ<br>$\\mathbf{u},\\mathbf{v},\\mathbf{w}$ เป็นเวกเตอร์ใน $\\mathbb{R}^2$ และ $a,b$ เป็นสเกลาร์ — ฟังก์ชัน <code>add_usual</code>, <code>add_prod2</code>, <code>smul_usual</code>, <code>smul_drop2</code>, <code>smul_keep2</code> นิยามไว้ให้แล้ว",
+   "type": "code",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "failed_axioms",
+   "setup_code": "import numpy as np\n\n# การคูณด้วยสเกลาร์แบบต่าง ๆ บน R^2 (ทุกตัวรับ (a, u) แล้วคืน numpy array)\ndef smul_usual(a, u):  return a * np.asarray(u, dtype=float)\ndef smul_drop2(a, u):  u = np.asarray(u, dtype=float); return np.array([a * u[0], 0.0])      # ตัวอย่าง 2.1.2\ndef smul_keep2(a, u):  u = np.asarray(u, dtype=float); return np.array([a * u[0], u[1]])\ndef add_usual(u, v):   return np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\ndef add_prod2(u, v):   u, v = np.asarray(u, dtype=float), np.asarray(v, dtype=float); return np.array([u[0] + v[0], u[1] * v[1]])\n",
+   "example": "failed_axioms(add_usual, smul_drop2, (1,2), (3,4), (5,6), 2, 3)  ->  ['VS10']",
+   "starter_code": "def failed_axioms(add, smul, u, v, w, a, b):\n    failed = []\n    # VS3 : add(u, v)  ==  add(v, u)\n    # VS4 : add(add(u, v), w)  ==  add(u, add(v, w))\n    # VS7 : smul(a + b, u)  ==  add(smul(a, u), smul(b, u))\n    # VS8 : smul(a, add(u, v))  ==  add(smul(a, u), smul(a, v))\n    # VS9 : smul(a * b, u)  ==  smul(a, smul(b, u))\n    # VS10: smul(1, u)  ==  u\n    return failed\n",
+   "tests": [
+    {
+     "expr": "failed_axioms(add_usual, smul_usual, (1, 2), (3, 4), (5, 6), 2, 3)",
+     "expected": [],
+     "label": "ตัวดำเนินการปกติ: failed_axioms(add_usual, smul_usual, (1,2), (3,4), (5,6), 2, 3)"
+    },
+    {
+     "expr": "failed_axioms(add_usual, smul_drop2, (1, 2), (3, 4), (5, 6), 2, 3)",
+     "expected": [
+      "VS10"
+     ],
+     "label": "ตัวอย่าง 2.1.2: failed_axioms(add_usual, smul_drop2, (1,2), (3,4), (5,6), 2, 3)"
+    },
+    {
+     "expr": "failed_axioms(add_usual, smul_keep2, (1, 2), (3, 4), (5, 6), 2, 3)",
+     "expected": [
+      "VS7"
+     ],
+     "label": "failed_axioms(add_usual, smul_keep2, (1,2), (3,4), (5,6), 2, 3)"
+    },
+    {
+     "expr": "failed_axioms(add_prod2, smul_usual, (1, 2), (3, 4), (5, 6), 2, 3)",
+     "expected": [
+      "VS7",
+      "VS8"
+     ],
+     "label": "failed_axioms(add_prod2, smul_usual, (1,2), (3,4), (5,6), 2, 3)"
+    },
+    {
+     "expr": "failed_axioms(add_usual, smul_keep2, (1, 0), (3, 0), (5, 0), 2, 3)",
+     "expected": [],
+     "label": "smul_keep2 แต่ส่วนประกอบที่สองเป็น 0 ทั้งหมด: failed_axioms(add_usual, smul_keep2, (1,0), (3,0), (5,0), 2, 3)"
+    }
+   ]
+  },
+  {
+   "week_no": 22,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s22-cloze-thm",
+   "title": "ทฤษฎีการตรวจสอบ subspace",
+   "statement": "ให้ $V$ เป็น vector space บน field $F$ และ $U\\subseteq V$ โดยที่ $U\\neq\\emptyset$ จงเติมข้อความให้ตรงกับทฤษฎี 2.2.1–2.2.3",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>ทฤษฎี 2.2.2</b> &nbsp;$U$ เป็น subspace ของ $V$ ก็ต่อเมื่อ (1) {{1}} สำหรับทุก $\\mathbf{u}_1,\\mathbf{u}_2\\in U$ และ (2) {{2}} สำหรับทุก $\\alpha\\in F$, $\\mathbf{u}\\in U$</p><p><b>ทฤษฎี 2.2.3</b> &nbsp;รวมสองเงื่อนไขเป็นข้อเดียว: {{3}} สำหรับทุก $\\alpha,\\beta\\in F$ และ $\\mathbf{u}_1,\\mathbf{u}_2\\in U$</p><p>เหตุที่ไม่ต้องตรวจ VS3, VS4, VS7–VS10 สำหรับ $U$ เพราะ {{4}}</p><p>เหตุที่เงื่อนไข $\\mathbf{0}\\in U$ ในทฤษฎี 2.2.1 ไม่จำเป็นต้องตรวจแยก เพราะ {{5}}</p>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$\\mathbf{u}_1+\\mathbf{u}_2\\in U$",
+       "$\\mathbf{u}_1+\\mathbf{u}_2=\\mathbf{u}_2+\\mathbf{u}_1$",
+       "$\\mathbf{u}_1+\\mathbf{u}_2\\in V$"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$\\alpha\\mathbf{u}\\in V$",
+       "$1\\mathbf{u}=\\mathbf{u}$",
+       "$\\alpha\\mathbf{u}\\in U$"
+      ],
+      "answer": 2
+     },
+     "3": {
+      "choices": [
+       "$\\alpha\\mathbf{u}_1+\\beta\\mathbf{u}_2\\in U$",
+       "$\\alpha\\mathbf{u}_1+\\beta\\mathbf{u}_2=\\beta\\mathbf{u}_2+\\alpha\\mathbf{u}_1$",
+       "$(\\alpha\\beta)\\mathbf{u}_1\\in U$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "สัจพจน์เหล่านี้เป็นสมการที่จริงสำหรับสมาชิก<i>ทุกตัว</i>ของ $V$ อยู่แล้ว และสมาชิกของ $U$ ก็อยู่ใน $V$",
+       "$U$ ไม่เป็นเซตว่าง",
+       "ทฤษฎีอนุญาตให้ข้ามได้โดยไม่มีเหตุผล"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "เลือก $\\mathbf{u}\\in U$ ใดก็ได้ ($U\\neq\\emptyset$) แล้วเงื่อนไข (2) กับ $\\alpha=0$ ให้ $0\\mathbf{u}=\\mathbf{0}\\in U$",
+       "$\\mathbf{0}\\in V$ เสมอ และ $U\\subseteq V$",
+       "$U$ ต้องมีสมาชิกอย่างน้อยสองตัว"
+      ],
+      "answer": 0
+     }
+    },
+    "hint": "ทฤษฎี 2.2.2 ใช้เพียง 'ปิดภายใต้การบวก' และ 'ปิดภายใต้การคูณด้วยสเกลาร์' ส่วนที่เหลือได้ฟรีจาก $V$",
+    "explain": "แนวคิดหลัก: $U$ 'ยืม' สัจพจน์แบบสมการมาจาก $V$ ได้ทั้งหมด สิ่งเดียวที่อาจพังคือผลลัพธ์ของการดำเนินการ<i>หลุดออกจาก</i> $U$ — จึงเหลือตรวจแค่การปิด"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s22-spot-x2-eq-1",
+   "title": "หาจุดผิด: $U=\\{(x_1,1,x_3,x_4)\\}$ เป็น subspace?",
+   "statement": "การ 'พิสูจน์' ด้านล่างอ้างว่า $U=\\{(x_1,1,x_3,x_4)\\mid x_1,x_3,x_4\\in\\mathbb{R}\\}$ ปิดภายใต้การบวกใน $\\mathbb{R}^4$ มี<b>หนึ่งบรรทัด</b>ที่ผิด คลิกบรรทัดนั้นแล้วเลือกเหตุผล",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "ให้ $\\mathbf{u}_1=(x_1,1,x_3,x_4)$ และ $\\mathbf{u}_2=(y_1,1,y_3,y_4)$ เป็นสมาชิกใด ๆ ของ $U$",
+     "$\\mathbf{u}_1+\\mathbf{u}_2=(x_1+y_1,\\ 2,\\ x_3+y_3,\\ x_4+y_4)$",
+     "ส่วนประกอบทุกตัวของ $\\mathbf{u}_1+\\mathbf{u}_2$ เป็นจำนวนจริง ดังนั้น $\\mathbf{u}_1+\\mathbf{u}_2\\in U$",
+     "ดังนั้น $U$ ปิดภายใต้การบวก (เงื่อนไขข้อ 1 ของทฤษฎี 2.2.2 เป็นจริง)"
+    ],
+    "wrong": 2,
+    "reasons": [
+     "สมาชิกของ $U$ ต้องมีส่วนประกอบที่สองเท่ากับ $1$ <b>พอดี</b> แต่ผลบวกมีส่วนประกอบที่สองเป็น $2$ จึง $\\notin U$",
+     "การบวกเวกเตอร์ใน $\\mathbb{R}^4$ ไม่ได้บวกทีละส่วนประกอบ",
+     "$\\mathbf{u}_1$ และ $\\mathbf{u}_2$ อยู่ใน $U$ พร้อมกันไม่ได้",
+     "ต้องตรวจการคูณด้วยสเกลาร์ก่อนจึงจะตรวจการบวกได้"
+    ],
+    "reason_answer": 0,
+    "explain": "การเป็นสมาชิกของ $U$ มีเงื่อนไขมากกว่า 'ส่วนประกอบเป็นจำนวนจริง' — ต้องตรวจเงื่อนไข<i>ที่นิยาม $U$</i> ทุกครั้ง ทางลัด: $\\mathbf{0}=(0,0,0,0)\\notin U$ ก็สรุปได้เลยว่าไม่เป็น subspace (ทฤษฎี 2.2.1 ข้อ 3)",
+    "hint": "ถามตัวเองว่า 'อยู่ใน $U$' แปลว่าอะไรกันแน่ แล้วดูว่าบรรทัดไหนใช้นิยามนั้นผิด"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s22-mcq-not-subspace",
+   "title": "เหตุผลที่ใช้ได้ว่า $U$ ไม่เป็น subspace",
+   "statement": "ให้ $U=\\{(x,y)\\in\\mathbb{R}^2\\mid x+y=1\\}$ ข้อใดต่อไปนี้เป็น<b>เหตุผลที่ถูกต้องและเพียงพอ</b>ว่า $U$ ไม่เป็น subspace ของ $\\mathbb{R}^2$ (เลือกทุกข้อที่ใช้ได้)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$(0,0)\\notin U$ เพราะ $0+0\\neq1$",
+     "$(1,0),(0,1)\\in U$ แต่ $(1,0)+(0,1)=(1,1)\\notin U$",
+     "$(1,0)\\in U$ แต่ $2(1,0)=(2,0)\\notin U$",
+     "$U$ ไม่เป็นเซตว่าง",
+     "$U$ มีสมาชิกไม่จำกัด"
+    ],
+    "answer": [
+     0,
+     1,
+     2
+    ],
+    "explain": "ตัวอย่างค้าน<i>หนึ่งตัว</i>ต่อเงื่อนไขที่พังก็เพียงพอ: ไม่มีศูนย์ (ทฤษฎี 2.2.1 ข้อ 3) หรือไม่ปิดภายใต้การบวก หรือไม่ปิดภายใต้การคูณ ส่วนการไม่ว่างและการมีสมาชิกไม่จำกัดเป็นสมบัติที่ subspace หลายตัวก็มี จึงไม่บอกอะไร",
+    "hint": "subspace ต้องมี $\\mathbf{0}$ เสมอ — เช็คข้อนี้ก่อนเป็นอันดับแรก"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s22-order-thm222",
+   "title": "พิสูจน์ทฤษฎี 2.2.2 (⇐): ปิดสองอย่าง ⇒ subspace",
+   "statement": "ให้ $U\\neq\\emptyset$ เป็นเซตย่อยของ vector space $V$ สมมติว่า $U$ ปิดภายใต้การบวก (เงื่อนไข 1) และการคูณด้วยสเกลาร์ (เงื่อนไข 2) จงเรียงข้อความให้เป็นการพิสูจน์ว่า $U$ เป็น subspace ของ $V$ โดยอาศัยทฤษฎี 2.2.1 (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "สมมติว่า $U$ ปิดภายใต้การบวกและการคูณด้วยสเกลาร์ (เงื่อนไข 1 และ 2 เป็นจริง)"
+     },
+     {
+      "id": "b",
+      "text": "โดยทฤษฎี 2.2.1 เงื่อนไข 1 และ 2 ครอบคลุมข้อ 1–2 แล้ว จึงเหลือเพียงต้องแสดงว่า $\\mathbf{0}\\in U$"
+     },
+     {
+      "id": "c",
+      "text": "เนื่องจาก $U\\neq\\emptyset$ จึงมี $\\mathbf{u}\\in U$ อย่างน้อยหนึ่งตัว"
+     },
+     {
+      "id": "d",
+      "text": "ใช้เงื่อนไข 2 กับสเกลาร์ $0\\in F$ ได้ว่า $0\\mathbf{u}\\in U$"
+     },
+     {
+      "id": "e",
+      "text": "โดยทฤษฎี 2.1.2 ข้อ 1 $0\\mathbf{u}=\\mathbf{0}$ ดังนั้น $\\mathbf{0}\\in U$"
+     },
+     {
+      "id": "f",
+      "text": "เงื่อนไขทั้งสามข้อของทฤษฎี 2.2.1 เป็นจริง ดังนั้น $U$ เป็น subspace ของ $V$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $\\mathbf{0}\\in V$ และ $U\\subseteq V$ จึงได้ $\\mathbf{0}\\in U$",
+      "why": "การเป็นเซตย่อยบอกว่าสมาชิกของ $U$ อยู่ใน $V$ ไม่ใช่กลับกัน — $\\mathbf{0}$ อยู่ใน $V$ ไม่ได้แปลว่าอยู่ใน $U$"
+     },
+     {
+      "id": "x2",
+      "text": "เนื่องจาก $U$ ไม่เป็นเซตว่าง $U$ จึงต้องมี $\\mathbf{0}$ เป็นสมาชิก",
+      "why": "เซตที่ไม่ว่างอาจไม่มี $\\mathbf{0}$ เลย เช่น $\\{(x,1)\\mid x\\in\\mathbb{R}\\}$ — ความไม่ว่างใช้เพียงเพื่อ 'หยิบ' $\\mathbf{u}$ สักตัวมาคูณด้วย $0$"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "a",
+      "d"
+     ],
+     [
+      "b",
+      "e"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ]
+    ],
+    "hint": "ทฤษฎี 2.2.1 ต้องการ 3 อย่าง ได้มาฟรี 2 อย่างจากสมมติฐาน เหลือหา $\\mathbf{0}$ — จะสร้าง $\\mathbf{0}$ จากสมาชิกที่มีอยู่ได้อย่างไร?",
+    "explain": "หัวใจคือ 'คูณด้วยสเกลาร์ $0$': เงื่อนไข 2 บังคับให้ $0\\mathbf{u}$ อยู่ใน $U$ และทฤษฎี 2.1.2 บอกว่ามันคือ $\\mathbf{0}$ นี่คือเหตุผลที่ต้องมี $U\\neq\\emptyset$ ในทฤษฎี — ไม่งั้นไม่มี $\\mathbf{u}$ ให้คูณ"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s22-order-y5x",
+   "title": "พิสูจน์ว่า $U=\\{(x,5x)\\}$ เป็น subspace ของ $\\mathbb{R}^2$",
+   "statement": "ให้ $U=\\{(x,y)\\in\\mathbb{R}^2\\mid y=5x\\}$ จงเรียงข้อความให้เป็นการพิสูจน์ด้วย<b>ทฤษฎี 2.2.3</b> ว่า $U$ เป็น subspace ของ $\\mathbb{R}^2$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "$U\\neq\\emptyset$ เพราะ $(0,0)=(0,5\\cdot0)\\in U$"
+     },
+     {
+      "id": "b",
+      "text": "ให้ $\\mathbf{u}_1=(x_1,5x_1)$, $\\mathbf{u}_2=(x_2,5x_2)\\in U$ และ $\\alpha,\\beta\\in\\mathbb{R}$"
+     },
+     {
+      "id": "c",
+      "text": "$\\alpha\\mathbf{u}_1+\\beta\\mathbf{u}_2=(\\alpha x_1+\\beta x_2,\\ 5\\alpha x_1+5\\beta x_2)$"
+     },
+     {
+      "id": "d",
+      "text": "$=(z,\\,5z)$ โดยที่ $z=\\alpha x_1+\\beta x_2\\in\\mathbb{R}$"
+     },
+     {
+      "id": "e",
+      "text": "ดังนั้น $\\alpha\\mathbf{u}_1+\\beta\\mathbf{u}_2\\in U$"
+     },
+     {
+      "id": "f",
+      "text": "โดยทฤษฎี 2.2.3 $U$ เป็น subspace ของ $\\mathbb{R}^2$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "ต้องตรวจสัจพจน์ VS1–VS10 ทั้งสิบข้อสำหรับ $U$",
+      "why": "$U\\subseteq\\mathbb{R}^2$ ซึ่งเป็น vector space อยู่แล้ว สัจพจน์แบบสมการจึงเป็นจริงโดยอัตโนมัติ — ทฤษฎี 2.2.3 ให้ตรวจเพียงข้อเดียว"
+     },
+     {
+      "id": "x2",
+      "text": "เนื่องจาก $5x$ เป็นจำนวนจริงใด ๆ ได้ จึงได้ $U=\\mathbb{R}^2$",
+      "why": "$U$ คือเส้นตรง $y=5x$ ไม่ใช่ทั้งระนาบ เช่น $(1,0)\\notin U$"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "deps": [
+     [
+      "a",
+      "f"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ]
+    ],
+    "hint": "แสดงว่าผลรวมเชิงเส้นยังมีรูป $(\\text{อะไรสักอย่าง},\\,5\\times\\text{อะไรสักอย่างเดียวกัน})$",
+    "explain": "เทคนิค 'ตั้งชื่อ $z$' ในบรรทัด $(z,5z)$ คือการทำให้เห็นชัดว่าผลลัพธ์ตรงกับรูปแบบของสมาชิกใน $U$ — เป็นแบบแผนที่ใช้ได้กับเซตที่นิยามด้วยสมการเชิงเส้นทุกเซต"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s22-order-pn",
+   "title": "พิสูจน์ว่า $P_n$ เป็น subspace ของ $F(-\\infty,\\infty)$",
+   "statement": "ให้ $P_n=\\{a_0+a_1t+\\cdots+a_nt^n\\mid a_i\\in\\mathbb{R}\\}$ (พหุนามดีกรี $\\le n$) จงเรียงข้อความให้เป็นการพิสูจน์ด้วย<b>ทฤษฎี 2.2.2</b> ว่า $P_n$ เป็น subspace ของ $F(-\\infty,\\infty)$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "$P_n\\neq\\emptyset$ เพราะพหุนามศูนย์ $0+0t+\\cdots+0t^n\\in P_n$"
+     },
+     {
+      "id": "b",
+      "text": "ให้ $p=a_0+a_1t+\\cdots+a_nt^n$ และ $q=b_0+b_1t+\\cdots+b_nt^n$ เป็นสมาชิกของ $P_n$"
+     },
+     {
+      "id": "c",
+      "text": "$p+q=(a_0+b_0)+(a_1+b_1)t+\\cdots+(a_n+b_n)t^n$ มีดีกรี $\\le n$ ดังนั้น $p+q\\in P_n$"
+     },
+     {
+      "id": "d",
+      "text": "ให้ $\\alpha\\in\\mathbb{R}$ แล้ว $\\alpha p=(\\alpha a_0)+(\\alpha a_1)t+\\cdots+(\\alpha a_n)t^n\\in P_n$"
+     },
+     {
+      "id": "e",
+      "text": "โดยทฤษฎี 2.2.2 $P_n$ เป็น subspace ของ $F(-\\infty,\\infty)$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "$pq$ มีดีกรี $\\le 2n$ ซึ่งอาจเกิน $n$ ดังนั้น $P_n$ ไม่ปิดและไม่เป็น subspace",
+      "why": "การคูณพหุนามสองตัว<i>ไม่ใช่</i>ตัวดำเนินการของ vector space — ทฤษฎีถามแค่การบวกและการคูณด้วยสเกลาร์"
+     },
+     {
+      "id": "x2",
+      "text": "ต้องกำหนดให้ $a_n\\neq0$ เพื่อให้ $p$ มีดีกรีเท่ากับ $n$ พอดี",
+      "why": "$P_n$ คือพหุนามดีกรี<b>ไม่เกิน</b> $n$ ถ้าบังคับดีกรี $=n$ พอดี เซตจะไม่ปิดภายใต้การบวก (เช่น $t^n+(-t^n)=0$)"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "e"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "b",
+      "d"
+     ],
+     [
+      "c",
+      "e"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "ถามแค่สองอย่าง: บวกกันแล้วดีกรียังไม่เกิน $n$ ไหม? คูณด้วยสเกลาร์แล้วยังเป็นพหุนามดีกรีไม่เกิน $n$ ไหม?",
+    "explain": "ลำดับของการตรวจ 'ปิดภายใต้การบวก' กับ 'ปิดภายใต้การคูณ' สลับกันได้ — เว็บจึงยอมรับทั้งสองแบบ ขอเพียงประกาศ $p,q$ ก่อนใช้"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-axioms-x3-neg",
+   "title": "subspace test: $U=\\{x_3<0\\}\\subset\\mathbb{R}^4$",
+   "statement": "ให้ $U=\\{(x_1,x_2,x_3,x_4)\\in\\mathbb{R}^4\\mid x_3<0\\}$ พร้อมตัวดำเนินการปกติ (ตัวอย่าง 2.2.3 ข้อ 3) จงตัดสินเงื่อนไขทั้งสามของทฤษฎี 2.2.1 ข้อที่ไม่ผ่านให้ยกตัวอย่างค้าน (เวกเตอร์ที่ให้ต้อง<b>อยู่ใน $U$</b> เช่น <code>(0, 0, -1, 0)</code>) แล้วสรุปว่า $U$ เป็น subspace ของ $\\mathbb{R}^4$ หรือไม่",
+   "type": "axioms",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "setup": "import numpy as np\n# U = { (x1,x2,x3,x4) in R^4 : x3 < 0 }\ndef add(u, v):  return np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\ndef smul(a, u): return a * np.asarray(u, dtype=float)\ndef in_set(u):  u = np.asarray(u, dtype=float); return u.shape == (4,) and u[2] < 0\nZERO = np.zeros(4)\n",
+    "items": [
+     {
+      "id": "S0",
+      "label": "$\\mathbf{0}\\in U$ &nbsp;<small>(ถ้าไม่ผ่าน ไม่ต้องใส่ค่า)</small>",
+      "holds": false,
+      "vars": [],
+      "check": "in_set(ZERO)"
+     },
+     {
+      "id": "S1",
+      "label": "$\\mathbf{u}+\\mathbf{v}\\in U$ สำหรับทุก $\\mathbf{u},\\mathbf{v}\\in U$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "in_set(add(u, v))"
+     },
+     {
+      "id": "S2",
+      "label": "$\\alpha\\mathbf{u}\\in U$ สำหรับทุก $\\alpha\\in\\mathbb{R}$, $\\mathbf{u}\\in U$",
+      "holds": false,
+      "vars": [
+       "a",
+       "u"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "in_set(smul(a, u))"
+     }
+    ],
+    "verdict": false,
+    "verdict_label": "$U$ เป็น subspace ของ $\\mathbb{R}^4$ หรือไม่?",
+    "hint": "ผลบวกของจำนวนลบสองจำนวนยังเป็นลบ แต่การคูณด้วยสเกลาร์<i>ลบ</i>ล่ะ?",
+    "explain": "$U$ ปิดภายใต้การบวกจริง (ลบ+ลบ=ลบ) แต่ $(-1)(0,0,-1,0)=(0,0,1,0)\\notin U$ และ $\\mathbf{0}\\notin U$ เพราะ $0<0$ ไม่จริง — ตัวอย่างนี้แสดงว่าการปิดภายใต้การบวกอย่างเดียวไม่พอ"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-axioms-xy-nonneg",
+   "title": "subspace test: $U=\\{xy\\ge0\\}\\subset\\mathbb{R}^2$",
+   "statement": "ให้ $U=\\left\\{\\begin{pmatrix}x\\\\y\\end{pmatrix}\\in\\mathbb{R}^2\\;\\middle|\\;xy\\ge0\\right\\}$ (แบบฝึกหัด 2.2 ข้อ 1.1) จงตัดสินเงื่อนไขทั้งสามของทฤษฎี 2.2.1 ข้อที่ไม่ผ่านให้ยกตัวอย่างค้านด้วยเวกเตอร์ที่<b>อยู่ใน $U$</b> แล้วสรุป",
+   "type": "axioms",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "setup": "import numpy as np\n# U = { (x,y) in R^2 : x*y >= 0 }\ndef add(u, v):  return np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\ndef smul(a, u): return a * np.asarray(u, dtype=float)\ndef in_set(u):  u = np.asarray(u, dtype=float); return u.shape == (2,) and u[0] * u[1] >= 0\nZERO = np.zeros(2)\n",
+    "items": [
+     {
+      "id": "S0",
+      "label": "$\\mathbf{0}\\in U$ &nbsp;<small>(ถ้าไม่ผ่าน ไม่ต้องใส่ค่า)</small>",
+      "holds": true,
+      "vars": [],
+      "check": "in_set(ZERO)"
+     },
+     {
+      "id": "S1",
+      "label": "$\\mathbf{u}+\\mathbf{v}\\in U$ สำหรับทุก $\\mathbf{u},\\mathbf{v}\\in U$",
+      "holds": false,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "in_set(add(u, v))"
+     },
+     {
+      "id": "S2",
+      "label": "$\\alpha\\mathbf{u}\\in U$ สำหรับทุก $\\alpha\\in\\mathbb{R}$, $\\mathbf{u}\\in U$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "in_set(smul(a, u))"
+     }
+    ],
+    "verdict": false,
+    "verdict_label": "$U$ เป็น subspace ของ $\\mathbb{R}^2$ หรือไม่?",
+    "hint": "$U$ คือ quadrant ที่ 1 กับ 3 รวมแกน — หาเวกเตอร์สองตัวที่อยู่คนละ quadrant แต่ยังอยู่ใน $U$ ทั้งคู่",
+    "explain": "$(1,0)$ และ $(0,-1)$ อยู่ใน $U$ (ผลคูณเป็น $0$) แต่ผลบวก $(1,-1)$ มี $xy=-1<0$ — ส่วนการคูณด้วยสเกลาร์ผ่าน เพราะ $(\\alpha x)(\\alpha y)=\\alpha^2xy\\ge0$ เซตนี้จึงเป็นตัวอย่างที่ 'ปิดภายใต้การคูณแต่ไม่ปิดภายใต้การบวก'"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-axioms-2x1-5x4",
+   "title": "subspace test: $U=\\{2x_1+5x_4=0\\}\\subset\\mathbb{R}^4$",
+   "statement": "ให้ $U=\\{(x_1,x_2,x_3,x_4)\\in\\mathbb{R}^4\\mid 2x_1+5x_4=0\\}$ (ตัวอย่าง 2.2.3 ข้อ 4) จงตัดสินเงื่อนไขทั้งสามของทฤษฎี 2.2.1 แล้วสรุปว่า $U$ เป็น subspace ของ $\\mathbb{R}^4$ หรือไม่",
+   "type": "axioms",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "setup": "import numpy as np\n# U = { (x1,x2,x3,x4) in R^4 : 2*x1 + 5*x4 = 0 }\ndef add(u, v):  return np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\ndef smul(a, u): return a * np.asarray(u, dtype=float)\ndef in_set(u):  u = np.asarray(u, dtype=float); return u.shape == (4,) and abs(2 * u[0] + 5 * u[3]) < 1e-9\nZERO = np.zeros(4)\n",
+    "items": [
+     {
+      "id": "S0",
+      "label": "$\\mathbf{0}\\in U$ &nbsp;<small>(ถ้าไม่ผ่าน ไม่ต้องใส่ค่า)</small>",
+      "holds": true,
+      "vars": [],
+      "check": "in_set(ZERO)"
+     },
+     {
+      "id": "S1",
+      "label": "$\\mathbf{u}+\\mathbf{v}\\in U$ สำหรับทุก $\\mathbf{u},\\mathbf{v}\\in U$",
+      "holds": true,
+      "vars": [
+       "u",
+       "v"
+      ],
+      "check": "in_set(add(u, v))"
+     },
+     {
+      "id": "S2",
+      "label": "$\\alpha\\mathbf{u}\\in U$ สำหรับทุก $\\alpha\\in\\mathbb{R}$, $\\mathbf{u}\\in U$",
+      "holds": true,
+      "vars": [
+       "a",
+       "u"
+      ],
+      "scalars": [
+       "a"
+      ],
+      "check": "in_set(smul(a, u))"
+     }
+    ],
+    "verdict": true,
+    "verdict_label": "$U$ เป็น subspace ของ $\\mathbb{R}^4$ หรือไม่?",
+    "hint": "เงื่อนไขเป็น<i>สมการเชิงเส้นที่เท่ากับศูนย์</i> — ลองแทนผลบวกลงในสมการแล้วแยกเป็นสองก้อน",
+    "explain": "$2(x_1+y_1)+5(x_4+y_4)=(2x_1+5x_4)+(2y_1+5y_4)=0+0$ และ $2(\\alpha x_1)+5(\\alpha x_4)=\\alpha\\cdot0=0$ — เซตคำตอบของระบบสมการเชิงเส้นเอกพันธ์ (homogeneous) เป็น subspace เสมอ"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-mcq-r2",
+   "title": "เซตย่อยใดของ $\\mathbb{R}^2$ เป็น subspace",
+   "statement": "แบบฝึกหัด 2.2 ข้อ 1: เซตย่อยในข้อใดเป็น subspace ของ $\\mathbb{R}^2$ (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "(1.1) $\\left\\{\\begin{pmatrix}x\\\\y\\end{pmatrix}\\;\\middle|\\;xy\\ge0\\right\\}$",
+     "(1.2) $\\left\\{\\begin{pmatrix}x\\\\y\\end{pmatrix}\\;\\middle|\\;x=y\\right\\}$",
+     "(1.3) $\\left\\{\\begin{pmatrix}x\\\\y\\end{pmatrix}\\;\\middle|\\;2x=y\\right\\}$",
+     "(1.4) $\\left\\{\\begin{pmatrix}x\\\\y\\end{pmatrix}\\;\\middle|\\;x=y^2\\right\\}$"
+    ],
+    "answer": [
+     1,
+     2
+    ],
+    "explain": "(1.2) และ (1.3) เป็นเส้นตรงผ่านจุดกำเนิด (สมการเชิงเส้นเอกพันธ์) จึงเป็น subspace &nbsp; (1.1): $(1,0)+(0,-1)=(1,-1)\\notin U$ &nbsp; (1.4): $(1,1)\\in U$ แต่ $2(1,1)=(2,2)$ มี $2\\neq2^2$",
+    "hint": "subspace ของ $\\mathbb{R}^2$ มีแค่ 3 แบบ: $\\{\\mathbf{0}\\}$, เส้นตรงผ่านจุดกำเนิด, และ $\\mathbb{R}^2$ เอง"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-mcq-m22",
+   "title": "เซตย่อยใดของ $\\mathbb{R}^{2\\times2}$ เป็น subspace",
+   "statement": "แบบฝึกหัด 2.2 ข้อ 2: เซตในข้อใดเป็น subspace ของ $\\mathbb{R}^{2\\times2}$ (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 5,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "(2.1) $\\left\\{\\begin{pmatrix}a&0\\\\0&b\\end{pmatrix}\\;\\middle|\\;a,b\\in\\mathbb{R}\\right\\}$ เมทริกซ์ทแยงมุม",
+     "(2.2) $\\left\\{\\begin{pmatrix}0&b\\\\c&a\\end{pmatrix}\\;\\middle|\\;a,b,c\\in\\mathbb{R}\\right\\}$",
+     "(2.3) $\\{A\\mid A^k=0 \\text{ สำหรับบางจำนวนเต็มบวก } k\\}$ เมทริกซ์ nilpotent",
+     "(2.4) $\\left\\{\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\;\\middle|\\;a+d=0\\right\\}$ trace เป็นศูนย์"
+    ],
+    "answer": [
+     0,
+     1,
+     3
+    ],
+    "explain": "(2.1), (2.2), (2.4) นิยามด้วยการบังคับให้บางตำแหน่ง/ผลรวมเชิงเส้นของตำแหน่งเป็นศูนย์ จึงปิดทั้งสองอย่าง &nbsp; (2.3) ไม่ปิดภายใต้การบวก: $A=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$, $B=\\begin{pmatrix}0&0\\\\1&0\\end{pmatrix}$ ต่างเป็น nilpotent ($A^2=B^2=0$) แต่ $A+B=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ มี $(A+B)^2=I$ ไม่มีทางเป็นศูนย์",
+    "hint": "เงื่อนไขที่ไม่ใช่สมการเชิงเส้น (เช่น $A^k=0$) ให้ระวัง — ลองบวก nilpotent สองตัวที่ 'คนละมุม'"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.2.1–2.2.3 ตัดสินเซตย่อยจริง",
+   "slug": "s22-mcq-p2",
+   "title": "เซตย่อยใดของ $P_2$ เป็น subspace",
+   "statement": "แบบฝึกหัด 2.2 ข้อ 3 (เพิ่มอีกหนึ่งข้อ): เซตในข้อใดเป็น subspace ของ $P_2$ (พหุนามดีกรี $\\le2$) เลือกทุกข้อที่ใช่",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 6,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "(3.1) $\\{at+bt^2\\mid a,b\\in\\mathbb{R}\\}$",
+     "(3.2) $\\{a+bt+ct^2\\mid a+2b+3c=0\\}$",
+     "(3.3) $\\{p\\mid p(0)=0\\}$",
+     "(3.4) $\\{a+bt\\mid a,b\\in\\mathbb{R}\\}$",
+     "(3.5) $\\{p\\mid p(0)=1\\}$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "(3.1) และ (3.3) คือเซตเดียวกัน (พจน์คงตัวเป็นศูนย์) &nbsp; (3.2) เป็นสมการเชิงเส้นเอกพันธ์ของสัมประสิทธิ์ &nbsp; (3.4) คือ $P_1\\subset P_2$ &nbsp; (3.5) ไม่มีพหุนามศูนย์ ($0(0)=0\\neq1$) จึงไม่เป็น subspace",
+    "hint": "ตรวจก่อนว่าพหุนามศูนย์อยู่ในเซตไหม แล้วดูว่าเงื่อนไขเป็น 'เชิงเส้นและเท่ากับศูนย์' หรือไม่"
+   }
+  },
+  {
+   "week_no": 22,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "subspace test ด้วย numpy",
+   "slug": "s22-code-closed-add",
+   "title": "ปิดภายใต้การบวกหรือไม่",
+   "statement": "เขียนฟังก์ชัน <code>closed_under_add(in_set, samples)</code> รับฟังก์ชันสมาชิก <code>in_set(u)</code> และลิสต์ตัวอย่างเวกเตอร์ (ทุกตัวอยู่ในเซตแล้ว) แล้วคืน <code>True</code> ถ้า $\\mathbf{u}+\\mathbf{v}$ อยู่ในเซตสำหรับ<b>ทุกคู่</b> $\\mathbf{u},\\mathbf{v}$ ในลิสต์ (รวมกรณี $\\mathbf{u}=\\mathbf{v}$) และ <code>False</code> ทันทีที่พบคู่ที่ผลบวกหลุดออกจากเซต — บวกเวกเตอร์ด้วย <code>np.asarray(u) + np.asarray(v)</code><br>ฟังก์ชันสมาชิกและลิสต์ตัวอย่างนิยามไว้ให้แล้ว (<code>in_line</code>, <code>in_quadrant</code>, <code>in_shifted</code>, … และ <code>samples_line</code>, …)",
+   "type": "code",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "closed_under_add",
+   "setup_code": "import numpy as np\n\n# ฟังก์ชันสมาชิก in_set(u) -> bool ของเซตย่อยต่าง ๆ (u เป็น tuple/list/array)\ndef in_line(u):      u = np.asarray(u, dtype=float); return abs(u[1] - 5 * u[0]) < 1e-9        # y = 5x\ndef in_quadrant(u):  u = np.asarray(u, dtype=float); return u[0] * u[1] >= 0                     # xy >= 0\ndef in_shifted(u):   u = np.asarray(u, dtype=float); return abs(u[0] + u[1] - 1) < 1e-9           # x + y = 1\ndef in_neg3(u):      u = np.asarray(u, dtype=float); return u[2] < 0                              # x3 < 0 (R^4)\ndef in_plane(u):     u = np.asarray(u, dtype=float); return abs(2 * u[0] + 5 * u[3]) < 1e-9       # 2x1 + 5x4 = 0 (R^4)\n\nsamples_line     = [(1, 5), (-2, -10), (0, 0), (0.5, 2.5)]\nsamples_quadrant = [(1, 2), (-3, -1), (1, 0), (0, -1)]\nsamples_shifted  = [(1, 0), (0, 1), (0.5, 0.5), (2, -1)]\nsamples_neg3     = [(1, 2, -1, 0), (0, 0, -3, 4), (5, -5, -0.5, 1)]\nsamples_plane    = [(5, 1, 7, -2), (-10, 0, 3, 4), (0, 9, 9, 0)]\nscalars = [2, -1, 0, 0.5]\n",
+   "example": "closed_under_add(in_quadrant, samples_quadrant)  ->  False   # (1,0)+(0,-1) = (1,-1)",
+   "starter_code": "import numpy as np\n\ndef closed_under_add(in_set, samples):\n    # วน 2 ชั้น: สำหรับ u ใน samples, สำหรับ v ใน samples ...\n    pass\n",
+   "tests": [
+    {
+     "expr": "closed_under_add(in_line, samples_line)",
+     "expected": true
+    },
+    {
+     "expr": "closed_under_add(in_quadrant, samples_quadrant)",
+     "expected": false
+    },
+    {
+     "expr": "closed_under_add(in_shifted, samples_shifted)",
+     "expected": false
+    },
+    {
+     "expr": "closed_under_add(in_neg3, samples_neg3)",
+     "expected": true
+    },
+    {
+     "expr": "closed_under_add(in_plane, samples_plane)",
+     "expected": true
+    },
+    {
+     "expr": "closed_under_add(in_shifted, [(1, 0)])",
+     "expected": false,
+     "label": "closed_under_add(in_shifted, [(1, 0)])  — ตัวเดียวก็ต้องบวกกับตัวเอง"
+    }
+   ]
+  },
+  {
+   "week_no": 22,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "subspace test ด้วย numpy",
+   "slug": "s22-code-subspace-test",
+   "title": "subspace test ครบสามเงื่อนไข",
+   "statement": "เขียนฟังก์ชัน <code>subspace_test(in_set, samples, scalars)</code> ที่คืน dict สามคีย์ <code>{\"zero\": …, \"add\": …, \"scalar\": …}</code> เป็น bool ตามทฤษฎี 2.2.1: <code>zero</code> = เวกเตอร์ศูนย์ (ขนาดเท่าตัวอย่างตัวแรก, ใช้ <code>np.zeros(len(samples[0]))</code>) อยู่ในเซต, <code>add</code> = ผลบวกของทุกคู่ในตัวอย่างอยู่ในเซต, <code>scalar</code> = $\\alpha\\mathbf{u}$ อยู่ในเซตสำหรับทุก $\\alpha$ ใน <code>scalars</code> และทุก $\\mathbf{u}$ ในตัวอย่าง<br>(ฟังก์ชันสมาชิก ลิสต์ตัวอย่าง และ <code>scalars = [2, -1, 0, 0.5]</code> นิยามไว้ให้แล้ว)",
+   "type": "code",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "subspace_test",
+   "setup_code": "import numpy as np\n\n# ฟังก์ชันสมาชิก in_set(u) -> bool ของเซตย่อยต่าง ๆ (u เป็น tuple/list/array)\ndef in_line(u):      u = np.asarray(u, dtype=float); return abs(u[1] - 5 * u[0]) < 1e-9        # y = 5x\ndef in_quadrant(u):  u = np.asarray(u, dtype=float); return u[0] * u[1] >= 0                     # xy >= 0\ndef in_shifted(u):   u = np.asarray(u, dtype=float); return abs(u[0] + u[1] - 1) < 1e-9           # x + y = 1\ndef in_neg3(u):      u = np.asarray(u, dtype=float); return u[2] < 0                              # x3 < 0 (R^4)\ndef in_plane(u):     u = np.asarray(u, dtype=float); return abs(2 * u[0] + 5 * u[3]) < 1e-9       # 2x1 + 5x4 = 0 (R^4)\n\nsamples_line     = [(1, 5), (-2, -10), (0, 0), (0.5, 2.5)]\nsamples_quadrant = [(1, 2), (-3, -1), (1, 0), (0, -1)]\nsamples_shifted  = [(1, 0), (0, 1), (0.5, 0.5), (2, -1)]\nsamples_neg3     = [(1, 2, -1, 0), (0, 0, -3, 4), (5, -5, -0.5, 1)]\nsamples_plane    = [(5, 1, 7, -2), (-10, 0, 3, 4), (0, 9, 9, 0)]\nscalars = [2, -1, 0, 0.5]\n",
+   "example": "subspace_test(in_neg3, samples_neg3, scalars)  ->  {'zero': False, 'add': True, 'scalar': False}",
+   "starter_code": "import numpy as np\n\ndef subspace_test(in_set, samples, scalars):\n    zero_ok = ...\n    add_ok = ...\n    scalar_ok = ...\n    return {\"zero\": zero_ok, \"add\": add_ok, \"scalar\": scalar_ok}\n",
+   "tests": [
+    {
+     "expr": "subspace_test(in_line, samples_line, scalars)",
+     "expected": {
+      "zero": true,
+      "add": true,
+      "scalar": true
+     }
+    },
+    {
+     "expr": "subspace_test(in_quadrant, samples_quadrant, scalars)",
+     "expected": {
+      "zero": true,
+      "add": false,
+      "scalar": true
+     }
+    },
+    {
+     "expr": "subspace_test(in_shifted, samples_shifted, scalars)",
+     "expected": {
+      "zero": false,
+      "add": false,
+      "scalar": false
+     }
+    },
+    {
+     "expr": "subspace_test(in_neg3, samples_neg3, scalars)",
+     "expected": {
+      "zero": false,
+      "add": true,
+      "scalar": false
+     }
+    },
+    {
+     "expr": "subspace_test(in_plane, samples_plane, scalars)",
+     "expected": {
+      "zero": true,
+      "add": true,
+      "scalar": true
+     }
+    }
+   ]
+  },
+  {
+   "week_no": 22,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "subspace test ด้วย numpy",
+   "slug": "s22-code-upper-tri",
+   "title": "สมาชิกของ $U\\subset\\mathbb{R}^{2\\times2}$ (ตัวอย่าง 2.2.5)",
+   "statement": "ให้ $U=\\left\\{\\begin{pmatrix}a&b\\\\0&c\\end{pmatrix}\\;\\middle|\\;a,b,c\\in\\mathbb{R}\\right\\}$ (เมทริกซ์สามเหลี่ยมบน) เขียนฟังก์ชัน <code>in_U(M)</code> รับ numpy array ขนาดใด ๆ แล้วคืน <code>True</code> เมื่อ $M$ เป็นสมาชิกของ $U$ (ต้องมีขนาด $2\\times2$ และตำแหน่งแถว 2 หลัก 1 เป็นศูนย์) จากนั้นใช้มันตรวจการปิดใน <code>closure_ok(A, B, alpha)</code> ซึ่งคืน <code>True</code> เมื่อทั้ง $A+B$ และ $\\alpha A$ อยู่ใน $U$",
+   "type": "code",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "entry_name": "in_U",
+   "setup_code": "import numpy as np\nA1 = np.array([[1, 2], [0, 3]])\nA2 = np.array([[4, -1], [0, 0]])\nB1 = np.array([[1, 2], [5, 3]])\nC3 = np.array([[1, 2, 3], [0, 4, 5], [0, 0, 6]])\n",
+   "example": "in_U(A1) -> True,  in_U(B1) -> False,  closure_ok(A1, A2, -2) -> True",
+   "starter_code": "import numpy as np\n\ndef in_U(M):\n    # ตรวจ M.shape และค่า M[1, 0]\n    pass\n\ndef closure_ok(A, B, alpha):\n    pass\n",
+   "tests": [
+    {
+     "expr": "in_U(A1)",
+     "expected": true
+    },
+    {
+     "expr": "in_U(A2)",
+     "expected": true
+    },
+    {
+     "expr": "in_U(B1)",
+     "expected": false,
+     "label": "in_U(B1)  — ตำแหน่ง (2,1) เป็น 5"
+    },
+    {
+     "expr": "in_U(C3)",
+     "expected": false,
+     "label": "in_U(C3)  — ขนาด 3x3 ไม่ใช่สมาชิกของ R^{2x2}"
+    },
+    {
+     "expr": "in_U(np.zeros((2, 2)))",
+     "expected": true,
+     "label": "in_U(np.zeros((2, 2)))  — เวกเตอร์ศูนย์ของ R^{2x2}"
+    },
+    {
+     "expr": "closure_ok(A1, A2, -2)",
+     "expected": true
+    },
+    {
+     "expr": "closure_ok(A1, B1, 3)",
+     "expected": false
+    }
+   ]
+  }
+ ]
+}
