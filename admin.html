@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=20260915b">
+<link rel="stylesheet" href="assets/styles.css?v=20260915c">
 <script>/* pick the theme before anything is painted, so there is no flash */
 try{var t=localStorage.getItem("scma251:theme");
 document.documentElement.setAttribute("data-theme",
@@ -333,8 +333,8 @@ document.documentElement.setAttribute("data-theme",
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/config.js?v=20260915b"></script>
-<script src="assets/app.js?v=20260915b"></script>
+<script src="assets/config.js?v=20260915c"></script>
+<script src="assets/app.js?v=20260915c"></script>
 <script>
 (async function () {
   const S = window.SCIM;
@@ -482,7 +482,7 @@ document.documentElement.setAttribute("data-theme",
     $("pb-table").innerHTML =
       "<tr><th>Lv</th><th>#</th><th>Title</th><th>Type</th><th>Function</th><th>Tests</th><th>Pts</th><th>Shown</th><th></th></tr>" +
       (problems.length ? problems.map(p =>
-        "<tr><td>" + p.level + "</td><td>" + p.sort_order + "</td><td>" + S.esc(p.title) + "</td>" +
+        "<tr><td>" + p.level + "</td><td>" + p.sort_order + "</td><td>" + p.title + "</td>" +
         "<td><span class='pill'>" + S.esc(p.type || "code") + "</span></td>" +
         "<td class='mono'>" + (p.entry_name ? S.esc(p.entry_name)
           : "<span class='pill'>—</span>") + "</td><td>" + ((p.type || "code") === "code" ? (p.tests || []).length : "—") + "</td>" +
@@ -490,6 +490,7 @@ document.documentElement.setAttribute("data-theme",
           ? '<span class="pill on">yes</span>' : '<span class="pill">hidden</span>') + "</td>" +
         '<td><button class="btn small pb-edit" data-id="' + p.id + '">Edit</button></td></tr>').join("")
         : '<tr><td colspan="9">No problems in this section yet.</td></tr>');
+    S.math($("pb-table"));
     $("pb-table").querySelectorAll(".pb-edit").forEach(b =>
       b.onclick = () => openEditor(problems.find(p => p.id === Number(b.dataset.id))));
   }
@@ -969,11 +970,12 @@ document.documentElement.setAttribute("data-theme",
       (problems2.length ? '<div class="result-head pass"><div class="score">' + problems2.length +
         '</div><div class="msg">problem(s) ready to add</div></div>' +
         problems2.map(p => '<div class="tcase ok"><div class="mark">✓</div><div class="body">' +
-          S.esc(p.title) + ' <span class="pill">' + S.esc(p.slug) + "</span>" +
+          p.title + ' <span class="pill">' + S.esc(p.slug) + "</span>" +
           '<div class="sub">' + ((p.type || "code") !== "code" ? "type " + S.esc(p.type) : p.tests.length + " tests · " + (p.entry_name
             ? "function <b>" + S.esc(p.entry_name) + "</b>"
             : "no function \u2014 checks the value the student builds")) +
           "</div></div></div>").join("") : "");
+    S.math($("ai-report"));
     if (problems2.length && !errs.length) { aiRows = problems2; $("ai-import").classList.remove("hidden"); }
   };
 
