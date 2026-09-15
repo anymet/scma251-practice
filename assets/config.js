@@ -5,13 +5,13 @@
 window.SCIM_CONFIG = {
 
   // 1) Supabase -> Settings -> Data API -> Project URL
-  SUPABASE_URL: "https://oqppiclcwszanoigkdyd.supabase.co",
+  SUPABASE_URL: "https://PASTE-YOUR-PROJECT.supabase.co",
 
   // 2) Supabase -> Settings -> API Keys -> "Publishable key" (sb_publishable_...)
   //    A project made before 2025 shows a legacy "anon public" key instead;
   //    either one works here. Both are safe to publish.
   //    NEVER paste a "secret" / "service_role" key - it bypasses every rule.
-  SUPABASE_ANON_KEY: "sb_publishable_WBIgX0W9YUtk9bWOx7U98Q_uRrhh0I-",
+  SUPABASE_ANON_KEY: "PASTE-YOUR-PUBLISHABLE-KEY",
 
   // 3) Only e-mails ending with these domains are allowed in.
   ALLOWED_DOMAINS: [
@@ -35,6 +35,12 @@ window.SCIM_CONFIG = {
   //     Level 2 (เรียงการพิสูจน์) is here because those proofs are done in
   //     class, so students should be able to go straight to them.
   OPEN_LEVELS: [2],
+
+  // 6c) Which level must be FINISHED before another one opens.
+  //     Anything not listed here waits for the level right above it, so the
+  //     line below means: level 3 opens as soon as level 1 is done, and
+  //     level 4 still waits for level 3.
+  UNLOCK_AFTER: { 3: 1 },
 
   // 7) Proof-ordering questions: after this many wrong tries the page starts
   //    to point at the first misplaced block.
