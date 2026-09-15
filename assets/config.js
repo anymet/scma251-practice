@@ -5,13 +5,13 @@
 window.SCIM_CONFIG = {
 
   // 1) Supabase -> Settings -> Data API -> Project URL
-  SUPABASE_URL: "https://PASTE-YOUR-PROJECT.supabase.co",
+  SUPABASE_URL: "https://oqppiclcwszanoigkdyd.supabase.co",
 
   // 2) Supabase -> Settings -> API Keys -> "Publishable key" (sb_publishable_...)
   //    A project made before 2025 shows a legacy "anon public" key instead;
   //    either one works here. Both are safe to publish.
   //    NEVER paste a "secret" / "service_role" key - it bypasses every rule.
-  SUPABASE_ANON_KEY: "PASTE-YOUR-PUBLISHABLE-KEY",
+  SUPABASE_ANON_KEY: "sb_publishable_WBIgX0W9YUtk9bWOx7U98Q_uRrhh0I-",
 
   // 3) Only e-mails ending with these domains are allowed in.
   ALLOWED_DOMAINS: [
