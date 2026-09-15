@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-<link rel="stylesheet" href="assets/styles.css?v=20260915a">
+<link rel="stylesheet" href="assets/styles.css?v=20260915b">
 <script>/* pick the theme before anything is painted, so there is no flash */
 try{var t=localStorage.getItem("scma251:theme");
 document.documentElement.setAttribute("data-theme",
@@ -543,9 +543,9 @@ def _la_axioms(setup, items_json, answers_json):
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="assets/config.js?v=20260915a"></script>
-<script src="assets/app.js?v=20260915a"></script>
-<script src="assets/quiz.js?v=20260915a"></script>
+<script src="assets/config.js?v=20260915b"></script>
+<script src="assets/app.js?v=20260915b"></script>
+<script src="assets/quiz.js?v=20260915b"></script>
 <script>
 (async function () {
   const S = window.SCIM;
@@ -606,12 +606,23 @@ def _la_axioms(setup, items_json, answers_json):
   levels.sort((a, b) => a.level - b.level);
 
   /* A level is open when locking is off, when it is the first one, when the
-     course lists it in OPEN_LEVELS, or when the level above is finished. */
+     course lists it in OPEN_LEVELS, or when the level it depends on is
+     finished. UNLOCK_AFTER says which level that is; the default is simply
+     the level above. */
   const alwaysOpen = S.cfg.OPEN_LEVELS || [];
+  const unlockAfter = S.cfg.UNLOCK_AFTER || {};
+  const levelDone = (n) => {
+    const lv = levels.find(l => l.level === n);
+    return !lv || lv.items.every(p => solved.has(p.slug));
+  };
+  const requiredFor = (index) =>
+    (unlockAfter[levels[index].level] != null)
+      ? unlockAfter[levels[index].level]
+      : levels[index - 1].level;
   const isUnlocked = (index) => {
     if (index === 0 || S.cfg.LOCK_LEVELS === false) return true;
     if (alwaysOpen.indexOf(levels[index].level) > -1) return true;
-    return levels[index - 1].items.every(p => solved.has(p.slug));
+    return levelDone(requiredFor(index));
   };
 
   const TYPE_ICON = { code: "🐍", order: "🧩", cloze: "✍️", spot: "🔍", mcq: "☑️", axioms: "📐" };
@@ -633,7 +644,8 @@ def _la_axioms(setup, items_json, answers_json):
       return '<div class="level ' + (unlocked ? "unlocked" : "locked") + '">' +
              '<div class="level-head"><div class="level-num">' + lv.level + "</div><div>" +
              "<b>" + S.esc(lv.title) + "</b>" +
-             "<span>" + (unlocked ? S.esc(lv.subtitle) : "ทำ level ก่อนหน้าให้ครบก่อน") + "</span>" +
+             "<span>" + (unlocked ? S.esc(lv.subtitle)
+               : "ทำ Level " + requiredFor(i) + " ให้ครบก่อน") + "</span>" +
              '</div></div><ul class="plist">' + items + "</ul></div>";
     }).join("");
     const box = document.getElementById("path");
