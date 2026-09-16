@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-<link rel="stylesheet" href="assets/styles.css?v=20260915c">
+<link rel="stylesheet" href="assets/styles.css?v=20260915d">
 <script>/* pick the theme before anything is painted, so there is no flash */
 try{var t=localStorage.getItem("scma251:theme");
 document.documentElement.setAttribute("data-theme",
@@ -543,9 +543,9 @@ def _la_axioms(setup, items_json, answers_json):
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="assets/config.js?v=20260915c"></script>
-<script src="assets/app.js?v=20260915c"></script>
-<script src="assets/quiz.js?v=20260915c"></script>
+<script src="assets/config.js?v=20260915d"></script>
+<script src="assets/app.js?v=20260915d"></script>
+<script src="assets/quiz.js?v=20260915d"></script>
 <script>
 (async function () {
   const S = window.SCIM;
@@ -565,7 +565,10 @@ def _la_axioms(setup, items_json, answers_json):
     S.sb.from("problems").select("*").eq("week_no", weekNo).eq("is_active", true)
         .order("level").order("sort_order"),
     S.sb.from("problems").select("slug,points").eq("is_active", true),
-    S.sb.from("attempts").select("problem_id").eq("passed", true)
+    /* ต้องกรอง user_id เองเสมอ — RLS ของ attempts ยอมให้ "แอดมินอ่านของทุกคน"
+       ถ้าไม่กรอง อาจารย์ (ซึ่งเป็นแอดมิน) จะเห็นข้อที่ *คนอื่น* ทำผ่าน กลายเป็นติ๊กเขียวหมด
+       ภาพรวมของทั้งห้องดูได้ที่หน้า Admin → Student progress */
+    S.sb.from("attempts").select("problem_id").eq("passed", true).eq("user_id", ctx.user.id)
   ]);
 
   const week = weekRes.data || { week_no: weekNo, title: "Section " + weekNo, subtitle: "" };

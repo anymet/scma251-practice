@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=20260915c">
+<link rel="stylesheet" href="assets/styles.css?v=20260915d">
 <script>/* pick the theme before anything is painted, so there is no flash */
 try{var t=localStorage.getItem("scma251:theme");
 document.documentElement.setAttribute("data-theme",
@@ -63,8 +63,8 @@ document.documentElement.setAttribute("data-theme",
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/config.js?v=20260915c"></script>
-<script src="assets/app.js?v=20260915c"></script>
+<script src="assets/config.js?v=20260915d"></script>
+<script src="assets/app.js?v=20260915d"></script>
 <script>
 (async function () {
   const S = window.SCIM, cfg = S.cfg;
@@ -94,7 +94,9 @@ document.documentElement.setAttribute("data-theme",
   const [weeksRes, problemsRes, solvedRes] = await Promise.all([
     S.sb.from("weeks").select("*").order("sort_order", { ascending: true }),
     S.sb.from("problems").select("week_no,slug,points").eq("is_active", true),
-    S.sb.from("attempts").select("problem_id").eq("passed", true)
+    /* กรอง user_id เองเสมอ — RLS ยอมให้แอดมินอ่าน attempts ของทุกคน
+       ถ้าไม่กรอง หน้าแรกของอาจารย์จะนับความคืบหน้าของนักศึกษาคนอื่นมารวมด้วย */
+    S.sb.from("attempts").select("problem_id").eq("passed", true).eq("user_id", ctx.user.id)
   ]);
 
   const problems = problemsRes.data || [];
