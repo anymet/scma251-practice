@@ -368,6 +368,11 @@ table.grid td.rownum{color:var(--muted);text-align:right;width:44px;font-variant
 .prompt .statement .katex-display{margin:12px 0}
 .prompt .statement p{margin:0 0 10px}
 .prompt .statement ul,.prompt .statement ol{margin:6px 0 10px 22px}
+/* setup code and command examples inside a question */
+.prompt .statement pre{background:var(--editor);border:1px solid var(--border);border-radius:12px;
+  padding:14px 18px;margin:10px 0 14px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+.prompt .statement pre code{background:none;padding:0;color:var(--txt-dim);font-size:13.5px;white-space:pre}
+.prompt .statement > p:first-child{margin-top:0}
 .pitem .ticon{font-size:13px;opacity:.8;flex:none}
 .pitem .ptitle .katex{font-size:1em}
 .prompt h2 .katex{font-size:.95em}
@@ -459,3 +464,27 @@ table.grid td.rownum{color:var(--muted);text-align:right;width:44px;font-variant
 .verdict.ok{border-color:var(--green);background:var(--green-soft)}
 .verdict.no{border-color:var(--red);background:var(--red-soft)}
 .verdict > b{color:var(--txt-dim)}
+
+
+/* ---------------- รูปประกอบ (TikZ -> SVG) ---------------- */
+.figbox{
+  margin: 14px 0;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 10px;
+  text-align: center;
+}
+.figbox img{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+.figbox figcaption{
+  margin-top: 8px;
+  font-size: .86rem;
+  line-height: 1.55;
+  color: #4a5560;
+  text-align: left;
+}
