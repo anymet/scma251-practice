@@ -247,7 +247,9 @@
 
     function draw() {
       box.innerHTML =
-        '<div class="spot"><p class="lead">คลิกบรรทัดที่ผิด แล้วเลือกเหตุผล</p><ol class="lines">' +
+        '<div class="spot"><p class="lead">คลิก<b>บรรทัดแรกที่ผิด</b> แล้วเลือกเหตุผล' +
+        '<br><span class="hint">บรรทัดหลังจากนั้นอาจพลอยผิดตามไปด้วย เพราะเอาผลจากบรรทัดที่ผิดมาคิดต่อ ' +
+        '— ให้เลือกบรรทัดที่<i>เริ่ม</i>ผิด</span></p><ol class="lines">' +
         (spec.lines || []).map((t, i) => '<li class="line' + (state.line === i ? " on" : "") +
           (result && result.lineChosen === i ? (result.lineOk ? " ok" : " no") : "") +
           '" data-i="' + i + '"><span class="num">' + (i + 1) + "</span><div>" + t + "</div></li>").join("") +
