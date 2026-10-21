@@ -4062,6 +4062,3396 @@
      "label": "poly_eval_ip(p_abc, q_abc, (0,))  — จุดเดียว: p(0)q(0) = 1*4"
     }
    ]
+  },
+  {
+   "week_no": 26,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s26-cloze-def",
+   "title": "Cauchy–Schwarz · มุม · อสมการสามเหลี่ยม",
+   "statement": "ให้ $V$ เป็นปริภูมิผลคูณภายใน และ $\\utilde{u},\\utilde{v},\\utilde{w}\\in V$ จงเติมข้อความให้ตรงกับทฤษฎี 2.6.1, นิยามมุมระหว่างเวกเตอร์ และทฤษฎี 2.6.2",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>ทฤษฎี 2.6.1 (Cauchy–Schwarz)</b> &nbsp;$|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le$ {{1}} &nbsp;หรือเขียนในรูปยกกำลังสองได้เป็น {{2}}</p><p><b>มุมระหว่างเวกเตอร์</b> &nbsp;Cauchy–Schwarz รับประกันว่าอัตราส่วน $\\dfrac{\\langle\\utilde{u},\\utilde{v}\\rangle}{\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|}$ อยู่ในช่วง {{3}} เราจึงนิยามมุม $\\theta$ ระหว่าง $\\utilde{u}$ กับ $\\utilde{v}$ ได้ว่า $\\theta=$ {{4}} โดยกำหนดช่วงของ $\\theta$ เป็น {{5}} เพื่อให้ได้ค่าเพียงค่าเดียว</p><p><b>ทฤษฎี 2.6.2 (อสมการสามเหลี่ยม)</b> &nbsp;ข้อ 1 (ของเวกเตอร์) {{6}} &nbsp;ข้อ 2 (ของระยะทาง) {{7}}</p>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$",
+       "$\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+       "$\\|\\utilde{u}\\|^2\\,\\|\\utilde{v}\\|^2$"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$\\langle\\utilde{u},\\utilde{v}\\rangle^2\\le\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle$",
+       "$\\langle\\utilde{u},\\utilde{v}\\rangle^2\\ge\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle$",
+       "$\\langle\\utilde{u},\\utilde{v}\\rangle\\le\\langle\\utilde{u},\\utilde{u}\\rangle+\\langle\\utilde{v},\\utilde{v}\\rangle$"
+      ],
+      "answer": 0
+     },
+     "3": {
+      "choices": [
+       "$[-1,\\,1]$",
+       "$[0,\\,1]$",
+       "$[0,\\,\\infty)$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "$\\cos^{-1}\\dfrac{\\langle\\utilde{u},\\utilde{v}\\rangle}{\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|}$",
+       "$\\dfrac{\\langle\\utilde{u},\\utilde{v}\\rangle}{\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|}$",
+       "$\\sin^{-1}\\dfrac{\\langle\\utilde{u},\\utilde{v}\\rangle}{\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|}$"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "$0\\le\\theta\\le\\pi$",
+       "$0\\le\\theta\\le 2\\pi$",
+       "$-\\pi\\le\\theta\\le\\pi$"
+      ],
+      "answer": 0
+     },
+     "6": {
+      "choices": [
+       "$\\|\\utilde{u}+\\utilde{v}\\|\\le\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+       "$\\|\\utilde{u}+\\utilde{v}\\|=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+       "$\\|\\utilde{u}+\\utilde{v}\\|\\ge\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$"
+      ],
+      "answer": 0
+     },
+     "7": {
+      "choices": [
+       "$d(\\utilde{u},\\utilde{v})\\le d(\\utilde{u},\\utilde{w})+d(\\utilde{w},\\utilde{v})$",
+       "$d(\\utilde{u},\\utilde{v})\\le d(\\utilde{u},\\utilde{w})\\cdot d(\\utilde{w},\\utilde{v})$",
+       "$d(\\utilde{u},\\utilde{v})=d(\\utilde{u},\\utilde{w})+d(\\utilde{w},\\utilde{v})$"
+      ],
+      "answer": 0
+     }
+    },
+    "hint": "ทั้งสามเรื่องนี้ต่อกันเป็นลูกโซ่: Cauchy–Schwarz $\\to$ นิยามมุมได้ $\\to$ พิสูจน์อสมการสามเหลี่ยมได้",
+    "explain": "Cauchy–Schwarz คือเครื่องมือกลางของ section นี้ — มันเปลี่ยน $2\\langle\\utilde{u},\\utilde{v}\\rangle$ ให้กลายเป็น $2\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ได้ ซึ่งพอดีกับกำลังสองสมบูรณ์ในอสมการสามเหลี่ยม และทำให้อัตราส่วนที่จะเรียกว่า $\\cos\\theta$ ไม่หลุดออกจาก $[-1,1]$"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s26-spot-cs",
+   "title": "หาจุดผิดในการพิสูจน์ Cauchy–Schwarz",
+   "statement": "การพิสูจน์ด้านล่างเป็นกรณี $\\utilde{u}\\neq\\utilde{0}$ ของทฤษฎี 2.6.1 (Cauchy–Schwarz) มี<b>หนึ่งบรรทัด</b>ที่ผิด คลิกบรรทัดนั้นแล้วเลือกเหตุผล",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "ให้ $a=\\langle\\utilde{u},\\utilde{u}\\rangle$, $b=2\\langle\\utilde{u},\\utilde{v}\\rangle$, $c=\\langle\\utilde{v},\\utilde{v}\\rangle$ และให้ $t$ เป็นจำนวนจริงใด ๆ",
+     "จากสัจพจน์ A4 (การมีค่าเป็นบวก) ได้ $0\\le\\langle t\\utilde{u}+\\utilde{v},\\ t\\utilde{u}+\\utilde{v}\\rangle=at^2+bt+c$ สำหรับทุกค่า $t$",
+     "พาราโบลา $at^2+bt+c$ ไม่เคยลงต่ำกว่าแกน $t$ จึงต้องตัดแกน $t$ ที่จุดสองจุดที่ต่างกัน ดังนั้น $b^2-4ac>0$",
+     "แทนค่า $a,b,c$ แล้วจัดรูป ได้ $\\langle\\utilde{u},\\utilde{v}\\rangle^2\\le\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle$",
+     "ถอดรากที่สองทั้งสองข้าง ได้ $|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$"
+    ],
+    "wrong": 2,
+    "reasons": [
+     "พาราโบลาที่เปิดขึ้นและไม่เคยต่ำกว่าแกน จะ<b>ไม่มีรากจริง</b> หรือ<b>มีรากจริงซ้ำกัน</b> เท่านั้น ดิสคริมิแนนต์จึงต้องเป็น $b^2-4ac\\le0$ ไม่ใช่ $>0$",
+     "$a=\\langle\\utilde{u},\\utilde{u}\\rangle$ อาจติดลบ พาราโบลาจึงเปิดลงได้",
+     "สัจพจน์ A4 ใช้กับ $\\langle t\\utilde{u}+\\utilde{v},\\ t\\utilde{u}+\\utilde{v}\\rangle$ ไม่ได้ เพราะไม่ใช่เวกเตอร์ตัวเดียวกัน",
+     "ต้องกระจายด้วยสัจพจน์ A2 ก่อนจึงจะใช้ A4 ได้"
+    ],
+    "reason_answer": 0,
+    "explain": "เครื่องหมายของดิสคริมิแนนต์คือหัวใจของการพิสูจน์นี้ — ถ้าเผลอเขียน $>0$ อสมการที่ได้ตอนท้ายจะกลับด้านทั้งหมด &nbsp; และสังเกตว่าเรารู้ว่า $a=\\langle\\utilde{u},\\utilde{u}\\rangle>0$ (เพราะ $\\utilde{u}\\neq\\utilde{0}$) จึงมั่นใจได้ว่าพาราโบลาเปิดขึ้นจริง",
+    "hint": "วาดพาราโบลาที่ 'ไม่เคยต่ำกว่าแกน' ดู มันตัดแกน $t$ ได้กี่จุด?"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s26-mcq-facts",
+   "title": "ข้อเท็จจริงเกี่ยวกับ Cauchy–Schwarz และมุม",
+   "statement": "ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ เป็นจริงกับผลคูณภายใน<b>ทุกแบบ</b> ไม่ใช่เฉพาะยูคลิเดียน",
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle^2\\le\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle$ เป็นรูปสมมูลของ Cauchy–Schwarz",
+     "Cauchy–Schwarz คือสิ่งที่ทำให้นิยามมุมได้ เพราะรับประกันว่าอัตราส่วนที่จะเรียกว่า $\\cos\\theta$ ไม่หลุดออกจาก $[-1,1]$",
+     "ถ้า $\\|\\utilde{u}+\\utilde{v}\\|=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$ แล้ว $\\utilde{u}$ กับ $\\utilde{v}$ ต้องตั้งฉากกัน",
+     "อสมการสามเหลี่ยม $\\|\\utilde{u}+\\utilde{v}\\|\\le\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$ ใช้ได้เฉพาะใน $\\mathbb{R}^n$"
+    ],
+    "answer": [
+     0,
+     1,
+     2
+    ],
+    "explain": "ข้อ 4 ผิด: เครื่องหมายเท่ากับในอสมการสามเหลี่ยมเกิดเมื่อสองเวกเตอร์ชี้ไป<b>ทางเดียวกัน</b> (เช่น $\\utilde{v}=k\\utilde{u}$, $k\\ge0$) ไม่ใช่ตอนตั้งฉาก — ตอนตั้งฉากจะได้ทฤษฎีปีทาโกรัส $\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2+\\|\\utilde{v}\\|^2$ แทน &nbsp; ข้อ 5 ผิด: บทพิสูจน์ใช้เพียงสัจพจน์ A1–A4 กับ Cauchy–Schwarz จึงใช้ได้ทุกปริภูมิผลคูณภายใน",
+    "hint": "ลอง $\\utilde{u}=(1,0)$, $\\utilde{v}=(0,1)$ ในข้อ 4 ดูว่าเท่ากันจริงไหม"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s26-order-cs",
+   "title": "พิสูจน์ทฤษฎี 2.6.1 (Cauchy–Schwarz)",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ว่า $|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ สำหรับทุก $\\utilde{u},\\utilde{v}$ ในปริภูมิผลคูณภายใน (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "<b>กรณี $\\utilde{u}=\\utilde{0}$</b> &nbsp;จากทฤษฎี 2.5.2 ข้อ 1 ได้ $\\langle\\utilde{0},\\utilde{v}\\rangle=0$ และ $\\|\\utilde{0}\\|=0$ ทั้งสองข้างจึงเป็น $0$ อสมการเป็นจริง"
+     },
+     {
+      "id": "b",
+      "text": "<b>กรณี $\\utilde{u}\\neq\\utilde{0}$</b> &nbsp;ให้ $a=\\langle\\utilde{u},\\utilde{u}\\rangle$, $b=2\\langle\\utilde{u},\\utilde{v}\\rangle$, $c=\\langle\\utilde{v},\\utilde{v}\\rangle$ และให้ $t$ เป็นจำนวนจริงใด ๆ"
+     },
+     {
+      "id": "c",
+      "text": "จากสัจพจน์ A4 (การมีค่าเป็นบวก) ได้ $0\\le\\langle t\\utilde{u}+\\utilde{v},\\ t\\utilde{u}+\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "d",
+      "text": "กระจายด้วยทฤษฎี 2.5.2 (สมบัติเชิงพีชคณิต) ได้ $\\langle t\\utilde{u}+\\utilde{v},\\ t\\utilde{u}+\\utilde{v}\\rangle=at^2+bt+c$"
+     },
+     {
+      "id": "e",
+      "text": "เนื่องจาก $at^2+bt+c\\ge0$ สำหรับ<b>ทุกค่า</b> $t$ พาราโบลานี้จึงไม่มีรากจริง หรือมีรากจริงซ้ำกัน นั่นคือ $b^2-4ac\\le0$"
+     },
+     {
+      "id": "f",
+      "text": "แทนค่า $a,b,c$ ได้ $4\\langle\\utilde{u},\\utilde{v}\\rangle^2-4\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle\\le0$ จัดรูปเป็น $\\langle\\utilde{u},\\utilde{v}\\rangle^2\\le\\langle\\utilde{u},\\utilde{u}\\rangle\\,\\langle\\utilde{v},\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "g",
+      "text": "ถอดรากที่สองทั้งสองข้าง (ทำได้เพราะ $\\langle\\utilde{u},\\utilde{u}\\rangle$ และ $\\langle\\utilde{v},\\utilde{v}\\rangle$ ไม่เป็นลบ) ได้ $|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $at^2+bt+c\\ge0$ ทุกค่า $t$ จึงได้ $b^2-4ac\\ge0$",
+      "why": "กลับเครื่องหมาย — พาราโบลาที่เปิดขึ้นและไม่เคยต่ำกว่าแกนจะตัดแกนได้อย่างมากหนึ่งจุด ดิสคริมิแนนต์จึงต้อง $\\le0$"
+     },
+     {
+      "id": "x2",
+      "text": "หารทั้งสองข้างด้วย $\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ได้ทันทีว่า $\\cos\\theta\\le1$",
+      "why": "นั่นคือ<i>ผลที่ตามมา</i>ของอสมการนี้ ไม่ใช่ขั้นตอนของการพิสูจน์ — และจะหารด้วย $\\|\\utilde{u}\\|$ ได้ก็ต่อเมื่อแยกกรณี $\\utilde{u}=\\utilde{0}$ ออกไปแล้ว"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g"
+    ],
+    "deps": [
+     [
+      "a",
+      "g"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ],
+     [
+      "f",
+      "g"
+     ]
+    ],
+    "hint": "เทคนิคคือสร้าง<b>พาราโบลาใน $t$</b> ที่ไม่มีวันติดลบ แล้วอ่านข้อมูลจากดิสคริมิแนนต์ของมัน",
+    "explain": "ทำไมต้องแยกกรณี $\\utilde{u}=\\utilde{0}$? เพราะกรณีนั้น $a=0$ สมการ $at^2+bt+c$ ไม่ใช่พาราโบลาแล้ว ข้อสรุปเรื่องดิสคริมิแนนต์จึงใช้ไม่ได้ &nbsp; และบล็อกกรณีแรกจะวางไว้ต้นหรือกลางก็ได้ ขอเพียงอยู่ก่อนบรรทัดสรุป"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s26-order-triangle-vec",
+   "title": "พิสูจน์ทฤษฎี 2.6.2 ข้อ 1: $\\|\\utilde{u}+\\utilde{v}\\|\\le\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์อสมการสามเหลี่ยมของเวกเตอร์ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "จากนิยาม 2.5.2 (norm) ได้ $\\|\\utilde{u}+\\utilde{v}\\|^2=\\langle\\utilde{u}+\\utilde{v},\\ \\utilde{u}+\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "b",
+      "text": "กระจายด้วยทฤษฎี 2.5.2 ได้ $=\\langle\\utilde{u},\\utilde{u}\\rangle+2\\langle\\utilde{u},\\utilde{v}\\rangle+\\langle\\utilde{v},\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "c",
+      "text": "เนื่องจาก $x\\le|x|$ เสมอ ได้ $\\le\\langle\\utilde{u},\\utilde{u}\\rangle+2|\\langle\\utilde{u},\\utilde{v}\\rangle|+\\langle\\utilde{v},\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "d",
+      "text": "ใช้ Cauchy–Schwarz (ทฤษฎี 2.6.1) แทน $|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ได้ $\\le\\|\\utilde{u}\\|^2+2\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|+\\|\\utilde{v}\\|^2$"
+     },
+     {
+      "id": "e",
+      "text": "ก้อนขวาเป็นกำลังสองสมบูรณ์ นั่นคือ $=\\big(\\|\\utilde{u}\\|+\\|\\utilde{v}\\|\\big)^2$"
+     },
+     {
+      "id": "f",
+      "text": "ถอดรากที่สอง (ทั้งสองข้างไม่เป็นลบ) ได้ $\\|\\utilde{u}+\\utilde{v}\\|\\le\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก norm กระจายผลบวกได้ จึงได้ $\\|\\utilde{u}+\\utilde{v}\\|=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$ ทันที",
+      "why": "norm ไม่ใช่ฟังก์ชันเชิงเส้น ถ้ากระจายได้จริงก็ไม่ต้องมีอสมการสามเหลี่ยม — ตัวอย่างค้าน $\\|(1,0)+(0,1)\\|=\\sqrt2$ แต่ $\\|(1,0)\\|+\\|(0,1)\\|=2$"
+     },
+     {
+      "id": "x2",
+      "text": "ใช้สัจพจน์ A3 ดึงเลข $2$ ออกมา เขียน $2\\langle\\utilde{u},\\utilde{v}\\rangle$ เป็น $\\langle 2\\utilde{u},\\utilde{v}\\rangle$",
+      "why": "เขียนได้จริง แต่ไม่ช่วยให้ใกล้ผลลัพธ์ขึ้นเลย — ก้าวที่ขาดไม่ได้คือแทน Cauchy–Schwarz เพื่อเปลี่ยนผลคูณภายในให้เป็น norm"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ]
+    ],
+    "hint": "เป้าหมายคือทำให้ข้างขวากลายเป็น $(\\|\\utilde{u}\\|+\\|\\utilde{v}\\|)^2$ — ต้องเปลี่ยน $2\\langle\\utilde{u},\\utilde{v}\\rangle$ ให้เป็น $2\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ด้วยอะไร?",
+    "explain": "แบบแผนคือ 'ยกกำลังสองก่อน แล้วค่อยถอดราก' เพราะ norm นิยามด้วยรากที่สอง การทำงานกับ $\\|\\cdot\\|^2$ ทำให้ใช้สัจพจน์ของผลคูณภายในได้ตรง ๆ &nbsp; บรรทัด $x\\le|x|$ ดูเล็กน้อยแต่ขาดไม่ได้ เพราะ $\\langle\\utilde{u},\\utilde{v}\\rangle$ ติดลบได้ ส่วน Cauchy–Schwarz พูดถึงค่าสัมบูรณ์"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s26-order-triangle-dist",
+   "title": "พิสูจน์ทฤษฎี 2.6.2 ข้อ 2: อสมการสามเหลี่ยมของระยะทาง",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ว่า $d(\\utilde{u},\\utilde{v})\\le d(\\utilde{u},\\utilde{w})+d(\\utilde{w},\\utilde{v})$ สำหรับทุก $\\utilde{u},\\utilde{v},\\utilde{w}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "จากนิยาม 2.5.2 (ระยะทาง) ได้ $d(\\utilde{u},\\utilde{v})=\\|\\utilde{u}-\\utilde{v}\\|$"
+     },
+     {
+      "id": "b",
+      "text": "แทรก $\\utilde{w}$ เข้าไปแบบบวกแล้วลบ: $\\utilde{u}-\\utilde{v}=(\\utilde{u}-\\utilde{w})+(\\utilde{w}-\\utilde{v})$"
+     },
+     {
+      "id": "c",
+      "text": "ใช้อสมการสามเหลี่ยมของเวกเตอร์ (ทฤษฎี 2.6.2 ข้อ 1) กับสองก้อนนี้ ได้ $\\|(\\utilde{u}-\\utilde{w})+(\\utilde{w}-\\utilde{v})\\|\\le\\|\\utilde{u}-\\utilde{w}\\|+\\|\\utilde{w}-\\utilde{v}\\|$"
+     },
+     {
+      "id": "d",
+      "text": "แปลง norm กลับเป็นระยะทางตามนิยาม 2.5.2 ได้ $d(\\utilde{u},\\utilde{v})\\le d(\\utilde{u},\\utilde{w})+d(\\utilde{w},\\utilde{v})$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $\\utilde{w}$ อยู่ระหว่าง $\\utilde{u}$ กับ $\\utilde{v}$ เสมอ อสมการจึงเป็นจริง",
+      "why": "$\\utilde{w}$ เป็นเวกเตอร์<b>ใด ๆ</b> ไม่จำเป็นต้องอยู่ระหว่างกลาง — ที่จริงกรณีที่อยู่ระหว่างกลางพอดีคือกรณีที่ได้เครื่องหมาย<i>เท่ากับ</i>"
+     },
+     {
+      "id": "x2",
+      "text": "ใช้ทฤษฎี 2.5.1 ข้อ 3 ($d(\\utilde{u},\\utilde{v})=d(\\utilde{v},\\utilde{u})$) สลับข้างแล้วได้ผลทันที",
+      "why": "ความสมมาตรของระยะทางไม่ได้ให้อสมการใด ๆ — สิ่งที่ต้องใช้คือข้อ 1 ของทฤษฎี 2.6.2 ที่เพิ่งพิสูจน์ไป"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ]
+    ],
+    "hint": "ข้อ 2 ไม่ได้พิสูจน์ใหม่ทั้งหมด — มันคือข้อ 1 ที่ใส่เวกเตอร์คนละคู่เข้าไป",
+    "explain": "เทคนิค 'บวกแล้วลบตัวเดียวกัน' ($-\\utilde{w}+\\utilde{w}$) เป็นวิธีมาตรฐานของการพิสูจน์อสมการสามเหลี่ยมในทุกปริภูมิเมตริก — ในทางเรขาคณิตคือการเดินอ้อมผ่านจุด $\\utilde{w}$ ซึ่งไม่มีวันสั้นกว่าเดินตรง"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.6.1–2.6.2 และคำนวณมุม · norm · ระยะทาง",
+   "slug": "s26-mcq-cos-matrix",
+   "title": "หา $\\cos\\theta$ ใน $\\mathbb{R}^{2\\times2}$",
+   "statement": "ในปริภูมิผลคูณภายในมาตรฐานบน $\\mathbb{R}^{2\\times2}$ ($\\langle U,V\\rangle=\\operatorname{tr}(U^{T}V)$) กำหนด $U=\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ และ $V=\\begin{pmatrix}-1&0\\\\3&2\\end{pmatrix}$ จงหา $\\cos\\theta$ ระหว่าง $U$ กับ $V$",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$\\dfrac{16}{\\sqrt{30}\\,\\sqrt{14}}\\approx0.78$",
+     "$\\dfrac{16}{\\sqrt{30}+\\sqrt{14}}\\approx1.79$",
+     "$\\dfrac{16}{30\\cdot14}\\approx0.038$",
+     "$\\dfrac{8}{\\sqrt{30}\\,\\sqrt{14}}\\approx0.39$"
+    ],
+    "answer": 0,
+    "explain": "$\\langle U,V\\rangle=1(-1)+2(0)+3(3)+4(2)=16$ &nbsp; $\\|U\\|=\\sqrt{1^2+2^2+3^2+4^2}=\\sqrt{30}$ &nbsp; $\\|V\\|=\\sqrt{(-1)^2+0^2+3^2+2^2}=\\sqrt{14}$ &nbsp; ดังนั้น $\\cos\\theta=\\dfrac{16}{\\sqrt{420}}\\approx0.7807$ และ $\\theta\\approx0.675$ เรเดียน &nbsp; ข้อควรจำ: ผลคูณภายในมาตรฐานบนเมทริกซ์คือ 'คูณตำแหน่งต่อตำแหน่งแล้วรวม' เหมือน dot product ของ $\\mathbb{R}^4$",
+    "hint": "$\\operatorname{tr}(U^{T}V)$ เท่ากับผลรวมของผลคูณสมาชิกตำแหน่งเดียวกัน — ลองมองเมทริกซ์ $2\\times2$ เป็นเวกเตอร์ใน $\\mathbb{R}^4$"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.6.1–2.6.2 และคำนวณมุม · norm · ระยะทาง",
+   "slug": "s26-mcq-angle-r3",
+   "title": "หามุมระหว่างเวกเตอร์ใน $\\mathbb{R}^3$",
+   "statement": "ใช้ผลคูณภายในยูคลิเดียนบน $\\mathbb{R}^3$ กำหนด $\\vec{u}=(1,0,1)$ และ $\\vec{v}=(0,1,1)$ จงหามุม $\\theta$ ระหว่าง $\\vec{u}$ กับ $\\vec{v}$",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$\\dfrac{\\pi}{3}$ &nbsp;($60^\\circ$)",
+     "$\\dfrac{\\pi}{4}$ &nbsp;($45^\\circ$)",
+     "$\\dfrac{\\pi}{6}$ &nbsp;($30^\\circ$)",
+     "$\\dfrac{\\pi}{2}$ &nbsp;($90^\\circ$)"
+    ],
+    "answer": 0,
+    "explain": "$\\vec{u}\\cdot\\vec{v}=1(0)+0(1)+1(1)=1$ &nbsp; $\\|\\vec{u}\\|=\\|\\vec{v}\\|=\\sqrt{2}$ &nbsp; $\\cos\\theta=\\dfrac{1}{\\sqrt2\\cdot\\sqrt2}=\\dfrac12$ &nbsp; ดังนั้น $\\theta=\\cos^{-1}\\tfrac12=\\dfrac{\\pi}{3}$",
+    "hint": "หา $\\vec{u}\\cdot\\vec{v}$ กับ $\\|\\vec{u}\\|\\,\\|\\vec{v}\\|$ ก่อน แล้วค่อยนึกว่ามุมไหนมี $\\cos$ เท่ากับค่านั้น"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.6.1–2.6.2 และคำนวณมุม · norm · ระยะทาง",
+   "slug": "s26-mcq-norm-compute",
+   "title": "หา $\\|\\vec{u}+\\vec{v}\\|$ และตรวจอสมการสามเหลี่ยม",
+   "statement": "ใช้ผลคูณภายในยูคลิเดียนบน $\\mathbb{R}^2$ กำหนด $\\vec{u}=(3,4)$ และ $\\vec{v}=(-1,2)$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\|\\vec{u}\\|=5$ และ $\\|\\vec{v}\\|=\\sqrt5$",
+     "$\\|\\vec{u}+\\vec{v}\\|=2\\sqrt{10}$",
+     "$\\|\\vec{u}+\\vec{v}\\|\\le\\|\\vec{u}\\|+\\|\\vec{v}\\|$ เป็นจริง เพราะ $2\\sqrt{10}\\approx6.32$ ส่วน $5+\\sqrt5\\approx7.24$",
+     "$d(\\vec{u},\\vec{v})=\\sqrt{20}$",
+     "$\\|\\vec{u}+\\vec{v}\\|=\\|\\vec{u}\\|+\\|\\vec{v}\\|$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "$\\vec{u}+\\vec{v}=(2,6)$ ให้ $\\|\\vec{u}+\\vec{v}\\|=\\sqrt{4+36}=\\sqrt{40}=2\\sqrt{10}\\approx6.32$ &nbsp; $\\vec{u}-\\vec{v}=(4,2)$ ให้ $d(\\vec{u},\\vec{v})=\\sqrt{16+4}=\\sqrt{20}$ &nbsp; ข้อ 5 ผิด เพราะ $6.32\\neq7.24$ — เครื่องหมายเท่ากับเกิดเฉพาะเมื่อเวกเตอร์ทั้งสองชี้ทางเดียวกัน ซึ่ง $(3,4)$ กับ $(-1,2)$ ไม่ใช่",
+    "hint": "บวกเวกเตอร์ก่อน แล้วค่อยหา norm — อย่าหา norm แยกแล้วเอามาบวกกัน"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.6.1–2.6.2 และคำนวณมุม · norm · ระยะทาง",
+   "slug": "s26-mcq-cs-possible",
+   "title": "ชุดตัวเลขใดเป็นไปไม่ได้",
+   "statement": "ให้ $\\utilde{u},\\utilde{v}$ เป็นเวกเตอร์ในปริภูมิผลคูณภายในหนึ่ง ๆ ชุดตัวเลขในข้อใด<b>เป็นไปไม่ได้</b> (ขัดกับทฤษฎี 2.6.1 หรือสัจพจน์ของผลคูณภายใน) เลือกทุกข้อที่ใช่",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle=7$, $\\|\\utilde{u}\\|=3$, $\\|\\utilde{v}\\|=2$",
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle=-6$, $\\|\\utilde{u}\\|=3$, $\\|\\utilde{v}\\|=2$",
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle=0$, $\\|\\utilde{u}\\|=0$, $\\|\\utilde{v}\\|=5$",
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle=4$, $\\|\\utilde{u}\\|=0$, $\\|\\utilde{v}\\|=5$",
+     "$\\langle\\utilde{u},\\utilde{v}\\rangle=6$, $\\|\\utilde{u}\\|=3$, $\\|\\utilde{v}\\|=2$"
+    ],
+    "answer": [
+     0,
+     3
+    ],
+    "explain": "Cauchy–Schwarz บังคับว่า $|\\langle\\utilde{u},\\utilde{v}\\rangle|\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ &nbsp; ข้อ 1: $7>3\\cdot2=6$ จึงเป็นไปไม่ได้ &nbsp; ข้อ 4: $\\|\\utilde{u}\\|=0$ แปลว่า $\\utilde{u}=\\utilde{0}$ (สัจพจน์ A4) ซึ่งบังคับให้ $\\langle\\utilde{u},\\utilde{v}\\rangle=0$ เสมอ จะเป็น $4$ ไม่ได้ &nbsp; ข้อ 2 และ 5 ได้เครื่องหมายเท่ากับพอดี ($|{-6}|=6=3\\cdot2$) ซึ่งเกิดได้จริงเมื่อ $\\utilde{v}$ เป็นจำนวนเท่าของ $\\utilde{u}$",
+    "hint": "เช็ค 2 อย่าง: $|\\langle\\utilde{u},\\utilde{v}\\rangle|$ เกิน $\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ ไหม และ norm ที่เป็น $0$ หมายความว่าอะไร"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 2.6.1–2.6.2 และคำนวณมุม · norm · ระยะทาง",
+   "slug": "s26-mcq-angle-p2",
+   "title": "หามุมระหว่างพหุนามใน $P_2$",
+   "statement": "ใช้ผลคูณภายในมาตรฐานบน $P_2$ (dot product ของสัมประสิทธิ์) กำหนด $\\utilde{p}=1+x$ และ $\\utilde{q}=1-x+x^2$ จงหามุม $\\theta$ ระหว่าง $\\utilde{p}$ กับ $\\utilde{q}$",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 5,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$\\dfrac{\\pi}{2}$",
+     "$0$",
+     "$\\dfrac{\\pi}{3}$",
+     "$\\dfrac{\\pi}{4}$"
+    ],
+    "answer": 0,
+    "explain": "เขียนเป็นสัมประสิทธิ์: $\\utilde{p}=(1,1,0)$ และ $\\utilde{q}=(1,-1,1)$ &nbsp; $\\langle\\utilde{p},\\utilde{q}\\rangle=1(1)+1(-1)+0(1)=0$ &nbsp; $\\cos\\theta=0$ จึงได้ $\\theta=\\dfrac{\\pi}{2}$ — พหุนามสองตัวนี้<b>ตั้งฉากกัน</b> ซึ่งเป็นหัวข้อของ section 2.7 &nbsp; สังเกตว่าไม่ต้องคำนวณ norm เลย เพราะตัวเศษเป็นศูนย์ไปแล้ว",
+    "hint": "เปลี่ยนพหุนามเป็น tuple ของสัมประสิทธิ์ $(a_0,a_1,a_2)$ ก่อน แล้วหา dot product"
+   }
+  },
+  {
+   "week_no": 26,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "cos $\\theta$, Cauchy–Schwarz และอสมการสามเหลี่ยม ด้วย numpy",
+   "slug": "s26-code-angle",
+   "title": "มุมระหว่างเวกเตอร์ในปริภูมิผลคูณภายในใด ๆ",
+   "statement": "เขียนฟังก์ชันสามตัวที่ทำงานกับผลคูณภายใน<b>แบบใดก็ได้</b> โดยรับฟังก์ชัน <code>ip</code> เข้ามาเป็นอาร์กิวเมนต์<p>1) <code>norm_ip(ip, u)</code> คืน $\\|\\utilde{u}\\|=\\sqrt{\\langle\\utilde{u},\\utilde{u}\\rangle}$ (นิยาม 2.5.2)</p><p>2) <code>cos_angle(ip, u, v)</code> คืน $\\cos\\theta=\\dfrac{\\langle\\utilde{u},\\utilde{v}\\rangle}{\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|}$</p><p>3) <code>angle(ip, u, v)</code> คืนมุม $\\theta$ เป็น<b>เรเดียน</b> โดยใช้ <code>np.arccos</code></p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — นิยามผลคูณภายใน 3 แบบ และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nnp.sqrt(9.0)               # -&gt; 3.0            รากที่สอง\nnp.arccos(0.5)             # -&gt; 1.0471975511965979    (= pi/3)  อาร์กโคไซน์ คืนค่าเป็นเรเดียน\nnp.pi                      # -&gt; 3.141592653589793\nabs(-6.0)                  # -&gt; 6.0            ค่าสัมบูรณ์\n\n# บวกเวกเตอร์หรือเมทริกซ์ ใช้ np.asarray ก่อนเสมอ จะได้บวกทีละตำแหน่ง\nnp.asarray((3, 4), dtype=float) + np.asarray((-1, 2), dtype=float)\n                           # -&gt; array([2., 6.])\nnp.asarray([[1, 2], [3, 4]], dtype=float) + np.asarray([[-1, 0], [3, 2]], dtype=float)\n                           # -&gt; array([[0., 2.], [6., 6.]])\n\n# เรียกผลคูณภายในที่โจทย์เตรียมไว้ได้ตรง ๆ\nip_euclid((1, 0, 1), (0, 1, 1))     # -&gt; 1.0\nip_frob(U1, V1)                     # -&gt; 16.0</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "norm_ip",
+   "setup_code": "import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]\n",
+   "example": "norm_ip(ip_euclid, b1) -> 5.0      cos_angle(ip_euclid, a1, a2) -> 0.5      angle(ip_euclid, a1, a2) -> 1.0471975511965979",
+   "starter_code": "import numpy as np\n\ndef norm_ip(ip, u):\n    # ip(u, u) คือ <u,u>\n    pass\n\ndef cos_angle(ip, u, v):\n    pass\n\ndef angle(ip, u, v):\n    pass\n",
+   "tests": [
+    {
+     "expr": "norm_ip(ip_euclid, b1)",
+     "expected": 5.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "norm_ip(ip_euclid, a1)",
+     "expected": 1.4142135623730951,
+     "tol": 1e-09,
+     "label": "norm_ip(ip_euclid, a1)  — sqrt(2)"
+    },
+    {
+     "expr": "norm_ip(ip_frob, U1)",
+     "expected": 5.477225575051661,
+     "tol": 1e-09,
+     "label": "norm_ip(ip_frob, U1)  — sqrt(30)"
+    },
+    {
+     "expr": "cos_angle(ip_euclid, a1, a2)",
+     "expected": 0.5,
+     "tol": 1e-09
+    },
+    {
+     "expr": "angle(ip_euclid, a1, a2)",
+     "expected": 1.0471975511965979,
+     "tol": 1e-09,
+     "label": "angle(ip_euclid, a1, a2)  — pi/3"
+    },
+    {
+     "expr": "cos_angle(ip_frob, U1, V1)",
+     "expected": 0.7807200583588266,
+     "tol": 1e-09,
+     "label": "cos_angle(ip_frob, U1, V1)  — 16/sqrt(420)"
+    },
+    {
+     "expr": "angle(ip_frob, U1, V1)",
+     "expected": 0.6749790247169083,
+     "tol": 1e-09
+    },
+    {
+     "expr": "cos_angle(ip_weight32, e1, e2)",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "cos_angle(ip_weight32, e1, e2)  — ตั้งฉากกันในผลคูณภายในนี้"
+    },
+    {
+     "expr": "angle(ip_weight32, e1, e2)",
+     "expected": 1.5707963267948966,
+     "tol": 1e-09,
+     "label": "angle(ip_weight32, e1, e2)  — pi/2"
+    }
+   ]
+  },
+  {
+   "week_no": 26,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "cos $\\theta$, Cauchy–Schwarz และอสมการสามเหลี่ยม ด้วย numpy",
+   "slug": "s26-code-cauchy",
+   "title": "ตรวจ Cauchy–Schwarz ด้วยตัวเลข",
+   "statement": "เขียนฟังก์ชัน <code>cauchy(ip, u, v)</code> คืน dict สามคีย์<p><code>{\"lhs\": …, \"rhs\": …, \"holds\": …}</code> โดย <code>lhs</code> $=|\\langle\\utilde{u},\\utilde{v}\\rangle|$, <code>rhs</code> $=\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ และ <code>holds</code> เป็น <code>True</code> เมื่อ $\\text{lhs}\\le\\text{rhs}$ (เผื่อความคลาดเคลื่อนของทศนิยมด้วย <code>1e-9</code>)</p><p>ทฤษฎี 2.6.1 บอกว่า <code>holds</code> ต้องเป็น <code>True</code> เสมอ ไม่ว่าจะใช้ผลคูณภายในแบบใด — โค้ดนี้จึงเป็นการ<i>ยืนยันทฤษฎีด้วยตัวเลข</i></p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — นิยามผลคูณภายใน 3 แบบ และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nnp.sqrt(9.0)               # -&gt; 3.0            รากที่สอง\nnp.arccos(0.5)             # -&gt; 1.0471975511965979    (= pi/3)  อาร์กโคไซน์ คืนค่าเป็นเรเดียน\nnp.pi                      # -&gt; 3.141592653589793\nabs(-6.0)                  # -&gt; 6.0            ค่าสัมบูรณ์\n\n# บวกเวกเตอร์หรือเมทริกซ์ ใช้ np.asarray ก่อนเสมอ จะได้บวกทีละตำแหน่ง\nnp.asarray((3, 4), dtype=float) + np.asarray((-1, 2), dtype=float)\n                           # -&gt; array([2., 6.])\nnp.asarray([[1, 2], [3, 4]], dtype=float) + np.asarray([[-1, 0], [3, 2]], dtype=float)\n                           # -&gt; array([[0., 2.], [6., 6.]])\n\n# เรียกผลคูณภายในที่โจทย์เตรียมไว้ได้ตรง ๆ\nip_euclid((1, 0, 1), (0, 1, 1))     # -&gt; 1.0\nip_frob(U1, V1)                     # -&gt; 16.0</code></pre>",
+   "type": "code",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "cauchy",
+   "setup_code": "import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]\n",
+   "example": "cauchy(ip_euclid, a1, a2)  ->  {'lhs': 1.0, 'rhs': 2.0000000000000004, 'holds': True}",
+   "starter_code": "import numpy as np\n\ndef norm_ip(ip, u):\n    return float(np.sqrt(ip(u, u)))\n\ndef cauchy(ip, u, v):\n    lhs = ...        # abs(ip(u, v))\n    rhs = ...        # norm_ip(ip, u) * norm_ip(ip, v)\n    return {\"lhs\": lhs, \"rhs\": rhs, \"holds\": None}\n",
+   "tests": [
+    {
+     "expr": "cauchy(ip_euclid, a1, a2)",
+     "expected": {
+      "lhs": 1.0,
+      "rhs": 2.0,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "cauchy(ip_euclid, b1, b2)",
+     "expected": {
+      "lhs": 5.0,
+      "rhs": 11.180339887498949,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "cauchy(ip_frob, U1, V1)",
+     "expected": {
+      "lhs": 16.0,
+      "rhs": 20.493901531919196,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "cauchy(ip_weight32, e1, e2)",
+     "expected": {
+      "lhs": 0.0,
+      "rhs": 2.449489742783178,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "cauchy(ip_euclid, b1, b1)",
+     "expected": {
+      "lhs": 25.0,
+      "rhs": 25.0,
+      "holds": true
+     },
+     "tol": 1e-06,
+     "label": "cauchy(ip_euclid, b1, b1)  — เวกเตอร์เดียวกัน ได้เครื่องหมายเท่ากับพอดี"
+    },
+    {
+     "expr": "cauchy(ip_euclid, (0, 0), b2)",
+     "expected": {
+      "lhs": 0.0,
+      "rhs": 0.0,
+      "holds": true
+     },
+     "tol": 1e-06,
+     "label": "cauchy(ip_euclid, (0, 0), b2)  — กรณี u = 0"
+    }
+   ]
+  },
+  {
+   "week_no": 26,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "cos $\\theta$, Cauchy–Schwarz และอสมการสามเหลี่ยม ด้วย numpy",
+   "slug": "s26-code-triangle",
+   "title": "ตรวจอสมการสามเหลี่ยมด้วยตัวเลข",
+   "statement": "เขียนฟังก์ชันสองตัว<p>1) <code>triangle(ip, u, v)</code> คืน <code>{\"lhs\": …, \"rhs\": …, \"holds\": …}</code> โดย <code>lhs</code> $=\\|\\utilde{u}+\\utilde{v}\\|$, <code>rhs</code> $=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$ ตามทฤษฎี 2.6.2 ข้อ 1</p><p>2) <code>dist_ip(ip, u, v)</code> คืนระยะทาง $d(\\utilde{u},\\utilde{v})=\\|\\utilde{u}-\\utilde{v}\\|$ ตามนิยาม 2.5.2</p><p>ข้อควรระวัง: ต้องแปลงเป็น <code>np.asarray</code> ก่อนบวก/ลบ ไม่งั้น tuple จะถูก<i>ต่อกัน</i> แทนที่จะบวกกันทีละตำแหน่ง</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — นิยามผลคูณภายใน 3 แบบ และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nnp.sqrt(9.0)               # -&gt; 3.0            รากที่สอง\nnp.arccos(0.5)             # -&gt; 1.0471975511965979    (= pi/3)  อาร์กโคไซน์ คืนค่าเป็นเรเดียน\nnp.pi                      # -&gt; 3.141592653589793\nabs(-6.0)                  # -&gt; 6.0            ค่าสัมบูรณ์\n\n# บวกเวกเตอร์หรือเมทริกซ์ ใช้ np.asarray ก่อนเสมอ จะได้บวกทีละตำแหน่ง\nnp.asarray((3, 4), dtype=float) + np.asarray((-1, 2), dtype=float)\n                           # -&gt; array([2., 6.])\nnp.asarray([[1, 2], [3, 4]], dtype=float) + np.asarray([[-1, 0], [3, 2]], dtype=float)\n                           # -&gt; array([[0., 2.], [6., 6.]])\n\n# เรียกผลคูณภายในที่โจทย์เตรียมไว้ได้ตรง ๆ\nip_euclid((1, 0, 1), (0, 1, 1))     # -&gt; 1.0\nip_frob(U1, V1)                     # -&gt; 16.0</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 3,
+   "is_active": true,
+   "entry_name": "triangle",
+   "setup_code": "import numpy as np\n\n# ---- ผลคูณภายในแบบต่าง ๆ (รับเวกเตอร์ 2 ตัว คืนจำนวนจริง) ----\ndef ip_euclid(u, v):        # ยูคลิเดียนบน R^n\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(np.sum(u * v))\n\ndef ip_weight32(u, v):      # ถ่วงน้ำหนัก w = (3, 2) บน R^2\n    u = np.asarray(u, dtype=float); v = np.asarray(v, dtype=float)\n    return float(3 * u[0] * v[0] + 2 * u[1] * v[1])\n\ndef ip_frob(U, V):          # มาตรฐานบน R^{2x2}:  tr(U^T V)\n    U = np.asarray(U, dtype=float); V = np.asarray(V, dtype=float)\n    return float(np.trace(U.T @ V))\n\n# ---- เวกเตอร์ตัวอย่าง ----\na1 = (1, 0, 1)\na2 = (0, 1, 1)\nb1 = (3, 4)\nb2 = (-1, 2)\ne1 = (1, 0)\ne2 = (0, 1)\nU1 = [[1, 2], [3, 4]]\nV1 = [[-1, 0], [3, 2]]\n",
+   "example": "triangle(ip_euclid, b1, b2) -> {'lhs': 6.324555320336759, 'rhs': 7.23606797749979, 'holds': True}",
+   "starter_code": "import numpy as np\n\ndef norm_ip(ip, u):\n    return float(np.sqrt(ip(u, u)))\n\ndef triangle(ip, u, v):\n    s = np.asarray(u, dtype=float) + np.asarray(v, dtype=float)\n    pass\n\ndef dist_ip(ip, u, v):\n    pass\n",
+   "tests": [
+    {
+     "expr": "triangle(ip_euclid, b1, b2)",
+     "expected": {
+      "lhs": 6.324555320336759,
+      "rhs": 7.23606797749979,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "triangle(ip_euclid, a1, a2)",
+     "expected": {
+      "lhs": 2.449489742783178,
+      "rhs": 2.8284271247461903,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "triangle(ip_frob, U1, V1)",
+     "expected": {
+      "lhs": 8.717797887081348,
+      "rhs": 9.218882961825601,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "triangle(ip_euclid, b1, b1)",
+     "expected": {
+      "lhs": 10.0,
+      "rhs": 10.0,
+      "holds": true
+     },
+     "tol": 1e-06,
+     "label": "triangle(ip_euclid, b1, b1)  — ทิศทางเดียวกัน ได้เครื่องหมายเท่ากับ"
+    },
+    {
+     "expr": "dist_ip(ip_euclid, b1, b2)",
+     "expected": 4.47213595499958,
+     "tol": 1e-09,
+     "label": "dist_ip(ip_euclid, b1, b2)  — sqrt(20)"
+    },
+    {
+     "expr": "dist_ip(ip_euclid, b1, b1)",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "dist_ip(ip_euclid, b1, b1)  — ทฤษฎี 2.5.1 ข้อ 4"
+    },
+    {
+     "expr": "dist_ip(ip_weight32, e1, e2)",
+     "expected": 2.23606797749979,
+     "tol": 1e-09,
+     "label": "dist_ip(ip_weight32, e1, e2)  — sqrt(3+2)"
+    }
+   ]
+  },
+  {
+   "week_no": 27,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s27-cloze-def",
+   "title": "นิยาม: ตั้งฉาก · orthonormal set · $W^{\\perp}$ · projection",
+   "statement": "ให้ $V$ เป็นปริภูมิผลคูณภายใน และ $W$ เป็นปริภูมิย่อยของ $V$ จงเติมข้อความให้ตรงกับนิยาม 2.7.1–2.7.7 และทฤษฎี 2.7.1",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>นิยาม 2.7.1 (การตั้งฉาก)</b> &nbsp;$\\utilde{u}$ และ $\\utilde{v}$ ตั้งฉากกัน (orthogonal) ก็ต่อเมื่อ {{1}}</p><p><b>ทฤษฎี 2.7.1 (ปีทาโกรัสกรณีทั่วไป)</b> &nbsp;ถ้า $\\utilde{u}$ และ $\\utilde{v}$ ตั้งฉากกัน แล้ว {{2}}</p><p><b>นิยาม 2.7.4 (เซตเชิงตั้งฉาก · เชิงตั้งฉากปรกติ)</b> &nbsp;เซต $S=\\{\\vec{u}_1,\\dots,\\vec{u}_k\\}$ เป็น <i>orthogonal set</i> ก็ต่อเมื่อ {{3}} &nbsp;และเป็น <i>orthonormal set</i> ก็ต่อเมื่อเป็น orthogonal set ที่{{4}}</p><p><b>นิยาม 2.7.2 (ส่วนเติมเต็มเชิงตั้งฉาก)</b> &nbsp;$W^{\\perp}$ คือเซตของเวกเตอร์ $\\utilde{v}\\in V$ ทุกตัวที่{{5}}</p><p><b>นิยาม 2.7.7 (เวกเตอร์การฉาย)</b> &nbsp;สำหรับ $\\vec{u}\\neq\\vec{0}$ เรานิยาม $\\operatorname{proj}_{\\vec{u}}\\vec{v}=$ {{6}}</p><figure class=\"figbox\"><img src=\"assets/figures/proj-basic.svg\" alt=\"proj-basic\"><figcaption>การฉาย $\\vec{v}$ ลงบน $\\vec{u}$ — ส่วนที่ขนานกับ $\\vec{u}$ คือ $\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ส่วนที่เหลือตั้งฉากกับ $\\vec{u}$ เสมอ</figcaption></figure>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$\\langle\\utilde{u},\\utilde{v}\\rangle=0$",
+       "$\\|\\utilde{u}\\|=\\|\\utilde{v}\\|$",
+       "$\\utilde{u}=-\\utilde{v}$"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2+\\|\\utilde{v}\\|^2$",
+       "$\\|\\utilde{u}+\\utilde{v}\\|=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+       "$\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2-\\|\\utilde{v}\\|^2$"
+      ],
+      "answer": 0
+     },
+     "3": {
+      "choices": [
+       "$\\vec{u}_i\\cdot\\vec{u}_j=0$ สำหรับทุก $i\\neq j$",
+       "$\\vec{u}_i\\cdot\\vec{u}_j=0$ สำหรับทุก $i,j$ (รวม $i=j$)",
+       "$\\vec{u}_i\\cdot\\vec{u}_i=0$ สำหรับทุก $i$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "เวกเตอร์ทุกตัวมีขนาดหนึ่งหน่วย",
+       "มีเวกเตอร์ครบเท่ากับมิติของปริภูมิ",
+       "มีเวกเตอร์ศูนย์เป็นสมาชิก"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "ตั้งฉากกับ<b>ทุก</b>เวกเตอร์ใน $W$",
+       "ตั้งฉากกับ<b>บาง</b>เวกเตอร์ใน $W$",
+       "อยู่ใน $W$ ด้วย"
+      ],
+      "answer": 0
+     },
+     "6": {
+      "choices": [
+       "$\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}\\,\\vec{u}$",
+       "$\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{v}\\|^2}\\,\\vec{v}$",
+       "$\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|}\\,\\vec{u}$"
+      ],
+      "answer": 0
+     }
+    },
+    "hint": "สังเกตทิศของ $\\operatorname{proj}_{\\vec{u}}\\vec{v}$ — มันต้องชี้ไปทาง $\\vec{u}$ เสมอ ดังนั้นเวกเตอร์ที่คูณอยู่ข้างท้ายต้องเป็น $\\vec{u}$",
+    "explain": "จุดที่สับสนบ่อย: <b>orthogonal set</b> ห้ามเงื่อนไข $i=j$ เพราะ $\\vec{u}_i\\cdot\\vec{u}_i=\\|\\vec{u}_i\\|^2$ ถ้าบังคับให้เป็นศูนย์ด้วย เซตนั้นก็จะมีแต่เวกเตอร์ศูนย์ &nbsp; และ $\\operatorname{proj}_{\\vec{u}}\\vec{v}$ อ่านว่า 'ฉาย $\\vec{v}$ ลงบน $\\vec{u}$' ผลลัพธ์จึงขนานกับ $\\vec{u}$"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s27-spot-orth",
+   "title": "หาจุดผิด: การตั้งฉากขึ้นกับผลคูณภายในหรือไม่",
+   "statement": "ข้อความด้านล่างสรุปว่า $\\utilde{u}=(1,1)$ กับ $\\utilde{v}=(1,-1)$ ตั้งฉากกัน<b>ในทุกปริภูมิผลคูณภายในบน $\\mathbb{R}^2$</b> มี<b>หนึ่งบรรทัด</b>ที่ผิด คลิกบรรทัดนั้นแล้วเลือกเหตุผล",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "ใช้ผลคูณภายในยูคลิเดียน: $\\langle\\utilde{u},\\utilde{v}\\rangle=1(1)+1(-1)=0$ ดังนั้นตั้งฉากกัน",
+     "ใช้ผลคูณภายในแบบถ่วงน้ำหนัก $\\langle\\utilde{u},\\utilde{v}\\rangle=3u_1v_1+2u_2v_2$ ได้ $3(1)(1)+2(1)(-1)=1$",
+     "ค่าที่ได้คือ $1\\neq0$ แต่ต่างจากศูนย์เพียงเล็กน้อย จึงถือว่ายังตั้งฉากกันอยู่",
+     "ดังนั้น $\\utilde{u}$ กับ $\\utilde{v}$ ตั้งฉากกันในทุกปริภูมิผลคูณภายในบน $\\mathbb{R}^2$"
+    ],
+    "wrong": 2,
+    "reasons": [
+     "นิยาม 2.7.1 ต้องการ $\\langle\\utilde{u},\\utilde{v}\\rangle=0$ <b>พอดี</b> ค่า $1$ ไม่ใช่ศูนย์ จึง<b>ไม่</b>ตั้งฉากกันในผลคูณภายในนั้น — การตั้งฉาก<b>ขึ้นกับผลคูณภายในที่เลือกใช้</b>",
+     "การคำนวณในบรรทัดที่ 2 ผิด ที่ถูกคือได้ $0$",
+     "ผลคูณภายในแบบถ่วงน้ำหนักใช้กับ $\\mathbb{R}^2$ ไม่ได้",
+     "บรรทัดที่ 1 ผิด เพราะผลคูณภายในยูคลิเดียนให้ $2$ ไม่ใช่ $0$"
+    ],
+    "reason_answer": 0,
+    "explain": "บทเรียนสำคัญของ section นี้: คำว่า 'ตั้งฉาก' ไม่มีความหมายจนกว่าจะบอกว่าใช้<b>ผลคูณภายในตัวไหน</b> &nbsp; $(1,1)$ กับ $(1,-1)$ ตั้งฉากกันในผลคูณภายในยูคลิเดียน แต่ไม่ตั้งฉากกันเมื่อถ่วงน้ำหนักด้วย $(3,2)$",
+    "hint": "นิยาม 2.7.1 เขียนว่าอะไร — 'ใกล้ศูนย์' หรือ 'เท่ากับศูนย์'?"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s27-mcq-facts",
+   "title": "ข้อเท็จจริงเกี่ยวกับการตั้งฉากและ $W^{\\perp}$",
+   "statement": "ให้ $W$ เป็นปริภูมิย่อยของปริภูมิผลคูณภายใน $V$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\utilde{0}$ ตั้งฉากกับทุกเวกเตอร์ใน $V$",
+     "$W^{\\perp}$ เป็นปริภูมิย่อยของ $V$ (ทฤษฎี 2.7.2 ข้อ 1)",
+     "$W\\cap W^{\\perp}=\\{\\utilde{0}\\}$ (ทฤษฎี 2.7.2 ข้อ 2)",
+     "ถ้า $V$ มีมิติจำกัด แล้ว $(W^{\\perp})^{\\perp}=W$ (ทฤษฎี 2.7.3)",
+     "เซต orthogonal set ทุกเซตเป็น orthonormal set ด้วย"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "ข้อ 1 มาจากทฤษฎี 2.5.2 ข้อ 1 ($\\langle\\utilde{0},\\utilde{v}\\rangle=0$) — และเป็นเหตุผลที่ $\\utilde{0}\\in W^{\\perp}$ เสมอ ทำให้ $W^{\\perp}$ ไม่เป็นเซตว่าง &nbsp; ข้อ 5 ผิด: orthonormal ต้องการเพิ่มว่าทุกเวกเตอร์ต้องมีขนาด $1$ เช่น $\\{(2,0),(0,3)\\}$ เป็น orthogonal แต่ไม่ orthonormal &nbsp; ข้อ 3 ตีความว่า เวกเตอร์เดียวที่ตั้งฉากกับตัวเองได้คือ $\\utilde{0}$ (สัจพจน์ A4)",
+    "hint": "orthogonal กับ orthonormal ต่างกันตรงเงื่อนไขเดียว — เงื่อนไขอะไร?"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s27-order-pythagoras",
+   "title": "พิสูจน์ทฤษฎี 2.7.1 (ปีทาโกรัสกรณีทั่วไป)",
+   "statement": "ให้ $\\utilde{u}$ และ $\\utilde{v}$ ตั้งฉากกันในปริภูมิผลคูณภายใน จงเรียงข้อความให้เป็นการพิสูจน์ว่า $\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2+\\|\\utilde{v}\\|^2$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "จากนิยาม 2.7.1 (ตั้งฉาก) การที่ $\\utilde{u}$ กับ $\\utilde{v}$ ตั้งฉากกันแปลว่า $\\langle\\utilde{u},\\utilde{v}\\rangle=0$"
+     },
+     {
+      "id": "b",
+      "text": "จากนิยาม 2.5.2 (norm) ได้ $\\|\\utilde{u}+\\utilde{v}\\|^2=\\langle\\utilde{u}+\\utilde{v},\\ \\utilde{u}+\\utilde{v}\\rangle$"
+     },
+     {
+      "id": "c",
+      "text": "กระจายด้วยทฤษฎี 2.5.2 ได้ $=\\|\\utilde{u}\\|^2+2\\langle\\utilde{u},\\utilde{v}\\rangle+\\|\\utilde{v}\\|^2$"
+     },
+     {
+      "id": "d",
+      "text": "แทน $\\langle\\utilde{u},\\utilde{v}\\rangle=0$ พจน์กลางจึงหายไป"
+     },
+     {
+      "id": "e",
+      "text": "สรุปได้ $\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2+\\|\\utilde{v}\\|^2$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "จาก Cauchy–Schwarz ได้ $\\langle\\utilde{u},\\utilde{v}\\rangle\\le\\|\\utilde{u}\\|\\,\\|\\utilde{v}\\|$ จึงสรุปเป็นสมการได้",
+      "why": "Cauchy–Schwarz ให้<i>อสมการ</i> ไม่ใช่สมการ — ที่ทำให้พจน์กลางหายไปคือสมมติฐานการตั้งฉากล้วน ๆ"
+     },
+     {
+      "id": "x2",
+      "text": "ถอดรากที่สองได้ $\\|\\utilde{u}+\\utilde{v}\\|=\\|\\utilde{u}\\|+\\|\\utilde{v}\\|$",
+      "why": "$\\sqrt{a^2+b^2}\\neq a+b$ — ทฤษฎีนี้พูดถึง<b>กำลังสอง</b>ของ norm เท่านั้น ($\\sqrt{1+1}=\\sqrt2$ ไม่ใช่ $2$)"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "d"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "กระจาย $\\langle\\utilde{u}+\\utilde{v},\\ \\utilde{u}+\\utilde{v}\\rangle$ ออกมาก่อน แล้วดูว่าสมมติฐานการตั้งฉากลบพจน์ไหนทิ้ง",
+    "explain": "นี่คือทฤษฎีปีทาโกรัสที่คุ้นเคยจากสามเหลี่ยมมุมฉาก แต่เขียนด้วยภาษาของผลคูณภายใน จึงใช้ได้กับ เมทริกซ์ พหุนาม หรือฟังก์ชันด้วย &nbsp; และบทกลับก็จริง: ถ้า $\\|\\utilde{u}+\\utilde{v}\\|^2=\\|\\utilde{u}\\|^2+\\|\\utilde{v}\\|^2$ แล้วพจน์กลางต้องเป็นศูนย์ นั่นคือตั้งฉากกัน"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s27-order-wperp-subspace",
+   "title": "พิสูจน์ทฤษฎี 2.7.2 ข้อ 1: $W^{\\perp}$ เป็นปริภูมิย่อย",
+   "statement": "ให้ $W$ เป็นปริภูมิย่อยของปริภูมิผลคูณภายใน $V$ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $W^{\\perp}$ เป็นปริภูมิย่อยของ $V$ โดยอาศัย<b>ทฤษฎี 2.2.1 (เกณฑ์ 3 ข้อ: ปิดบวก · ปิดคูณ · มี $\\utilde{0}$)</b> (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "$\\utilde{0}\\in W^{\\perp}$ เพราะจากทฤษฎี 2.5.2 ข้อ 1 ได้ $\\langle\\utilde{0},\\utilde{w}\\rangle=0$ สำหรับทุก $\\utilde{w}\\in W$"
+     },
+     {
+      "id": "b",
+      "text": "ให้ $\\utilde{u},\\utilde{v}\\in W^{\\perp}$ นั่นคือ $\\langle\\utilde{u},\\utilde{w}\\rangle=0$ และ $\\langle\\utilde{v},\\utilde{w}\\rangle=0$ สำหรับทุก $\\utilde{w}\\in W$"
+     },
+     {
+      "id": "c",
+      "text": "จากสัจพจน์ A2 (การบวก) ได้ $\\langle\\utilde{u}+\\utilde{v},\\utilde{w}\\rangle=\\langle\\utilde{u},\\utilde{w}\\rangle+\\langle\\utilde{v},\\utilde{w}\\rangle=0+0=0$ ดังนั้น $\\utilde{u}+\\utilde{v}\\in W^{\\perp}$"
+     },
+     {
+      "id": "d",
+      "text": "ให้ $k$ เป็นสเกลาร์ จากสัจพจน์ A3 (ภาวะความเท่ากัน) ได้ $\\langle k\\utilde{u},\\utilde{w}\\rangle=k\\langle\\utilde{u},\\utilde{w}\\rangle=k(0)=0$ ดังนั้น $k\\utilde{u}\\in W^{\\perp}$"
+     },
+     {
+      "id": "e",
+      "text": "เงื่อนไขทั้งสามข้อเป็นจริง ดังนั้น $W^{\\perp}$ เป็นปริภูมิย่อยของ $V$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $W$ เป็นปริภูมิย่อยอยู่แล้ว $W^{\\perp}$ จึงเป็นปริภูมิย่อยโดยอัตโนมัติ",
+      "why": "การเป็นปริภูมิย่อยไม่ได้ 'ติดตาม' ไปยังส่วนเติมเต็มโดยอัตโนมัติ — ต้องตรวจการปิดของ $W^{\\perp}$ เอง (และสิ่งที่ทำให้ผ่านคือผลคูณภายในเป็นเชิงเส้นในอาร์กิวเมนต์แรก)"
+     },
+     {
+      "id": "x2",
+      "text": "เลือก $\\utilde{w}\\in W$ สักตัวแล้วตรวจว่า $\\langle\\utilde{u}+\\utilde{v},\\utilde{w}\\rangle=0$ ก็เพียงพอ",
+      "why": "นิยาม 2.7.2 ต้องการให้ตั้งฉากกับ $\\utilde{w}$ <b>ทุกตัว</b>ใน $W$ การตรวจเพียงตัวเดียวไม่พอ — โชคดีที่การพิสูจน์ข้างต้นใช้ $\\utilde{w}$ แบบทั่วไปอยู่แล้ว"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "e"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "b",
+      "d"
+     ],
+     [
+      "c",
+      "e"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "ทั้งสามเงื่อนไขพิสูจน์ด้วยสัจพจน์ของผลคูณภายในล้วน ๆ — A2 สำหรับการบวก A3 สำหรับการคูณ และทฤษฎี 2.5.2 ข้อ 1 สำหรับ $\\utilde{0}$",
+    "explain": "แก่นของการพิสูจน์คือ 'ผลคูณภายในเป็นเชิงเส้นในอาร์กิวเมนต์แรก' ($\\langle k\\utilde{u}+\\utilde{v},\\utilde{w}\\rangle=k\\langle\\utilde{u},\\utilde{w}\\rangle+\\langle\\utilde{v},\\utilde{w}\\rangle$) ซึ่งแปลว่าเซตของคำตอบของสมการ $\\langle\\utilde{x},\\utilde{w}\\rangle=0$ เป็นเซตคำตอบของระบบสมการเชิงเส้นเอกพันธ์ — และเซตแบบนั้นเป็น subspace เสมอ (section 2.2) &nbsp; ลำดับของการตรวจปิดบวกกับปิดคูณสลับกันได้"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s27-order-wperp-zero",
+   "title": "พิสูจน์ทฤษฎี 2.7.2 ข้อ 2: $W\\cap W^{\\perp}=\\{\\utilde{0}\\}$",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ว่าเวกเตอร์ตัวเดียวที่อยู่ทั้งใน $W$ และใน $W^{\\perp}$ คือ $\\utilde{0}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "ให้ $\\utilde{v}\\in W\\cap W^{\\perp}$ นั่นคือ $\\utilde{v}\\in W$ <b>และ</b> $\\utilde{v}\\in W^{\\perp}$"
+     },
+     {
+      "id": "b",
+      "text": "เนื่องจาก $\\utilde{v}\\in W^{\\perp}$ จึงได้ $\\langle\\utilde{v},\\utilde{w}\\rangle=0$ สำหรับทุก $\\utilde{w}\\in W$"
+     },
+     {
+      "id": "c",
+      "text": "แต่ $\\utilde{v}$ เองก็เป็นสมาชิกของ $W$ จึงเลือก $\\utilde{w}=\\utilde{v}$ ได้ ทำให้ $\\langle\\utilde{v},\\utilde{v}\\rangle=0$"
+     },
+     {
+      "id": "d",
+      "text": "จากสัจพจน์ A4 (การมีค่าเป็นบวก) $\\langle\\utilde{v},\\utilde{v}\\rangle=0$ ก็ต่อเมื่อ $\\utilde{v}=\\utilde{0}$"
+     },
+     {
+      "id": "e",
+      "text": "และ $\\utilde{0}$ อยู่ทั้งใน $W$ และ $W^{\\perp}$ จริง ดังนั้น $W\\cap W^{\\perp}=\\{\\utilde{0}\\}$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $W$ กับ $W^{\\perp}$ เป็นคนละเซตกัน จึงไม่มีสมาชิกร่วมกันเลย",
+      "why": "ทั้งสองเซตเป็นปริภูมิย่อย จึงต้องมี $\\utilde{0}$ อยู่ทั้งคู่เสมอ — ส่วนร่วมจึงไม่เป็นเซตว่าง"
+     },
+     {
+      "id": "x2",
+      "text": "จากทฤษฎี 2.7.3 ได้ $(W^{\\perp})^{\\perp}=W$ จึงสรุปได้ทันที",
+      "why": "ทฤษฎี 2.7.3 พูดถึงการ 'เติมเต็มสองครั้ง' ไม่ได้บอกอะไรเกี่ยวกับส่วนร่วมของ $W$ กับ $W^{\\perp}$"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "เคล็ดอยู่ที่การเลือก $\\utilde{w}$ ให้เป็นตัว $\\utilde{v}$ เอง — ทำได้เพราะ $\\utilde{v}\\in W$",
+    "explain": "แบบแผน 'ให้เวกเตอร์ตั้งฉากกับตัวเอง' นี้ใช้บ่อยมาก — เมื่อได้ $\\langle\\utilde{v},\\utilde{v}\\rangle=0$ สัจพจน์ A4 จะบังคับให้ $\\utilde{v}=\\utilde{0}$ ทันที &nbsp; ผลที่ตามมา: $W$ กับ $W^{\\perp}$ ไม่มีทิศทางใดร่วมกันเลย ซึ่งเป็นเหตุผลว่าทำไมทุกเวกเตอร์แยกเป็น 'ส่วนใน $W$ + ส่วนตั้งฉาก' ได้แบบเดียว (section 2.8)"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s27-order-perp-proj",
+   "title": "พิสูจน์ว่า $\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ตั้งฉากกับ $\\vec{u}$",
+   "statement": "ให้ $\\vec{u}\\neq\\vec{0}$ และ $\\vec{v}$ เป็นเวกเตอร์ใน $\\mathbb{R}^n$ จงเรียงข้อความให้เป็นการพิสูจน์ว่าเวกเตอร์ $\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ตั้งฉากกับ $\\vec{u}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "จากนิยาม 2.7.7 ได้ $\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}\\,\\vec{u}$ &nbsp;(หารได้เพราะ $\\vec{u}\\neq\\vec{0}$ จึง $\\|\\vec{u}\\|^2\\neq0$)"
+     },
+     {
+      "id": "b",
+      "text": "ตามนิยาม 2.7.3 ต้องแสดงว่า $\\big(\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}\\big)\\cdot\\vec{u}=0$"
+     },
+     {
+      "id": "c",
+      "text": "กระจายผลคูณจุด ได้ $\\vec{v}\\cdot\\vec{u}-\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}\\,(\\vec{u}\\cdot\\vec{u})$"
+     },
+     {
+      "id": "d",
+      "text": "เนื่องจาก $\\vec{u}\\cdot\\vec{u}=\\|\\vec{u}\\|^2$ ตัวส่วนกับตัวประกอบนี้จึงตัดกัน เหลือ $\\vec{v}\\cdot\\vec{u}-\\vec{u}\\cdot\\vec{v}$"
+     },
+     {
+      "id": "e",
+      "text": "ผลคูณจุดสลับที่ได้ (สัจพจน์ A1) ค่าที่ได้จึงเป็น $0$ นั่นคือ $\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ตั้งฉากกับ $\\vec{u}$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ขนานกับ $\\vec{u}$ ผลต่างจึงตั้งฉากกับ $\\vec{u}$ โดยอัตโนมัติ",
+      "why": "ผลต่างของ $\\vec{v}$ กับเวกเตอร์ที่ขนานกับ $\\vec{u}$ ไม่จำเป็นต้องตั้งฉาก — มันตั้งฉากก็เฉพาะเมื่อสัมประสิทธิ์เป็น $\\frac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}$ พอดี ซึ่งคือสิ่งที่ต้องคำนวณให้เห็น"
+     },
+     {
+      "id": "x2",
+      "text": "แทน $\\|\\vec{u}\\|^2$ ด้วย $\\|\\vec{v}\\|^2$ เพื่อให้ตัดกับ $\\vec{v}\\cdot\\vec{v}$ ได้",
+      "why": "นิยาม 2.7.7 ใช้ $\\|\\vec{u}\\|^2$ (ตัวที่ถูกฉายลงไป) ไม่ใช่ $\\|\\vec{v}\\|^2$ — สลับแล้วจะกลายเป็น $\\operatorname{proj}_{\\vec{v}}\\vec{u}$ ซึ่งเป็นคนละเวกเตอร์"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "c"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "แทนสูตร proj ลงไปตรง ๆ แล้วกระจาย — ตัวส่วน $\\|\\vec{u}\\|^2$ จะไปตัดกับ $\\vec{u}\\cdot\\vec{u}$ พอดี",
+    "explain": "นี่คือ<b>เหตุผลที่สูตร proj หน้าตาแบบนั้น</b> — สัมประสิทธิ์ $\\frac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}$ ถูกเลือกมาให้ส่วนที่เหลือตั้งฉากพอดี &nbsp; การแยก $\\vec{v}=\\operatorname{proj}_{\\vec{u}}\\vec{v}+(\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v})$ คือ 'ส่วนที่ขนานกับ $\\vec{u}$ + ส่วนที่ตั้งฉากกับ $\\vec{u}$' ซึ่งเป็นก้าวเดียวของกระบวนการ Gram–Schmidt ใน section 2.8"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ตัดสินการตั้งฉาก และคำนวณ projection · orthogonal complement",
+   "slug": "s27-mcq-find-a",
+   "title": "หาค่า $a$ ที่ทำให้ตั้งฉากกัน",
+   "statement": "ใน $\\mathbb{R}^2$ พร้อมผลคูณภายในยูคลิเดียน จงหาค่า $a$ ที่ทำให้ $\\begin{pmatrix}-1\\\\a\\end{pmatrix}$ และ $\\begin{pmatrix}2\\\\3\\end{pmatrix}$ ตั้งฉากกัน",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$a=\\dfrac{2}{3}$",
+     "$a=-\\dfrac{2}{3}$",
+     "$a=\\dfrac{3}{2}$",
+     "$a=2$"
+    ],
+    "answer": 0,
+    "explain": "ตั้งฉากกันก็ต่อเมื่อผลคูณจุดเป็นศูนย์: $(-1)(2)+a(3)=0$ &nbsp; ได้ $-2+3a=0$ จึง $a=\\dfrac{2}{3}$ &nbsp; ตรวจกลับ: $(-1,\\tfrac23)\\cdot(2,3)=-2+2=0$ ถูกต้อง",
+    "hint": "เขียนสมการ $\\vec{u}\\cdot\\vec{v}=0$ ออกมาแล้วแก้หา $a$ — มันเป็นสมการเชิงเส้นตัวแปรเดียว"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ตัดสินการตั้งฉาก และคำนวณ projection · orthogonal complement",
+   "slug": "s27-mcq-sets",
+   "title": "เซตใดเป็น orthogonal / orthonormal set",
+   "statement": "พิจารณาเซตของเวกเตอร์ใน $\\mathbb{R}^3$ และ $\\mathbb{R}^2$ ต่อไปนี้ (ใช้ผลคูณภายในยูคลิเดียน) ข้อใด<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\{(2,3,0),\\,(-3,2,0),\\,(0,0,1)\\}$ เป็น orthogonal set",
+     "$\\{(2,3,0),\\,(-3,2,0),\\,(0,0,1)\\}$ เป็น orthonormal set",
+     "$\\{(0.6,\\,0.8),\\,(-0.8,\\,0.6)\\}$ เป็น orthonormal set",
+     "$\\{(1,1,0),\\,(1,0,0)\\}$ เป็น orthogonal set",
+     "$\\{(1,1,0),\\,(1,-1,0),\\,(0,0,1)\\}$ เป็น orthogonal set แต่ไม่เป็น orthonormal set"
+    ],
+    "answer": [
+     0,
+     2,
+     4
+    ],
+    "explain": "ข้อ 1: $(2,3,0)\\cdot(-3,2,0)=-6+6=0$ และอีกสองคู่ก็เป็นศูนย์ &nbsp; ข้อ 2 ผิดเพราะ $\\|(2,3,0)\\|=\\sqrt{13}\\neq1$ &nbsp; ข้อ 3: ผลคูณจุด $=-0.48+0.48=0$ และ norm ทั้งคู่ $=\\sqrt{0.36+0.64}=1$ &nbsp; ข้อ 4 ผิด: $(1,1,0)\\cdot(1,0,0)=1\\neq0$ &nbsp; ข้อ 5: ตั้งฉากครบทุกคู่ แต่ $\\|(1,1,0)\\|=\\sqrt2$ จึงยังไม่ normal — หารด้วย $\\sqrt2$ ก็จะได้ orthonormal",
+    "hint": "ตรวจสองชั้น: (1) ผลคูณจุดของทุก<b>คู่ที่ต่างกัน</b> เป็นศูนย์ไหม (2) ทุกตัวยาว $1$ ไหม"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ตัดสินการตั้งฉาก และคำนวณ projection · orthogonal complement",
+   "slug": "s27-mcq-proj",
+   "title": "คำนวณเวกเตอร์การฉาย",
+   "statement": "ใน $\\mathbb{R}^2$ กำหนด $\\vec{v}=\\begin{pmatrix}2\\\\3\\end{pmatrix}$ และ $\\vec{u}=\\begin{pmatrix}-1\\\\5\\end{pmatrix}$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\begin{pmatrix}-0.5\\\\2.5\\end{pmatrix}$",
+     "$\\operatorname{proj}_{\\vec{v}}\\vec{u}=\\begin{pmatrix}2\\\\3\\end{pmatrix}$",
+     "$\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\begin{pmatrix}2.5\\\\0.5\\end{pmatrix}$ และตั้งฉากกับ $\\vec{u}$",
+     "$\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\operatorname{proj}_{\\vec{v}}\\vec{u}$",
+     "$\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ขนานกับ $\\vec{u}$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "explain": "$\\vec{u}\\cdot\\vec{v}=(-1)(2)+5(3)=13$ และ $\\|\\vec{u}\\|^2=1+25=26$ &nbsp; $\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\tfrac{13}{26}\\vec{u}=0.5(-1,5)=(-0.5,\\,2.5)$ &nbsp; ส่วน $\\|\\vec{v}\\|^2=4+9=13$ จึง $\\operatorname{proj}_{\\vec{v}}\\vec{u}=\\tfrac{13}{13}\\vec{v}=(2,3)=\\vec{v}$ &nbsp; ข้อ 4 จึงผิดชัดเจน — <b>การฉายไม่สลับที่</b> &nbsp; ตรวจข้อ 3: $(2.5,0.5)\\cdot(-1,5)=-2.5+2.5=0$ ตั้งฉากจริงตามที่พิสูจน์ไว้ใน level 2<figure class=\"figbox\"><img src=\"assets/figures/proj-basic.svg\" alt=\"proj-basic\"><figcaption>การฉาย $\\vec{v}$ ลงบน $\\vec{u}$ — ส่วนที่ขนานกับ $\\vec{u}$ คือ $\\operatorname{proj}_{\\vec{u}}\\vec{v}$ ส่วนที่เหลือตั้งฉากกับ $\\vec{u}$ เสมอ</figcaption></figure>",
+    "hint": "ตัวส่วนของสูตรคือ norm กำลังสองของเวกเตอร์ที่ถูก<i>ฉายลงไป</i> — สลับบท $\\vec{u}$ กับ $\\vec{v}$ แล้วตัวส่วนก็เปลี่ยนตาม"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ตัดสินการตั้งฉาก และคำนวณ projection · orthogonal complement",
+   "slug": "s27-mcq-wperp",
+   "title": "หาส่วนเติมเต็มเชิงตั้งฉาก",
+   "statement": "ใน $\\mathbb{R}^3$ ให้ $W=\\operatorname{span}\\{(1,1,0),\\,(0,1,1)\\}$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$(1,-1,1)\\in W^{\\perp}$",
+     "$W^{\\perp}=\\operatorname{span}\\{(1,-1,1)\\}$",
+     "$\\dim W^{\\perp}=1$",
+     "$(1,0,0)\\in W^{\\perp}$",
+     "$\\dim W+\\dim W^{\\perp}=3$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "explain": "ต้องตั้งฉากกับ<b>ทั้งสอง</b>ตัวที่แผ่ $W$: $(1,-1,1)\\cdot(1,1,0)=1-1+0=0$ และ $(1,-1,1)\\cdot(0,1,1)=0-1+1=0$ &nbsp; $W$ มีมิติ $2$ (สองตัวนี้เป็นอิสระเชิงเส้น) ส่วน $W^{\\perp}$ คือเซตคำตอบของระบบสมการเอกพันธ์ 2 สมการใน 3 ตัวแปร จึงมีมิติ $3-2=1$ &nbsp; ข้อ 4 ผิด: $(1,0,0)\\cdot(1,1,0)=1\\neq0$ &nbsp; ข้อ 5 เป็นสูตรทั่วไป $\\dim W+\\dim W^{\\perp}=\\dim V$ ซึ่งตรงกับ rank–nullity ของ section 2.4",
+    "hint": "เวกเตอร์จะอยู่ใน $W^{\\perp}$ ก็ต่อเมื่อตั้งฉากกับ<b>ทุกตัวที่แผ่</b> $W$ — พอตั้งฉากกับตัวที่แผ่ครบ ก็ตั้งฉากกับผลรวมเชิงเส้นทุกตัวเอง"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ตัดสินการตั้งฉาก และคำนวณ projection · orthogonal complement",
+   "slug": "s27-mcq-pythagoras",
+   "title": "ใช้ทฤษฎีปีทาโกรัสตรวจคำตอบ",
+   "statement": "ใช้ผลคูณภายในยูคลิเดียนบน $\\mathbb{R}^3$ กำหนด $\\vec{u}=(1,2,-1)$ และ $\\vec{v}=(3,-1,1)$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 5,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\vec{u}\\cdot\\vec{v}=0$ ดังนั้น $\\vec{u}$ กับ $\\vec{v}$ ตั้งฉากกัน",
+     "$\\|\\vec{u}\\|^2=6$ และ $\\|\\vec{v}\\|^2=11$",
+     "$\\|\\vec{u}+\\vec{v}\\|^2=17$",
+     "$\\|\\vec{u}+\\vec{v}\\|=\\|\\vec{u}\\|+\\|\\vec{v}\\|$",
+     "$\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\vec{0}$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "explain": "$\\vec{u}\\cdot\\vec{v}=1(3)+2(-1)+(-1)(1)=3-2-1=0$ ตั้งฉากกันจริง &nbsp; $\\|\\vec{u}\\|^2=1+4+1=6$, $\\|\\vec{v}\\|^2=9+1+1=11$ &nbsp; ทฤษฎี 2.7.1 ให้ $\\|\\vec{u}+\\vec{v}\\|^2=6+11=17$ (ตรวจตรง ๆ: $\\vec{u}+\\vec{v}=(4,1,0)$ ได้ $16+1+0=17$) &nbsp; ข้อ 4 ผิด: $\\sqrt{17}\\approx4.12$ แต่ $\\sqrt6+\\sqrt{11}\\approx5.77$ — ปีทาโกรัสพูดถึง<b>กำลังสอง</b>เท่านั้น &nbsp; ข้อ 5 ถูก เพราะตัวเศษของสูตร proj คือ $\\vec{u}\\cdot\\vec{v}=0$",
+    "hint": "หาผลคูณจุดก่อน ถ้าได้ศูนย์ ทฤษฎี 2.7.1 จะช่วยให้ไม่ต้องบวกเวกเตอร์แล้วยกกำลังสองเอง"
+   }
+  },
+  {
+   "week_no": 27,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "Gram matrix, orthonormal set และ projection ด้วย numpy",
+   "slug": "s27-code-orth-set",
+   "title": "Gram matrix และการตรวจ orthogonal / orthonormal set",
+   "statement": "เขียนฟังก์ชันสามตัว<p>1) <code>gram(S)</code> คืน <b>Gram matrix</b> คือเมทริกซ์ที่ตำแหน่ง $(i,j)$ เก็บ $\\vec{u}_i\\cdot\\vec{u}_j$ (ถ้าวางเวกเตอร์เป็นแถวของ $M$ ก็คือ $MM^{T}$ นั่นเอง)</p><p>2) <code>is_orthogonal_set(S)</code> คืน <code>True</code> เมื่อทุก<b>คู่ที่ต่างกัน</b>ตั้งฉากกัน — นั่นคือ Gram matrix เป็นเมทริกซ์<b>ทแยงมุม</b> (นิยาม 2.7.4)</p><p>3) <code>is_orthonormal_set(S)</code> คืน <code>True</code> เมื่อเป็น orthogonal set <b>และ</b> ทุกเวกเตอร์ยาว $1$ — นั่นคือ Gram matrix เท่ากับเมทริกซ์เอกลักษณ์</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตเวกเตอร์ตัวอย่างและฐานหลักของ $W$ ไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray([(2, 3, 0), (-3, 2, 0)], dtype=float)   # หนึ่งแถว = หนึ่งเวกเตอร์\nM @ M.T                    # -&gt; array([[13.,  0.],\n                           #           [ 0., 13.]])   ตาราง dot product ของทุกคู่ (Gram matrix)\n\na = np.asarray((2, 3), dtype=float)\nb = np.asarray((-3, 2), dtype=float)\nfloat(np.dot(a, b))        # -&gt; 0.0           ผลคูณจุด\nfloat(a @ a)               # -&gt; 13.0          เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 3.605551275463989      ขนาดของเวกเตอร์\n\nnp.eye(3)                  # -&gt; เมทริกซ์เอกลักษณ์ 3x3\nnp.diag([13.0, 13.0, 1.0]) # -&gt; เมทริกซ์ทแยงมุม\nnp.allclose(M @ M.T, np.diag(np.diag(M @ M.T)))\n                           # -&gt; True   เช็คว่านอกแนวทแยงมุมเป็นศูนย์หมด\nnp.diag(np.diag(G))        # -&gt; เก็บเฉพาะแนวทแยงมุมของ G ที่เหลือแทนด้วย 0\n(3 / 5) * a                # -&gt; array([1.2, 1.8])   คูณเวกเตอร์ด้วยสเกลาร์</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "gram",
+   "setup_code": "import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]\n",
+   "example": "is_orthogonal_set(S_orth) -> True      is_orthonormal_set(S_orth) -> False",
+   "starter_code": "import numpy as np\n\ndef gram(S):\n    M = np.asarray(S, dtype=float)\n    pass\n\ndef is_orthogonal_set(S):\n    G = gram(S)\n    # นอกแนวทแยงมุมต้องเป็นศูนย์หมด\n    pass\n\ndef is_orthonormal_set(S):\n    pass\n",
+   "tests": [
+    {
+     "expr": "gram(S_orth)",
+     "expected": [
+      [
+       13.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       13.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "gram(S_bad)",
+     "expected": [
+      [
+       2.0,
+       1.0
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "gram(S_bad)  — นอกแนวทแยงมุมไม่เป็นศูนย์"
+    },
+    {
+     "expr": "is_orthogonal_set(S_std)",
+     "expected": true
+    },
+    {
+     "expr": "is_orthogonal_set(S_orth)",
+     "expected": true
+    },
+    {
+     "expr": "is_orthogonal_set(S_half)",
+     "expected": true
+    },
+    {
+     "expr": "is_orthogonal_set(S_bad)",
+     "expected": false
+    },
+    {
+     "expr": "is_orthonormal_set(S_std)",
+     "expected": true
+    },
+    {
+     "expr": "is_orthonormal_set(S_orth)",
+     "expected": false,
+     "label": "is_orthonormal_set(S_orth)  — ตั้งฉากแต่ยาว sqrt(13)"
+    },
+    {
+     "expr": "is_orthonormal_set(S_half)",
+     "expected": false
+    },
+    {
+     "expr": "is_orthonormal_set(S_unit)",
+     "expected": true
+    },
+    {
+     "expr": "is_orthonormal_set(S_bad)",
+     "expected": false
+    }
+   ]
+  },
+  {
+   "week_no": 27,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "Gram matrix, orthonormal set และ projection ด้วย numpy",
+   "slug": "s27-code-proj",
+   "title": "เวกเตอร์หนึ่งหน่วย · การฉาย · ส่วนที่ตั้งฉาก",
+   "statement": "เขียนฟังก์ชันสามตัวสำหรับ $\\mathbb{R}^n$ พร้อมผลคูณภายในยูคลิเดียน<p>1) <code>unit(u)</code> คืนเวกเตอร์หนึ่งหน่วยที่ชี้ไปทางเดียวกับ $\\vec{u}$ คือ $\\dfrac{\\vec{u}}{\\|\\vec{u}\\|}$</p><p>2) <code>proj(u, v)</code> คืน $\\operatorname{proj}_{\\vec{u}}\\vec{v}=\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|^2}\\,\\vec{u}$ (นิยาม 2.7.7)</p><p>3) <code>perp(u, v)</code> คืน $\\vec{v}-\\operatorname{proj}_{\\vec{u}}\\vec{v}$ — ส่วนของ $\\vec{v}$ ที่ตั้งฉากกับ $\\vec{u}$</p><p>ระวังลำดับอาร์กิวเมนต์: <code>proj(u, v)</code> คือฉาย <b>v ลงบน u</b> ตัวส่วนจึงเป็น $\\|\\vec{u}\\|^2$</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตเวกเตอร์ตัวอย่างและฐานหลักของ $W$ ไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray([(2, 3, 0), (-3, 2, 0)], dtype=float)   # หนึ่งแถว = หนึ่งเวกเตอร์\nM @ M.T                    # -&gt; array([[13.,  0.],\n                           #           [ 0., 13.]])   ตาราง dot product ของทุกคู่ (Gram matrix)\n\na = np.asarray((2, 3), dtype=float)\nb = np.asarray((-3, 2), dtype=float)\nfloat(np.dot(a, b))        # -&gt; 0.0           ผลคูณจุด\nfloat(a @ a)               # -&gt; 13.0          เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 3.605551275463989      ขนาดของเวกเตอร์\n\nnp.eye(3)                  # -&gt; เมทริกซ์เอกลักษณ์ 3x3\nnp.diag([13.0, 13.0, 1.0]) # -&gt; เมทริกซ์ทแยงมุม\nnp.allclose(M @ M.T, np.diag(np.diag(M @ M.T)))\n                           # -&gt; True   เช็คว่านอกแนวทแยงมุมเป็นศูนย์หมด\nnp.diag(np.diag(G))        # -&gt; เก็บเฉพาะแนวทแยงมุมของ G ที่เหลือแทนด้วย 0\n(3 / 5) * a                # -&gt; array([1.2, 1.8])   คูณเวกเตอร์ด้วยสเกลาร์</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "proj",
+   "setup_code": "import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]\n",
+   "example": "proj(u1, v1) -> array([-0.5, 2.5])      perp(u1, v1) -> array([2.5, 0.5])",
+   "starter_code": "import numpy as np\n\ndef unit(u):\n    u = np.asarray(u, dtype=float)\n    pass\n\ndef proj(u, v):\n    u = np.asarray(u, dtype=float)\n    v = np.asarray(v, dtype=float)\n    # ตัวเศษ u @ v   ตัวส่วน u @ u\n    pass\n\ndef perp(u, v):\n    pass\n",
+   "tests": [
+    {
+     "expr": "unit((3, 4))",
+     "expected": [
+      0.6,
+      0.8
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "unit((1, 1, 0))",
+     "expected": [
+      0.7071067811865475,
+      0.7071067811865475,
+      0.0
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "float(np.linalg.norm(unit(u2)))",
+     "expected": 1.0,
+     "tol": 1e-09,
+     "label": "ขนาดของ unit(u2) ต้องเป็น 1"
+    },
+    {
+     "expr": "proj(u1, v1)",
+     "expected": [
+      -0.5,
+      2.5
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "proj(v1, u1)",
+     "expected": [
+      2.0,
+      3.0
+     ],
+     "tol": 1e-09,
+     "label": "proj(v1, u1)  — สลับบทบาทแล้วได้คนละเวกเตอร์ (การฉายไม่สลับที่)"
+    },
+    {
+     "expr": "perp(u1, v1)",
+     "expected": [
+      2.5,
+      0.5
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "float(np.dot(perp(u1, v1), np.asarray(u1, dtype=float)))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "perp(u1, v1) ต้องตั้งฉากกับ u1 (ที่พิสูจน์ไว้ใน level 2)"
+    },
+    {
+     "expr": "proj(u2, v2)",
+     "expected": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tol": 1e-09,
+     "label": "proj(u2, v2)  — u2 กับ v2 ตั้งฉากกัน การฉายจึงเป็นเวกเตอร์ศูนย์"
+    },
+    {
+     "expr": "perp(u2, v2)",
+     "expected": [
+      3.0,
+      -1.0,
+      1.0
+     ],
+     "tol": 1e-09
+    }
+   ]
+  },
+  {
+   "week_no": 27,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "Gram matrix, orthonormal set และ projection ด้วย numpy",
+   "slug": "s27-code-wperp",
+   "title": "ส่วนเติมเต็มเชิงตั้งฉาก และทฤษฎีปีทาโกรัส",
+   "statement": "เขียนฟังก์ชันสองตัว<p>1) <code>in_orth_complement(W, v)</code> รับฐานหลัก (หรือเซตแผ่ทั่ว) ของปริภูมิย่อย $W$ กับเวกเตอร์ $\\vec{v}$ แล้วคืน <code>True</code> เมื่อ $\\vec{v}\\in W^{\\perp}$ — นั่นคือ $\\vec{v}$ ตั้งฉากกับ<b>ทุกตัว</b>ในเซตนั้น (นิยาม 2.7.2)</p><p><i>ทำไมตรวจแค่ตัวที่แผ่ก็พอ?</i> เพราะทุกเวกเตอร์ใน $W$ เป็นผลรวมเชิงเส้นของตัวที่แผ่ และผลคูณภายในเป็นเชิงเส้น ถ้าตั้งฉากกับตัวที่แผ่ครบ ก็ตั้งฉากกับทั้ง $W$</p><p>2) <code>pythagoras(u, v)</code> คืน dict <code>{\"orthogonal\": …, \"lhs\": …, \"rhs\": …, \"holds\": …}</code> โดย <code>lhs</code> $=\\|\\vec{u}+\\vec{v}\\|^2$, <code>rhs</code> $=\\|\\vec{u}\\|^2+\\|\\vec{v}\\|^2$ และ <code>holds</code> เป็นจริงเมื่อสองค่านี้เท่ากัน (ทฤษฎี 2.7.1 บอกว่า <code>orthogonal</code> เป็นจริงเมื่อไร <code>holds</code> ก็ต้องเป็นจริงด้วย)</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตเวกเตอร์ตัวอย่างและฐานหลักของ $W$ ไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray([(2, 3, 0), (-3, 2, 0)], dtype=float)   # หนึ่งแถว = หนึ่งเวกเตอร์\nM @ M.T                    # -&gt; array([[13.,  0.],\n                           #           [ 0., 13.]])   ตาราง dot product ของทุกคู่ (Gram matrix)\n\na = np.asarray((2, 3), dtype=float)\nb = np.asarray((-3, 2), dtype=float)\nfloat(np.dot(a, b))        # -&gt; 0.0           ผลคูณจุด\nfloat(a @ a)               # -&gt; 13.0          เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 3.605551275463989      ขนาดของเวกเตอร์\n\nnp.eye(3)                  # -&gt; เมทริกซ์เอกลักษณ์ 3x3\nnp.diag([13.0, 13.0, 1.0]) # -&gt; เมทริกซ์ทแยงมุม\nnp.allclose(M @ M.T, np.diag(np.diag(M @ M.T)))\n                           # -&gt; True   เช็คว่านอกแนวทแยงมุมเป็นศูนย์หมด\nnp.diag(np.diag(G))        # -&gt; เก็บเฉพาะแนวทแยงมุมของ G ที่เหลือแทนด้วย 0\n(3 / 5) * a                # -&gt; array([1.2, 1.8])   คูณเวกเตอร์ด้วยสเกลาร์</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 3,
+   "is_active": true,
+   "entry_name": "in_orth_complement",
+   "setup_code": "import numpy as np\n\n# ---- เซตของเวกเตอร์ (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_std  = [(1, 0, 0), (0, 1, 0), (0, 0, 1)]          # orthonormal\nS_orth = [(2, 3, 0), (-3, 2, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่ แต่ยาวไม่เท่ากับ 1\nS_half = [(1, 1, 0), (1, -1, 0), (0, 0, 1)]         # ตั้งฉากครบทุกคู่\nS_bad  = [(1, 1, 0), (1, 0, 0)]                     # ไม่ตั้งฉาก\nS_unit = [(0.6, 0.8), (-0.8, 0.6)]                  # orthonormal ใน R^2\n\n# ---- เวกเตอร์เดี่ยว ----\nu1 = (-1, 5)\nv1 = (2, 3)\nu2 = (1, 2, -1)\nv2 = (3, -1, 1)\n\n# ---- ปริภูมิย่อย W = span W_basis  (ใช้หา W-perp) ----\nW_basis = [(1, 1, 0), (0, 1, 1)]\n",
+   "example": "in_orth_complement(W_basis, (1, -1, 1)) -> True      pythagoras(u2, v2) -> {'orthogonal': True, 'lhs': 17.0, 'rhs': 17.0, 'holds': True}",
+   "starter_code": "import numpy as np\n\ndef in_orth_complement(W, v):\n    v = np.asarray(v, dtype=float)\n    # ตั้งฉากกับทุก w ใน W หรือไม่\n    pass\n\ndef pythagoras(u, v):\n    u = np.asarray(u, dtype=float)\n    v = np.asarray(v, dtype=float)\n    pass\n",
+   "tests": [
+    {
+     "expr": "in_orth_complement(W_basis, (1, -1, 1))",
+     "expected": true
+    },
+    {
+     "expr": "in_orth_complement(W_basis, (2, -2, 2))",
+     "expected": true,
+     "label": "in_orth_complement(W_basis, (2, -2, 2))  — จำนวนเท่าก็ยังอยู่ใน W-perp (มันเป็น subspace)"
+    },
+    {
+     "expr": "in_orth_complement(W_basis, (1, 0, 0))",
+     "expected": false
+    },
+    {
+     "expr": "in_orth_complement(W_basis, (0, 0, 0))",
+     "expected": true,
+     "label": "in_orth_complement(W_basis, (0, 0, 0))  — เวกเตอร์ศูนย์อยู่ใน W-perp เสมอ"
+    },
+    {
+     "expr": "pythagoras(u2, v2)",
+     "expected": {
+      "orthogonal": true,
+      "lhs": 17.0,
+      "rhs": 17.0,
+      "holds": true
+     },
+     "tol": 1e-06
+    },
+    {
+     "expr": "pythagoras(u1, v1)",
+     "expected": {
+      "orthogonal": false,
+      "lhs": 65.0,
+      "rhs": 39.0,
+      "holds": false
+     },
+     "tol": 1e-06,
+     "label": "pythagoras(u1, v1)  — ไม่ตั้งฉาก สมการจึงไม่เป็นจริง"
+    },
+    {
+     "expr": "pythagoras((1, 0), (0, 1))",
+     "expected": {
+      "orthogonal": true,
+      "lhs": 2.0,
+      "rhs": 2.0,
+      "holds": true
+     },
+     "tol": 1e-06
+    }
+   ]
+  },
+  {
+   "week_no": 28,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s28-cloze-def",
+   "title": "นิยาม 2.8.1 และขั้นตอนของ Gram–Schmidt",
+   "statement": "ให้ $S=\\{\\vec{u}_1,\\vec{u}_2,\\dots,\\vec{u}_p\\}$ เป็นฐานหลักของปริภูมิย่อย $U\\subset\\mathbb{R}^n$ จงเติมข้อความให้ตรงกับนิยาม 2.8.1 และขั้นตอนของกระบวนการแกรม-ชมิท",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>นิยาม 2.8.1</b> &nbsp;<i>เวกเตอร์การฉาย</i> ของ $\\vec{v}$ บน $U=\\operatorname{span}S$ คือ {{1}} &nbsp;และ <i>เวกเตอร์การฉายเชิงตั้งฉาก</i> ของ $\\vec{v}$ บน $U$ คือ {{2}}</p><p><b>กระบวนการแกรม-ชมิท</b></p><p>ขั้นที่ 1 &nbsp;$\\vec{v}_1=$ {{3}} &nbsp;แล้วทำให้เป็นหนึ่งหน่วย $\\vec{q}_1=$ {{4}}</p><p>ขั้นที่ 2 &nbsp;$\\vec{v}_2=$ {{5}}</p><p>ขั้นที่ 3 &nbsp;$\\vec{v}_3=\\vec{u}_3-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_3-\\operatorname{proj}_{\\vec{v}_2}\\vec{u}_3$ &nbsp;— สังเกตว่าเราฉายลงบน{{6}} เสมอ ไม่ใช่ลงบนเวกเตอร์ตั้งต้น</p><p>เมื่อทำครบ จะได้ว่าเซต $\\{\\vec{v}_1,\\dots,\\vec{v}_p\\}$ เป็น {{7}} ของ $U$ และเซต $\\{\\vec{q}_1,\\dots,\\vec{q}_p\\}$ เป็น {{8}} ของ $U$</p><p><b>ดูรูปประกอบทีละขั้น</b> — สีน้ำเงินคือเวกเตอร์ตั้งต้น $\\vec{u}_i$ สีเขียวคือส่วนที่ต้องลบทิ้ง (เวกเตอร์การฉาย) สีส้มคือผลลัพธ์ $\\vec{v}_i$ และสีม่วงคือ $\\vec{q}_i$ ที่ยาวหนึ่งหน่วย</p><figure class=\"figbox\"><img src=\"assets/figures/proj-subspace.svg\" alt=\"proj-subspace\"><figcaption>นิยาม 2.8.1 — เวกเตอร์การฉายของ $\\vec{v}$ บน $U$ คือผลรวมของเงาบนแต่ละแกนของฐานหลัก (สูตรนี้ใช้ได้เพราะฐานหลักตั้งฉากกัน) ส่วนที่เหลือคือเวกเตอร์การฉายเชิงตั้งฉาก ซึ่งอยู่ใน $U^{\\perp}$</figcaption></figure><figure class=\"figbox\"><img src=\"assets/figures/gs-step1.svg\" alt=\"gs-step1\"><figcaption>ขั้นที่ 1 — ยกเวกเตอร์ตัวแรกมาทั้งดุ้น $\\vec{v}_1=\\vec{u}_1$ แล้วย่อให้ยาวหนึ่งหน่วยเป็น $\\vec{q}_1$ (ทิศทางไม่เปลี่ยน)</figcaption></figure><figure class=\"figbox\"><img src=\"assets/figures/gs-step2.svg\" alt=\"gs-step2\"><figcaption>ขั้นที่ 2 — $\\vec{u}_2$ มีส่วนที่ 'ซ้ำ' กับทิศ $\\vec{v}_1$ อยู่ (ลูกศรเขียว) ลบส่วนนั้นทิ้ง เหลือ $\\vec{v}_2$ ที่ตั้งฉากกับ $\\vec{v}_1$ พอดี</figcaption></figure><figure class=\"figbox\"><img src=\"assets/figures/gs-step3.svg\" alt=\"gs-step3\"><figcaption>ขั้นที่ 3 — ระนาบสีเทาคือ $\\operatorname{span}\\{\\vec{v}_1,\\vec{v}_2\\}$ ลบ 'เงา' ของ $\\vec{u}_3$ บนระนาบนั้นออก เหลือ $\\vec{v}_3$ ที่ตั้งฉากกับทั้งระนาบ</figcaption></figure><figure class=\"figbox\"><img src=\"assets/figures/gs-result.svg\" alt=\"gs-result\"><figcaption>ผลลัพธ์ — $\\{\\vec{v}_1,\\vec{v}_2\\}$ ตั้งฉากกันแล้ว (orthogonal basis) หารด้วยความยาวอีกทีได้ $\\{\\vec{q}_1,\\vec{q}_2\\}$ ที่ยาวหนึ่งหน่วยทั้งคู่ (orthonormal basis) — ทั้งสองชุดแผ่ปริภูมิเดียวกับ $\\{\\vec{u}_1,\\vec{u}_2\\}$</figcaption></figure>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "$\\operatorname{proj}_{\\vec{v}_1}\\vec{v}+\\operatorname{proj}_{\\vec{v}_2}\\vec{v}+\\cdots+\\operatorname{proj}_{\\vec{v}_m}\\vec{v}$",
+       "$\\operatorname{proj}_{\\vec{v}_1}\\vec{v}$ เพียงพจน์เดียว",
+       "$\\vec{v}-\\operatorname{proj}_{\\vec{v}_1}\\vec{v}$"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$\\vec{v}-\\big(\\operatorname{proj}_{\\vec{v}_1}\\vec{v}+\\cdots+\\operatorname{proj}_{\\vec{v}_m}\\vec{v}\\big)$",
+       "$\\vec{v}+\\big(\\operatorname{proj}_{\\vec{v}_1}\\vec{v}+\\cdots+\\operatorname{proj}_{\\vec{v}_m}\\vec{v}\\big)$",
+       "$\\big\\|\\vec{v}-\\operatorname{proj}_{\\vec{v}_1}\\vec{v}\\big\\|$"
+      ],
+      "answer": 0
+     },
+     "3": {
+      "choices": [
+       "$\\vec{u}_1$",
+       "$\\dfrac{\\vec{u}_1}{\\|\\vec{u}_1\\|}$",
+       "$\\vec{u}_1-\\vec{u}_2$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "$\\dfrac{\\vec{v}_1}{\\|\\vec{v}_1\\|}$",
+       "$\\dfrac{\\vec{v}_1}{\\|\\vec{v}_1\\|^2}$",
+       "$\\|\\vec{v}_1\\|\\,\\vec{v}_1$"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "$\\vec{u}_2-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$",
+       "$\\vec{u}_2-\\operatorname{proj}_{\\vec{u}_2}\\vec{v}_1$",
+       "$\\vec{u}_2+\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$"
+      ],
+      "answer": 0
+     },
+     "6": {
+      "choices": [
+       "เวกเตอร์ $\\vec{v}_1,\\vec{v}_2,\\dots$ ที่สร้างมาแล้วในขั้นก่อน ๆ",
+       "เวกเตอร์ตั้งต้น $\\vec{u}_1,\\vec{u}_2,\\dots$",
+       "เวกเตอร์หนึ่งหน่วยมาตรฐาน $\\vec{i},\\vec{j},\\vec{k}$"
+      ],
+      "answer": 0
+     },
+     "7": {
+      "choices": [
+       "ฐานหลักเชิงตั้งฉาก (orthogonal basis)",
+       "ฐานหลักเชิงตั้งฉากปรกติ (orthonormal basis)",
+       "เซตที่ไม่เป็นอิสระเชิงเส้น"
+      ],
+      "answer": 0
+     },
+     "8": {
+      "choices": [
+       "ฐานหลักเชิงตั้งฉากปรกติ (orthonormal basis)",
+       "ฐานหลักเชิงตั้งฉาก (orthogonal basis) แต่ยังไม่ปรกติ",
+       "เซตแผ่ทั่วที่ไม่เป็นฐานหลัก"
+      ],
+      "answer": 0
+     }
+    },
+    "hint": "ทุกขั้นทำสองอย่าง: (1) ลบส่วนที่ 'ซ้ำ' กับทิศทางที่มีอยู่แล้วออก (2) ทำให้ยาวหนึ่งหน่วย",
+    "explain": "ช่อง 6 คือหัวใจของกระบวนการ — ถ้าฉายลงบน $\\vec{u}_1,\\vec{u}_2$ ตัวเดิม เวกเตอร์ที่ได้จะ<b>ไม่</b>ตั้งฉากกัน เพราะ $\\vec{u}_1,\\vec{u}_2$ เองก็ยังไม่ตั้งฉาก &nbsp; และสังเกตว่านิยาม 2.8.1 (ผลรวมของ proj ทีละตัว) ใช้ได้ก็เพราะฐานหลักที่ใช้เป็นฐานหลัก<i>เชิงตั้งฉาก</i> ซึ่งเป็นเหตุผลที่กระบวนการนี้ฉายลงบน $\\vec{v}_i$ (ที่ตั้งฉากกันแล้ว) เสมอ"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s28-spot-gs",
+   "title": "หาจุดผิดในการทำ Gram–Schmidt",
+   "statement": "ให้ $\\vec{u}_1=(1,1,0)$, $\\vec{u}_2=(1,0,1)$, $\\vec{u}_3=(0,1,1)$ นักศึกษาคนหนึ่งทำกระบวนการแกรม-ชมิทดังด้านล่าง มี<b>หนึ่งบรรทัด</b>ที่ผิด คลิกบรรทัดนั้นแล้วเลือกเหตุผล",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "ขั้นที่ 1: $\\vec{v}_1=\\vec{u}_1=(1,1,0)$",
+     "ขั้นที่ 2: $\\vec{v}_2=\\vec{u}_2-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2=(1,0,1)-\\tfrac12(1,1,0)=(\\tfrac12,-\\tfrac12,1)$",
+     "ตรวจได้ว่า $\\vec{v}_2\\cdot\\vec{v}_1=\\tfrac12-\\tfrac12+0=0$ ตั้งฉากกันจริง",
+     "ขั้นที่ 3: $\\vec{v}_3=\\vec{u}_3-\\operatorname{proj}_{\\vec{u}_1}\\vec{u}_3-\\operatorname{proj}_{\\vec{u}_2}\\vec{u}_3$",
+     "สุดท้ายทำให้ทุกตัวยาวหนึ่งหน่วย $\\vec{q}_i=\\dfrac{\\vec{v}_i}{\\|\\vec{v}_i\\|}$ จะได้ orthonormal basis"
+    ],
+    "wrong": 3,
+    "reasons": [
+     "ขั้นที่ 3 ต้องฉายลงบน $\\vec{v}_1$ และ $\\vec{v}_2$ (เวกเตอร์ที่<b>ตั้งฉากกันแล้ว</b>) ไม่ใช่ $\\vec{u}_1$ กับ $\\vec{u}_2$ — เพราะ $\\vec{u}_1,\\vec{u}_2$ ยังไม่ตั้งฉากกัน สูตรผลรวมของ proj จึงใช้ไม่ได้",
+     "ขั้นที่ 3 ต้องเป็น $\\vec{v}_3=\\vec{u}_3+\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_3+\\operatorname{proj}_{\\vec{v}_2}\\vec{u}_3$ (บวกไม่ใช่ลบ)",
+     "ขั้นที่ 2 คำนวณผิด ที่ถูกคือ $\\vec{v}_2=(1,0,1)$",
+     "ขั้นสุดท้ายต้องหารด้วย $\\|\\vec{v}_i\\|^2$ ไม่ใช่ $\\|\\vec{v}_i\\|$"
+    ],
+    "reason_answer": 0,
+    "explain": "สูตร 'ลบ proj ทีละตัวแล้วได้ตั้งฉาก' ใช้ได้เฉพาะเมื่อตัวที่เราฉายลงไปตั้งฉากกันเองอยู่แล้ว &nbsp; นี่คือเหตุผลที่กระบวนการต้องทำ<b>ทีละขั้นตามลำดับ</b> — $\\vec{v}_2$ ต้องเสร็จก่อนจึงจะใช้ในขั้นที่ 3 ได้ &nbsp; ถ้าใช้ $\\vec{u}_1,\\vec{u}_2$ จะได้ $\\vec{v}_3$ ที่ไม่ตั้งฉากกับใครเลย ลองคำนวณดูได้<figure class=\"figbox\"><img src=\"assets/figures/gs-step3.svg\" alt=\"gs-step3\"><figcaption>ขั้นที่ 3 — ระนาบสีเทาคือ $\\operatorname{span}\\{\\vec{v}_1,\\vec{v}_2\\}$ ลบ 'เงา' ของ $\\vec{u}_3$ บนระนาบนั้นออก เหลือ $\\vec{v}_3$ ที่ตั้งฉากกับทั้งระนาบ</figcaption></figure>",
+    "hint": "เทียบบรรทัดที่ 4 กับบรรทัดที่ 2 — ตัวห้อยของ proj ในสองบรรทัดนี้เป็นตัวอักษรเดียวกันไหม?"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s28-mcq-facts",
+   "title": "ข้อเท็จจริงเกี่ยวกับ Gram–Schmidt",
+   "statement": "ให้ $S=\\{\\vec{u}_1,\\dots,\\vec{u}_p\\}$ เป็นฐานหลักของปริภูมิย่อย $U$ และ $\\{\\vec{q}_1,\\dots,\\vec{q}_p\\}$ เป็นผลลัพธ์จากกระบวนการแกรม-ชมิท ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\operatorname{span}\\{\\vec{q}_1,\\dots,\\vec{q}_p\\}=U$ — กระบวนการนี้เปลี่ยนแค่ 'ทิศทางของฐานหลัก' ไม่เปลี่ยนปริภูมิที่แผ่",
+     "$\\vec{q}_i\\cdot\\vec{q}_j=0$ เมื่อ $i\\neq j$ และ $\\|\\vec{q}_i\\|=1$ ทุก $i$",
+     "ถ้าสลับลำดับของ $\\vec{u}_1,\\dots,\\vec{u}_p$ แล้วทำใหม่ อาจได้ orthonormal basis คนละชุด",
+     "$\\vec{q}_1$ ชี้ไปทางเดียวกับ $\\vec{u}_1$ เสมอ",
+     "ถ้า $S$ ไม่เป็นอิสระเชิงเส้น กระบวนการนี้ก็ยังใช้ได้ตามปกติ"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "ข้อ 4 ถูกเพราะขั้นที่ 1 กำหนด $\\vec{v}_1=\\vec{u}_1$ แล้วแค่หารด้วยความยาว ทิศทางจึงไม่เปลี่ยน &nbsp; ข้อ 5 ผิด: ถ้า $\\vec{u}_k$ เป็นผลรวมเชิงเส้นของตัวก่อนหน้า การลบ proj ออกจะเหลือ $\\vec{v}_k=\\vec{0}$ ซึ่งหารด้วย $\\|\\vec{v}_k\\|=0$ ไม่ได้ — กระบวนการพังตรงนั้น (ในทางปฏิบัติจึงใช้จุดนี้ตรวจว่าเซตเป็นอิสระเชิงเส้นหรือไม่ก็ได้) &nbsp; ข้อ 3 ถูก: ลำดับต่างกันให้ฐานหลักคนละชุด แม้จะแผ่ปริภูมิเดียวกัน",
+    "hint": "ลองนึกว่าเกิดอะไรขึ้นถ้า $\\vec{u}_2=2\\vec{u}_1$ แล้วทำขั้นที่ 2"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์/ขั้นตอนที่ถูกต้อง",
+   "slug": "s28-order-steps",
+   "title": "เรียงขั้นตอนของกระบวนการแกรม-ชมิท",
+   "statement": "ให้ $S=\\{\\vec{u}_1,\\vec{u}_2,\\vec{u}_3\\}$ เป็นฐานหลักของปริภูมิย่อย $U$ จงเรียงขั้นตอนของกระบวนการแกรม-ชมิทให้ถูกต้อง (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "<b>ขั้นที่ 1</b> &nbsp;ตั้ง $\\vec{v}_1=\\vec{u}_1$ แล้วทำให้เป็นหนึ่งหน่วย $\\vec{q}_1=\\dfrac{\\vec{v}_1}{\\|\\vec{v}_1\\|}$"
+     },
+     {
+      "id": "b",
+      "text": "<b>ขั้นที่ 2</b> &nbsp;ลบส่วนที่ขนานกับ $\\vec{v}_1$ ออกจาก $\\vec{u}_2$: $\\vec{v}_2=\\vec{u}_2-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$ แล้ว $\\vec{q}_2=\\dfrac{\\vec{v}_2}{\\|\\vec{v}_2\\|}$"
+     },
+     {
+      "id": "c",
+      "text": "<b>ขั้นที่ 3</b> &nbsp;ลบส่วนที่ขนานกับ $\\vec{v}_1$ และ $\\vec{v}_2$ ออกจาก $\\vec{u}_3$: $\\vec{v}_3=\\vec{u}_3-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_3-\\operatorname{proj}_{\\vec{v}_2}\\vec{u}_3$ แล้ว $\\vec{q}_3=\\dfrac{\\vec{v}_3}{\\|\\vec{v}_3\\|}$"
+     },
+     {
+      "id": "d",
+      "text": "<b>สรุป</b> &nbsp;$\\{\\vec{v}_1,\\vec{v}_2,\\vec{v}_3\\}$ เป็นฐานหลักเชิงตั้งฉากของ $U$ และ $\\{\\vec{q}_1,\\vec{q}_2,\\vec{q}_3\\}$ เป็นฐานหลักเชิงตั้งฉากปรกติของ $U$"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "ทำให้ $\\vec{u}_1,\\vec{u}_2,\\vec{u}_3$ ทุกตัวเป็นหนึ่งหน่วยก่อน แล้วจะได้ orthonormal basis ทันที",
+      "why": "การทำให้ยาวหนึ่งหน่วยเปลี่ยนแค่<i>ความยาว</i> ไม่เปลี่ยน<i>ทิศทาง</i> — ถ้าเดิมไม่ตั้งฉาก หารด้วยความยาวแล้วก็ยังไม่ตั้งฉากอยู่ดี"
+     },
+     {
+      "id": "x2",
+      "text": "<b>ขั้นที่ 3</b> &nbsp;$\\vec{v}_3=\\vec{u}_3-\\operatorname{proj}_{\\vec{u}_1}\\vec{u}_3-\\operatorname{proj}_{\\vec{u}_2}\\vec{u}_3$",
+      "why": "ต้องฉายลงบน $\\vec{v}_1,\\vec{v}_2$ ที่ตั้งฉากกันแล้ว — สูตร 'ลบ proj ทีละตัว' ใช้ได้เฉพาะเมื่อตัวที่ฉายลงไปตั้งฉากกันเอง"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ]
+    ],
+    "hint": "ลำดับสำคัญมาก — ขั้นที่ $k$ ใช้ผลลัพธ์ของขั้นก่อนหน้าทั้งหมด",
+    "explain": "มองกระบวนการนี้เป็น 'การลบสิ่งที่รู้อยู่แล้วทิ้ง' — $\\vec{u}_2$ มีข้อมูลบางส่วนที่ซ้ำกับทิศ $\\vec{v}_1$ เราลบส่วนซ้ำนั้นออก เหลือแต่ทิศทาง<b>ใหม่</b> ที่ $\\vec{v}_1$ ไม่มี &nbsp; ทำซ้ำไปเรื่อย ๆ จะได้ชุดทิศทางที่ไม่ซ้ำกันเลย นั่นคือ orthogonal basis"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์/ขั้นตอนที่ถูกต้อง",
+   "slug": "s28-order-v2-perp",
+   "title": "พิสูจน์ว่า $\\vec{v}_2$ ตั้งฉากกับ $\\vec{v}_1$",
+   "statement": "ในกระบวนการแกรม-ชมิท ขั้นที่ 2 กำหนด $\\vec{v}_2=\\vec{u}_2-\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $\\vec{v}_2$ ตั้งฉากกับ $\\vec{v}_1$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 15,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "แทนสูตร proj (นิยาม 2.7.7) ได้ $\\vec{v}_2=\\vec{u}_2-\\dfrac{\\vec{v}_1\\cdot\\vec{u}_2}{\\|\\vec{v}_1\\|^2}\\,\\vec{v}_1$"
+     },
+     {
+      "id": "b",
+      "text": "คำนวณ $\\vec{v}_2\\cdot\\vec{v}_1=\\vec{u}_2\\cdot\\vec{v}_1-\\dfrac{\\vec{v}_1\\cdot\\vec{u}_2}{\\|\\vec{v}_1\\|^2}\\,(\\vec{v}_1\\cdot\\vec{v}_1)$"
+     },
+     {
+      "id": "c",
+      "text": "เนื่องจาก $\\vec{v}_1\\cdot\\vec{v}_1=\\|\\vec{v}_1\\|^2$ ตัวส่วนจึงตัดกันพอดี เหลือ $\\vec{u}_2\\cdot\\vec{v}_1-\\vec{v}_1\\cdot\\vec{u}_2$"
+     },
+     {
+      "id": "d",
+      "text": "ผลคูณจุดสลับที่ได้ ค่าที่ได้จึงเป็น $0$ นั่นคือ $\\vec{v}_2\\perp\\vec{v}_1$ ∎"
+     },
+     {
+      "id": "e",
+      "text": "นอกจากนี้ $\\vec{v}_2\\neq\\vec{0}$ เพราะถ้า $\\vec{v}_2=\\vec{0}$ จะได้ $\\vec{u}_2$ เป็นจำนวนเท่าของ $\\vec{v}_1=\\vec{u}_1$ ซึ่งขัดกับการที่ $S$ เป็นอิสระเชิงเส้น"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$ ตั้งฉากกับ $\\vec{v}_1$ ผลต่างจึงตั้งฉากด้วย",
+      "why": "ตรงกันข้าม — $\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2$ <b>ขนาน</b>กับ $\\vec{v}_1$ (มันคือจำนวนเท่าของ $\\vec{v}_1$) ตัวที่ตั้งฉากคือ<i>ส่วนที่เหลือ</i>ต่างหาก"
+     },
+     {
+      "id": "x2",
+      "text": "หาร $\\vec{v}_2$ ด้วย $\\|\\vec{v}_2\\|$ ก่อน แล้วจึงตรวจการตั้งฉาก",
+      "why": "การหารด้วยความยาวไม่เปลี่ยนทิศทาง จึงไม่ช่วยและไม่จำเป็นในการพิสูจน์ (และถ้า $\\vec{v}_2=\\vec{0}$ ก็ยังหารไม่ได้ด้วย)"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "แทนสูตรลงไปตรง ๆ แล้ว dot ด้วย $\\vec{v}_1$ — ตัวส่วน $\\|\\vec{v}_1\\|^2$ จะไปตัดกับ $\\vec{v}_1\\cdot\\vec{v}_1$",
+    "explain": "บล็อกสุดท้ายสำคัญกว่าที่คิด: ถ้าไม่รับประกันว่า $\\vec{v}_2\\neq\\vec{0}$ ขั้นตอน $\\vec{q}_2=\\vec{v}_2/\\|\\vec{v}_2\\|$ จะหารด้วยศูนย์ &nbsp; นี่คือเหตุผลที่กระบวนการแกรม-ชมิทบังคับว่าเซตตั้งต้นต้องเป็น<b>ฐานหลัก</b> (อิสระเชิงเส้น) ไม่ใช่เซตแผ่ทั่วเฉย ๆ"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์/ขั้นตอนที่ถูกต้อง",
+   "slug": "s28-order-orth-li",
+   "title": "พิสูจน์: orthogonal set ที่ไม่มีเวกเตอร์ศูนย์ เป็นอิสระเชิงเส้น",
+   "statement": "ให้ $S=\\{\\vec{v}_1,\\dots,\\vec{v}_k\\}$ เป็น orthogonal set ใน $\\mathbb{R}^n$ ที่ไม่มีเวกเตอร์ศูนย์เป็นสมาชิก จงเรียงข้อความให้เป็นการพิสูจน์ว่า $S$ เป็นอิสระเชิงเส้น (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "ให้ $c_1\\vec{v}_1+c_2\\vec{v}_2+\\cdots+c_k\\vec{v}_k=\\vec{0}$ ตามนิยาม 2.3.3 ต้องแสดงว่า $c_i=0$ ทุกตัว"
+     },
+     {
+      "id": "b",
+      "text": "เลือก $i$ ใด ๆ แล้ว dot ทั้งสองข้างด้วย $\\vec{v}_i$"
+     },
+     {
+      "id": "c",
+      "text": "ข้างขวาได้ $\\vec{0}\\cdot\\vec{v}_i=0$ ส่วนข้างซ้ายกระจายได้ $c_1(\\vec{v}_1\\cdot\\vec{v}_i)+\\cdots+c_k(\\vec{v}_k\\cdot\\vec{v}_i)$"
+     },
+     {
+      "id": "d",
+      "text": "เนื่องจาก $S$ เป็น orthogonal set พจน์ที่ $j\\neq i$ ทุกพจน์เป็นศูนย์ เหลือเพียง $c_i(\\vec{v}_i\\cdot\\vec{v}_i)=c_i\\|\\vec{v}_i\\|^2$"
+     },
+     {
+      "id": "e",
+      "text": "ได้สมการ $c_i\\|\\vec{v}_i\\|^2=0$ และเนื่องจาก $\\vec{v}_i\\neq\\vec{0}$ จึง $\\|\\vec{v}_i\\|^2\\neq0$ หารออกได้ $c_i=0$"
+     },
+     {
+      "id": "f",
+      "text": "เนื่องจาก $i$ เป็นตัวใดก็ได้ จึงได้ $c_1=\\cdots=c_k=0$ ดังนั้น $S$ เป็นอิสระเชิงเส้น ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจากเวกเตอร์ตั้งฉากกันย่อมมีทิศทางต่างกัน จึงเป็นอิสระเชิงเส้นโดยอัตโนมัติ",
+      "why": "ทิศทางต่างกันใช้ได้เป็นเหตุผลเฉพาะกรณี 2 เวกเตอร์ (ทฤษฎี 2.3.2 ข้อ 2) — ตั้งแต่ 3 ตัวขึ้นไปต้องพิสูจน์จริง ๆ อย่างที่ทำข้างต้น"
+     },
+     {
+      "id": "x2",
+      "text": "เงื่อนไข 'ไม่มีเวกเตอร์ศูนย์' ไม่จำเป็น เพราะ $\\vec{0}$ ตั้งฉากกับทุกตัวอยู่แล้ว",
+      "why": "กลับกัน — $\\vec{0}$ ตั้งฉากกับทุกตัวก็จริง แต่เซตที่มี $\\vec{0}$ ไม่เป็นอิสระเชิงเส้นเสมอ (ทฤษฎี 2.3.2 ข้อ 1) เงื่อนไขนี้จึงขาดไม่ได้"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ]
+    ],
+    "hint": "เทคนิคคือ 'dot ด้วย $\\vec{v}_i$' — การตั้งฉากจะลบทุกพจน์ทิ้ง เหลือพจน์เดียวที่เราอยากได้",
+    "explain": "ทฤษฎีนี้อธิบายว่าทำไมผลลัพธ์ของแกรม-ชมิทถึงเป็น<b>ฐานหลัก</b> ไม่ใช่แค่เซตแผ่ทั่ว — เพราะมันตั้งฉากกันครบและไม่มีตัวไหนเป็นเวกเตอร์ศูนย์ &nbsp; และเทคนิค 'dot ด้วย $\\vec{v}_i$ เพื่อดึงสัมประสิทธิ์ตัวที่ $i$ ออกมา' คือเทคนิคเดียวกับที่ใช้หา coordinate ในข้อถัดไป"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์/ขั้นตอนที่ถูกต้อง",
+   "slug": "s28-order-coords",
+   "title": "พิสูจน์: coordinate เทียบ orthonormal basis หาได้ด้วย dot product",
+   "statement": "ให้ $\\{\\vec{q}_1,\\dots,\\vec{q}_p\\}$ เป็นฐานหลักเชิงตั้งฉากปรกติของปริภูมิย่อย $U$ และ $\\vec{u}\\in U$ เขียนได้ว่า $\\vec{u}=\\alpha_1\\vec{q}_1+\\cdots+\\alpha_p\\vec{q}_p$ จงเรียงข้อความให้เป็นการพิสูจน์ว่า $\\alpha_i=\\vec{q}_i\\cdot\\vec{u}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "เนื่องจาก $\\{\\vec{q}_i\\}$ เป็นฐานหลักของ $U$ จึงเขียน $\\vec{u}=\\alpha_1\\vec{q}_1+\\cdots+\\alpha_p\\vec{q}_p$ ได้ และสัมประสิทธิ์ชุดนี้มีชุดเดียว"
+     },
+     {
+      "id": "b",
+      "text": "dot ทั้งสองข้างด้วย $\\vec{q}_i$ ได้ $\\vec{q}_i\\cdot\\vec{u}=\\alpha_1(\\vec{q}_i\\cdot\\vec{q}_1)+\\cdots+\\alpha_p(\\vec{q}_i\\cdot\\vec{q}_p)$"
+     },
+     {
+      "id": "c",
+      "text": "เนื่องจากเป็น orthogonal set พจน์ที่ $j\\neq i$ เป็นศูนย์หมด เหลือ $\\vec{q}_i\\cdot\\vec{u}=\\alpha_i(\\vec{q}_i\\cdot\\vec{q}_i)$"
+     },
+     {
+      "id": "d",
+      "text": "เนื่องจากเป็น orthonormal set ด้วย จึง $\\vec{q}_i\\cdot\\vec{q}_i=\\|\\vec{q}_i\\|^2=1$"
+     },
+     {
+      "id": "e",
+      "text": "สรุปได้ $\\alpha_i=\\vec{q}_i\\cdot\\vec{u}$ สำหรับทุก $i$ ∎"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "ตั้งระบบสมการเชิงเส้น $[Q\\mid\\vec{u}]$ แล้วใช้ Gauss-Jordan reduction หา $\\alpha_i$",
+      "why": "ทำได้และได้คำตอบเดียวกัน แต่นั่นคือวิธีสำหรับฐานหลัก<i>ทั่วไป</i> — ประเด็นของทฤษฎีนี้คือเมื่อฐานหลักตั้งฉากปรกติ ไม่ต้องแก้ระบบสมการเลย"
+     },
+     {
+      "id": "x2",
+      "text": "เนื่องจาก $\\|\\vec{q}_i\\|=1$ จึงได้ $\\alpha_i=\\|\\vec{u}\\|$ ทุก $i$",
+      "why": "สัมประสิทธิ์แต่ละตัวต่างกันตามว่า $\\vec{u}$ 'เอียงไปทาง' $\\vec{q}_i$ มากแค่ไหน ไม่ได้เท่ากับความยาวของ $\\vec{u}$"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ]
+    ],
+    "hint": "เทคนิคเดิม: dot ด้วย $\\vec{q}_i$ เพื่อให้เหลือสัมประสิทธิ์ตัวเดียว",
+    "explain": "นี่คือผลตอบแทนของการมีฐานหลักเชิงตั้งฉากปรกติ — หา coordinate ได้ด้วย dot product ตัวเดียว แทนที่จะต้อง Gauss-Jordan ทั้งระบบเหมือนใน section 2.7 &nbsp; ถ้าฐานหลักตั้งฉากแต่ยังไม่ปรกติ สูตรจะกลายเป็น $\\alpha_i=\\dfrac{\\vec{v}_i\\cdot\\vec{u}}{\\|\\vec{v}_i\\|^2}$ ซึ่งก็คือสัมประสิทธิ์ของ $\\operatorname{proj}_{\\vec{v}_i}\\vec{u}$ พอดี"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ลงมือทำ Gram–Schmidt และคำนวณ projection · coordinate",
+   "slug": "s28-mcq-gs-r2",
+   "title": "ทำ Gram–Schmidt ใน $\\mathbb{R}^2$",
+   "statement": "ใช้กระบวนการแกรม-ชมิทกับ $\\vec{u}_1=\\begin{pmatrix}3\\\\4\\end{pmatrix}$ และ $\\vec{u}_2=\\begin{pmatrix}1\\\\0\\end{pmatrix}$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\vec{q}_1=\\begin{pmatrix}0.6\\\\0.8\\end{pmatrix}$",
+     "$\\vec{v}_2=\\begin{pmatrix}0.64\\\\-0.48\\end{pmatrix}$",
+     "$\\vec{q}_2=\\begin{pmatrix}0.8\\\\-0.6\\end{pmatrix}$",
+     "$\\vec{q}_1\\cdot\\vec{q}_2=0$ และ $\\|\\vec{q}_1\\|=\\|\\vec{q}_2\\|=1$",
+     "$\\vec{q}_2=\\begin{pmatrix}1\\\\0\\end{pmatrix}$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "ขั้นที่ 1: $\\vec{v}_1=(3,4)$, $\\|\\vec{v}_1\\|=5$ จึง $\\vec{q}_1=(0.6,\\,0.8)$ &nbsp; ขั้นที่ 2: $\\vec{v}_1\\cdot\\vec{u}_2=3$, $\\|\\vec{v}_1\\|^2=25$ &nbsp; $\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2=\\tfrac{3}{25}(3,4)=(0.36,\\,0.48)$ &nbsp; $\\vec{v}_2=(1,0)-(0.36,0.48)=(0.64,\\,-0.48)$ ซึ่งมี $\\|\\vec{v}_2\\|=0.8$ จึง $\\vec{q}_2=(0.8,\\,-0.6)$ &nbsp; ข้อ 5 ผิดเพราะ $(1,0)$ คือ $\\vec{u}_2$ ตัวเดิม ซึ่งไม่ตั้งฉากกับ $\\vec{q}_1$",
+    "hint": "ทำตามลำดับ: $\\vec{v}_1\\to\\vec{q}_1\\to\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2\\to\\vec{v}_2\\to\\vec{q}_2$ อย่าข้ามขั้น"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ลงมือทำ Gram–Schmidt และคำนวณ projection · coordinate",
+   "slug": "s28-mcq-gs-v2",
+   "title": "หา $\\vec{v}_2$ ใน $\\mathbb{R}^3$",
+   "statement": "ใช้กระบวนการแกรม-ชมิทกับ $\\vec{u}_1=(1,1,1)$ และ $\\vec{u}_2=(0,1,1)$ จงหา $\\vec{v}_2$",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$\\left(-\\tfrac23,\\ \\tfrac13,\\ \\tfrac13\\right)$",
+     "$\\left(\\tfrac23,\\ -\\tfrac13,\\ -\\tfrac13\\right)$",
+     "$(0,1,1)$",
+     "$\\left(-\\tfrac13,\\ \\tfrac23,\\ \\tfrac23\\right)$"
+    ],
+    "answer": 0,
+    "explain": "$\\vec{v}_1=\\vec{u}_1=(1,1,1)$ &nbsp; $\\vec{v}_1\\cdot\\vec{u}_2=0+1+1=2$ และ $\\|\\vec{v}_1\\|^2=3$ &nbsp; $\\operatorname{proj}_{\\vec{v}_1}\\vec{u}_2=\\tfrac23(1,1,1)=\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right)$ &nbsp; $\\vec{v}_2=(0,1,1)-\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right)=\\left(-\\tfrac23,\\tfrac13,\\tfrac13\\right)$ &nbsp; ตรวจ: $\\vec{v}_2\\cdot\\vec{v}_1=-\\tfrac23+\\tfrac13+\\tfrac13=0$ ถูกต้อง &nbsp; ข้อ 2 คือ $-\\vec{v}_2$ ซึ่งตั้งฉากเหมือนกันแต่ไม่ใช่ผลจากสูตร (สูตรบอกให้ลบ ไม่ใช่กลับเครื่องหมาย)",
+    "hint": "ตรวจคำตอบเสมอด้วยการ dot กับ $\\vec{v}_1$ — ต้องได้ศูนย์"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ลงมือทำ Gram–Schmidt และคำนวณ projection · coordinate",
+   "slug": "s28-mcq-proj-subspace",
+   "title": "ฉายเวกเตอร์ลงบนปริภูมิย่อย",
+   "statement": "ใน $\\mathbb{R}^3$ ให้ $B=\\{(1,1,0),\\,(1,-1,0)\\}$ ซึ่งเป็นฐานหลัก<b>เชิงตั้งฉาก</b>ของปริภูมิย่อย $W=\\operatorname{span}B$ และให้ $\\vec{v}=(3,-1,7)$ ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)<figure class=\"figbox\"><img src=\"assets/figures/proj-subspace.svg\" alt=\"proj-subspace\"><figcaption>นิยาม 2.8.1 — เวกเตอร์การฉายของ $\\vec{v}$ บน $U$ คือผลรวมของเงาบนแต่ละแกนของฐานหลัก (สูตรนี้ใช้ได้เพราะฐานหลักตั้งฉากกัน) ส่วนที่เหลือคือเวกเตอร์การฉายเชิงตั้งฉาก ซึ่งอยู่ใน $U^{\\perp}$</figcaption></figure>",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "เวกเตอร์การฉายของ $\\vec{v}$ บน $W$ คือ $(3,-1,0)$",
+     "เวกเตอร์การฉายเชิงตั้งฉากของ $\\vec{v}$ บน $W$ คือ $(0,0,7)$",
+     "เวกเตอร์การฉายเชิงตั้งฉากนี้อยู่ใน $W^{\\perp}$",
+     "$W$ คือระนาบ $xy$ ดังนั้นการฉายคือการ 'ทิ้งส่วนประกอบที่ $z$'",
+     "เวกเตอร์การฉายของ $\\vec{v}$ บน $W$ คือ $(3,-1,7)$ เอง"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "นิยาม 2.8.1: ฉายทีละตัวแล้วบวกกัน (ใช้ได้เพราะ $B$ ตั้งฉากกัน) &nbsp; $\\operatorname{proj}_{(1,1,0)}\\vec{v}=\\tfrac{3-1}{2}(1,1,0)=(1,1,0)$ &nbsp; $\\operatorname{proj}_{(1,-1,0)}\\vec{v}=\\tfrac{3+1}{2}(1,-1,0)=(2,-2,0)$ &nbsp; รวมกันได้ $(3,-1,0)$ และส่วนที่เหลือคือ $(3,-1,7)-(3,-1,0)=(0,0,7)$ &nbsp; $(0,0,7)$ ตั้งฉากกับทั้งสองตัวใน $B$ จึงอยู่ใน $W^{\\perp}$ จริง &nbsp; ข้อ 5 ผิด — ถ้าการฉายได้ $\\vec{v}$ เอง แปลว่า $\\vec{v}\\in W$ ซึ่งไม่จริงเพราะ $\\vec{v}$ มีส่วนประกอบ $z$",
+    "hint": "$B$ ตั้งฉากกันอยู่แล้ว จึงบวก proj ทีละตัวได้ตรง ๆ — และลองสังเกตว่า $W$ คือระนาบอะไร"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ลงมือทำ Gram–Schmidt และคำนวณ projection · coordinate",
+   "slug": "s28-mcq-coords",
+   "title": "หา coordinate เทียบฐานหลักเชิงตั้งฉากปรกติ",
+   "statement": "ให้ $\\vec{q}_1=\\tfrac13(1,2,2)$, $\\vec{q}_2=\\tfrac13(-2,-1,2)$, $\\vec{q}_3=\\tfrac13(2,-2,1)$ เป็นฐานหลักเชิงตั้งฉากปรกติของ $\\mathbb{R}^3$ และให้ $\\vec{u}=(0,-1,1)$ จงหา $\\alpha_1,\\alpha_2,\\alpha_3$ ที่ทำให้ $\\vec{u}=\\alpha_1\\vec{q}_1+\\alpha_2\\vec{q}_2+\\alpha_3\\vec{q}_3$",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$(\\alpha_1,\\alpha_2,\\alpha_3)=(0,\\,1,\\,1)$",
+     "$(\\alpha_1,\\alpha_2,\\alpha_3)=(0,\\,-1,\\,1)$",
+     "$(\\alpha_1,\\alpha_2,\\alpha_3)=(1,\\,1,\\,0)$",
+     "ต้องแก้ระบบสมการ $3\\times3$ เท่านั้น หาด้วย dot product ไม่ได้"
+    ],
+    "answer": 0,
+    "explain": "ฐานหลักเป็น orthonormal จึงใช้สูตร $\\alpha_i=\\vec{q}_i\\cdot\\vec{u}$ ได้ทันที &nbsp; $\\alpha_1=\\tfrac13\\big(1(0)+2(-1)+2(1)\\big)=\\tfrac13(0)=0$ &nbsp; $\\alpha_2=\\tfrac13\\big(-2(0)-1(-1)+2(1)\\big)=\\tfrac13(3)=1$ &nbsp; $\\alpha_3=\\tfrac13\\big(2(0)-2(-1)+1(1)\\big)=\\tfrac13(3)=1$ &nbsp; ตรวจกลับ: $\\vec{q}_2+\\vec{q}_3=\\tfrac13(-2+2,\\,-1-2,\\,2+1)=\\tfrac13(0,-3,3)=(0,-1,1)$ ถูกต้อง",
+    "hint": "orthonormal basis ไม่ต้องแก้ระบบสมการ — dot ทีละตัวพอ (ทฤษฎีที่พิสูจน์ไว้ใน level 2)"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ลงมือทำ Gram–Schmidt และคำนวณ projection · coordinate",
+   "slug": "s28-mcq-when-fails",
+   "title": "เมื่อไร Gram–Schmidt ทำงานไม่ได้",
+   "statement": "ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 5,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "ถ้าใช้กับ $S=\\{(1,2),\\,(2,4)\\}$ จะได้ $\\vec{v}_2=\\vec{0}$ แล้วหารด้วย $\\|\\vec{v}_2\\|$ ไม่ได้",
+     "$\\vec{v}_2=\\vec{0}$ เกิดขึ้นก็ต่อเมื่อ $\\vec{u}_2$ อยู่ใน $\\operatorname{span}\\{\\vec{v}_1\\}$",
+     "ถ้า $S$ เป็นอิสระเชิงเส้น จะไม่มีขั้นไหนได้เวกเตอร์ศูนย์เลย",
+     "ถ้าเซตตั้งต้นตั้งฉากกันอยู่แล้ว กระบวนการจะไม่เปลี่ยนทิศทางของเวกเตอร์ใดเลย (เปลี่ยนแค่ความยาว)",
+     "กระบวนการนี้ใช้ได้เฉพาะใน $\\mathbb{R}^2$ และ $\\mathbb{R}^3$ เท่านั้น"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "ข้อ 1–2: $(2,4)=2(1,2)$ จึงถูก proj ลบออกหมดพอดี ได้ $\\vec{v}_2=\\vec{0}$ &nbsp; ข้อ 3 คือเหตุผลที่กระบวนการบังคับให้เซตตั้งต้นเป็นฐานหลัก &nbsp; ข้อ 4: ถ้าตั้งฉากกันแล้ว $\\operatorname{proj}_{\\vec{v}_j}\\vec{u}_k=\\vec{0}$ ทุกพจน์ จึง $\\vec{v}_k=\\vec{u}_k$ เหลือแค่ขั้นหารด้วยความยาว &nbsp; ข้อ 5 ผิด: ใช้ได้ใน $\\mathbb{R}^n$ ทุกมิติ และที่จริงใช้ได้ในปริภูมิผลคูณภายในใด ๆ เช่นกับพหุนาม (ซึ่งจะได้พหุนามเลอฌ็องดร์)",
+    "hint": "ลองทำขั้นที่ 2 ด้วยมือกับ $S=\\{(1,2),(2,4)\\}$ ดูว่าเหลืออะไร"
+   }
+  },
+  {
+   "week_no": 28,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "สร้าง orthonormal basis ด้วย numpy",
+   "slug": "s28-code-gram-schmidt",
+   "title": "เขียนกระบวนการแกรม-ชมิท",
+   "statement": "เขียนฟังก์ชันสองตัว<p>1) <code>gram_schmidt(S)</code> รับลิสต์ของเวกเตอร์ตั้งต้น คืน<b>ลิสต์ของ $\\vec{v}_i$</b> (ฐานหลักเชิงตั้งฉาก) ตามกระบวนการ: สำหรับแต่ละ $\\vec{u}_k$ ให้เริ่มจาก $\\vec{u}_k$ แล้ว<b>ลบ</b> $\\operatorname{proj}_{\\vec{v}_j}\\vec{u}_k$ ของทุกตัว $\\vec{v}_j$ ที่สร้างไว้ก่อนหน้า</p><p>2) <code>normalize_all(V)</code> รับลิสต์ของเวกเตอร์ คืนลิสต์ที่ทุกตัวถูกหารด้วยความยาวของตัวเอง (ได้ $\\vec{q}_i$ คือฐานหลักเชิงตั้งฉากปรกติ)</p><p>ข้อสำคัญ: ต้องฉายลงบน $\\vec{v}_j$ ที่<b>สร้างเสร็จแล้ว</b> ไม่ใช่ $\\vec{u}_j$ ตัวเดิม</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตตั้งต้น ฐานหลักเชิงตั้งฉาก และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\na = np.asarray((3, 4), dtype=float)\nb = np.asarray((1, 0), dtype=float)\nfloat(a @ b)               # -&gt; 3.0            ผลคูณจุด\nfloat(a @ a)               # -&gt; 25.0           เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 5.0            ขนาดของเวกเตอร์\n((a @ b) / (a @ a)) * a    # -&gt; array([0.36, 0.48])   proj ของ b ลงบน a\nb - ((a @ b) / (a @ a)) * a\n                           # -&gt; array([ 0.64, -0.48])  ส่วนที่ตั้งฉากกับ a\na / np.linalg.norm(a)      # -&gt; array([0.6, 0.8])      ทำให้ยาวหนึ่งหน่วย\na.copy()                   # -&gt; สำเนาของ a (แก้ตัวสำเนาแล้วตัวเดิมไม่เปลี่ยน)\n\n# วนสะสมผลลัพธ์ไว้ในลิสต์\nout = []\nout.append(a)\nlen(out)                   # -&gt; 1</code></pre>",
+   "type": "code",
+   "points": 25,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "gram_schmidt",
+   "setup_code": "import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)\n",
+   "example": "gram_schmidt(S_r2) -> [array([3., 4.]), array([ 0.64, -0.48])]\nnormalize_all(gram_schmidt(S_r2)) -> [array([0.6, 0.8]), array([ 0.8, -0.6])]",
+   "starter_code": "import numpy as np\n\ndef gram_schmidt(S):\n    V = []\n    for u in S:\n        u = np.asarray(u, dtype=float)\n        v = u.copy()\n        # ลบ proj ของ v ลงบนทุกตัวใน V ที่มีอยู่แล้ว\n        V.append(v)\n    return V\n\ndef normalize_all(V):\n    pass\n",
+   "tests": [
+    {
+     "expr": "gram_schmidt(S_r2)",
+     "expected": [
+      [
+       3.0,
+       4.0
+      ],
+      [
+       0.64,
+       -0.48
+      ]
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "normalize_all(gram_schmidt(S_r2))",
+     "expected": [
+      [
+       0.6,
+       0.8
+      ],
+      [
+       0.8,
+       -0.6
+      ]
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "gram_schmidt(S_two)",
+     "expected": [
+      [
+       1.0,
+       1.0,
+       1.0
+      ],
+      [
+       -0.6666666666666666,
+       0.3333333333333333,
+       0.3333333333333333
+      ]
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "normalize_all(gram_schmidt(S_r3))",
+     "expected": [
+      [
+       0.3333333333333333,
+       0.6666666666666666,
+       0.6666666666666666
+      ],
+      [
+       -0.6666666666666666,
+       -0.3333333333333333,
+       0.6666666666666666
+      ],
+      [
+       0.6666666666666666,
+       -0.6666666666666666,
+       0.3333333333333333
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "normalize_all(gram_schmidt(S_r3))  — ได้ orthonormal basis ของ R^3"
+    },
+    {
+     "expr": "float(np.asarray(gram_schmidt(S_r3)[0]) @ np.asarray(gram_schmidt(S_r3)[1]))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "v1 กับ v2 ต้องตั้งฉากกัน"
+    },
+    {
+     "expr": "float(np.asarray(gram_schmidt(S_r3)[1]) @ np.asarray(gram_schmidt(S_r3)[2]))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "v2 กับ v3 ต้องตั้งฉากกัน"
+    },
+    {
+     "expr": "[float(np.linalg.norm(q)) for q in normalize_all(gram_schmidt(S_two))]",
+     "expected": [
+      1.0,
+      1.0
+     ],
+     "tol": 1e-09,
+     "label": "ทุก q ต้องยาวหนึ่งหน่วย"
+    },
+    {
+     "expr": "float(np.linalg.norm(gram_schmidt(S_dep)[1]))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "S_dep ไม่เป็นอิสระเชิงเส้น -> v2 กลายเป็นเวกเตอร์ศูนย์"
+    }
+   ]
+  },
+  {
+   "week_no": 28,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "สร้าง orthonormal basis ด้วย numpy",
+   "slug": "s28-code-proj-subspace",
+   "title": "ฉายเวกเตอร์ลงบนปริภูมิย่อย (นิยาม 2.8.1)",
+   "statement": "เขียนฟังก์ชันสองตัว สำหรับกรณีที่ <code>B</code> เป็นฐานหลัก<b>เชิงตั้งฉาก</b>ของปริภูมิย่อย $W$<p>1) <code>proj_onto(B, v)</code> คืนเวกเตอร์การฉายของ $\\vec{v}$ บน $W$ คือผลรวม $\\operatorname{proj}_{\\vec{b}_1}\\vec{v}+\\cdots+\\operatorname{proj}_{\\vec{b}_m}\\vec{v}$ (นิยาม 2.8.1)</p><p>2) <code>orth_proj(B, v)</code> คืนเวกเตอร์การฉายเชิงตั้งฉาก คือ $\\vec{v}-\\operatorname{proj}$ ข้างต้น</p><p>ผลลัพธ์ที่ควรได้: <code>proj_onto</code> อยู่ใน $W$ ส่วน <code>orth_proj</code> อยู่ใน $W^{\\perp}$ และสองตัวบวกกันได้ $\\vec{v}$ กลับคืนพอดี</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตตั้งต้น ฐานหลักเชิงตั้งฉาก และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\na = np.asarray((3, 4), dtype=float)\nb = np.asarray((1, 0), dtype=float)\nfloat(a @ b)               # -&gt; 3.0            ผลคูณจุด\nfloat(a @ a)               # -&gt; 25.0           เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 5.0            ขนาดของเวกเตอร์\n((a @ b) / (a @ a)) * a    # -&gt; array([0.36, 0.48])   proj ของ b ลงบน a\nb - ((a @ b) / (a @ a)) * a\n                           # -&gt; array([ 0.64, -0.48])  ส่วนที่ตั้งฉากกับ a\na / np.linalg.norm(a)      # -&gt; array([0.6, 0.8])      ทำให้ยาวหนึ่งหน่วย\na.copy()                   # -&gt; สำเนาของ a (แก้ตัวสำเนาแล้วตัวเดิมไม่เปลี่ยน)\n\n# วนสะสมผลลัพธ์ไว้ในลิสต์\nout = []\nout.append(a)\nlen(out)                   # -&gt; 1</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "proj_onto",
+   "setup_code": "import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)\n",
+   "example": "proj_onto(B_orth, v_a) -> array([ 3., -1.,  0.])      orth_proj(B_orth, v_a) -> array([0., 0., 7.])",
+   "starter_code": "import numpy as np\n\ndef proj_onto(B, v):\n    v = np.asarray(v, dtype=float)\n    total = np.zeros_like(v)\n    # บวก proj ของ v ลงบนแต่ละตัวใน B\n    pass\n\ndef orth_proj(B, v):\n    pass\n",
+   "tests": [
+    {
+     "expr": "proj_onto(B_orth, v_a)",
+     "expected": [
+      3.0,
+      -1.0,
+      0.0
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "orth_proj(B_orth, v_a)",
+     "expected": [
+      0.0,
+      0.0,
+      7.0
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "(np.asarray(proj_onto(B_orth, v_a)) + np.asarray(orth_proj(B_orth, v_a))).tolist()",
+     "expected": [
+      3.0,
+      -1.0,
+      7.0
+     ],
+     "tol": 1e-09,
+     "label": "proj + orth_proj ต้องบวกกลับได้ v เดิม"
+    },
+    {
+     "expr": "float(np.asarray(orth_proj(B_orth, v_a)) @ np.asarray(B_orth[0], dtype=float))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "orth_proj ต้องตั้งฉากกับ B[0]"
+    },
+    {
+     "expr": "float(np.asarray(orth_proj(B_orth, v_a)) @ np.asarray(B_orth[1], dtype=float))",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "orth_proj ต้องตั้งฉากกับ B[1]"
+    },
+    {
+     "expr": "proj_onto(B_orth, (1, 1, 0))",
+     "expected": [
+      1.0,
+      1.0,
+      0.0
+     ],
+     "tol": 1e-09,
+     "label": "เวกเตอร์ที่อยู่ใน W อยู่แล้ว ฉายลงไปได้ตัวเดิม"
+    },
+    {
+     "expr": "orth_proj(B_orth, (0, 0, 5))",
+     "expected": [
+      0.0,
+      0.0,
+      5.0
+     ],
+     "tol": 1e-09,
+     "label": "เวกเตอร์ที่อยู่ใน W-perp อยู่แล้ว ฉายได้เวกเตอร์ศูนย์ เหลือตัวเดิมทั้งหมด"
+    },
+    {
+     "expr": "proj_onto(Q_r3, u_a)",
+     "expected": [
+      0.0,
+      -1.0,
+      1.0
+     ],
+     "tol": 1e-09,
+     "label": "ฉายลงบนฐานหลักของ R^3 ทั้งอัน ได้ตัวเดิมเสมอ"
+    }
+   ]
+  },
+  {
+   "week_no": 28,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "สร้าง orthonormal basis ด้วย numpy",
+   "slug": "s28-code-coords",
+   "title": "coordinate เทียบ orthonormal basis",
+   "statement": "เขียนฟังก์ชันสองตัว<p>1) <code>coords_orthonormal(Q, u)</code> รับฐานหลัก<b>เชิงตั้งฉากปรกติ</b> $Q=\\{\\vec{q}_1,\\dots,\\vec{q}_p\\}$ กับเวกเตอร์ $\\vec{u}$ แล้วคืนลิสต์ของสัมประสิทธิ์ $[\\alpha_1,\\dots,\\alpha_p]$ โดยใช้สูตร $\\alpha_i=\\vec{q}_i\\cdot\\vec{u}$ (ที่พิสูจน์ไว้ใน level 2) — <b>ไม่ต้องแก้ระบบสมการ</b></p><p>2) <code>rebuild(Q, alphas)</code> ประกอบกลับเป็นเวกเตอร์ $\\alpha_1\\vec{q}_1+\\cdots+\\alpha_p\\vec{q}_p$ เพื่อใช้ตรวจว่าได้ $\\vec{u}$ เดิมคืนมา</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเซตตั้งต้น ฐานหลักเชิงตั้งฉาก และเวกเตอร์ตัวอย่างไว้ให้ รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\na = np.asarray((3, 4), dtype=float)\nb = np.asarray((1, 0), dtype=float)\nfloat(a @ b)               # -&gt; 3.0            ผลคูณจุด\nfloat(a @ a)               # -&gt; 25.0           เท่ากับ ||a||^2\nfloat(np.linalg.norm(a))   # -&gt; 5.0            ขนาดของเวกเตอร์\n((a @ b) / (a @ a)) * a    # -&gt; array([0.36, 0.48])   proj ของ b ลงบน a\nb - ((a @ b) / (a @ a)) * a\n                           # -&gt; array([ 0.64, -0.48])  ส่วนที่ตั้งฉากกับ a\na / np.linalg.norm(a)      # -&gt; array([0.6, 0.8])      ทำให้ยาวหนึ่งหน่วย\na.copy()                   # -&gt; สำเนาของ a (แก้ตัวสำเนาแล้วตัวเดิมไม่เปลี่ยน)\n\n# วนสะสมผลลัพธ์ไว้ในลิสต์\nout = []\nout.append(a)\nlen(out)                   # -&gt; 1</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 3,
+   "is_active": true,
+   "entry_name": "coords_orthonormal",
+   "setup_code": "import numpy as np\n\n# ---- เซตตั้งต้นสำหรับ Gram-Schmidt (หนึ่ง tuple = หนึ่งเวกเตอร์) ----\nS_r2  = [(3, 4), (1, 0)]\nS_r3  = [(1, 2, 2), (-2, 0, 4), (-3, -3, 3)]\nS_two = [(1, 1, 1), (0, 1, 1)]\nS_dep = [(1, 2), (2, 4)]                 # ไม่เป็นอิสระเชิงเส้น\n\n# ---- ฐานหลักเชิงตั้งฉาก / ตั้งฉากปรกติ ที่เตรียมไว้ให้ ----\nB_orth = [(1, 1, 0), (1, -1, 0)]         # ตั้งฉากกัน แต่ยาวไม่เท่ากับ 1\nQ_std2 = [(1, 0), (0, 1)]                # ฐานหลักมาตรฐานของ R^2 (orthonormal)\nQ_r3   = [(1 / 3, 2 / 3, 2 / 3),\n          (-2 / 3, -1 / 3, 2 / 3),\n          (2 / 3, -2 / 3, 1 / 3)]        # orthonormal basis ของ R^3\n\n# ---- เวกเตอร์ตัวอย่าง ----\nv_a = (3, -1, 7)\nu_a = (0, -1, 1)\n",
+   "example": "coords_orthonormal(Q_r3, u_a) -> [0.0, 1.0, 1.0]      rebuild(Q_r3, [0.0, 1.0, 1.0]) -> array([ 0., -1.,  1.])",
+   "starter_code": "import numpy as np\n\ndef coords_orthonormal(Q, u):\n    u = np.asarray(u, dtype=float)\n    # alpha_i = q_i . u\n    pass\n\ndef rebuild(Q, alphas):\n    pass\n",
+   "tests": [
+    {
+     "expr": "coords_orthonormal(Q_r3, u_a)",
+     "expected": [
+      0.0,
+      1.0,
+      1.0
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "coords_orthonormal(Q_r3, (1, 2, 2))",
+     "expected": [
+      3.0,
+      0.0,
+      0.0
+     ],
+     "tol": 1e-09,
+     "label": "coords_orthonormal(Q_r3, (1,2,2))  — เวกเตอร์นี้ขนานกับ q1 พอดี"
+    },
+    {
+     "expr": "rebuild(Q_r3, [0.0, 1.0, 1.0])",
+     "expected": [
+      0.0,
+      -1.0,
+      1.0
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "rebuild(Q_r3, coords_orthonormal(Q_r3, (5, -2, 3)))",
+     "expected": [
+      5.0,
+      -2.0,
+      3.0
+     ],
+     "tol": 1e-09,
+     "label": "หา coordinate แล้วประกอบกลับ ต้องได้ตัวเดิม"
+    },
+    {
+     "expr": "coords_orthonormal(Q_std2, (1, 2))",
+     "expected": [
+      1.0,
+      2.0
+     ],
+     "tol": 1e-09,
+     "label": "ฐานหลักมาตรฐานของ R^2 — coordinate ก็คือตัวเวกเตอร์เอง"
+    },
+    {
+     "expr": "rebuild(Q_r3, [1.0, 0.0, 0.0])",
+     "expected": [
+      0.3333333333333333,
+      0.6666666666666666,
+      0.6666666666666666
+     ],
+     "tol": 1e-09,
+     "label": "rebuild ด้วยสัมประสิทธิ์ (1,0,0) ต้องได้ q1"
+    }
+   ]
+  },
+  {
+   "week_no": 31,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s31-cloze-def",
+   "title": "ไมเนอร์ · โคแฟกเตอร์ · การกระจาย และผลของการดำเนินการตามแถว",
+   "statement": "ให้ $A$ เป็นเมทริกซ์จัตุรัสขนาด $n\\times n$ ที่มีสมาชิก $a_{ij}$ จงเติมข้อความให้ตรงกับนิยาม 3.1.1, นิยาม 3.1.2, ทฤษฎี 3.1.1 และผลของการดำเนินการตามแถว",
+   "type": "cloze",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "text": "<p><b>นิยาม 3.1.1 (ไมเนอร์ · โคแฟกเตอร์)</b></p><p>ไมเนอร์ (minor) $M_{ij}$ ของสมาชิก $a_{ij}$ คือ {{1}}</p><p>โคแฟกเตอร์ (cofactor) $C_{ij}$ ของสมาชิก $a_{ij}$ คือ {{2}}</p><p><b>นิยาม 3.1.2 (การกระจายโคแฟกเตอร์)</b></p><p>กระจายตามแถวที่ $i$ ได้ $\\det A=$ {{3}}</p><p>กระจายตามคอลัมน์ที่ $j$ ได้ $\\det A=$ {{4}}</p><p>ในทางปฏิบัติควรเลือกแถวหรือคอลัมน์ที่ {{5}} เพื่อลดการคำนวณ</p><p><b>ทฤษฎี 3.1.1 (เมทริกซ์สามเหลี่ยม)</b> ถ้า $A$ เป็นสามเหลี่ยมบน สามเหลี่ยมล่าง หรือทแยงมุม แล้ว $\\det A=$ {{6}}</p><p><b>ผลของการดำเนินการตามแถว</b> ให้ $B$ ได้จาก $A$ โดย</p><p>สลับสองแถว $(R_i\\leftrightarrow R_j)$ แล้ว $\\det B=$ {{7}}</p><p>คูณแถวหนึ่งด้วย $k\\neq0$ $(kR_i)$ แล้ว $\\det B=$ {{8}}</p><p>บวก $k$ เท่าของแถวหนึ่งเข้าอีกแถว $(kR_i+R_j)$ แล้ว $\\det B=$ {{9}}</p><p><b>ทฤษฎี 3.1.2 (เกณฑ์การหาอินเวอร์ส)</b> $A$ หาอินเวอร์สได้ ก็ต่อเมื่อ {{10}}</p>",
+    "blanks": {
+     "1": {
+      "choices": [
+       "ดีเทอร์มิแนนต์ของเมทริกซ์ย่อยที่ได้จากการตัดแถวที่ $i$ และคอลัมน์ที่ $j$ ของ $A$ ทิ้ง",
+       "เมทริกซ์ย่อยที่ได้จากการตัดแถวที่ $i$ และคอลัมน์ที่ $j$ ทิ้ง (ยังไม่หาดีเทอร์มิแนนต์)",
+       "ดีเทอร์มิแนนต์ของเมทริกซ์ย่อยที่ได้จากการตัดแถวที่ $j$ และคอลัมน์ที่ $i$ ทิ้ง"
+      ],
+      "answer": 0
+     },
+     "2": {
+      "choices": [
+       "$(-1)^{i+j}M_{ij}$",
+       "$(-1)^{ij}M_{ij}$",
+       "$(-1)^{i+j}a_{ij}$"
+      ],
+      "answer": 0
+     },
+     "3": {
+      "choices": [
+       "$a_{i1}C_{i1}+a_{i2}C_{i2}+\\cdots+a_{in}C_{in}$",
+       "$a_{i1}M_{i1}+a_{i2}M_{i2}+\\cdots+a_{in}M_{in}$",
+       "$C_{i1}+C_{i2}+\\cdots+C_{in}$"
+      ],
+      "answer": 0
+     },
+     "4": {
+      "choices": [
+       "$a_{1j}C_{1j}+a_{2j}C_{2j}+\\cdots+a_{nj}C_{nj}$",
+       "$a_{j1}C_{j1}+a_{j2}C_{j2}+\\cdots+a_{jn}C_{jn}$",
+       "$a_{1j}M_{1j}+a_{2j}M_{2j}+\\cdots+a_{nj}M_{nj}$"
+      ],
+      "answer": 0
+     },
+     "5": {
+      "choices": [
+       "มีเลขศูนย์มากที่สุด",
+       "มีเลขศูนย์น้อยที่สุด",
+       "เป็นแถวบนสุดเสมอ"
+      ],
+      "answer": 0
+     },
+     "6": {
+      "choices": [
+       "ผลคูณของสมาชิกบนแนวทแยงหลัก $a_{11}a_{22}\\cdots a_{nn}$",
+       "ผลบวกของสมาชิกบนแนวทแยงหลัก $a_{11}+a_{22}+\\cdots+a_{nn}$",
+       "$0$ เพราะมีสมาชิกที่เป็นศูนย์อยู่"
+      ],
+      "answer": 0
+     },
+     "7": {
+      "choices": [
+       "$-\\det A$",
+       "$\\det A$",
+       "$0$"
+      ],
+      "answer": 0
+     },
+     "8": {
+      "choices": [
+       "$k\\det A$",
+       "$\\det A$",
+       "$k^{n}\\det A$"
+      ],
+      "answer": 0
+     },
+     "9": {
+      "choices": [
+       "$\\det A$ — ไม่เปลี่ยนค่า",
+       "$k\\det A$",
+       "$-\\det A$"
+      ],
+      "answer": 0
+     },
+     "10": {
+      "choices": [
+       "$\\det A\\neq0$",
+       "$\\det A=0$",
+       "$\\det A=1$"
+      ],
+      "answer": 0
+     }
+    },
+    "hint": "ไมเนอร์คือ<i>ตัวเลข</i> ไม่ใช่เมทริกซ์ &nbsp; และของสามอย่างในการดำเนินการตามแถว มีเพียง $kR_i+R_j$ เท่านั้นที่ไม่กระทบ $\\det$",
+    "explain": "เส้นทางของ section นี้คือ: นิยามด้วยการกระจายโคแฟกเตอร์ $\\to$ มองการดำเนินการตามแถวเป็นการคูณด้วยเมทริกซ์พื้นฐาน $\\to$ ได้ทฤษฎี 3.1.2 และ 3.1.3 &nbsp; ช่อง 8 กับ 9 เป็นจุดที่พลาดบ่อย: $kR_i$ ดึงตัวประกอบ $k$ ออกมาได้<b>หนึ่งตัวต่อหนึ่งแถว</b> ดังนั้นการคูณทั้งเมทริกซ์ด้วย $k$ (ซึ่งคือการคูณ $k$ กับทุกแถวทั้ง $n$ แถว) จะได้ $\\det(kA)=k^{n}\\det A$ ไม่ใช่ $k\\det A$"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s31-spot-cofactor",
+   "title": "หาจุดผิดในการกระจายโคแฟกเตอร์",
+   "statement": "ให้ $B=\\begin{bmatrix}2&1&3\\\\0&4&5\\\\1&0&2\\end{bmatrix}$ นักศึกษาคนหนึ่งหา $\\det B$ ด้วยการกระจายตามแถวที่ 1 ดังด้านล่าง มี<b>หนึ่งบรรทัด</b>ที่ผิด คลิกบรรทัดนั้นแล้วเลือกเหตุผล",
+   "type": "spot",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "lines": [
+     "กระจายตามแถวที่ 1 ตามนิยาม 3.1.2 ได้ $\\det B=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13}$",
+     "$M_{11}=\\begin{vmatrix}4&5\\\\0&2\\end{vmatrix}=8$ &nbsp; ดังนั้น $C_{11}=(-1)^{1+1}(8)=8$",
+     "$M_{12}=\\begin{vmatrix}0&5\\\\1&2\\end{vmatrix}=-5$ &nbsp; ดังนั้น $C_{12}=(-1)^{1+2}(-5)=-5$",
+     "$M_{13}=\\begin{vmatrix}0&4\\\\1&0\\end{vmatrix}=-4$ &nbsp; ดังนั้น $C_{13}=(-1)^{1+3}(-4)=-4$",
+     "$\\det B=(2)(8)+(1)(-5)+(3)(-4)=16-5-12=-1$"
+    ],
+    "wrong": 2,
+    "reasons": [
+     "$(-1)^{1+2}=-1$ จึงต้องกลับเครื่องหมายของไมเนอร์ ได้ $C_{12}=-(-5)=+5$ — ค่าที่เขียนไว้คือคัดลอกไมเนอร์มาตรง ๆ โดยลืมคูณเครื่องหมาย",
+     "ไมเนอร์ $M_{12}$ ต้องตัดแถวที่ 2 และคอลัมน์ที่ 1 ทิ้ง",
+     "การกระจายตามแถวที่ 1 ใช้ไม่ได้ ต้องกระจายตามคอลัมน์ที่มีศูนย์มากที่สุดเท่านั้น",
+     "$C_{13}$ ต้องเป็นบวกเสมอเพราะอยู่มุมขวาบน"
+    ],
+    "reason_answer": 0,
+    "explain": "แก้บรรทัดที่ผิดเป็น $C_{12}=+5$ จะได้ $\\det B=(2)(8)+(1)(5)+(3)(-4)=16+5-12=9$ &nbsp; ตรวจซ้ำได้ด้วยการกระจายตามคอลัมน์ที่ 2 (ซึ่งมีศูนย์อยู่หนึ่งตัว) $\\det B=(1)C_{12}+(4)C_{22}+(0)C_{32}=5+4(1)+0=9$ ตรงกัน &nbsp; เทคนิคกันพลาด: จำแผ่นเครื่องหมายสลับฟันปลา $\\begin{bmatrix}+&-&+\\\\-&+&-\\\\+&-&+\\end{bmatrix}$ ไว้ แล้วอ่านเครื่องหมายจากตำแหน่งแทนการคิด $(-1)^{i+j}$ ทุกครั้ง",
+    "hint": "ไล่ดูทีละบรรทัดว่า $(-1)^{i+j}$ ถูกคูณเข้าไปจริงหรือไม่"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s31-mcq-facts",
+   "title": "ข้อเท็จจริงเกี่ยวกับดีเทอร์มิแนนต์",
+   "statement": "ให้ $A,B$ เป็นเมทริกซ์จัตุรัสขนาด $n\\times n$ เหมือนกัน ข้อใดต่อไปนี้<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "ถ้า $A$ มีแถวใดแถวหนึ่งเป็นศูนย์ทั้งแถว แล้ว $\\det A=0$",
+     "$\\det(AB)=(\\det A)(\\det B)$",
+     "$\\det(A+B)=\\det A+\\det B$",
+     "$\\det(kA)=k^{n}\\det A$ สำหรับสเกลาร์ $k$ ใด ๆ",
+     "$A$ หาอินเวอร์สได้ ก็ต่อเมื่อ $\\det A\\neq0$",
+     "ถ้า $A$ หาอินเวอร์สได้ แล้ว $\\det(A^{-1})=-\\det A$"
+    ],
+    "answer": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "explain": "ข้อ 1 จริง — กระจายโคแฟกเตอร์ตามแถวที่เป็นศูนย์ ทุกพจน์มีตัวประกอบ $a_{ij}=0$ &nbsp; ข้อ 2 คือทฤษฎี 3.1.3 &nbsp; ข้อ 4 มาจากการดึง $k$ ออกทีละแถว ทั้งหมด $n$ แถว &nbsp; ข้อ 5 คือทฤษฎี 3.1.2 &nbsp;&nbsp; ข้อ 3 ผิด — ตัวอย่างค้าน $A=I_2$, $B=-I_2$ ได้ $\\det(A+B)=\\det(0)=0$ แต่ $\\det A+\\det B=1+1=2$ &nbsp; ข้อ 6 ผิด — ทฤษฎี 3.1.4 บอกว่า $\\det(A^{-1})=\\dfrac{1}{\\det A}$ ซึ่งได้จาก $(\\det A)(\\det A^{-1})=\\det I=1$",
+    "hint": "ดีเทอร์มิแนนต์เข้ากันได้ดีกับการ<b>คูณ</b>เมทริกซ์ แต่ไม่เข้ากับการ<b>บวก</b>"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 1,
+   "level_title": "ทบทวนนิยาม",
+   "level_subtitle": "เติมคำ · หาจุดผิด · เลือกตอบ",
+   "slug": "s31-mcq-rowops",
+   "title": "การดำเนินการตามแถวกระทบดีเทอร์มิแนนต์อย่างไร",
+   "statement": "ให้ $B$ ได้จากเมทริกซ์จัตุรัส $A$ ด้วยการดำเนินการตามแถว ข้อใด<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "สลับสองแถว $(R_i\\leftrightarrow R_j)$ ทำให้ $\\det B=-\\det A$",
+     "คูณแถวหนึ่งด้วย $k\\neq0$ $(kR_i)$ ทำให้ $\\det B=k\\det A$",
+     "บวก $k$ เท่าของแถวหนึ่งเข้าอีกแถว $(kR_i+R_j)$ ทำให้ $\\det B=\\det A$",
+     "การดำเนินการตามแถวทุกชนิดไม่กระทบค่า $\\det$ เพราะไม่เปลี่ยนผลเฉลยของระบบสมการ",
+     "ถ้า $A$ มีสองแถวที่เหมือนกันทุกประการ แล้ว $\\det A=0$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "explain": "ข้อ 5 เป็นผลที่ตามมาจากข้อ 1 — สลับสองแถวที่เหมือนกัน ได้เมทริกซ์ตัวเดิม จึงต้องมี $\\det A=-\\det A$ นั่นคือ $2\\det A=0$ ดังนั้น $\\det A=0$ &nbsp; ข้อ 4 ผิด: การดำเนินการตามแถว<i>รักษาผลเฉลย</i>ของระบบสมการจริง แต่<i>ไม่</i>รักษาค่า $\\det$ — มีแค่ชนิด $kR_i+R_j$ เท่านั้นที่ $\\det$ อยู่คงที่ ซึ่งเป็นเหตุผลว่าทำไมการลดทอนแบบเกาส์จึงใช้หา $\\det$ ได้ ถ้าคอยจดตัวประกอบที่เกิดจากการสลับแถวและการคูณแถวเอาไว้",
+    "hint": "ข้อ 5 ลองสลับสองแถวที่เหมือนกันดู ได้เมทริกซ์อะไร?"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s31-order-invertible",
+   "title": "พิสูจน์ทฤษฎี 3.1.2 (หาอินเวอร์สได้ ก็ต่อเมื่อ det ไม่เป็นศูนย์)",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ว่า เมทริกซ์จัตุรัส $A$ หาอินเวอร์สได้ ก็ต่อเมื่อ $\\det A\\neq0$ (ใช้นิยาม 3.1.3 และบทนำ 3.1.1 · ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "$A$ หาอินเวอร์สได้ ก็ต่อเมื่อ ลดทอน $A$ ด้วยการดำเนินการตามแถวแล้วได้ $I$ นั่นคือมีเมทริกซ์พื้นฐาน $E_1,E_2,\\dots,E_r$ ที่ทำให้ $I=E_r\\cdots E_2E_1A$"
+     },
+     {
+      "id": "b",
+      "text": "หาดีเทอร์มิแนนต์ทั้งสองข้าง ได้ $\\det I=\\det(E_r\\cdots E_2E_1A)$"
+     },
+     {
+      "id": "c",
+      "text": "ใช้บทนำ 3.1.1 $\\big(\\det(EB)=(\\det E)(\\det B)\\big)$ ซ้ำ ๆ ทีละตัว ได้ $1=(\\det E_r)\\cdots(\\det E_2)(\\det E_1)(\\det A)$"
+     },
+     {
+      "id": "d",
+      "text": "เมทริกซ์พื้นฐานทุกตัวหาอินเวอร์สได้ (การดำเนินการตามแถวทุกชนิดย้อนกลับได้) ดังนั้น $\\det E_i\\neq0$ ทุก $i$"
+     },
+     {
+      "id": "e",
+      "text": "ให้ $c=(\\det E_r)\\cdots(\\det E_1)$ ซึ่งเป็นผลคูณของจำนวนที่ไม่เป็นศูนย์ จึงได้ $c\\neq0$ และ $1=c\\,\\det A$"
+     },
+     {
+      "id": "f",
+      "text": "จาก $1=c\\,\\det A$ และ $c\\neq0$ ได้ $\\det A=\\dfrac{1}{c}\\neq0$ และทุกขั้นข้างต้นเป็นประพจน์ที่สมมูลกัน จึงสรุปว่า $A$ หาอินเวอร์สได้ ก็ต่อเมื่อ $\\det A\\neq0$ $\\blacksquare$"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "จากบทนำ 3.1.1 ได้ $\\det(E_r\\cdots E_1A)=\\det E_r+\\cdots+\\det E_1+\\det A$",
+      "why": "บทนำ 3.1.1 เป็นเรื่องของ<b>ผลคูณ</b> ไม่ใช่ผลบวก — ดีเทอร์มิแนนต์ไม่มีสมบัติการกระจายบนการบวก"
+     },
+     {
+      "id": "x2",
+      "text": "ถ้า $\\det A=0$ ก็ยังหาอินเวอร์สได้จากสูตร $A^{-1}=\\dfrac{\\operatorname{adj}A}{\\det A}$ เพียงแต่ค่าจะมากเท่านั้น",
+      "why": "สูตรในทฤษฎี 3.1.6 มี $\\det A$ อยู่ที่ตัวส่วน จึงใช้ได้เฉพาะเมื่อ $\\det A\\neq0$ — หารด้วยศูนย์ไม่ได้"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "e"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ]
+    ],
+    "hint": "กุญแจคือ $\\det I=1$ — ฝั่งขวาเป็นผลคูณของตัวเลขหลายตัว ถ้าตัวใดตัวหนึ่งเป็นศูนย์ ผลคูณจะเป็นศูนย์ทันที",
+    "explain": "แก่นของการพิสูจน์: เขียน $I$ เป็นผลคูณที่มี $A$ อยู่ด้วย แล้วหา $\\det$ ทั้งสองข้าง &nbsp; ผลคูณของจำนวนจริงจะเป็น $1$ ได้ ก็ต่อเมื่อไม่มีตัวประกอบตัวใดเป็นศูนย์ — นี่คือที่มาของเงื่อนไข $\\det A\\neq0$ &nbsp; สังเกตว่าบล็อก d ไม่ได้ต่อจาก c โดยตรง แต่ต้องมาก่อน e เพราะ e เป็นที่ที่เอาข้อเท็จจริงทั้งสองมารวมกัน"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s31-order-det-ab",
+   "title": "พิสูจน์ทฤษฎี 3.1.3 (det ของผลคูณ)",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ว่า $\\det(AB)=(\\det A)(\\det B)$ สำหรับเมทริกซ์จัตุรัสขนาดเดียวกัน (การพิสูจน์แยกเป็นสองกรณี · ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "<b>กรณีที่ 1</b> &nbsp;ให้ $A$ เป็นเมทริกซ์ที่หาอินเวอร์สไม่ได้"
+     },
+     {
+      "id": "b",
+      "text": "ถ้า $A$ หาอินเวอร์สไม่ได้ แล้วผลคูณ $AB$ ก็หาอินเวอร์สไม่ได้เช่นกัน"
+     },
+     {
+      "id": "c",
+      "text": "จากทฤษฎี 3.1.2 ได้ทั้ง $\\det(AB)=0$ และ $\\det A=0$ ฝั่งซ้ายเป็น $0$ ฝั่งขวาเป็น $0\\cdot\\det B=0$ จึงเท่ากัน"
+     },
+     {
+      "id": "d",
+      "text": "<b>กรณีที่ 2</b> &nbsp;ให้ $A$ เป็นเมทริกซ์ที่หาอินเวอร์สได้ จึงเขียน $A$ เป็นผลคูณของเมทริกซ์พื้นฐานได้ว่า $A=E_1E_2\\cdots E_r$"
+     },
+     {
+      "id": "e",
+      "text": "คูณด้วย $B$ ทั้งสองข้าง ได้ $AB=E_1E_2\\cdots E_rB$"
+     },
+     {
+      "id": "f",
+      "text": "ใช้บทนำ 3.1.1 ซ้ำ ๆ ทีละตัว ได้ $\\det(AB)=(\\det E_1)(\\det E_2)\\cdots(\\det E_r)(\\det B)$"
+     },
+     {
+      "id": "g",
+      "text": "แต่ $(\\det E_1)(\\det E_2)\\cdots(\\det E_r)=\\det(E_1E_2\\cdots E_r)=\\det A$ จึงได้ $\\det(AB)=(\\det A)(\\det B)$ ครบทั้งสองกรณี $\\blacksquare$"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจาก $\\det(AB)=\\det(BA)$ เสมอ จึงสลับ $A$ กับ $B$ ได้ทันทีแล้วจบการพิสูจน์",
+      "why": "$\\det(AB)=\\det(BA)$ เป็น<i>ผลที่ตามมา</i>ของทฤษฎีนี้ ไม่ใช่ขั้นตอนของการพิสูจน์ (และไม่ได้แปลว่า $AB=BA$ ด้วย)"
+     },
+     {
+      "id": "x2",
+      "text": "ในกรณีที่ $A$ หาอินเวอร์สไม่ได้ ให้ใช้ทฤษฎี 3.1.4 $\\det(A^{-1})=\\dfrac{1}{\\det A}$",
+      "why": "กรณีนั้น $A^{-1}$ ไม่มีอยู่จริง จึงอ้างทฤษฎี 3.1.4 ไม่ได้เลย"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ],
+     [
+      "f",
+      "g"
+     ]
+    ],
+    "hint": "กรณีที่ 2 ใช้ข้อเท็จจริงว่าเมทริกซ์ที่หาอินเวอร์สได้ เขียนเป็นผลคูณของเมทริกซ์พื้นฐานได้",
+    "explain": "ทำไมต้องแยกสองกรณี? เพราะเครื่องมือหลัก (เขียน $A$ เป็นผลคูณของเมทริกซ์พื้นฐาน) ใช้ได้เฉพาะกับเมทริกซ์ที่หาอินเวอร์สได้ &nbsp; กรณีที่หาอินเวอร์สไม่ได้จึงต้องจัดการแยก และโชคดีที่ทั้งสองฝั่งกลายเป็นศูนย์พอดี &nbsp; ผลพลอยได้ที่ใช้บ่อย: $\\det(A^{k})=(\\det A)^{k}$ และ $\\det(A^{-1})=\\dfrac{1}{\\det A}$ (ทฤษฎี 3.1.4)"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 2,
+   "level_title": "เรียงการพิสูจน์",
+   "level_subtitle": "Proof Blocks — เรียงข้อความให้เป็นการพิสูจน์ที่ถูกต้อง",
+   "slug": "s31-order-triangular",
+   "title": "พิสูจน์ทฤษฎี 3.1.1 (เมทริกซ์สามเหลี่ยม)",
+   "statement": "จงเรียงข้อความให้เป็นการพิสูจน์ด้วยการอุปนัยว่า ถ้า $A$ เป็นเมทริกซ์สามเหลี่ยม<b>บน</b>ขนาด $n\\times n$ แล้ว $\\det A=a_{11}a_{22}\\cdots a_{nn}$ (ทิ้งข้อความที่ไม่ควรใช้ไว้ในกล่องซ้าย)",
+   "type": "order",
+   "points": 20,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "blocks": [
+     {
+      "id": "a",
+      "text": "ให้ $A$ เป็นเมทริกซ์สามเหลี่ยมบนขนาด $n\\times n$ (สมาชิกทุกตัวที่อยู่<b>ใต้</b>แนวทแยงหลักเป็นศูนย์) จะพิสูจน์ด้วยการอุปนัยบน $n$"
+     },
+     {
+      "id": "b",
+      "text": "<b>ฐานของการอุปนัย</b> &nbsp;$n=1$: $\\det\\begin{bmatrix}a_{11}\\end{bmatrix}=a_{11}$ เป็นจริง"
+     },
+     {
+      "id": "c",
+      "text": "<b>ขั้นอุปนัย</b> &nbsp;สมมติว่าข้อความเป็นจริงสำหรับเมทริกซ์สามเหลี่ยมบนทุกตัวที่มีขนาด $(n-1)\\times(n-1)$"
+     },
+     {
+      "id": "d",
+      "text": "กระจายโคแฟกเตอร์ตามคอลัมน์ที่ 1 — คอลัมน์นี้มีสมาชิกที่ไม่เป็นศูนย์ได้เพียง $a_{11}$ เพราะที่เหลืออยู่ใต้แนวทแยงหลักทั้งหมด"
+     },
+     {
+      "id": "e",
+      "text": "จึงเหลือพจน์เดียว $\\det A=a_{11}C_{11}=a_{11}M_{11}$ เพราะ $(-1)^{1+1}=1$"
+     },
+     {
+      "id": "f",
+      "text": "$M_{11}$ คือดีเทอร์มิแนนต์ของเมทริกซ์ที่ตัดแถวที่ 1 และคอลัมน์ที่ 1 ทิ้ง ซึ่งยังเป็นสามเหลี่ยมบนขนาด $(n-1)\\times(n-1)$ และมีแนวทแยงหลักเป็น $a_{22},a_{33},\\dots,a_{nn}$"
+     },
+     {
+      "id": "g",
+      "text": "จากสมมติฐานการอุปนัย $M_{11}=a_{22}a_{33}\\cdots a_{nn}$ จึงได้ $\\det A=a_{11}a_{22}\\cdots a_{nn}$ $\\blacksquare$"
+     }
+    ],
+    "distractors": [
+     {
+      "id": "x1",
+      "text": "เนื่องจากมีสมาชิกเป็นศูนย์อยู่หลายตัวในเมทริกซ์ จึงสรุปได้ทันทีว่า $\\det A=0$",
+      "why": "การมีศูนย์อยู่บางตำแหน่งไม่ได้ทำให้ $\\det$ เป็นศูนย์ — ต้องเป็นศูนย์<b>ทั้งแถว</b> (หรือทั้งคอลัมน์) จึงจะสรุปแบบนั้นได้"
+     },
+     {
+      "id": "x2",
+      "text": "ใช้กฎของซาร์รูส (ลากเส้นทแยง 6 เส้น) กับเมทริกซ์ขนาด $n\\times n$ ได้ทันที",
+      "why": "กฎของซาร์รูสใช้ได้เฉพาะเมทริกซ์ขนาด $3\\times3$ เท่านั้น ขนาดอื่นต้องใช้การกระจายโคแฟกเตอร์"
+     }
+    ],
+    "solution": [
+     "a",
+     "b",
+     "c",
+     "d",
+     "e",
+     "f",
+     "g"
+    ],
+    "deps": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "b",
+      "c"
+     ],
+     [
+      "c",
+      "d"
+     ],
+     [
+      "d",
+      "e"
+     ],
+     [
+      "e",
+      "f"
+     ],
+     [
+      "f",
+      "g"
+     ]
+    ],
+    "hint": "เลือกคอลัมน์ที่ 1 เพราะมันมีศูนย์มากที่สุด — เหลือพจน์เดียวให้คิดต่อ",
+    "explain": "นี่คือเหตุผลที่การลดทอนแบบเกาส์เป็นวิธีหา $\\det$ ที่เร็วที่สุดในทางปฏิบัติ: ทำ $A$ ให้เป็นสามเหลี่ยมบนก่อนด้วย $kR_i+R_j$ (ซึ่งไม่เปลี่ยน $\\det$ เลย) แล้วค่อยคูณสมาชิกบนแนวทแยงหลักเข้าด้วยกัน &nbsp; สำหรับสามเหลี่ยม<i>ล่าง</i> ใช้การพิสูจน์แบบเดียวกัน เพียงแต่กระจายตามแถวที่ 1 แทน"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-det3",
+   "title": "หาดีเทอร์มิแนนต์ของเมทริกซ์ 3 × 3",
+   "statement": "จงหา $\\det A$ เมื่อ $A=\\begin{bmatrix}2&-1&3\\\\1&4&1\\\\5&2&-2\\end{bmatrix}$ (ใช้กฎของซาร์รูส หรือการกระจายโคแฟกเตอร์ก็ได้ ผลลัพธ์ต้องตรงกัน)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 1,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$-81$",
+     "$81$",
+     "$-45$",
+     "$-16$"
+    ],
+    "answer": 0,
+    "explain": "<b>ซาร์รูส</b> — พจน์บวกสามพจน์ (ทแยงลงขวา) $2\\cdot4\\cdot(-2)=-16$, &nbsp;$(-1)\\cdot1\\cdot5=-5$, &nbsp;$3\\cdot1\\cdot2=6$ รวมได้ $-15$ &nbsp;&nbsp; พจน์ลบสามพจน์ (ทแยงลงซ้าย) $5\\cdot4\\cdot3=60$, &nbsp;$2\\cdot1\\cdot2=4$, &nbsp;$(-2)\\cdot1\\cdot(-1)=2$ รวมได้ $66$ &nbsp;&nbsp; ดังนั้น $\\det A=-15-66=-81$ &nbsp;&nbsp; <b>กระจายตามแถวที่ 1</b> ได้ผลเดียวกัน $2\\begin{vmatrix}4&1\\\\2&-2\\end{vmatrix}-(-1)\\begin{vmatrix}1&1\\\\5&-2\\end{vmatrix}+3\\begin{vmatrix}1&4\\\\5&2\\end{vmatrix}=2(-10)+1(-7)+3(-18)=-20-7-54=-81$ &nbsp;&nbsp; และเนื่องจาก $\\det A\\neq0$ ทฤษฎี 3.1.2 จึงบอกว่า $A$ หาอินเวอร์สได้",
+    "hint": "ถ้าใช้ซาร์รูส อย่าลืมว่าพจน์ที่ลากทแยงลงซ้ายต้องใส่เครื่องหมายลบทั้งสามพจน์"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-det4",
+   "title": "หาดีเทอร์มิแนนต์ของเมทริกซ์ 4 × 4 ด้วยการเลือกคอลัมน์ให้ฉลาด",
+   "statement": "จงหา $\\det A$ เมื่อ $A=\\begin{bmatrix}2&0&0&3\\\\1&4&-1&2\\\\0&0&3&0\\\\5&0&0&1\\end{bmatrix}$ (คำแนะนำ: กฎของซาร์รูสใช้กับขนาดนี้ไม่ได้ ต้องกระจายโคแฟกเตอร์)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 2,
+   "is_active": true,
+   "spec": {
+    "choices": [
+     "$-156$",
+     "$156$",
+     "$-39$",
+     "$-52$"
+    ],
+    "answer": 0,
+    "explain": "เลือก<b>คอลัมน์ที่ 2</b> เพราะมีศูนย์ถึงสามตัว เหลือพจน์เดียวคือ $a_{22}=4$ &nbsp; $\\det A=4\\,C_{22}=4(-1)^{2+2}M_{22}=4\\begin{vmatrix}2&0&3\\\\0&3&0\\\\5&0&1\\end{vmatrix}$ &nbsp; ตัวที่เหลือกระจายตามแถวที่ 2 (มีศูนย์สองตัว) ได้ $3(-1)^{2+2}\\begin{vmatrix}2&3\\\\5&1\\end{vmatrix}=3(2-15)=-39$ &nbsp; ดังนั้น $\\det A=4(-39)=-156$ &nbsp;&nbsp; ถ้าเผลอกระจายตามแถวที่ 1 จะต้องคิดดีเทอร์มิแนนต์ขนาด $3\\times3$ ถึงสองตัว — ได้คำตอบเดิม แต่เสียเวลากว่ามาก",
+    "hint": "นับจำนวนศูนย์ของทุกแถวและทุกคอลัมน์ก่อน แล้วค่อยเลือกตัวที่ศูนย์เยอะที่สุด"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-props",
+   "title": "ใช้สมบัติของดีเทอร์มิแนนต์โดยไม่ต้องคำนวณใหม่",
+   "statement": "ให้ $A$ เป็นเมทริกซ์ขนาด $3\\times3$ ที่มี $\\det A=3$ ข้อใด<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 3,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\det(A^{T})=3$",
+     "$\\det(2A)=24$",
+     "$\\det(2A)=6$",
+     "$\\det(A^{-1})=\\dfrac{1}{3}$",
+     "ถ้า $B$ ได้จาก $A$ โดยสลับแถวที่ 1 กับแถวที่ 3 แล้ว $\\det B=-3$",
+     "ถ้า $C$ ได้จาก $A$ โดยการแทนแถวที่ 2 ด้วย $4R_1+R_2$ แล้ว $\\det C=12$"
+    ],
+    "answer": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "explain": "ข้อ 1 จริง — นิยาม 3.1.2 ให้กระจายตามแถว<i>หรือ</i>คอลัมน์ก็ได้ผลเท่ากัน การทรานสโพสเพียงสลับบทบาทของสองอย่างนี้ &nbsp; ข้อ 2 จริง — $2A$ คือการคูณ $2$ เข้าไปใน<b>ทุกแถวทั้งสามแถว</b> จึงดึงออกมาได้ $2^{3}=8$ ได้ $\\det(2A)=8(3)=24$ (ข้อ 3 จึงผิด) &nbsp; ข้อ 4 คือทฤษฎี 3.1.4 &nbsp; ข้อ 5 คือผลของการสลับแถว &nbsp; ข้อ 6 ผิด — $kR_i+R_j$ ไม่เปลี่ยนค่า $\\det$ เลย จึงยังได้ $\\det C=3$",
+    "hint": "แยกให้ออกระหว่าง 'คูณหนึ่งแถวด้วย $k$' กับ 'คูณทั้งเมทริกซ์ด้วย $k$'"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-adj-inverse",
+   "title": "หาอินเวอร์สด้วย adj A และดีเทอร์มิแนนต์",
+   "statement": "ให้ $A=\\begin{bmatrix}1&2\\\\-5&8\\end{bmatrix}$ ข้อใด<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่) — ใช้ทฤษฎี 3.1.5 และทฤษฎี 3.1.6",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 4,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$\\det A=18$ ดังนั้น $A$ หาอินเวอร์สได้",
+     "เมทริกซ์โคแฟกเตอร์ของ $A$ คือ $\\begin{bmatrix}8&5\\\\-2&1\\end{bmatrix}$",
+     "$\\operatorname{adj}A=\\begin{bmatrix}8&-2\\\\5&1\\end{bmatrix}$",
+     "$A^{-1}=\\dfrac{1}{18}\\begin{bmatrix}8&-2\\\\5&1\\end{bmatrix}$",
+     "$A^{-1}=\\dfrac{1}{18}\\begin{bmatrix}8&5\\\\-2&1\\end{bmatrix}$"
+    ],
+    "answer": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "explain": "$\\det A=(1)(8)-(2)(-5)=8+10=18\\neq0$ &nbsp; โคแฟกเตอร์ทีละตัว: $C_{11}=+8$, $C_{12}=-(-5)=5$, $C_{21}=-(2)=-2$, $C_{22}=+1$ จึงได้เมทริกซ์โคแฟกเตอร์ $\\begin{bmatrix}8&5\\\\-2&1\\end{bmatrix}$ &nbsp;&nbsp; <b>จุดที่พลาดบ่อยที่สุด</b>: $\\operatorname{adj}A$ คือ<b>ทรานสโพส</b>ของเมทริกซ์โคแฟกเตอร์ นั่นคือตำแหน่ง $(i,j)$ ของ $\\operatorname{adj}A$ คือ $C_{ji}$ ไม่ใช่ $C_{ij}$ ข้อ 5 จึงผิดเพราะลืมทรานสโพส &nbsp;&nbsp; ตรวจความสอดคล้องกับทฤษฎี 3.1.5 ได้ทันที: สูตร $2\\times2$ บอกว่า $A^{-1}=\\dfrac{1}{\\det A}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}=\\dfrac{1}{18}\\begin{bmatrix}8&-2\\\\5&1\\end{bmatrix}$ ตรงกับข้อ 4 พอดี &nbsp; และตรวจกลับได้ด้วย $AA^{-1}=I$",
+    "hint": "คิด $\\operatorname{adj}A$ สองขั้นเสมอ: (1) สร้างเมทริกซ์โคแฟกเตอร์ (2) ทรานสโพส — แล้วเทียบกับสูตร $2\\times2$ ของทฤษฎี 3.1.5 เพื่อตรวจว่าทำถูก"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-singular-k",
+   "title": "หาค่า k ที่ทำให้เมทริกซ์หาอินเวอร์สไม่ได้",
+   "statement": "ให้ $A=\\begin{bmatrix}k&2\\\\3&k-1\\end{bmatrix}$ ค่าของ $k$ ข้อใดทำให้ $A$ <b>หาอินเวอร์สไม่ได้</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 5,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "$k=3$",
+     "$k=-2$",
+     "$k=0$",
+     "$k=2$",
+     "ไม่มีค่า $k$ ใดเลยที่ทำให้หาอินเวอร์สไม่ได้"
+    ],
+    "answer": [
+     0,
+     1
+    ],
+    "explain": "ทฤษฎี 3.1.2 บอกว่าหาอินเวอร์สไม่ได้ ก็ต่อเมื่อ $\\det A=0$ &nbsp; $\\det A=k(k-1)-(2)(3)=k^{2}-k-6=(k-3)(k+2)$ &nbsp; ดังนั้น $\\det A=0$ เมื่อ $k=3$ หรือ $k=-2$ &nbsp;&nbsp; ตรวจ $k=0$: $\\det=0(-1)-6=-6\\neq0$ จึงหาอินเวอร์สได้ &nbsp; ตรวจ $k=2$: $\\det=2(1)-6=-4\\neq0$ เช่นกัน &nbsp;&nbsp; โจทย์แบบนี้คือหน้าตาของ<b>สมการลักษณะเฉพาะ</b>ในหัวข้อถัดไป: การหา $\\lambda$ ที่ทำให้ $\\det(A-\\lambda I)=0$ ก็คือการหาค่าที่ทำให้เมทริกซ์หาอินเวอร์สไม่ได้นั่นเอง",
+    "hint": "เขียน $\\det A$ ออกมาเป็นพหุนามของ $k$ ก่อน แล้วแยกตัวประกอบ"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 3,
+   "level_title": "ตรวจสอบด้วยทฤษฎี",
+   "level_subtitle": "ใช้ทฤษฎี 3.1.1–3.1.6 และคำนวณ det · อินเวอร์ส · พื้นที่",
+   "slug": "s31-mcq-area",
+   "title": "ดีเทอร์มิแนนต์กับพื้นที่และปริมาตร",
+   "statement": "ดีเทอร์มิแนนต์มีความหมายทางเรขาคณิต: $|\\det A|$ ของเมทริกซ์ $2\\times2$ คือพื้นที่ของสี่เหลี่ยมด้านขนานที่สร้างจากสองแถว (หรือสองคอลัมน์) ของ $A$ และของเมทริกซ์ $3\\times3$ คือปริมาตรของทรงสี่เหลี่ยมด้านขนาน ข้อใด<b>ถูกต้อง</b> (เลือกทุกข้อที่ใช่)",
+   "type": "mcq",
+   "points": 10,
+   "sort_order": 6,
+   "is_active": true,
+   "spec": {
+    "multi": true,
+    "choices": [
+     "สี่เหลี่ยมด้านขนานที่สร้างจาก $(3,1)$ และ $(1,2)$ มีพื้นที่เท่ากับ $5$",
+     "ทรงสี่เหลี่ยมด้านขนานที่สร้างจาก $(1,0,2)$, $(0,3,1)$ และ $(4,1,0)$ มีปริมาตรเท่ากับ $25$",
+     "ถ้าเวกเตอร์สองตัวใน $\\mathbb{R}^2$ ขนานกัน พื้นที่ที่ได้จะเป็นศูนย์ ซึ่งตรงกับการที่ $\\det=0$",
+     "พื้นที่ของสี่เหลี่ยมด้านขนานอาจติดลบได้ ถ้าเรียงเวกเตอร์สลับกัน"
+    ],
+    "answer": [
+     0,
+     1,
+     2
+    ],
+    "explain": "ข้อ 1: $\\det\\begin{bmatrix}3&1\\\\1&2\\end{bmatrix}=6-1=5$ &nbsp; ข้อ 2: กระจายตามแถวที่ 1 ได้ $1\\begin{vmatrix}3&1\\\\1&0\\end{vmatrix}-0+2\\begin{vmatrix}0&3\\\\4&1\\end{vmatrix}=1(-1)+2(-12)=-25$ ปริมาตรคือ $|-25|=25$ &nbsp;&nbsp; ข้อ 3 คือภาพทางเรขาคณิตของทฤษฎี 3.1.2 — เวกเตอร์ที่ขนานกัน (ไม่เป็นอิสระเชิงเส้น) ทำให้รูปแบนจนไม่มีพื้นที่ และเมทริกซ์หาอินเวอร์สไม่ได้พอดี &nbsp; ข้อ 4 ผิด — <b>พื้นที่</b>ติดลบไม่ได้ สิ่งที่ติดลบได้คือ<b>ค่า $\\det$</b> เอง ซึ่งเครื่องหมายของมันบอก<i>ทิศการวางตัว</i> (orientation) ของเวกเตอร์ — สอดคล้องกับที่ว่าการสลับสองแถวเปลี่ยนเครื่องหมายของ $\\det$",
+    "hint": "ลองวาด $(3,1)$ กับ $(1,2)$ ดู แล้วนึกถึงสูตรพื้นที่สี่เหลี่ยมด้านขนาน"
+   }
+  },
+  {
+   "week_no": 31,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "ซาร์รูส · การกระจายโคแฟกเตอร์ · adj A ด้วย numpy",
+   "slug": "s31-code-sarrus",
+   "title": "เขียน det ขนาด 2 × 2 และ 3 × 3 ด้วยมือ",
+   "statement": "เขียนฟังก์ชันสองตัว โดย<b>ห้ามใช้</b> <code>np.linalg.det</code><p>1) <code>det2(A)</code> รับเมทริกซ์ $2\\times2$ คืน $ad-bc$</p><p>2) <code>det3(A)</code> รับเมทริกซ์ $3\\times3$ คืนดีเทอร์มิแนนต์ตามกฎของซาร์รูส คือผลบวกของสามพจน์ที่ลากทแยงลงขวา ลบด้วยผลบวกของสามพจน์ที่ลากทแยงลงซ้าย</p><p>ทั้งสองฟังก์ชันต้องคืนค่าเป็น <code>float</code> (ครอบด้วย <code>float(...)</code> ก่อนคืน)</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเมทริกซ์ตัวอย่างไว้ให้ทุกขนาด รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray(((2, 1, 3), (0, 4, 5), (1, 0, 2)), dtype=float)\nM.shape                    # -&gt; (3, 3)           (จำนวนแถว, จำนวนคอลัมน์)\nlen(M)                     # -&gt; 3                จำนวนแถว\nM[0][1]                    # -&gt; 1.0              สมาชิกแถว 0 คอลัมน์ 1 (ดัชนีเริ่มที่ 0)\nM[0, 1]                    # -&gt; 1.0              เขียนแบบนี้ก็ได้\n\nnp.delete(M, 0, axis=0)    # -&gt; ตัดแถวที่ 0 ทิ้ง  เหลือขนาด (2, 3)\nnp.delete(M, 1, axis=1)    # -&gt; ตัดคอลัมน์ที่ 1 ทิ้ง\nnp.delete(np.delete(M, 0, axis=0), 1, axis=1)\n                           # -&gt; array([[0., 5.], [1., 2.]])   เมทริกซ์ย่อยของ M_12\n\n(-1) ** (0 + 1)            # -&gt; -1               เครื่องหมายของโคแฟกเตอร์\nfloat(np.linalg.det(M))    # -&gt; 9.0              ใช้ตรวจคำตอบได้ แต่ห้ามใช้ในฟังก์ชันที่โจทย์ให้เขียน\nM.T                        # -&gt; ทรานสโพสของ M\nM.tolist()                 # -&gt; เปลี่ยนเป็นลิสต์ซ้อนลิสต์\nnp.zeros((3, 3))           # -&gt; เมทริกซ์ศูนย์ขนาด 3x3 (ไว้เติมค่าทีละตำแหน่ง)\nabs(-3.5) &lt; 1e-9           # -&gt; False            วิธีเทียบ 'เท่ากับศูนย์' กับเลขทศนิยม</code></pre>",
+   "type": "code",
+   "points": 20,
+   "sort_order": 1,
+   "is_active": true,
+   "entry_name": "det2",
+   "setup_code": "import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156\n",
+   "example": "det2(A2) -> 18.0        det3(B3) -> 9.0        det3(T3) -> 24.0",
+   "starter_code": "import numpy as np\n\ndef det2(A):\n    A = np.asarray(A, dtype=float)\n    # ad - bc\n    pass\n\ndef det3(A):\n    A = np.asarray(A, dtype=float)\n    # สามพจน์บวก ลบด้วย สามพจน์ลบ\n    pass\n",
+   "tests": [
+    {
+     "expr": "det2(A2)",
+     "expected": 18.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det2(B2)",
+     "expected": 5.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det2(Z2)",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "det2(Z2)  — เมทริกซ์ศูนย์"
+    },
+    {
+     "expr": "det2(((1, 0), (0, 1)))",
+     "expected": 1.0,
+     "tol": 1e-09,
+     "label": "det2(I2)  — ต้องได้ 1"
+    },
+    {
+     "expr": "det3(A3)",
+     "expected": -81.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det3(B3)",
+     "expected": 9.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det3(T3)",
+     "expected": 24.0,
+     "tol": 1e-09,
+     "label": "det3(T3)  — ทฤษฎี 3.1.1: 2*3*4"
+    },
+    {
+     "expr": "det3(S3)",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "det3(S3)  — แถวที่ 2 เป็นสองเท่าของแถวที่ 1"
+    },
+    {
+     "expr": "det3(I3)",
+     "expected": 1.0,
+     "tol": 1e-09,
+     "label": "det3(I3)  — ต้องได้ 1"
+    }
+   ]
+  },
+  {
+   "week_no": 31,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "ซาร์รูส · การกระจายโคแฟกเตอร์ · adj A ด้วย numpy",
+   "slug": "s31-code-cofactor",
+   "title": "เขียนการกระจายโคแฟกเตอร์แบบเรียกตัวเอง",
+   "statement": "เขียนฟังก์ชันสามตัวตามนิยาม 3.1.1 และนิยาม 3.1.2 โดย<b>ห้ามใช้</b> <code>np.linalg.det</code><p>1) <code>minor(A, i, j)</code> คืน<b>ตัวเลข</b> $M_{ij}$ คือดีเทอร์มิแนนต์ของเมทริกซ์ย่อย ที่ตัดแถวที่ <code>i</code> และคอลัมน์ที่ <code>j</code> ทิ้ง</p><p>2) <code>cofactor(A, i, j)</code> คืน $C_{ij}=(-1)^{i+j}M_{ij}$</p><p>3) <code>det_cofactor(A)</code> คืน $\\det A$ ของเมทริกซ์ขนาดใดก็ได้ ด้วยการกระจายตามแถวแรก โดยมีกรณีฐานคือเมทริกซ์ขนาด $1\\times1$ ซึ่งคืนสมาชิกตัวเดียวของมัน</p><p><b>ระวังเรื่องดัชนี</b> — ในคณิตศาสตร์ $M_{11}$ คือตัวมุมซ้ายบน แต่ใน Python ดัชนีเริ่มที่ 0 ดังนั้น $M_{11}$ คือ <code>minor(A, 0, 0)</code> และ $C_{12}$ คือ <code>cofactor(A, 0, 1)</code></p><p>ทั้งสามฟังก์ชันเรียกกันเป็นวงกลม: <code>minor</code> เรียก <code>det_cofactor</code> ของเมทริกซ์ที่เล็กลงหนึ่งขนาด ซึ่งเรียก <code>cofactor</code> ต่อไปอีก — วงนี้จบลงได้เพราะขนาดลดลงทุกครั้งจนถึง $1\\times1$</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเมทริกซ์ตัวอย่างไว้ให้ทุกขนาด รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray(((2, 1, 3), (0, 4, 5), (1, 0, 2)), dtype=float)\nM.shape                    # -&gt; (3, 3)           (จำนวนแถว, จำนวนคอลัมน์)\nlen(M)                     # -&gt; 3                จำนวนแถว\nM[0][1]                    # -&gt; 1.0              สมาชิกแถว 0 คอลัมน์ 1 (ดัชนีเริ่มที่ 0)\nM[0, 1]                    # -&gt; 1.0              เขียนแบบนี้ก็ได้\n\nnp.delete(M, 0, axis=0)    # -&gt; ตัดแถวที่ 0 ทิ้ง  เหลือขนาด (2, 3)\nnp.delete(M, 1, axis=1)    # -&gt; ตัดคอลัมน์ที่ 1 ทิ้ง\nnp.delete(np.delete(M, 0, axis=0), 1, axis=1)\n                           # -&gt; array([[0., 5.], [1., 2.]])   เมทริกซ์ย่อยของ M_12\n\n(-1) ** (0 + 1)            # -&gt; -1               เครื่องหมายของโคแฟกเตอร์\nfloat(np.linalg.det(M))    # -&gt; 9.0              ใช้ตรวจคำตอบได้ แต่ห้ามใช้ในฟังก์ชันที่โจทย์ให้เขียน\nM.T                        # -&gt; ทรานสโพสของ M\nM.tolist()                 # -&gt; เปลี่ยนเป็นลิสต์ซ้อนลิสต์\nnp.zeros((3, 3))           # -&gt; เมทริกซ์ศูนย์ขนาด 3x3 (ไว้เติมค่าทีละตำแหน่ง)\nabs(-3.5) &lt; 1e-9           # -&gt; False            วิธีเทียบ 'เท่ากับศูนย์' กับเลขทศนิยม</code></pre>",
+   "type": "code",
+   "points": 25,
+   "sort_order": 2,
+   "is_active": true,
+   "entry_name": "det_cofactor",
+   "setup_code": "import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156\n",
+   "example": "minor(B3, 0, 0) -> 8.0      cofactor(B3, 0, 1) -> 5.0      det_cofactor(B3) -> 9.0",
+   "starter_code": "import numpy as np\n\ndef minor(A, i, j):\n    A = np.asarray(A, dtype=float)\n    sub = np.delete(np.delete(A, i, axis=0), j, axis=1)\n    pass\n\ndef cofactor(A, i, j):\n    pass\n\ndef det_cofactor(A):\n    A = np.asarray(A, dtype=float)\n    if len(A) == 1:\n        return float(A[0][0])\n    # กระจายตามแถวแรก: sum ของ A[0][j] * cofactor(A, 0, j)\n    pass\n",
+   "tests": [
+    {
+     "expr": "minor(B3, 0, 0)",
+     "expected": 8.0,
+     "tol": 1e-09,
+     "label": "minor(B3, 0, 0)  — คือ M_11"
+    },
+    {
+     "expr": "minor(B3, 0, 1)",
+     "expected": -5.0,
+     "tol": 1e-09,
+     "label": "minor(B3, 0, 1)  — คือ M_12"
+    },
+    {
+     "expr": "cofactor(B3, 0, 1)",
+     "expected": 5.0,
+     "tol": 1e-09,
+     "label": "cofactor(B3, 0, 1)  — C_12 ต้องกลับเครื่องหมาย"
+    },
+    {
+     "expr": "cofactor(B3, 0, 2)",
+     "expected": -4.0,
+     "tol": 1e-09,
+     "label": "cofactor(B3, 0, 2)  — C_13"
+    },
+    {
+     "expr": "det_cofactor(A2)",
+     "expected": 18.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det_cofactor(B3)",
+     "expected": 9.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det_cofactor(A3)",
+     "expected": -81.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det_cofactor(T3)",
+     "expected": 24.0,
+     "tol": 1e-09,
+     "label": "det_cofactor(T3)  — ทฤษฎี 3.1.1"
+    },
+    {
+     "expr": "det_cofactor(S3)",
+     "expected": 0.0,
+     "tol": 1e-09,
+     "label": "det_cofactor(S3)  — สองแถวไม่เป็นอิสระเชิงเส้น"
+    },
+    {
+     "expr": "det_cofactor(A4)",
+     "expected": -156.0,
+     "tol": 1e-09,
+     "label": "det_cofactor(A4)  — ขนาด 4x4 ต้องใช้ได้ด้วย"
+    },
+    {
+     "expr": "det_cofactor(I3)",
+     "expected": 1.0,
+     "tol": 1e-09
+    },
+    {
+     "expr": "det_cofactor(((7,),))",
+     "expected": 7.0,
+     "tol": 1e-09,
+     "label": "det_cofactor ของเมทริกซ์ 1x1  — กรณีฐาน"
+    }
+   ]
+  },
+  {
+   "week_no": 31,
+   "level": 4,
+   "level_title": "คำนวณด้วย Python",
+   "level_subtitle": "ซาร์รูส · การกระจายโคแฟกเตอร์ · adj A ด้วย numpy",
+   "slug": "s31-code-adj-inverse",
+   "title": "สร้าง adj A แล้วหาอินเวอร์ส",
+   "statement": "ต่อยอดจากข้อที่แล้ว (เรียก <code>cofactor</code> กับ <code>det_cofactor</code> ที่เขียนไว้ได้เลย แต่ต้องวางโค้ดของทั้งสองฟังก์ชันไว้ในคำตอบข้อนี้ด้วย)<p>1) <code>cofactor_matrix(A)</code> คืนเมทริกซ์ที่ตำแหน่ง <code>[i][j]</code> เป็น $C_{ij}$ (คืนเป็นลิสต์ซ้อนลิสต์ หรือ numpy array ก็ได้)</p><p>2) <code>adjugate(A)</code> คืน $\\operatorname{adj}A$ ตามทฤษฎี 3.1.6 ซึ่งคือ<b>ทรานสโพส</b>ของเมทริกซ์โคแฟกเตอร์ — ตำแหน่ง $(i,j)$ ของมันคือ $C_{ji}$</p><p>3) <code>inverse_via_adj(A)</code> คืน $\\dfrac{\\operatorname{adj}A}{\\det A}$ และคืน <code>None</code> เมื่อ $\\det A=0$ (ตามทฤษฎี 3.1.2 กรณีนั้นอินเวอร์สไม่มีอยู่จริง)</p><p>ตรวจความถูกต้องของการทรานสโพสได้ด้วยสูตร $2\\times2$ ของทฤษฎี 3.1.5: $A^{-1}=\\dfrac{1}{\\det A}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}$ — ถ้าลืมทรานสโพส ผลของ $2\\times2$ จะออกมาผิดทันที</p><p><b>โค้ดที่โจทย์เตรียมไว้ให้</b> — เตรียมเมทริกซ์ตัวอย่างไว้ให้ทุกขนาด รันก่อนโค้ดของคุณเสมอ จึงเรียกใช้ได้ทันทีโดยไม่ต้องพิมพ์ซ้ำ</p><pre><code>import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156</code></pre><p><b>คำสั่ง numpy ที่ต้องใช้ พร้อมตัวอย่าง</b></p><pre><code>import numpy as np\n\nM = np.asarray(((2, 1, 3), (0, 4, 5), (1, 0, 2)), dtype=float)\nM.shape                    # -&gt; (3, 3)           (จำนวนแถว, จำนวนคอลัมน์)\nlen(M)                     # -&gt; 3                จำนวนแถว\nM[0][1]                    # -&gt; 1.0              สมาชิกแถว 0 คอลัมน์ 1 (ดัชนีเริ่มที่ 0)\nM[0, 1]                    # -&gt; 1.0              เขียนแบบนี้ก็ได้\n\nnp.delete(M, 0, axis=0)    # -&gt; ตัดแถวที่ 0 ทิ้ง  เหลือขนาด (2, 3)\nnp.delete(M, 1, axis=1)    # -&gt; ตัดคอลัมน์ที่ 1 ทิ้ง\nnp.delete(np.delete(M, 0, axis=0), 1, axis=1)\n                           # -&gt; array([[0., 5.], [1., 2.]])   เมทริกซ์ย่อยของ M_12\n\n(-1) ** (0 + 1)            # -&gt; -1               เครื่องหมายของโคแฟกเตอร์\nfloat(np.linalg.det(M))    # -&gt; 9.0              ใช้ตรวจคำตอบได้ แต่ห้ามใช้ในฟังก์ชันที่โจทย์ให้เขียน\nM.T                        # -&gt; ทรานสโพสของ M\nM.tolist()                 # -&gt; เปลี่ยนเป็นลิสต์ซ้อนลิสต์\nnp.zeros((3, 3))           # -&gt; เมทริกซ์ศูนย์ขนาด 3x3 (ไว้เติมค่าทีละตำแหน่ง)\nabs(-3.5) &lt; 1e-9           # -&gt; False            วิธีเทียบ 'เท่ากับศูนย์' กับเลขทศนิยม</code></pre>",
+   "type": "code",
+   "points": 25,
+   "sort_order": 3,
+   "is_active": true,
+   "entry_name": "inverse_via_adj",
+   "setup_code": "import numpy as np\n\n# ---- เมทริกซ์ตัวอย่าง (หนึ่งแถว = หนึ่ง tuple) ----\nA2 = ((1, 2), (-5, 8))                                    # det = 18\nB2 = ((3, 1), (1, 2))                                     # det = 5\nZ2 = ((0, 0), (0, 0))                                     # det = 0\n\nA3 = ((2, -1, 3), (1, 4, 1), (5, 2, -2))                  # det = -81\nB3 = ((2, 1, 3), (0, 4, 5), (1, 0, 2))                    # det = 9\nT3 = ((2, 7, -1), (0, 3, 5), (0, 0, 4))                   # สามเหลี่ยมบน det = 2*3*4\nS3 = ((1, 2, 3), (2, 4, 6), (0, 1, 1))                    # แถวที่ 2 เป็นสองเท่าของแถวที่ 1\nI3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))\n\nA4 = ((2, 0, 0, 3), (1, 4, -1, 2), (0, 0, 3, 0), (5, 0, 0, 1))   # det = -156\n",
+   "example": "adjugate(A2) -> [[8.0, -2.0], [5.0, 1.0]]\ninverse_via_adj(S3) -> None",
+   "starter_code": "import numpy as np\n\ndef minor(A, i, j):\n    A = np.asarray(A, dtype=float)\n    sub = np.delete(np.delete(A, i, axis=0), j, axis=1)\n    return float(det_cofactor(sub))\n\ndef cofactor(A, i, j):\n    return float(((-1) ** (i + j)) * minor(A, i, j))\n\ndef det_cofactor(A):\n    A = np.asarray(A, dtype=float)\n    if len(A) == 1:\n        return float(A[0][0])\n    return float(sum(A[0][j] * cofactor(A, 0, j) for j in range(len(A))))\n\ndef cofactor_matrix(A):\n    pass\n\ndef adjugate(A):\n    pass\n\ndef inverse_via_adj(A):\n    pass\n",
+   "tests": [
+    {
+     "expr": "np.asarray(cofactor_matrix(A2)).tolist()",
+     "expected": [
+      [
+       8.0,
+       5.0
+      ],
+      [
+       -2.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "cofactor_matrix(A2)  — ยังไม่ทรานสโพส"
+    },
+    {
+     "expr": "np.asarray(adjugate(A2)).tolist()",
+     "expected": [
+      [
+       8.0,
+       -2.0
+      ],
+      [
+       5.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "adjugate(A2)  — ทรานสโพสแล้ว ตรงกับสูตร 2x2 ของทฤษฎี 3.1.5"
+    },
+    {
+     "expr": "np.asarray(inverse_via_adj(A2)).tolist()",
+     "expected": [
+      [
+       0.4444444444444444,
+       -0.1111111111111111
+      ],
+      [
+       0.2777777777777778,
+       0.05555555555555555
+      ]
+     ],
+     "tol": 1e-09
+    },
+    {
+     "expr": "np.asarray(adjugate(B3)).tolist()",
+     "expected": [
+      [
+       8.0,
+       -2.0,
+       -7.0
+      ],
+      [
+       5.0,
+       1.0,
+       -10.0
+      ],
+      [
+       -4.0,
+       1.0,
+       8.0
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "adjugate(B3)  — ขนาด 3x3"
+    },
+    {
+     "expr": "np.round(np.asarray(inverse_via_adj(B3)) @ np.asarray(B3, dtype=float), 9).tolist()",
+     "expected": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-07,
+     "label": "inverse_via_adj(B3) @ B3  — ต้องได้เมทริกซ์เอกลักษณ์"
+    },
+    {
+     "expr": "np.round(np.asarray(inverse_via_adj(A3)) @ np.asarray(A3, dtype=float), 9).tolist()",
+     "expected": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-07,
+     "label": "inverse_via_adj(A3) @ A3  — ต้องได้เมทริกซ์เอกลักษณ์"
+    },
+    {
+     "expr": "inverse_via_adj(S3)",
+     "expected": null,
+     "label": "inverse_via_adj(S3)  — det = 0 จึงต้องคืน None"
+    },
+    {
+     "expr": "np.asarray(inverse_via_adj(I3)).tolist()",
+     "expected": [
+      [
+       1.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       1.0
+      ]
+     ],
+     "tol": 1e-09,
+     "label": "อินเวอร์สของเมทริกซ์เอกลักษณ์คือตัวมันเอง"
+    }
+   ]
   }
  ]
 }
